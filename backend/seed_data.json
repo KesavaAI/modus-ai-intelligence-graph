@@ -1,0 +1,2927 @@
+[
+  {
+    "id": "proc-invoice-processing",
+    "name": "Accounts Payable Invoice Processing & 3-Way Matching",
+    "domain": "Finance",
+    "description": "Receipt, automated OCR extraction, 3-way matching against POs, discrepancy resolution, and GL posting.",
+    "cycle_time_days": 4.0,
+    "frequency": "Daily",
+    "overall_automation_potential": 0.88,
+    "activities": [
+      {
+        "id": "act-invoice-processing-1",
+        "name": "Intake & Data Extraction (Accounts)",
+        "step_number": 1,
+        "automation_feasibility": 0.96,
+        "ai_disruption_potential": "Critical",
+        "description": "Capturing unstructured intake data and validating schema compliance for Accounts Payable Invoice Processing & 3-Way Matching.",
+        "executing_roles": [
+          "role-invoice-processing-spec"
+        ],
+        "required_skills": [
+          "skill-invoice-processing-exec"
+        ],
+        "ai_tools_recommended": [
+          "Document Parser Agent",
+          "Intelligent Webhook Filter"
+        ]
+      },
+      {
+        "id": "act-invoice-processing-2",
+        "name": "Validation, Matching & Processing (Accounts)",
+        "step_number": 2,
+        "automation_feasibility": 0.88,
+        "ai_disruption_potential": "High",
+        "description": "Executing core business logic and rules engine matching for Accounts Payable Invoice Processing & 3-Way Matching.",
+        "executing_roles": [
+          "role-invoice-processing-spec"
+        ],
+        "required_skills": [
+          "skill-invoice-processing-exec",
+          "skill-invoice-processing-audit"
+        ],
+        "ai_tools_recommended": [
+          "Automated Business Rules Engine",
+          "LLM Workflow Copilot"
+        ]
+      },
+      {
+        "id": "act-invoice-processing-3",
+        "name": "Exception Resolution & Governance Approval",
+        "step_number": 3,
+        "automation_feasibility": 0.66,
+        "ai_disruption_potential": "Medium",
+        "description": "Handling out-of-policy edge cases, dispute negotiation, and sign-offs.",
+        "executing_roles": [
+          "role-invoice-processing-mgr"
+        ],
+        "required_skills": [
+          "skill-invoice-processing-audit",
+          "skill-invoice-processing-ai-gov"
+        ],
+        "ai_tools_recommended": [
+          "Exception Resolution Copilot",
+          "Executive Approval Bot"
+        ]
+      }
+    ],
+    "roles": [
+      {
+        "id": "role-invoice-processing-spec",
+        "name": "Accounts Specialist",
+        "department": "Finance",
+        "headcount": 10,
+        "avg_salary": 65000.0,
+        "transition_risk": "High",
+        "description": "Responsible for primary operations and task execution in Accounts Payable Invoice Processing & 3-Way Matching."
+      },
+      {
+        "id": "role-invoice-processing-mgr",
+        "name": "Accounts Lead",
+        "department": "Finance",
+        "headcount": 3,
+        "avg_salary": 105000.0,
+        "transition_risk": "Medium",
+        "description": "Oversees exceptions, strategy, and compliance for Accounts Payable Invoice Processing & 3-Way Matching."
+      }
+    ],
+    "skills": [
+      {
+        "id": "skill-invoice-processing-exec",
+        "name": "Operational Matching Execution",
+        "category": "Operational",
+        "urgency_to_reskill": "Critical",
+        "reskill_time_weeks": 4,
+        "description": "Execution of core manual procedures in Accounts Payable Invoice Processing & 3-Way Matching.",
+        "evolution_path": "AI Agent Supervision in Finance"
+      },
+      {
+        "id": "skill-invoice-processing-audit",
+        "name": "Finance Compliance & Quality Auditing",
+        "category": "Domain",
+        "urgency_to_reskill": "Medium",
+        "reskill_time_weeks": 6,
+        "description": "Regulatory and operational auditing standards for Accounts Payable Invoice Processing & 3-Way Matching.",
+        "evolution_path": "Automated Finance Policy Engineering"
+      },
+      {
+        "id": "skill-invoice-processing-ai-gov",
+        "name": "Autonomous Finance Agent Governance",
+        "category": "Cognitive",
+        "urgency_to_reskill": "Low",
+        "reskill_time_weeks": 8,
+        "description": "Orchestration, prompt tuning, and exception validation for AI models.",
+        "evolution_path": "Enterprise Finance Transformation Architect"
+      }
+    ],
+    "relationships": []
+  },
+  {
+    "id": "proc-financial-month-end-close",
+    "name": "Financial Month-End Ledger Reconciliation & Close",
+    "domain": "Finance",
+    "description": "Balance sheet reconciliations, accrual journal entries, fixed asset depreciation, and consolidated P&L reporting.",
+    "cycle_time_days": 5.0,
+    "frequency": "Monthly",
+    "overall_automation_potential": 0.82,
+    "activities": [
+      {
+        "id": "act-financial-month-end-close-1",
+        "name": "Intake & Data Extraction (Financial)",
+        "step_number": 1,
+        "automation_feasibility": 0.9,
+        "ai_disruption_potential": "High",
+        "description": "Capturing unstructured intake data and validating schema compliance for Financial Month-End Ledger Reconciliation & Close.",
+        "executing_roles": [
+          "role-financial-month-end-close-spec"
+        ],
+        "required_skills": [
+          "skill-financial-month-end-close-exec"
+        ],
+        "ai_tools_recommended": [
+          "Document Parser Agent",
+          "Intelligent Webhook Filter"
+        ]
+      },
+      {
+        "id": "act-financial-month-end-close-2",
+        "name": "Validation, Matching & Processing (Financial)",
+        "step_number": 2,
+        "automation_feasibility": 0.82,
+        "ai_disruption_potential": "High",
+        "description": "Executing core business logic and rules engine matching for Financial Month-End Ledger Reconciliation & Close.",
+        "executing_roles": [
+          "role-financial-month-end-close-spec"
+        ],
+        "required_skills": [
+          "skill-financial-month-end-close-exec",
+          "skill-financial-month-end-close-audit"
+        ],
+        "ai_tools_recommended": [
+          "Automated Business Rules Engine",
+          "LLM Workflow Copilot"
+        ]
+      },
+      {
+        "id": "act-financial-month-end-close-3",
+        "name": "Exception Resolution & Governance Approval",
+        "step_number": 3,
+        "automation_feasibility": 0.6,
+        "ai_disruption_potential": "Medium",
+        "description": "Handling out-of-policy edge cases, dispute negotiation, and sign-offs.",
+        "executing_roles": [
+          "role-financial-month-end-close-mgr"
+        ],
+        "required_skills": [
+          "skill-financial-month-end-close-audit",
+          "skill-financial-month-end-close-ai-gov"
+        ],
+        "ai_tools_recommended": [
+          "Exception Resolution Copilot",
+          "Executive Approval Bot"
+        ]
+      }
+    ],
+    "roles": [
+      {
+        "id": "role-financial-month-end-close-spec",
+        "name": "Financial Specialist",
+        "department": "Finance",
+        "headcount": 10,
+        "avg_salary": 65000.0,
+        "transition_risk": "High",
+        "description": "Responsible for primary operations and task execution in Financial Month-End Ledger Reconciliation & Close."
+      },
+      {
+        "id": "role-financial-month-end-close-mgr",
+        "name": "Financial Lead",
+        "department": "Finance",
+        "headcount": 3,
+        "avg_salary": 105000.0,
+        "transition_risk": "Medium",
+        "description": "Oversees exceptions, strategy, and compliance for Financial Month-End Ledger Reconciliation & Close."
+      }
+    ],
+    "skills": [
+      {
+        "id": "skill-financial-month-end-close-exec",
+        "name": "Operational Close Execution",
+        "category": "Operational",
+        "urgency_to_reskill": "High",
+        "reskill_time_weeks": 4,
+        "description": "Execution of core manual procedures in Financial Month-End Ledger Reconciliation & Close.",
+        "evolution_path": "AI Agent Supervision in Finance"
+      },
+      {
+        "id": "skill-financial-month-end-close-audit",
+        "name": "Finance Compliance & Quality Auditing",
+        "category": "Domain",
+        "urgency_to_reskill": "Medium",
+        "reskill_time_weeks": 6,
+        "description": "Regulatory and operational auditing standards for Financial Month-End Ledger Reconciliation & Close.",
+        "evolution_path": "Automated Finance Policy Engineering"
+      },
+      {
+        "id": "skill-financial-month-end-close-ai-gov",
+        "name": "Autonomous Finance Agent Governance",
+        "category": "Cognitive",
+        "urgency_to_reskill": "Low",
+        "reskill_time_weeks": 8,
+        "description": "Orchestration, prompt tuning, and exception validation for AI models.",
+        "evolution_path": "Enterprise Finance Transformation Architect"
+      }
+    ],
+    "relationships": []
+  },
+  {
+    "id": "proc-kyc-aml-screening",
+    "name": "KYC Customer Onboarding & AML Anti-Fraud Screening",
+    "domain": "Finance",
+    "description": "Biometric identity verification, OFAC watchlist matching, PEP screening, and SAR regulatory filing.",
+    "cycle_time_days": 1.5,
+    "frequency": "Real-time",
+    "overall_automation_potential": 0.89,
+    "activities": [
+      {
+        "id": "act-kyc-aml-screening-1",
+        "name": "Intake & Data Extraction (KYC)",
+        "step_number": 1,
+        "automation_feasibility": 0.97,
+        "ai_disruption_potential": "Critical",
+        "description": "Capturing unstructured intake data and validating schema compliance for KYC Customer Onboarding & AML Anti-Fraud Screening.",
+        "executing_roles": [
+          "role-kyc-aml-screening-spec"
+        ],
+        "required_skills": [
+          "skill-kyc-aml-screening-exec"
+        ],
+        "ai_tools_recommended": [
+          "Document Parser Agent",
+          "Intelligent Webhook Filter"
+        ]
+      },
+      {
+        "id": "act-kyc-aml-screening-2",
+        "name": "Validation, Matching & Processing (KYC)",
+        "step_number": 2,
+        "automation_feasibility": 0.89,
+        "ai_disruption_potential": "High",
+        "description": "Executing core business logic and rules engine matching for KYC Customer Onboarding & AML Anti-Fraud Screening.",
+        "executing_roles": [
+          "role-kyc-aml-screening-spec"
+        ],
+        "required_skills": [
+          "skill-kyc-aml-screening-exec",
+          "skill-kyc-aml-screening-audit"
+        ],
+        "ai_tools_recommended": [
+          "Automated Business Rules Engine",
+          "LLM Workflow Copilot"
+        ]
+      },
+      {
+        "id": "act-kyc-aml-screening-3",
+        "name": "Exception Resolution & Governance Approval",
+        "step_number": 3,
+        "automation_feasibility": 0.67,
+        "ai_disruption_potential": "Medium",
+        "description": "Handling out-of-policy edge cases, dispute negotiation, and sign-offs.",
+        "executing_roles": [
+          "role-kyc-aml-screening-mgr"
+        ],
+        "required_skills": [
+          "skill-kyc-aml-screening-audit",
+          "skill-kyc-aml-screening-ai-gov"
+        ],
+        "ai_tools_recommended": [
+          "Exception Resolution Copilot",
+          "Executive Approval Bot"
+        ]
+      }
+    ],
+    "roles": [
+      {
+        "id": "role-kyc-aml-screening-spec",
+        "name": "KYC Specialist",
+        "department": "Finance",
+        "headcount": 10,
+        "avg_salary": 65000.0,
+        "transition_risk": "High",
+        "description": "Responsible for primary operations and task execution in KYC Customer Onboarding & AML Anti-Fraud Screening."
+      },
+      {
+        "id": "role-kyc-aml-screening-mgr",
+        "name": "KYC Lead",
+        "department": "Finance",
+        "headcount": 3,
+        "avg_salary": 105000.0,
+        "transition_risk": "Medium",
+        "description": "Oversees exceptions, strategy, and compliance for KYC Customer Onboarding & AML Anti-Fraud Screening."
+      }
+    ],
+    "skills": [
+      {
+        "id": "skill-kyc-aml-screening-exec",
+        "name": "Operational Screening Execution",
+        "category": "Operational",
+        "urgency_to_reskill": "Critical",
+        "reskill_time_weeks": 4,
+        "description": "Execution of core manual procedures in KYC Customer Onboarding & AML Anti-Fraud Screening.",
+        "evolution_path": "AI Agent Supervision in Finance"
+      },
+      {
+        "id": "skill-kyc-aml-screening-audit",
+        "name": "Finance Compliance & Quality Auditing",
+        "category": "Domain",
+        "urgency_to_reskill": "Medium",
+        "reskill_time_weeks": 6,
+        "description": "Regulatory and operational auditing standards for KYC Customer Onboarding & AML Anti-Fraud Screening.",
+        "evolution_path": "Automated Finance Policy Engineering"
+      },
+      {
+        "id": "skill-kyc-aml-screening-ai-gov",
+        "name": "Autonomous Finance Agent Governance",
+        "category": "Cognitive",
+        "urgency_to_reskill": "Low",
+        "reskill_time_weeks": 8,
+        "description": "Orchestration, prompt tuning, and exception validation for AI models.",
+        "evolution_path": "Enterprise Finance Transformation Architect"
+      }
+    ],
+    "relationships": []
+  },
+  {
+    "id": "proc-treasury-cash-pooling",
+    "name": "Corporate Treasury Liquidity Management & Cash Pooling",
+    "domain": "Finance",
+    "description": "Multi-bank balance aggregation, automated sweep concentration, FX currency hedging, and cash flow forecasting.",
+    "cycle_time_days": 1.0,
+    "frequency": "Daily",
+    "overall_automation_potential": 0.84,
+    "activities": [
+      {
+        "id": "act-treasury-cash-pooling-1",
+        "name": "Intake & Data Extraction (Corporate)",
+        "step_number": 1,
+        "automation_feasibility": 0.92,
+        "ai_disruption_potential": "Critical",
+        "description": "Capturing unstructured intake data and validating schema compliance for Corporate Treasury Liquidity Management & Cash Pooling.",
+        "executing_roles": [
+          "role-treasury-cash-pooling-spec"
+        ],
+        "required_skills": [
+          "skill-treasury-cash-pooling-exec"
+        ],
+        "ai_tools_recommended": [
+          "Document Parser Agent",
+          "Intelligent Webhook Filter"
+        ]
+      },
+      {
+        "id": "act-treasury-cash-pooling-2",
+        "name": "Validation, Matching & Processing (Corporate)",
+        "step_number": 2,
+        "automation_feasibility": 0.84,
+        "ai_disruption_potential": "High",
+        "description": "Executing core business logic and rules engine matching for Corporate Treasury Liquidity Management & Cash Pooling.",
+        "executing_roles": [
+          "role-treasury-cash-pooling-spec"
+        ],
+        "required_skills": [
+          "skill-treasury-cash-pooling-exec",
+          "skill-treasury-cash-pooling-audit"
+        ],
+        "ai_tools_recommended": [
+          "Automated Business Rules Engine",
+          "LLM Workflow Copilot"
+        ]
+      },
+      {
+        "id": "act-treasury-cash-pooling-3",
+        "name": "Exception Resolution & Governance Approval",
+        "step_number": 3,
+        "automation_feasibility": 0.62,
+        "ai_disruption_potential": "Medium",
+        "description": "Handling out-of-policy edge cases, dispute negotiation, and sign-offs.",
+        "executing_roles": [
+          "role-treasury-cash-pooling-mgr"
+        ],
+        "required_skills": [
+          "skill-treasury-cash-pooling-audit",
+          "skill-treasury-cash-pooling-ai-gov"
+        ],
+        "ai_tools_recommended": [
+          "Exception Resolution Copilot",
+          "Executive Approval Bot"
+        ]
+      }
+    ],
+    "roles": [
+      {
+        "id": "role-treasury-cash-pooling-spec",
+        "name": "Corporate Specialist",
+        "department": "Finance",
+        "headcount": 10,
+        "avg_salary": 65000.0,
+        "transition_risk": "High",
+        "description": "Responsible for primary operations and task execution in Corporate Treasury Liquidity Management & Cash Pooling."
+      },
+      {
+        "id": "role-treasury-cash-pooling-mgr",
+        "name": "Corporate Lead",
+        "department": "Finance",
+        "headcount": 3,
+        "avg_salary": 105000.0,
+        "transition_risk": "Medium",
+        "description": "Oversees exceptions, strategy, and compliance for Corporate Treasury Liquidity Management & Cash Pooling."
+      }
+    ],
+    "skills": [
+      {
+        "id": "skill-treasury-cash-pooling-exec",
+        "name": "Operational Pooling Execution",
+        "category": "Operational",
+        "urgency_to_reskill": "High",
+        "reskill_time_weeks": 4,
+        "description": "Execution of core manual procedures in Corporate Treasury Liquidity Management & Cash Pooling.",
+        "evolution_path": "AI Agent Supervision in Finance"
+      },
+      {
+        "id": "skill-treasury-cash-pooling-audit",
+        "name": "Finance Compliance & Quality Auditing",
+        "category": "Domain",
+        "urgency_to_reskill": "Medium",
+        "reskill_time_weeks": 6,
+        "description": "Regulatory and operational auditing standards for Corporate Treasury Liquidity Management & Cash Pooling.",
+        "evolution_path": "Automated Finance Policy Engineering"
+      },
+      {
+        "id": "skill-treasury-cash-pooling-ai-gov",
+        "name": "Autonomous Finance Agent Governance",
+        "category": "Cognitive",
+        "urgency_to_reskill": "Low",
+        "reskill_time_weeks": 8,
+        "description": "Orchestration, prompt tuning, and exception validation for AI models.",
+        "evolution_path": "Enterprise Finance Transformation Architect"
+      }
+    ],
+    "relationships": []
+  },
+  {
+    "id": "proc-travel-expense-audit",
+    "name": "Corporate Travel & Expense (T&E) Compliance Auditing",
+    "domain": "Finance",
+    "description": "Automated receipt OCR, travel policy violation detection, per diem validation, and employee reimbursement approval.",
+    "cycle_time_days": 2.0,
+    "frequency": "Daily",
+    "overall_automation_potential": 0.91,
+    "activities": [
+      {
+        "id": "act-travel-expense-audit-1",
+        "name": "Intake & Data Extraction (Corporate)",
+        "step_number": 1,
+        "automation_feasibility": 0.98,
+        "ai_disruption_potential": "Critical",
+        "description": "Capturing unstructured intake data and validating schema compliance for Corporate Travel & Expense (T&E) Compliance Auditing.",
+        "executing_roles": [
+          "role-travel-expense-audit-spec"
+        ],
+        "required_skills": [
+          "skill-travel-expense-audit-exec"
+        ],
+        "ai_tools_recommended": [
+          "Document Parser Agent",
+          "Intelligent Webhook Filter"
+        ]
+      },
+      {
+        "id": "act-travel-expense-audit-2",
+        "name": "Validation, Matching & Processing (Corporate)",
+        "step_number": 2,
+        "automation_feasibility": 0.91,
+        "ai_disruption_potential": "High",
+        "description": "Executing core business logic and rules engine matching for Corporate Travel & Expense (T&E) Compliance Auditing.",
+        "executing_roles": [
+          "role-travel-expense-audit-spec"
+        ],
+        "required_skills": [
+          "skill-travel-expense-audit-exec",
+          "skill-travel-expense-audit-audit"
+        ],
+        "ai_tools_recommended": [
+          "Automated Business Rules Engine",
+          "LLM Workflow Copilot"
+        ]
+      },
+      {
+        "id": "act-travel-expense-audit-3",
+        "name": "Exception Resolution & Governance Approval",
+        "step_number": 3,
+        "automation_feasibility": 0.69,
+        "ai_disruption_potential": "Medium",
+        "description": "Handling out-of-policy edge cases, dispute negotiation, and sign-offs.",
+        "executing_roles": [
+          "role-travel-expense-audit-mgr"
+        ],
+        "required_skills": [
+          "skill-travel-expense-audit-audit",
+          "skill-travel-expense-audit-ai-gov"
+        ],
+        "ai_tools_recommended": [
+          "Exception Resolution Copilot",
+          "Executive Approval Bot"
+        ]
+      }
+    ],
+    "roles": [
+      {
+        "id": "role-travel-expense-audit-spec",
+        "name": "Corporate Specialist",
+        "department": "Finance",
+        "headcount": 10,
+        "avg_salary": 65000.0,
+        "transition_risk": "High",
+        "description": "Responsible for primary operations and task execution in Corporate Travel & Expense (T&E) Compliance Auditing."
+      },
+      {
+        "id": "role-travel-expense-audit-mgr",
+        "name": "Corporate Lead",
+        "department": "Finance",
+        "headcount": 3,
+        "avg_salary": 105000.0,
+        "transition_risk": "Medium",
+        "description": "Oversees exceptions, strategy, and compliance for Corporate Travel & Expense (T&E) Compliance Auditing."
+      }
+    ],
+    "skills": [
+      {
+        "id": "skill-travel-expense-audit-exec",
+        "name": "Operational Auditing Execution",
+        "category": "Operational",
+        "urgency_to_reskill": "Critical",
+        "reskill_time_weeks": 4,
+        "description": "Execution of core manual procedures in Corporate Travel & Expense (T&E) Compliance Auditing.",
+        "evolution_path": "AI Agent Supervision in Finance"
+      },
+      {
+        "id": "skill-travel-expense-audit-audit",
+        "name": "Finance Compliance & Quality Auditing",
+        "category": "Domain",
+        "urgency_to_reskill": "Medium",
+        "reskill_time_weeks": 6,
+        "description": "Regulatory and operational auditing standards for Corporate Travel & Expense (T&E) Compliance Auditing.",
+        "evolution_path": "Automated Finance Policy Engineering"
+      },
+      {
+        "id": "skill-travel-expense-audit-ai-gov",
+        "name": "Autonomous Finance Agent Governance",
+        "category": "Cognitive",
+        "urgency_to_reskill": "Low",
+        "reskill_time_weeks": 8,
+        "description": "Orchestration, prompt tuning, and exception validation for AI models.",
+        "evolution_path": "Enterprise Finance Transformation Architect"
+      }
+    ],
+    "relationships": []
+  },
+  {
+    "id": "proc-employee-onboarding",
+    "name": "Enterprise Employee Onboarding & Provisioning",
+    "domain": "HR",
+    "description": "New hire document collection, I-9 compliance, IT identity provisioning, and mentor pairing.",
+    "cycle_time_days": 5.0,
+    "frequency": "Daily",
+    "overall_automation_potential": 0.8,
+    "activities": [
+      {
+        "id": "act-employee-onboarding-1",
+        "name": "Intake & Data Extraction (Enterprise)",
+        "step_number": 1,
+        "automation_feasibility": 0.88,
+        "ai_disruption_potential": "High",
+        "description": "Capturing unstructured intake data and validating schema compliance for Enterprise Employee Onboarding & Provisioning.",
+        "executing_roles": [
+          "role-employee-onboarding-spec"
+        ],
+        "required_skills": [
+          "skill-employee-onboarding-exec"
+        ],
+        "ai_tools_recommended": [
+          "Document Parser Agent",
+          "Intelligent Webhook Filter"
+        ]
+      },
+      {
+        "id": "act-employee-onboarding-2",
+        "name": "Validation, Matching & Processing (Enterprise)",
+        "step_number": 2,
+        "automation_feasibility": 0.8,
+        "ai_disruption_potential": "High",
+        "description": "Executing core business logic and rules engine matching for Enterprise Employee Onboarding & Provisioning.",
+        "executing_roles": [
+          "role-employee-onboarding-spec"
+        ],
+        "required_skills": [
+          "skill-employee-onboarding-exec",
+          "skill-employee-onboarding-audit"
+        ],
+        "ai_tools_recommended": [
+          "Automated Business Rules Engine",
+          "LLM Workflow Copilot"
+        ]
+      },
+      {
+        "id": "act-employee-onboarding-3",
+        "name": "Exception Resolution & Governance Approval",
+        "step_number": 3,
+        "automation_feasibility": 0.58,
+        "ai_disruption_potential": "Medium",
+        "description": "Handling out-of-policy edge cases, dispute negotiation, and sign-offs.",
+        "executing_roles": [
+          "role-employee-onboarding-mgr"
+        ],
+        "required_skills": [
+          "skill-employee-onboarding-audit",
+          "skill-employee-onboarding-ai-gov"
+        ],
+        "ai_tools_recommended": [
+          "Exception Resolution Copilot",
+          "Executive Approval Bot"
+        ]
+      }
+    ],
+    "roles": [
+      {
+        "id": "role-employee-onboarding-spec",
+        "name": "Enterprise Specialist",
+        "department": "HR",
+        "headcount": 10,
+        "avg_salary": 65000.0,
+        "transition_risk": "Medium",
+        "description": "Responsible for primary operations and task execution in Enterprise Employee Onboarding & Provisioning."
+      },
+      {
+        "id": "role-employee-onboarding-mgr",
+        "name": "Enterprise Lead",
+        "department": "HR",
+        "headcount": 3,
+        "avg_salary": 105000.0,
+        "transition_risk": "Low",
+        "description": "Oversees exceptions, strategy, and compliance for Enterprise Employee Onboarding & Provisioning."
+      }
+    ],
+    "skills": [
+      {
+        "id": "skill-employee-onboarding-exec",
+        "name": "Operational Provisioning Execution",
+        "category": "Operational",
+        "urgency_to_reskill": "High",
+        "reskill_time_weeks": 4,
+        "description": "Execution of core manual procedures in Enterprise Employee Onboarding & Provisioning.",
+        "evolution_path": "AI Agent Supervision in HR"
+      },
+      {
+        "id": "skill-employee-onboarding-audit",
+        "name": "HR Compliance & Quality Auditing",
+        "category": "Domain",
+        "urgency_to_reskill": "Medium",
+        "reskill_time_weeks": 6,
+        "description": "Regulatory and operational auditing standards for Enterprise Employee Onboarding & Provisioning.",
+        "evolution_path": "Automated HR Policy Engineering"
+      },
+      {
+        "id": "skill-employee-onboarding-ai-gov",
+        "name": "Autonomous HR Agent Governance",
+        "category": "Cognitive",
+        "urgency_to_reskill": "Low",
+        "reskill_time_weeks": 8,
+        "description": "Orchestration, prompt tuning, and exception validation for AI models.",
+        "evolution_path": "Enterprise HR Transformation Architect"
+      }
+    ],
+    "relationships": []
+  },
+  {
+    "id": "proc-talent-acquisition",
+    "name": "Talent Acquisition Sourcing & Resume Screening",
+    "domain": "HR",
+    "description": "Inbound resume parsing, AI candidate ranking, asynchronous screening questions, and interview scheduling.",
+    "cycle_time_days": 8.0,
+    "frequency": "Daily",
+    "overall_automation_potential": 0.81,
+    "activities": [
+      {
+        "id": "act-talent-acquisition-1",
+        "name": "Intake & Data Extraction (Talent)",
+        "step_number": 1,
+        "automation_feasibility": 0.89,
+        "ai_disruption_potential": "High",
+        "description": "Capturing unstructured intake data and validating schema compliance for Talent Acquisition Sourcing & Resume Screening.",
+        "executing_roles": [
+          "role-talent-acquisition-spec"
+        ],
+        "required_skills": [
+          "skill-talent-acquisition-exec"
+        ],
+        "ai_tools_recommended": [
+          "Document Parser Agent",
+          "Intelligent Webhook Filter"
+        ]
+      },
+      {
+        "id": "act-talent-acquisition-2",
+        "name": "Validation, Matching & Processing (Talent)",
+        "step_number": 2,
+        "automation_feasibility": 0.81,
+        "ai_disruption_potential": "High",
+        "description": "Executing core business logic and rules engine matching for Talent Acquisition Sourcing & Resume Screening.",
+        "executing_roles": [
+          "role-talent-acquisition-spec"
+        ],
+        "required_skills": [
+          "skill-talent-acquisition-exec",
+          "skill-talent-acquisition-audit"
+        ],
+        "ai_tools_recommended": [
+          "Automated Business Rules Engine",
+          "LLM Workflow Copilot"
+        ]
+      },
+      {
+        "id": "act-talent-acquisition-3",
+        "name": "Exception Resolution & Governance Approval",
+        "step_number": 3,
+        "automation_feasibility": 0.59,
+        "ai_disruption_potential": "Medium",
+        "description": "Handling out-of-policy edge cases, dispute negotiation, and sign-offs.",
+        "executing_roles": [
+          "role-talent-acquisition-mgr"
+        ],
+        "required_skills": [
+          "skill-talent-acquisition-audit",
+          "skill-talent-acquisition-ai-gov"
+        ],
+        "ai_tools_recommended": [
+          "Exception Resolution Copilot",
+          "Executive Approval Bot"
+        ]
+      }
+    ],
+    "roles": [
+      {
+        "id": "role-talent-acquisition-spec",
+        "name": "Talent Specialist",
+        "department": "HR",
+        "headcount": 10,
+        "avg_salary": 65000.0,
+        "transition_risk": "High",
+        "description": "Responsible for primary operations and task execution in Talent Acquisition Sourcing & Resume Screening."
+      },
+      {
+        "id": "role-talent-acquisition-mgr",
+        "name": "Talent Lead",
+        "department": "HR",
+        "headcount": 3,
+        "avg_salary": 105000.0,
+        "transition_risk": "Medium",
+        "description": "Oversees exceptions, strategy, and compliance for Talent Acquisition Sourcing & Resume Screening."
+      }
+    ],
+    "skills": [
+      {
+        "id": "skill-talent-acquisition-exec",
+        "name": "Operational Screening Execution",
+        "category": "Operational",
+        "urgency_to_reskill": "High",
+        "reskill_time_weeks": 4,
+        "description": "Execution of core manual procedures in Talent Acquisition Sourcing & Resume Screening.",
+        "evolution_path": "AI Agent Supervision in HR"
+      },
+      {
+        "id": "skill-talent-acquisition-audit",
+        "name": "HR Compliance & Quality Auditing",
+        "category": "Domain",
+        "urgency_to_reskill": "Medium",
+        "reskill_time_weeks": 6,
+        "description": "Regulatory and operational auditing standards for Talent Acquisition Sourcing & Resume Screening.",
+        "evolution_path": "Automated HR Policy Engineering"
+      },
+      {
+        "id": "skill-talent-acquisition-ai-gov",
+        "name": "Autonomous HR Agent Governance",
+        "category": "Cognitive",
+        "urgency_to_reskill": "Low",
+        "reskill_time_weeks": 8,
+        "description": "Orchestration, prompt tuning, and exception validation for AI models.",
+        "evolution_path": "Enterprise HR Transformation Architect"
+      }
+    ],
+    "relationships": []
+  },
+  {
+    "id": "proc-annual-performance-review",
+    "name": "Annual Performance Calibration & 360 Feedback Analysis",
+    "domain": "HR",
+    "description": "Peer feedback aggregation, sentiment analysis, promotion calibration, and compensation recommendation modeling.",
+    "cycle_time_days": 14.0,
+    "frequency": "Quarterly",
+    "overall_automation_potential": 0.65,
+    "activities": [
+      {
+        "id": "act-annual-performance-review-1",
+        "name": "Intake & Data Extraction (Annual)",
+        "step_number": 1,
+        "automation_feasibility": 0.73,
+        "ai_disruption_potential": "High",
+        "description": "Capturing unstructured intake data and validating schema compliance for Annual Performance Calibration & 360 Feedback Analysis.",
+        "executing_roles": [
+          "role-annual-performance-review-spec"
+        ],
+        "required_skills": [
+          "skill-annual-performance-review-exec"
+        ],
+        "ai_tools_recommended": [
+          "Document Parser Agent",
+          "Intelligent Webhook Filter"
+        ]
+      },
+      {
+        "id": "act-annual-performance-review-2",
+        "name": "Validation, Matching & Processing (Annual)",
+        "step_number": 2,
+        "automation_feasibility": 0.65,
+        "ai_disruption_potential": "High",
+        "description": "Executing core business logic and rules engine matching for Annual Performance Calibration & 360 Feedback Analysis.",
+        "executing_roles": [
+          "role-annual-performance-review-spec"
+        ],
+        "required_skills": [
+          "skill-annual-performance-review-exec",
+          "skill-annual-performance-review-audit"
+        ],
+        "ai_tools_recommended": [
+          "Automated Business Rules Engine",
+          "LLM Workflow Copilot"
+        ]
+      },
+      {
+        "id": "act-annual-performance-review-3",
+        "name": "Exception Resolution & Governance Approval",
+        "step_number": 3,
+        "automation_feasibility": 0.45,
+        "ai_disruption_potential": "Medium",
+        "description": "Handling out-of-policy edge cases, dispute negotiation, and sign-offs.",
+        "executing_roles": [
+          "role-annual-performance-review-mgr"
+        ],
+        "required_skills": [
+          "skill-annual-performance-review-audit",
+          "skill-annual-performance-review-ai-gov"
+        ],
+        "ai_tools_recommended": [
+          "Exception Resolution Copilot",
+          "Executive Approval Bot"
+        ]
+      }
+    ],
+    "roles": [
+      {
+        "id": "role-annual-performance-review-spec",
+        "name": "Annual Specialist",
+        "department": "HR",
+        "headcount": 10,
+        "avg_salary": 65000.0,
+        "transition_risk": "Medium",
+        "description": "Responsible for primary operations and task execution in Annual Performance Calibration & 360 Feedback Analysis."
+      },
+      {
+        "id": "role-annual-performance-review-mgr",
+        "name": "Annual Lead",
+        "department": "HR",
+        "headcount": 3,
+        "avg_salary": 105000.0,
+        "transition_risk": "Low",
+        "description": "Oversees exceptions, strategy, and compliance for Annual Performance Calibration & 360 Feedback Analysis."
+      }
+    ],
+    "skills": [
+      {
+        "id": "skill-annual-performance-review-exec",
+        "name": "Operational Analysis Execution",
+        "category": "Operational",
+        "urgency_to_reskill": "High",
+        "reskill_time_weeks": 4,
+        "description": "Execution of core manual procedures in Annual Performance Calibration & 360 Feedback Analysis.",
+        "evolution_path": "AI Agent Supervision in HR"
+      },
+      {
+        "id": "skill-annual-performance-review-audit",
+        "name": "HR Compliance & Quality Auditing",
+        "category": "Domain",
+        "urgency_to_reskill": "Medium",
+        "reskill_time_weeks": 6,
+        "description": "Regulatory and operational auditing standards for Annual Performance Calibration & 360 Feedback Analysis.",
+        "evolution_path": "Automated HR Policy Engineering"
+      },
+      {
+        "id": "skill-annual-performance-review-ai-gov",
+        "name": "Autonomous HR Agent Governance",
+        "category": "Cognitive",
+        "urgency_to_reskill": "Low",
+        "reskill_time_weeks": 8,
+        "description": "Orchestration, prompt tuning, and exception validation for AI models.",
+        "evolution_path": "Enterprise HR Transformation Architect"
+      }
+    ],
+    "relationships": []
+  },
+  {
+    "id": "proc-employee-offboarding",
+    "name": "Secure Employee Offboarding & Asset Recovery",
+    "domain": "HR",
+    "description": "Access de-provisioning, knowledge transfer documentation, company hardware return, and exit interview synthesis.",
+    "cycle_time_days": 3.0,
+    "frequency": "Weekly",
+    "overall_automation_potential": 0.85,
+    "activities": [
+      {
+        "id": "act-employee-offboarding-1",
+        "name": "Intake & Data Extraction (Secure)",
+        "step_number": 1,
+        "automation_feasibility": 0.93,
+        "ai_disruption_potential": "Critical",
+        "description": "Capturing unstructured intake data and validating schema compliance for Secure Employee Offboarding & Asset Recovery.",
+        "executing_roles": [
+          "role-employee-offboarding-spec"
+        ],
+        "required_skills": [
+          "skill-employee-offboarding-exec"
+        ],
+        "ai_tools_recommended": [
+          "Document Parser Agent",
+          "Intelligent Webhook Filter"
+        ]
+      },
+      {
+        "id": "act-employee-offboarding-2",
+        "name": "Validation, Matching & Processing (Secure)",
+        "step_number": 2,
+        "automation_feasibility": 0.85,
+        "ai_disruption_potential": "High",
+        "description": "Executing core business logic and rules engine matching for Secure Employee Offboarding & Asset Recovery.",
+        "executing_roles": [
+          "role-employee-offboarding-spec"
+        ],
+        "required_skills": [
+          "skill-employee-offboarding-exec",
+          "skill-employee-offboarding-audit"
+        ],
+        "ai_tools_recommended": [
+          "Automated Business Rules Engine",
+          "LLM Workflow Copilot"
+        ]
+      },
+      {
+        "id": "act-employee-offboarding-3",
+        "name": "Exception Resolution & Governance Approval",
+        "step_number": 3,
+        "automation_feasibility": 0.63,
+        "ai_disruption_potential": "Medium",
+        "description": "Handling out-of-policy edge cases, dispute negotiation, and sign-offs.",
+        "executing_roles": [
+          "role-employee-offboarding-mgr"
+        ],
+        "required_skills": [
+          "skill-employee-offboarding-audit",
+          "skill-employee-offboarding-ai-gov"
+        ],
+        "ai_tools_recommended": [
+          "Exception Resolution Copilot",
+          "Executive Approval Bot"
+        ]
+      }
+    ],
+    "roles": [
+      {
+        "id": "role-employee-offboarding-spec",
+        "name": "Secure Specialist",
+        "department": "HR",
+        "headcount": 10,
+        "avg_salary": 65000.0,
+        "transition_risk": "High",
+        "description": "Responsible for primary operations and task execution in Secure Employee Offboarding & Asset Recovery."
+      },
+      {
+        "id": "role-employee-offboarding-mgr",
+        "name": "Secure Lead",
+        "department": "HR",
+        "headcount": 3,
+        "avg_salary": 105000.0,
+        "transition_risk": "Medium",
+        "description": "Oversees exceptions, strategy, and compliance for Secure Employee Offboarding & Asset Recovery."
+      }
+    ],
+    "skills": [
+      {
+        "id": "skill-employee-offboarding-exec",
+        "name": "Operational Recovery Execution",
+        "category": "Operational",
+        "urgency_to_reskill": "High",
+        "reskill_time_weeks": 4,
+        "description": "Execution of core manual procedures in Secure Employee Offboarding & Asset Recovery.",
+        "evolution_path": "AI Agent Supervision in HR"
+      },
+      {
+        "id": "skill-employee-offboarding-audit",
+        "name": "HR Compliance & Quality Auditing",
+        "category": "Domain",
+        "urgency_to_reskill": "Medium",
+        "reskill_time_weeks": 6,
+        "description": "Regulatory and operational auditing standards for Secure Employee Offboarding & Asset Recovery.",
+        "evolution_path": "Automated HR Policy Engineering"
+      },
+      {
+        "id": "skill-employee-offboarding-ai-gov",
+        "name": "Autonomous HR Agent Governance",
+        "category": "Cognitive",
+        "urgency_to_reskill": "Low",
+        "reskill_time_weeks": 8,
+        "description": "Orchestration, prompt tuning, and exception validation for AI models.",
+        "evolution_path": "Enterprise HR Transformation Architect"
+      }
+    ],
+    "relationships": []
+  },
+  {
+    "id": "proc-it-incident-management",
+    "name": "IT Service Desk Incident Triage & Resolution",
+    "domain": "IT",
+    "description": "Ticket intake, severity classification, automated diagnostic runbooks, and major outage swarming.",
+    "cycle_time_days": 0.5,
+    "frequency": "Real-time",
+    "overall_automation_potential": 0.85,
+    "activities": [
+      {
+        "id": "act-it-incident-management-1",
+        "name": "Intake & Data Extraction (IT)",
+        "step_number": 1,
+        "automation_feasibility": 0.93,
+        "ai_disruption_potential": "Critical",
+        "description": "Capturing unstructured intake data and validating schema compliance for IT Service Desk Incident Triage & Resolution.",
+        "executing_roles": [
+          "role-it-incident-management-spec"
+        ],
+        "required_skills": [
+          "skill-it-incident-management-exec"
+        ],
+        "ai_tools_recommended": [
+          "Document Parser Agent",
+          "Intelligent Webhook Filter"
+        ]
+      },
+      {
+        "id": "act-it-incident-management-2",
+        "name": "Validation, Matching & Processing (IT)",
+        "step_number": 2,
+        "automation_feasibility": 0.85,
+        "ai_disruption_potential": "High",
+        "description": "Executing core business logic and rules engine matching for IT Service Desk Incident Triage & Resolution.",
+        "executing_roles": [
+          "role-it-incident-management-spec"
+        ],
+        "required_skills": [
+          "skill-it-incident-management-exec",
+          "skill-it-incident-management-audit"
+        ],
+        "ai_tools_recommended": [
+          "Automated Business Rules Engine",
+          "LLM Workflow Copilot"
+        ]
+      },
+      {
+        "id": "act-it-incident-management-3",
+        "name": "Exception Resolution & Governance Approval",
+        "step_number": 3,
+        "automation_feasibility": 0.63,
+        "ai_disruption_potential": "Medium",
+        "description": "Handling out-of-policy edge cases, dispute negotiation, and sign-offs.",
+        "executing_roles": [
+          "role-it-incident-management-mgr"
+        ],
+        "required_skills": [
+          "skill-it-incident-management-audit",
+          "skill-it-incident-management-ai-gov"
+        ],
+        "ai_tools_recommended": [
+          "Exception Resolution Copilot",
+          "Executive Approval Bot"
+        ]
+      }
+    ],
+    "roles": [
+      {
+        "id": "role-it-incident-management-spec",
+        "name": "IT Specialist",
+        "department": "IT",
+        "headcount": 10,
+        "avg_salary": 65000.0,
+        "transition_risk": "High",
+        "description": "Responsible for primary operations and task execution in IT Service Desk Incident Triage & Resolution."
+      },
+      {
+        "id": "role-it-incident-management-mgr",
+        "name": "IT Lead",
+        "department": "IT",
+        "headcount": 3,
+        "avg_salary": 105000.0,
+        "transition_risk": "Medium",
+        "description": "Oversees exceptions, strategy, and compliance for IT Service Desk Incident Triage & Resolution."
+      }
+    ],
+    "skills": [
+      {
+        "id": "skill-it-incident-management-exec",
+        "name": "Operational Resolution Execution",
+        "category": "Operational",
+        "urgency_to_reskill": "High",
+        "reskill_time_weeks": 4,
+        "description": "Execution of core manual procedures in IT Service Desk Incident Triage & Resolution.",
+        "evolution_path": "AI Agent Supervision in IT"
+      },
+      {
+        "id": "skill-it-incident-management-audit",
+        "name": "IT Compliance & Quality Auditing",
+        "category": "Domain",
+        "urgency_to_reskill": "Medium",
+        "reskill_time_weeks": 6,
+        "description": "Regulatory and operational auditing standards for IT Service Desk Incident Triage & Resolution.",
+        "evolution_path": "Automated IT Policy Engineering"
+      },
+      {
+        "id": "skill-it-incident-management-ai-gov",
+        "name": "Autonomous IT Agent Governance",
+        "category": "Cognitive",
+        "urgency_to_reskill": "Low",
+        "reskill_time_weeks": 8,
+        "description": "Orchestration, prompt tuning, and exception validation for AI models.",
+        "evolution_path": "Enterprise IT Transformation Architect"
+      }
+    ],
+    "relationships": []
+  },
+  {
+    "id": "proc-sec-vuln-management",
+    "name": "Cybersecurity Vulnerability Remediation & Patching",
+    "domain": "IT",
+    "description": "Cloud infrastructure SAST/DAST scanning, CVSS/EPSS exploit prioritization, and automated PR patch generation.",
+    "cycle_time_days": 3.0,
+    "frequency": "Daily",
+    "overall_automation_potential": 0.84,
+    "activities": [
+      {
+        "id": "act-sec-vuln-management-1",
+        "name": "Intake & Data Extraction (Cybersecurity)",
+        "step_number": 1,
+        "automation_feasibility": 0.92,
+        "ai_disruption_potential": "Critical",
+        "description": "Capturing unstructured intake data and validating schema compliance for Cybersecurity Vulnerability Remediation & Patching.",
+        "executing_roles": [
+          "role-sec-vuln-management-spec"
+        ],
+        "required_skills": [
+          "skill-sec-vuln-management-exec"
+        ],
+        "ai_tools_recommended": [
+          "Document Parser Agent",
+          "Intelligent Webhook Filter"
+        ]
+      },
+      {
+        "id": "act-sec-vuln-management-2",
+        "name": "Validation, Matching & Processing (Cybersecurity)",
+        "step_number": 2,
+        "automation_feasibility": 0.84,
+        "ai_disruption_potential": "High",
+        "description": "Executing core business logic and rules engine matching for Cybersecurity Vulnerability Remediation & Patching.",
+        "executing_roles": [
+          "role-sec-vuln-management-spec"
+        ],
+        "required_skills": [
+          "skill-sec-vuln-management-exec",
+          "skill-sec-vuln-management-audit"
+        ],
+        "ai_tools_recommended": [
+          "Automated Business Rules Engine",
+          "LLM Workflow Copilot"
+        ]
+      },
+      {
+        "id": "act-sec-vuln-management-3",
+        "name": "Exception Resolution & Governance Approval",
+        "step_number": 3,
+        "automation_feasibility": 0.62,
+        "ai_disruption_potential": "Medium",
+        "description": "Handling out-of-policy edge cases, dispute negotiation, and sign-offs.",
+        "executing_roles": [
+          "role-sec-vuln-management-mgr"
+        ],
+        "required_skills": [
+          "skill-sec-vuln-management-audit",
+          "skill-sec-vuln-management-ai-gov"
+        ],
+        "ai_tools_recommended": [
+          "Exception Resolution Copilot",
+          "Executive Approval Bot"
+        ]
+      }
+    ],
+    "roles": [
+      {
+        "id": "role-sec-vuln-management-spec",
+        "name": "Cybersecurity Specialist",
+        "department": "IT",
+        "headcount": 10,
+        "avg_salary": 65000.0,
+        "transition_risk": "High",
+        "description": "Responsible for primary operations and task execution in Cybersecurity Vulnerability Remediation & Patching."
+      },
+      {
+        "id": "role-sec-vuln-management-mgr",
+        "name": "Cybersecurity Lead",
+        "department": "IT",
+        "headcount": 3,
+        "avg_salary": 105000.0,
+        "transition_risk": "Medium",
+        "description": "Oversees exceptions, strategy, and compliance for Cybersecurity Vulnerability Remediation & Patching."
+      }
+    ],
+    "skills": [
+      {
+        "id": "skill-sec-vuln-management-exec",
+        "name": "Operational Patching Execution",
+        "category": "Operational",
+        "urgency_to_reskill": "High",
+        "reskill_time_weeks": 4,
+        "description": "Execution of core manual procedures in Cybersecurity Vulnerability Remediation & Patching.",
+        "evolution_path": "AI Agent Supervision in IT"
+      },
+      {
+        "id": "skill-sec-vuln-management-audit",
+        "name": "IT Compliance & Quality Auditing",
+        "category": "Domain",
+        "urgency_to_reskill": "Medium",
+        "reskill_time_weeks": 6,
+        "description": "Regulatory and operational auditing standards for Cybersecurity Vulnerability Remediation & Patching.",
+        "evolution_path": "Automated IT Policy Engineering"
+      },
+      {
+        "id": "skill-sec-vuln-management-ai-gov",
+        "name": "Autonomous IT Agent Governance",
+        "category": "Cognitive",
+        "urgency_to_reskill": "Low",
+        "reskill_time_weeks": 8,
+        "description": "Orchestration, prompt tuning, and exception validation for AI models.",
+        "evolution_path": "Enterprise IT Transformation Architect"
+      }
+    ],
+    "relationships": []
+  },
+  {
+    "id": "proc-cloud-cost-optimization",
+    "name": "Cloud FinOps Infrastructure Rightsizing & Cost Optimization",
+    "domain": "IT",
+    "description": "AWS/GCP/Azure unattached resource scanning, idle instance detection, reserved instance arbitrage, and autoscaling policy tuning.",
+    "cycle_time_days": 7.0,
+    "frequency": "Weekly",
+    "overall_automation_potential": 0.88,
+    "activities": [
+      {
+        "id": "act-cloud-cost-optimization-1",
+        "name": "Intake & Data Extraction (Cloud)",
+        "step_number": 1,
+        "automation_feasibility": 0.96,
+        "ai_disruption_potential": "Critical",
+        "description": "Capturing unstructured intake data and validating schema compliance for Cloud FinOps Infrastructure Rightsizing & Cost Optimization.",
+        "executing_roles": [
+          "role-cloud-cost-optimization-spec"
+        ],
+        "required_skills": [
+          "skill-cloud-cost-optimization-exec"
+        ],
+        "ai_tools_recommended": [
+          "Document Parser Agent",
+          "Intelligent Webhook Filter"
+        ]
+      },
+      {
+        "id": "act-cloud-cost-optimization-2",
+        "name": "Validation, Matching & Processing (Cloud)",
+        "step_number": 2,
+        "automation_feasibility": 0.88,
+        "ai_disruption_potential": "High",
+        "description": "Executing core business logic and rules engine matching for Cloud FinOps Infrastructure Rightsizing & Cost Optimization.",
+        "executing_roles": [
+          "role-cloud-cost-optimization-spec"
+        ],
+        "required_skills": [
+          "skill-cloud-cost-optimization-exec",
+          "skill-cloud-cost-optimization-audit"
+        ],
+        "ai_tools_recommended": [
+          "Automated Business Rules Engine",
+          "LLM Workflow Copilot"
+        ]
+      },
+      {
+        "id": "act-cloud-cost-optimization-3",
+        "name": "Exception Resolution & Governance Approval",
+        "step_number": 3,
+        "automation_feasibility": 0.66,
+        "ai_disruption_potential": "Medium",
+        "description": "Handling out-of-policy edge cases, dispute negotiation, and sign-offs.",
+        "executing_roles": [
+          "role-cloud-cost-optimization-mgr"
+        ],
+        "required_skills": [
+          "skill-cloud-cost-optimization-audit",
+          "skill-cloud-cost-optimization-ai-gov"
+        ],
+        "ai_tools_recommended": [
+          "Exception Resolution Copilot",
+          "Executive Approval Bot"
+        ]
+      }
+    ],
+    "roles": [
+      {
+        "id": "role-cloud-cost-optimization-spec",
+        "name": "Cloud Specialist",
+        "department": "IT",
+        "headcount": 10,
+        "avg_salary": 65000.0,
+        "transition_risk": "High",
+        "description": "Responsible for primary operations and task execution in Cloud FinOps Infrastructure Rightsizing & Cost Optimization."
+      },
+      {
+        "id": "role-cloud-cost-optimization-mgr",
+        "name": "Cloud Lead",
+        "department": "IT",
+        "headcount": 3,
+        "avg_salary": 105000.0,
+        "transition_risk": "Medium",
+        "description": "Oversees exceptions, strategy, and compliance for Cloud FinOps Infrastructure Rightsizing & Cost Optimization."
+      }
+    ],
+    "skills": [
+      {
+        "id": "skill-cloud-cost-optimization-exec",
+        "name": "Operational Optimization Execution",
+        "category": "Operational",
+        "urgency_to_reskill": "Critical",
+        "reskill_time_weeks": 4,
+        "description": "Execution of core manual procedures in Cloud FinOps Infrastructure Rightsizing & Cost Optimization.",
+        "evolution_path": "AI Agent Supervision in IT"
+      },
+      {
+        "id": "skill-cloud-cost-optimization-audit",
+        "name": "IT Compliance & Quality Auditing",
+        "category": "Domain",
+        "urgency_to_reskill": "Medium",
+        "reskill_time_weeks": 6,
+        "description": "Regulatory and operational auditing standards for Cloud FinOps Infrastructure Rightsizing & Cost Optimization.",
+        "evolution_path": "Automated IT Policy Engineering"
+      },
+      {
+        "id": "skill-cloud-cost-optimization-ai-gov",
+        "name": "Autonomous IT Agent Governance",
+        "category": "Cognitive",
+        "urgency_to_reskill": "Low",
+        "reskill_time_weeks": 8,
+        "description": "Orchestration, prompt tuning, and exception validation for AI models.",
+        "evolution_path": "Enterprise IT Transformation Architect"
+      }
+    ],
+    "relationships": []
+  },
+  {
+    "id": "proc-database-backup-dr",
+    "name": "Enterprise Database Backup & Disaster Recovery Failover Testing",
+    "domain": "IT",
+    "description": "Continuous WAL archiving, point-in-time recovery verification, cross-region replication latency testing, and DR drills.",
+    "cycle_time_days": 1.0,
+    "frequency": "Daily",
+    "overall_automation_potential": 0.93,
+    "activities": [
+      {
+        "id": "act-database-backup-dr-1",
+        "name": "Intake & Data Extraction (Enterprise)",
+        "step_number": 1,
+        "automation_feasibility": 0.98,
+        "ai_disruption_potential": "Critical",
+        "description": "Capturing unstructured intake data and validating schema compliance for Enterprise Database Backup & Disaster Recovery Failover Testing.",
+        "executing_roles": [
+          "role-database-backup-dr-spec"
+        ],
+        "required_skills": [
+          "skill-database-backup-dr-exec"
+        ],
+        "ai_tools_recommended": [
+          "Document Parser Agent",
+          "Intelligent Webhook Filter"
+        ]
+      },
+      {
+        "id": "act-database-backup-dr-2",
+        "name": "Validation, Matching & Processing (Enterprise)",
+        "step_number": 2,
+        "automation_feasibility": 0.93,
+        "ai_disruption_potential": "High",
+        "description": "Executing core business logic and rules engine matching for Enterprise Database Backup & Disaster Recovery Failover Testing.",
+        "executing_roles": [
+          "role-database-backup-dr-spec"
+        ],
+        "required_skills": [
+          "skill-database-backup-dr-exec",
+          "skill-database-backup-dr-audit"
+        ],
+        "ai_tools_recommended": [
+          "Automated Business Rules Engine",
+          "LLM Workflow Copilot"
+        ]
+      },
+      {
+        "id": "act-database-backup-dr-3",
+        "name": "Exception Resolution & Governance Approval",
+        "step_number": 3,
+        "automation_feasibility": 0.71,
+        "ai_disruption_potential": "Medium",
+        "description": "Handling out-of-policy edge cases, dispute negotiation, and sign-offs.",
+        "executing_roles": [
+          "role-database-backup-dr-mgr"
+        ],
+        "required_skills": [
+          "skill-database-backup-dr-audit",
+          "skill-database-backup-dr-ai-gov"
+        ],
+        "ai_tools_recommended": [
+          "Exception Resolution Copilot",
+          "Executive Approval Bot"
+        ]
+      }
+    ],
+    "roles": [
+      {
+        "id": "role-database-backup-dr-spec",
+        "name": "Enterprise Specialist",
+        "department": "IT",
+        "headcount": 10,
+        "avg_salary": 65000.0,
+        "transition_risk": "High",
+        "description": "Responsible for primary operations and task execution in Enterprise Database Backup & Disaster Recovery Failover Testing."
+      },
+      {
+        "id": "role-database-backup-dr-mgr",
+        "name": "Enterprise Lead",
+        "department": "IT",
+        "headcount": 3,
+        "avg_salary": 105000.0,
+        "transition_risk": "Medium",
+        "description": "Oversees exceptions, strategy, and compliance for Enterprise Database Backup & Disaster Recovery Failover Testing."
+      }
+    ],
+    "skills": [
+      {
+        "id": "skill-database-backup-dr-exec",
+        "name": "Operational Testing Execution",
+        "category": "Operational",
+        "urgency_to_reskill": "Critical",
+        "reskill_time_weeks": 4,
+        "description": "Execution of core manual procedures in Enterprise Database Backup & Disaster Recovery Failover Testing.",
+        "evolution_path": "AI Agent Supervision in IT"
+      },
+      {
+        "id": "skill-database-backup-dr-audit",
+        "name": "IT Compliance & Quality Auditing",
+        "category": "Domain",
+        "urgency_to_reskill": "Medium",
+        "reskill_time_weeks": 6,
+        "description": "Regulatory and operational auditing standards for Enterprise Database Backup & Disaster Recovery Failover Testing.",
+        "evolution_path": "Automated IT Policy Engineering"
+      },
+      {
+        "id": "skill-database-backup-dr-ai-gov",
+        "name": "Autonomous IT Agent Governance",
+        "category": "Cognitive",
+        "urgency_to_reskill": "Low",
+        "reskill_time_weeks": 8,
+        "description": "Orchestration, prompt tuning, and exception validation for AI models.",
+        "evolution_path": "Enterprise IT Transformation Architect"
+      }
+    ],
+    "relationships": []
+  },
+  {
+    "id": "proc-contract-lifecycle",
+    "name": "Enterprise Contract Review & Risk Redlining",
+    "domain": "Legal",
+    "description": "Vendor MSA/SOW intake, clause extraction, playbook deviation scoring, and negotiation redline generation.",
+    "cycle_time_days": 6.0,
+    "frequency": "Daily",
+    "overall_automation_potential": 0.78,
+    "activities": [
+      {
+        "id": "act-contract-lifecycle-1",
+        "name": "Intake & Data Extraction (Enterprise)",
+        "step_number": 1,
+        "automation_feasibility": 0.86,
+        "ai_disruption_potential": "High",
+        "description": "Capturing unstructured intake data and validating schema compliance for Enterprise Contract Review & Risk Redlining.",
+        "executing_roles": [
+          "role-contract-lifecycle-spec"
+        ],
+        "required_skills": [
+          "skill-contract-lifecycle-exec"
+        ],
+        "ai_tools_recommended": [
+          "Document Parser Agent",
+          "Intelligent Webhook Filter"
+        ]
+      },
+      {
+        "id": "act-contract-lifecycle-2",
+        "name": "Validation, Matching & Processing (Enterprise)",
+        "step_number": 2,
+        "automation_feasibility": 0.78,
+        "ai_disruption_potential": "High",
+        "description": "Executing core business logic and rules engine matching for Enterprise Contract Review & Risk Redlining.",
+        "executing_roles": [
+          "role-contract-lifecycle-spec"
+        ],
+        "required_skills": [
+          "skill-contract-lifecycle-exec",
+          "skill-contract-lifecycle-audit"
+        ],
+        "ai_tools_recommended": [
+          "Automated Business Rules Engine",
+          "LLM Workflow Copilot"
+        ]
+      },
+      {
+        "id": "act-contract-lifecycle-3",
+        "name": "Exception Resolution & Governance Approval",
+        "step_number": 3,
+        "automation_feasibility": 0.56,
+        "ai_disruption_potential": "Medium",
+        "description": "Handling out-of-policy edge cases, dispute negotiation, and sign-offs.",
+        "executing_roles": [
+          "role-contract-lifecycle-mgr"
+        ],
+        "required_skills": [
+          "skill-contract-lifecycle-audit",
+          "skill-contract-lifecycle-ai-gov"
+        ],
+        "ai_tools_recommended": [
+          "Exception Resolution Copilot",
+          "Executive Approval Bot"
+        ]
+      }
+    ],
+    "roles": [
+      {
+        "id": "role-contract-lifecycle-spec",
+        "name": "Enterprise Specialist",
+        "department": "Legal",
+        "headcount": 10,
+        "avg_salary": 65000.0,
+        "transition_risk": "Medium",
+        "description": "Responsible for primary operations and task execution in Enterprise Contract Review & Risk Redlining."
+      },
+      {
+        "id": "role-contract-lifecycle-mgr",
+        "name": "Enterprise Lead",
+        "department": "Legal",
+        "headcount": 3,
+        "avg_salary": 105000.0,
+        "transition_risk": "Low",
+        "description": "Oversees exceptions, strategy, and compliance for Enterprise Contract Review & Risk Redlining."
+      }
+    ],
+    "skills": [
+      {
+        "id": "skill-contract-lifecycle-exec",
+        "name": "Operational Redlining Execution",
+        "category": "Operational",
+        "urgency_to_reskill": "High",
+        "reskill_time_weeks": 4,
+        "description": "Execution of core manual procedures in Enterprise Contract Review & Risk Redlining.",
+        "evolution_path": "AI Agent Supervision in Legal"
+      },
+      {
+        "id": "skill-contract-lifecycle-audit",
+        "name": "Legal Compliance & Quality Auditing",
+        "category": "Domain",
+        "urgency_to_reskill": "Medium",
+        "reskill_time_weeks": 6,
+        "description": "Regulatory and operational auditing standards for Enterprise Contract Review & Risk Redlining.",
+        "evolution_path": "Automated Legal Policy Engineering"
+      },
+      {
+        "id": "skill-contract-lifecycle-ai-gov",
+        "name": "Autonomous Legal Agent Governance",
+        "category": "Cognitive",
+        "urgency_to_reskill": "Low",
+        "reskill_time_weeks": 8,
+        "description": "Orchestration, prompt tuning, and exception validation for AI models.",
+        "evolution_path": "Enterprise Legal Transformation Architect"
+      }
+    ],
+    "relationships": []
+  },
+  {
+    "id": "proc-regulatory-compliance-audit",
+    "name": "Regulatory Compliance & Privacy Policy Auditing (GDPR/CCPA)",
+    "domain": "Legal",
+    "description": "Data mapping, third-party vendor compliance certification tracking, data subject access request (DSAR) fulfillment.",
+    "cycle_time_days": 10.0,
+    "frequency": "Monthly",
+    "overall_automation_potential": 0.76,
+    "activities": [
+      {
+        "id": "act-regulatory-compliance-audit-1",
+        "name": "Intake & Data Extraction (Regulatory)",
+        "step_number": 1,
+        "automation_feasibility": 0.84,
+        "ai_disruption_potential": "High",
+        "description": "Capturing unstructured intake data and validating schema compliance for Regulatory Compliance & Privacy Policy Auditing (GDPR/CCPA).",
+        "executing_roles": [
+          "role-regulatory-compliance-audit-spec"
+        ],
+        "required_skills": [
+          "skill-regulatory-compliance-audit-exec"
+        ],
+        "ai_tools_recommended": [
+          "Document Parser Agent",
+          "Intelligent Webhook Filter"
+        ]
+      },
+      {
+        "id": "act-regulatory-compliance-audit-2",
+        "name": "Validation, Matching & Processing (Regulatory)",
+        "step_number": 2,
+        "automation_feasibility": 0.76,
+        "ai_disruption_potential": "High",
+        "description": "Executing core business logic and rules engine matching for Regulatory Compliance & Privacy Policy Auditing (GDPR/CCPA).",
+        "executing_roles": [
+          "role-regulatory-compliance-audit-spec"
+        ],
+        "required_skills": [
+          "skill-regulatory-compliance-audit-exec",
+          "skill-regulatory-compliance-audit-audit"
+        ],
+        "ai_tools_recommended": [
+          "Automated Business Rules Engine",
+          "LLM Workflow Copilot"
+        ]
+      },
+      {
+        "id": "act-regulatory-compliance-audit-3",
+        "name": "Exception Resolution & Governance Approval",
+        "step_number": 3,
+        "automation_feasibility": 0.54,
+        "ai_disruption_potential": "Medium",
+        "description": "Handling out-of-policy edge cases, dispute negotiation, and sign-offs.",
+        "executing_roles": [
+          "role-regulatory-compliance-audit-mgr"
+        ],
+        "required_skills": [
+          "skill-regulatory-compliance-audit-audit",
+          "skill-regulatory-compliance-audit-ai-gov"
+        ],
+        "ai_tools_recommended": [
+          "Exception Resolution Copilot",
+          "Executive Approval Bot"
+        ]
+      }
+    ],
+    "roles": [
+      {
+        "id": "role-regulatory-compliance-audit-spec",
+        "name": "Regulatory Specialist",
+        "department": "Legal",
+        "headcount": 10,
+        "avg_salary": 65000.0,
+        "transition_risk": "Medium",
+        "description": "Responsible for primary operations and task execution in Regulatory Compliance & Privacy Policy Auditing (GDPR/CCPA)."
+      },
+      {
+        "id": "role-regulatory-compliance-audit-mgr",
+        "name": "Regulatory Lead",
+        "department": "Legal",
+        "headcount": 3,
+        "avg_salary": 105000.0,
+        "transition_risk": "Low",
+        "description": "Oversees exceptions, strategy, and compliance for Regulatory Compliance & Privacy Policy Auditing (GDPR/CCPA)."
+      }
+    ],
+    "skills": [
+      {
+        "id": "skill-regulatory-compliance-audit-exec",
+        "name": "Operational (GDPR/CCPA) Execution",
+        "category": "Operational",
+        "urgency_to_reskill": "High",
+        "reskill_time_weeks": 4,
+        "description": "Execution of core manual procedures in Regulatory Compliance & Privacy Policy Auditing (GDPR/CCPA).",
+        "evolution_path": "AI Agent Supervision in Legal"
+      },
+      {
+        "id": "skill-regulatory-compliance-audit-audit",
+        "name": "Legal Compliance & Quality Auditing",
+        "category": "Domain",
+        "urgency_to_reskill": "Medium",
+        "reskill_time_weeks": 6,
+        "description": "Regulatory and operational auditing standards for Regulatory Compliance & Privacy Policy Auditing (GDPR/CCPA).",
+        "evolution_path": "Automated Legal Policy Engineering"
+      },
+      {
+        "id": "skill-regulatory-compliance-audit-ai-gov",
+        "name": "Autonomous Legal Agent Governance",
+        "category": "Cognitive",
+        "urgency_to_reskill": "Low",
+        "reskill_time_weeks": 8,
+        "description": "Orchestration, prompt tuning, and exception validation for AI models.",
+        "evolution_path": "Enterprise Legal Transformation Architect"
+      }
+    ],
+    "relationships": []
+  },
+  {
+    "id": "proc-ip-patent-monitoring",
+    "name": "Intellectual Property & Prior Art Patent Monitoring",
+    "domain": "Legal",
+    "description": "Global patent gazette parsing, trademark infringement web scraping, and competitor portfolio gap analysis.",
+    "cycle_time_days": 14.0,
+    "frequency": "Monthly",
+    "overall_automation_potential": 0.82,
+    "activities": [
+      {
+        "id": "act-ip-patent-monitoring-1",
+        "name": "Intake & Data Extraction (Intellectual)",
+        "step_number": 1,
+        "automation_feasibility": 0.9,
+        "ai_disruption_potential": "High",
+        "description": "Capturing unstructured intake data and validating schema compliance for Intellectual Property & Prior Art Patent Monitoring.",
+        "executing_roles": [
+          "role-ip-patent-monitoring-spec"
+        ],
+        "required_skills": [
+          "skill-ip-patent-monitoring-exec"
+        ],
+        "ai_tools_recommended": [
+          "Document Parser Agent",
+          "Intelligent Webhook Filter"
+        ]
+      },
+      {
+        "id": "act-ip-patent-monitoring-2",
+        "name": "Validation, Matching & Processing (Intellectual)",
+        "step_number": 2,
+        "automation_feasibility": 0.82,
+        "ai_disruption_potential": "High",
+        "description": "Executing core business logic and rules engine matching for Intellectual Property & Prior Art Patent Monitoring.",
+        "executing_roles": [
+          "role-ip-patent-monitoring-spec"
+        ],
+        "required_skills": [
+          "skill-ip-patent-monitoring-exec",
+          "skill-ip-patent-monitoring-audit"
+        ],
+        "ai_tools_recommended": [
+          "Automated Business Rules Engine",
+          "LLM Workflow Copilot"
+        ]
+      },
+      {
+        "id": "act-ip-patent-monitoring-3",
+        "name": "Exception Resolution & Governance Approval",
+        "step_number": 3,
+        "automation_feasibility": 0.6,
+        "ai_disruption_potential": "Medium",
+        "description": "Handling out-of-policy edge cases, dispute negotiation, and sign-offs.",
+        "executing_roles": [
+          "role-ip-patent-monitoring-mgr"
+        ],
+        "required_skills": [
+          "skill-ip-patent-monitoring-audit",
+          "skill-ip-patent-monitoring-ai-gov"
+        ],
+        "ai_tools_recommended": [
+          "Exception Resolution Copilot",
+          "Executive Approval Bot"
+        ]
+      }
+    ],
+    "roles": [
+      {
+        "id": "role-ip-patent-monitoring-spec",
+        "name": "Intellectual Specialist",
+        "department": "Legal",
+        "headcount": 10,
+        "avg_salary": 65000.0,
+        "transition_risk": "High",
+        "description": "Responsible for primary operations and task execution in Intellectual Property & Prior Art Patent Monitoring."
+      },
+      {
+        "id": "role-ip-patent-monitoring-mgr",
+        "name": "Intellectual Lead",
+        "department": "Legal",
+        "headcount": 3,
+        "avg_salary": 105000.0,
+        "transition_risk": "Medium",
+        "description": "Oversees exceptions, strategy, and compliance for Intellectual Property & Prior Art Patent Monitoring."
+      }
+    ],
+    "skills": [
+      {
+        "id": "skill-ip-patent-monitoring-exec",
+        "name": "Operational Monitoring Execution",
+        "category": "Operational",
+        "urgency_to_reskill": "High",
+        "reskill_time_weeks": 4,
+        "description": "Execution of core manual procedures in Intellectual Property & Prior Art Patent Monitoring.",
+        "evolution_path": "AI Agent Supervision in Legal"
+      },
+      {
+        "id": "skill-ip-patent-monitoring-audit",
+        "name": "Legal Compliance & Quality Auditing",
+        "category": "Domain",
+        "urgency_to_reskill": "Medium",
+        "reskill_time_weeks": 6,
+        "description": "Regulatory and operational auditing standards for Intellectual Property & Prior Art Patent Monitoring.",
+        "evolution_path": "Automated Legal Policy Engineering"
+      },
+      {
+        "id": "skill-ip-patent-monitoring-ai-gov",
+        "name": "Autonomous Legal Agent Governance",
+        "category": "Cognitive",
+        "urgency_to_reskill": "Low",
+        "reskill_time_weeks": 8,
+        "description": "Orchestration, prompt tuning, and exception validation for AI models.",
+        "evolution_path": "Enterprise Legal Transformation Architect"
+      }
+    ],
+    "relationships": []
+  },
+  {
+    "id": "proc-purchase-order-creation",
+    "name": "Procure-to-Pay Requisition & PO Generation",
+    "domain": "Supply Chain",
+    "description": "Requisition review, vendor catalog matching, budget validation, and EDI purchase order dispatch.",
+    "cycle_time_days": 2.0,
+    "frequency": "Daily",
+    "overall_automation_potential": 0.86,
+    "activities": [
+      {
+        "id": "act-purchase-order-creation-1",
+        "name": "Intake & Data Extraction (Procure-to-Pay)",
+        "step_number": 1,
+        "automation_feasibility": 0.94,
+        "ai_disruption_potential": "Critical",
+        "description": "Capturing unstructured intake data and validating schema compliance for Procure-to-Pay Requisition & PO Generation.",
+        "executing_roles": [
+          "role-purchase-order-creation-spec"
+        ],
+        "required_skills": [
+          "skill-purchase-order-creation-exec"
+        ],
+        "ai_tools_recommended": [
+          "Document Parser Agent",
+          "Intelligent Webhook Filter"
+        ]
+      },
+      {
+        "id": "act-purchase-order-creation-2",
+        "name": "Validation, Matching & Processing (Procure-to-Pay)",
+        "step_number": 2,
+        "automation_feasibility": 0.86,
+        "ai_disruption_potential": "High",
+        "description": "Executing core business logic and rules engine matching for Procure-to-Pay Requisition & PO Generation.",
+        "executing_roles": [
+          "role-purchase-order-creation-spec"
+        ],
+        "required_skills": [
+          "skill-purchase-order-creation-exec",
+          "skill-purchase-order-creation-audit"
+        ],
+        "ai_tools_recommended": [
+          "Automated Business Rules Engine",
+          "LLM Workflow Copilot"
+        ]
+      },
+      {
+        "id": "act-purchase-order-creation-3",
+        "name": "Exception Resolution & Governance Approval",
+        "step_number": 3,
+        "automation_feasibility": 0.64,
+        "ai_disruption_potential": "Medium",
+        "description": "Handling out-of-policy edge cases, dispute negotiation, and sign-offs.",
+        "executing_roles": [
+          "role-purchase-order-creation-mgr"
+        ],
+        "required_skills": [
+          "skill-purchase-order-creation-audit",
+          "skill-purchase-order-creation-ai-gov"
+        ],
+        "ai_tools_recommended": [
+          "Exception Resolution Copilot",
+          "Executive Approval Bot"
+        ]
+      }
+    ],
+    "roles": [
+      {
+        "id": "role-purchase-order-creation-spec",
+        "name": "Procure-to-Pay Specialist",
+        "department": "Supply Chain",
+        "headcount": 10,
+        "avg_salary": 65000.0,
+        "transition_risk": "High",
+        "description": "Responsible for primary operations and task execution in Procure-to-Pay Requisition & PO Generation."
+      },
+      {
+        "id": "role-purchase-order-creation-mgr",
+        "name": "Procure-to-Pay Lead",
+        "department": "Supply Chain",
+        "headcount": 3,
+        "avg_salary": 105000.0,
+        "transition_risk": "Medium",
+        "description": "Oversees exceptions, strategy, and compliance for Procure-to-Pay Requisition & PO Generation."
+      }
+    ],
+    "skills": [
+      {
+        "id": "skill-purchase-order-creation-exec",
+        "name": "Operational Generation Execution",
+        "category": "Operational",
+        "urgency_to_reskill": "Critical",
+        "reskill_time_weeks": 4,
+        "description": "Execution of core manual procedures in Procure-to-Pay Requisition & PO Generation.",
+        "evolution_path": "AI Agent Supervision in Supply Chain"
+      },
+      {
+        "id": "skill-purchase-order-creation-audit",
+        "name": "Supply Chain Compliance & Quality Auditing",
+        "category": "Domain",
+        "urgency_to_reskill": "Medium",
+        "reskill_time_weeks": 6,
+        "description": "Regulatory and operational auditing standards for Procure-to-Pay Requisition & PO Generation.",
+        "evolution_path": "Automated Supply Chain Policy Engineering"
+      },
+      {
+        "id": "skill-purchase-order-creation-ai-gov",
+        "name": "Autonomous Supply Chain Agent Governance",
+        "category": "Cognitive",
+        "urgency_to_reskill": "Low",
+        "reskill_time_weeks": 8,
+        "description": "Orchestration, prompt tuning, and exception validation for AI models.",
+        "evolution_path": "Enterprise Supply Chain Transformation Architect"
+      }
+    ],
+    "relationships": []
+  },
+  {
+    "id": "proc-warehouse-replenishment",
+    "name": "Warehouse Inventory Replenishment & Demand Planning",
+    "domain": "Supply Chain",
+    "description": "RFID stock aggregation, time-series demand forecasting, dynamic safety stock calculation, and replenishment ordering.",
+    "cycle_time_days": 3.0,
+    "frequency": "Daily",
+    "overall_automation_potential": 0.85,
+    "activities": [
+      {
+        "id": "act-warehouse-replenishment-1",
+        "name": "Intake & Data Extraction (Warehouse)",
+        "step_number": 1,
+        "automation_feasibility": 0.93,
+        "ai_disruption_potential": "Critical",
+        "description": "Capturing unstructured intake data and validating schema compliance for Warehouse Inventory Replenishment & Demand Planning.",
+        "executing_roles": [
+          "role-warehouse-replenishment-spec"
+        ],
+        "required_skills": [
+          "skill-warehouse-replenishment-exec"
+        ],
+        "ai_tools_recommended": [
+          "Document Parser Agent",
+          "Intelligent Webhook Filter"
+        ]
+      },
+      {
+        "id": "act-warehouse-replenishment-2",
+        "name": "Validation, Matching & Processing (Warehouse)",
+        "step_number": 2,
+        "automation_feasibility": 0.85,
+        "ai_disruption_potential": "High",
+        "description": "Executing core business logic and rules engine matching for Warehouse Inventory Replenishment & Demand Planning.",
+        "executing_roles": [
+          "role-warehouse-replenishment-spec"
+        ],
+        "required_skills": [
+          "skill-warehouse-replenishment-exec",
+          "skill-warehouse-replenishment-audit"
+        ],
+        "ai_tools_recommended": [
+          "Automated Business Rules Engine",
+          "LLM Workflow Copilot"
+        ]
+      },
+      {
+        "id": "act-warehouse-replenishment-3",
+        "name": "Exception Resolution & Governance Approval",
+        "step_number": 3,
+        "automation_feasibility": 0.63,
+        "ai_disruption_potential": "Medium",
+        "description": "Handling out-of-policy edge cases, dispute negotiation, and sign-offs.",
+        "executing_roles": [
+          "role-warehouse-replenishment-mgr"
+        ],
+        "required_skills": [
+          "skill-warehouse-replenishment-audit",
+          "skill-warehouse-replenishment-ai-gov"
+        ],
+        "ai_tools_recommended": [
+          "Exception Resolution Copilot",
+          "Executive Approval Bot"
+        ]
+      }
+    ],
+    "roles": [
+      {
+        "id": "role-warehouse-replenishment-spec",
+        "name": "Warehouse Specialist",
+        "department": "Supply Chain",
+        "headcount": 10,
+        "avg_salary": 65000.0,
+        "transition_risk": "High",
+        "description": "Responsible for primary operations and task execution in Warehouse Inventory Replenishment & Demand Planning."
+      },
+      {
+        "id": "role-warehouse-replenishment-mgr",
+        "name": "Warehouse Lead",
+        "department": "Supply Chain",
+        "headcount": 3,
+        "avg_salary": 105000.0,
+        "transition_risk": "Medium",
+        "description": "Oversees exceptions, strategy, and compliance for Warehouse Inventory Replenishment & Demand Planning."
+      }
+    ],
+    "skills": [
+      {
+        "id": "skill-warehouse-replenishment-exec",
+        "name": "Operational Planning Execution",
+        "category": "Operational",
+        "urgency_to_reskill": "High",
+        "reskill_time_weeks": 4,
+        "description": "Execution of core manual procedures in Warehouse Inventory Replenishment & Demand Planning.",
+        "evolution_path": "AI Agent Supervision in Supply Chain"
+      },
+      {
+        "id": "skill-warehouse-replenishment-audit",
+        "name": "Supply Chain Compliance & Quality Auditing",
+        "category": "Domain",
+        "urgency_to_reskill": "Medium",
+        "reskill_time_weeks": 6,
+        "description": "Regulatory and operational auditing standards for Warehouse Inventory Replenishment & Demand Planning.",
+        "evolution_path": "Automated Supply Chain Policy Engineering"
+      },
+      {
+        "id": "skill-warehouse-replenishment-ai-gov",
+        "name": "Autonomous Supply Chain Agent Governance",
+        "category": "Cognitive",
+        "urgency_to_reskill": "Low",
+        "reskill_time_weeks": 8,
+        "description": "Orchestration, prompt tuning, and exception validation for AI models.",
+        "evolution_path": "Enterprise Supply Chain Transformation Architect"
+      }
+    ],
+    "relationships": []
+  },
+  {
+    "id": "proc-freight-logistics-dispatch",
+    "name": "Global Freight Carrier Selection & Dynamic Route Dispatch",
+    "domain": "Supply Chain",
+    "description": "Real-time port congestion tracking, carrier rate card benchmarking, carbon footprint minimization, and customs filing.",
+    "cycle_time_days": 2.0,
+    "frequency": "Daily",
+    "overall_automation_potential": 0.83,
+    "activities": [
+      {
+        "id": "act-freight-logistics-dispatch-1",
+        "name": "Intake & Data Extraction (Global)",
+        "step_number": 1,
+        "automation_feasibility": 0.91,
+        "ai_disruption_potential": "Critical",
+        "description": "Capturing unstructured intake data and validating schema compliance for Global Freight Carrier Selection & Dynamic Route Dispatch.",
+        "executing_roles": [
+          "role-freight-logistics-dispatch-spec"
+        ],
+        "required_skills": [
+          "skill-freight-logistics-dispatch-exec"
+        ],
+        "ai_tools_recommended": [
+          "Document Parser Agent",
+          "Intelligent Webhook Filter"
+        ]
+      },
+      {
+        "id": "act-freight-logistics-dispatch-2",
+        "name": "Validation, Matching & Processing (Global)",
+        "step_number": 2,
+        "automation_feasibility": 0.83,
+        "ai_disruption_potential": "High",
+        "description": "Executing core business logic and rules engine matching for Global Freight Carrier Selection & Dynamic Route Dispatch.",
+        "executing_roles": [
+          "role-freight-logistics-dispatch-spec"
+        ],
+        "required_skills": [
+          "skill-freight-logistics-dispatch-exec",
+          "skill-freight-logistics-dispatch-audit"
+        ],
+        "ai_tools_recommended": [
+          "Automated Business Rules Engine",
+          "LLM Workflow Copilot"
+        ]
+      },
+      {
+        "id": "act-freight-logistics-dispatch-3",
+        "name": "Exception Resolution & Governance Approval",
+        "step_number": 3,
+        "automation_feasibility": 0.61,
+        "ai_disruption_potential": "Medium",
+        "description": "Handling out-of-policy edge cases, dispute negotiation, and sign-offs.",
+        "executing_roles": [
+          "role-freight-logistics-dispatch-mgr"
+        ],
+        "required_skills": [
+          "skill-freight-logistics-dispatch-audit",
+          "skill-freight-logistics-dispatch-ai-gov"
+        ],
+        "ai_tools_recommended": [
+          "Exception Resolution Copilot",
+          "Executive Approval Bot"
+        ]
+      }
+    ],
+    "roles": [
+      {
+        "id": "role-freight-logistics-dispatch-spec",
+        "name": "Global Specialist",
+        "department": "Supply Chain",
+        "headcount": 10,
+        "avg_salary": 65000.0,
+        "transition_risk": "High",
+        "description": "Responsible for primary operations and task execution in Global Freight Carrier Selection & Dynamic Route Dispatch."
+      },
+      {
+        "id": "role-freight-logistics-dispatch-mgr",
+        "name": "Global Lead",
+        "department": "Supply Chain",
+        "headcount": 3,
+        "avg_salary": 105000.0,
+        "transition_risk": "Medium",
+        "description": "Oversees exceptions, strategy, and compliance for Global Freight Carrier Selection & Dynamic Route Dispatch."
+      }
+    ],
+    "skills": [
+      {
+        "id": "skill-freight-logistics-dispatch-exec",
+        "name": "Operational Dispatch Execution",
+        "category": "Operational",
+        "urgency_to_reskill": "High",
+        "reskill_time_weeks": 4,
+        "description": "Execution of core manual procedures in Global Freight Carrier Selection & Dynamic Route Dispatch.",
+        "evolution_path": "AI Agent Supervision in Supply Chain"
+      },
+      {
+        "id": "skill-freight-logistics-dispatch-audit",
+        "name": "Supply Chain Compliance & Quality Auditing",
+        "category": "Domain",
+        "urgency_to_reskill": "Medium",
+        "reskill_time_weeks": 6,
+        "description": "Regulatory and operational auditing standards for Global Freight Carrier Selection & Dynamic Route Dispatch.",
+        "evolution_path": "Automated Supply Chain Policy Engineering"
+      },
+      {
+        "id": "skill-freight-logistics-dispatch-ai-gov",
+        "name": "Autonomous Supply Chain Agent Governance",
+        "category": "Cognitive",
+        "urgency_to_reskill": "Low",
+        "reskill_time_weeks": 8,
+        "description": "Orchestration, prompt tuning, and exception validation for AI models.",
+        "evolution_path": "Enterprise Supply Chain Transformation Architect"
+      }
+    ],
+    "relationships": []
+  },
+  {
+    "id": "proc-supplier-quality-audit",
+    "name": "Supplier Quality Control & Scorecard Benchmarking",
+    "domain": "Supply Chain",
+    "description": "Defect rate tracking, ISO audit trail validation, supplier corrective action requests (SCAR), and SLA enforcement.",
+    "cycle_time_days": 15.0,
+    "frequency": "Quarterly",
+    "overall_automation_potential": 0.7,
+    "activities": [
+      {
+        "id": "act-supplier-quality-audit-1",
+        "name": "Intake & Data Extraction (Supplier)",
+        "step_number": 1,
+        "automation_feasibility": 0.78,
+        "ai_disruption_potential": "High",
+        "description": "Capturing unstructured intake data and validating schema compliance for Supplier Quality Control & Scorecard Benchmarking.",
+        "executing_roles": [
+          "role-supplier-quality-audit-spec"
+        ],
+        "required_skills": [
+          "skill-supplier-quality-audit-exec"
+        ],
+        "ai_tools_recommended": [
+          "Document Parser Agent",
+          "Intelligent Webhook Filter"
+        ]
+      },
+      {
+        "id": "act-supplier-quality-audit-2",
+        "name": "Validation, Matching & Processing (Supplier)",
+        "step_number": 2,
+        "automation_feasibility": 0.7,
+        "ai_disruption_potential": "High",
+        "description": "Executing core business logic and rules engine matching for Supplier Quality Control & Scorecard Benchmarking.",
+        "executing_roles": [
+          "role-supplier-quality-audit-spec"
+        ],
+        "required_skills": [
+          "skill-supplier-quality-audit-exec",
+          "skill-supplier-quality-audit-audit"
+        ],
+        "ai_tools_recommended": [
+          "Automated Business Rules Engine",
+          "LLM Workflow Copilot"
+        ]
+      },
+      {
+        "id": "act-supplier-quality-audit-3",
+        "name": "Exception Resolution & Governance Approval",
+        "step_number": 3,
+        "automation_feasibility": 0.48,
+        "ai_disruption_potential": "Medium",
+        "description": "Handling out-of-policy edge cases, dispute negotiation, and sign-offs.",
+        "executing_roles": [
+          "role-supplier-quality-audit-mgr"
+        ],
+        "required_skills": [
+          "skill-supplier-quality-audit-audit",
+          "skill-supplier-quality-audit-ai-gov"
+        ],
+        "ai_tools_recommended": [
+          "Exception Resolution Copilot",
+          "Executive Approval Bot"
+        ]
+      }
+    ],
+    "roles": [
+      {
+        "id": "role-supplier-quality-audit-spec",
+        "name": "Supplier Specialist",
+        "department": "Supply Chain",
+        "headcount": 10,
+        "avg_salary": 65000.0,
+        "transition_risk": "Medium",
+        "description": "Responsible for primary operations and task execution in Supplier Quality Control & Scorecard Benchmarking."
+      },
+      {
+        "id": "role-supplier-quality-audit-mgr",
+        "name": "Supplier Lead",
+        "department": "Supply Chain",
+        "headcount": 3,
+        "avg_salary": 105000.0,
+        "transition_risk": "Low",
+        "description": "Oversees exceptions, strategy, and compliance for Supplier Quality Control & Scorecard Benchmarking."
+      }
+    ],
+    "skills": [
+      {
+        "id": "skill-supplier-quality-audit-exec",
+        "name": "Operational Benchmarking Execution",
+        "category": "Operational",
+        "urgency_to_reskill": "High",
+        "reskill_time_weeks": 4,
+        "description": "Execution of core manual procedures in Supplier Quality Control & Scorecard Benchmarking.",
+        "evolution_path": "AI Agent Supervision in Supply Chain"
+      },
+      {
+        "id": "skill-supplier-quality-audit-audit",
+        "name": "Supply Chain Compliance & Quality Auditing",
+        "category": "Domain",
+        "urgency_to_reskill": "Medium",
+        "reskill_time_weeks": 6,
+        "description": "Regulatory and operational auditing standards for Supplier Quality Control & Scorecard Benchmarking.",
+        "evolution_path": "Automated Supply Chain Policy Engineering"
+      },
+      {
+        "id": "skill-supplier-quality-audit-ai-gov",
+        "name": "Autonomous Supply Chain Agent Governance",
+        "category": "Cognitive",
+        "urgency_to_reskill": "Low",
+        "reskill_time_weeks": 8,
+        "description": "Orchestration, prompt tuning, and exception validation for AI models.",
+        "evolution_path": "Enterprise Supply Chain Transformation Architect"
+      }
+    ],
+    "relationships": []
+  },
+  {
+    "id": "proc-customer-churn-prevention",
+    "name": "Customer Success Churn Prevention & Retention",
+    "domain": "Customer Support",
+    "description": "Usage telemetry anomaly detection, health index scoring, proactive intervention playbook generation, and QBR briefings.",
+    "cycle_time_days": 7.0,
+    "frequency": "Weekly",
+    "overall_automation_potential": 0.72,
+    "activities": [
+      {
+        "id": "act-customer-churn-prevention-1",
+        "name": "Intake & Data Extraction (Customer)",
+        "step_number": 1,
+        "automation_feasibility": 0.8,
+        "ai_disruption_potential": "High",
+        "description": "Capturing unstructured intake data and validating schema compliance for Customer Success Churn Prevention & Retention.",
+        "executing_roles": [
+          "role-customer-churn-prevention-spec"
+        ],
+        "required_skills": [
+          "skill-customer-churn-prevention-exec"
+        ],
+        "ai_tools_recommended": [
+          "Document Parser Agent",
+          "Intelligent Webhook Filter"
+        ]
+      },
+      {
+        "id": "act-customer-churn-prevention-2",
+        "name": "Validation, Matching & Processing (Customer)",
+        "step_number": 2,
+        "automation_feasibility": 0.72,
+        "ai_disruption_potential": "High",
+        "description": "Executing core business logic and rules engine matching for Customer Success Churn Prevention & Retention.",
+        "executing_roles": [
+          "role-customer-churn-prevention-spec"
+        ],
+        "required_skills": [
+          "skill-customer-churn-prevention-exec",
+          "skill-customer-churn-prevention-audit"
+        ],
+        "ai_tools_recommended": [
+          "Automated Business Rules Engine",
+          "LLM Workflow Copilot"
+        ]
+      },
+      {
+        "id": "act-customer-churn-prevention-3",
+        "name": "Exception Resolution & Governance Approval",
+        "step_number": 3,
+        "automation_feasibility": 0.5,
+        "ai_disruption_potential": "Medium",
+        "description": "Handling out-of-policy edge cases, dispute negotiation, and sign-offs.",
+        "executing_roles": [
+          "role-customer-churn-prevention-mgr"
+        ],
+        "required_skills": [
+          "skill-customer-churn-prevention-audit",
+          "skill-customer-churn-prevention-ai-gov"
+        ],
+        "ai_tools_recommended": [
+          "Exception Resolution Copilot",
+          "Executive Approval Bot"
+        ]
+      }
+    ],
+    "roles": [
+      {
+        "id": "role-customer-churn-prevention-spec",
+        "name": "Customer Specialist",
+        "department": "Customer Support",
+        "headcount": 10,
+        "avg_salary": 65000.0,
+        "transition_risk": "Medium",
+        "description": "Responsible for primary operations and task execution in Customer Success Churn Prevention & Retention."
+      },
+      {
+        "id": "role-customer-churn-prevention-mgr",
+        "name": "Customer Lead",
+        "department": "Customer Support",
+        "headcount": 3,
+        "avg_salary": 105000.0,
+        "transition_risk": "Low",
+        "description": "Oversees exceptions, strategy, and compliance for Customer Success Churn Prevention & Retention."
+      }
+    ],
+    "skills": [
+      {
+        "id": "skill-customer-churn-prevention-exec",
+        "name": "Operational Retention Execution",
+        "category": "Operational",
+        "urgency_to_reskill": "High",
+        "reskill_time_weeks": 4,
+        "description": "Execution of core manual procedures in Customer Success Churn Prevention & Retention.",
+        "evolution_path": "AI Agent Supervision in Customer Support"
+      },
+      {
+        "id": "skill-customer-churn-prevention-audit",
+        "name": "Customer Support Compliance & Quality Auditing",
+        "category": "Domain",
+        "urgency_to_reskill": "Medium",
+        "reskill_time_weeks": 6,
+        "description": "Regulatory and operational auditing standards for Customer Success Churn Prevention & Retention.",
+        "evolution_path": "Automated Customer Support Policy Engineering"
+      },
+      {
+        "id": "skill-customer-churn-prevention-ai-gov",
+        "name": "Autonomous Customer Support Agent Governance",
+        "category": "Cognitive",
+        "urgency_to_reskill": "Low",
+        "reskill_time_weeks": 8,
+        "description": "Orchestration, prompt tuning, and exception validation for AI models.",
+        "evolution_path": "Enterprise Customer Support Transformation Architect"
+      }
+    ],
+    "relationships": []
+  },
+  {
+    "id": "proc-omnichannel-support-routing",
+    "name": "Omnichannel Customer Support & Automated Agent Response",
+    "domain": "Customer Support",
+    "description": "Customer sentiment analysis, intent classification, AI draft response generation, and Tier 2 human escalation.",
+    "cycle_time_days": 0.2,
+    "frequency": "Real-time",
+    "overall_automation_potential": 0.9,
+    "activities": [
+      {
+        "id": "act-omnichannel-support-routing-1",
+        "name": "Intake & Data Extraction (Omnichannel)",
+        "step_number": 1,
+        "automation_feasibility": 0.98,
+        "ai_disruption_potential": "Critical",
+        "description": "Capturing unstructured intake data and validating schema compliance for Omnichannel Customer Support & Automated Agent Response.",
+        "executing_roles": [
+          "role-omnichannel-support-routing-spec"
+        ],
+        "required_skills": [
+          "skill-omnichannel-support-routing-exec"
+        ],
+        "ai_tools_recommended": [
+          "Document Parser Agent",
+          "Intelligent Webhook Filter"
+        ]
+      },
+      {
+        "id": "act-omnichannel-support-routing-2",
+        "name": "Validation, Matching & Processing (Omnichannel)",
+        "step_number": 2,
+        "automation_feasibility": 0.9,
+        "ai_disruption_potential": "High",
+        "description": "Executing core business logic and rules engine matching for Omnichannel Customer Support & Automated Agent Response.",
+        "executing_roles": [
+          "role-omnichannel-support-routing-spec"
+        ],
+        "required_skills": [
+          "skill-omnichannel-support-routing-exec",
+          "skill-omnichannel-support-routing-audit"
+        ],
+        "ai_tools_recommended": [
+          "Automated Business Rules Engine",
+          "LLM Workflow Copilot"
+        ]
+      },
+      {
+        "id": "act-omnichannel-support-routing-3",
+        "name": "Exception Resolution & Governance Approval",
+        "step_number": 3,
+        "automation_feasibility": 0.68,
+        "ai_disruption_potential": "Medium",
+        "description": "Handling out-of-policy edge cases, dispute negotiation, and sign-offs.",
+        "executing_roles": [
+          "role-omnichannel-support-routing-mgr"
+        ],
+        "required_skills": [
+          "skill-omnichannel-support-routing-audit",
+          "skill-omnichannel-support-routing-ai-gov"
+        ],
+        "ai_tools_recommended": [
+          "Exception Resolution Copilot",
+          "Executive Approval Bot"
+        ]
+      }
+    ],
+    "roles": [
+      {
+        "id": "role-omnichannel-support-routing-spec",
+        "name": "Omnichannel Specialist",
+        "department": "Customer Support",
+        "headcount": 10,
+        "avg_salary": 65000.0,
+        "transition_risk": "High",
+        "description": "Responsible for primary operations and task execution in Omnichannel Customer Support & Automated Agent Response."
+      },
+      {
+        "id": "role-omnichannel-support-routing-mgr",
+        "name": "Omnichannel Lead",
+        "department": "Customer Support",
+        "headcount": 3,
+        "avg_salary": 105000.0,
+        "transition_risk": "Medium",
+        "description": "Oversees exceptions, strategy, and compliance for Omnichannel Customer Support & Automated Agent Response."
+      }
+    ],
+    "skills": [
+      {
+        "id": "skill-omnichannel-support-routing-exec",
+        "name": "Operational Response Execution",
+        "category": "Operational",
+        "urgency_to_reskill": "Critical",
+        "reskill_time_weeks": 4,
+        "description": "Execution of core manual procedures in Omnichannel Customer Support & Automated Agent Response.",
+        "evolution_path": "AI Agent Supervision in Customer Support"
+      },
+      {
+        "id": "skill-omnichannel-support-routing-audit",
+        "name": "Customer Support Compliance & Quality Auditing",
+        "category": "Domain",
+        "urgency_to_reskill": "Medium",
+        "reskill_time_weeks": 6,
+        "description": "Regulatory and operational auditing standards for Omnichannel Customer Support & Automated Agent Response.",
+        "evolution_path": "Automated Customer Support Policy Engineering"
+      },
+      {
+        "id": "skill-omnichannel-support-routing-ai-gov",
+        "name": "Autonomous Customer Support Agent Governance",
+        "category": "Cognitive",
+        "urgency_to_reskill": "Low",
+        "reskill_time_weeks": 8,
+        "description": "Orchestration, prompt tuning, and exception validation for AI models.",
+        "evolution_path": "Enterprise Customer Support Transformation Architect"
+      }
+    ],
+    "relationships": []
+  },
+  {
+    "id": "proc-voice-of-customer-synthesis",
+    "name": "Voice-of-Customer (VoC) Product Feedback Synthesis",
+    "domain": "Customer Support",
+    "description": "Aggregating NPS surveys, support transcripts, app store reviews, and generating product feature prioritization matrices.",
+    "cycle_time_days": 14.0,
+    "frequency": "Monthly",
+    "overall_automation_potential": 0.84,
+    "activities": [
+      {
+        "id": "act-voice-of-customer-synthesis-1",
+        "name": "Intake & Data Extraction (Voice-of-Customer)",
+        "step_number": 1,
+        "automation_feasibility": 0.92,
+        "ai_disruption_potential": "Critical",
+        "description": "Capturing unstructured intake data and validating schema compliance for Voice-of-Customer (VoC) Product Feedback Synthesis.",
+        "executing_roles": [
+          "role-voice-of-customer-synthesis-spec"
+        ],
+        "required_skills": [
+          "skill-voice-of-customer-synthesis-exec"
+        ],
+        "ai_tools_recommended": [
+          "Document Parser Agent",
+          "Intelligent Webhook Filter"
+        ]
+      },
+      {
+        "id": "act-voice-of-customer-synthesis-2",
+        "name": "Validation, Matching & Processing (Voice-of-Customer)",
+        "step_number": 2,
+        "automation_feasibility": 0.84,
+        "ai_disruption_potential": "High",
+        "description": "Executing core business logic and rules engine matching for Voice-of-Customer (VoC) Product Feedback Synthesis.",
+        "executing_roles": [
+          "role-voice-of-customer-synthesis-spec"
+        ],
+        "required_skills": [
+          "skill-voice-of-customer-synthesis-exec",
+          "skill-voice-of-customer-synthesis-audit"
+        ],
+        "ai_tools_recommended": [
+          "Automated Business Rules Engine",
+          "LLM Workflow Copilot"
+        ]
+      },
+      {
+        "id": "act-voice-of-customer-synthesis-3",
+        "name": "Exception Resolution & Governance Approval",
+        "step_number": 3,
+        "automation_feasibility": 0.62,
+        "ai_disruption_potential": "Medium",
+        "description": "Handling out-of-policy edge cases, dispute negotiation, and sign-offs.",
+        "executing_roles": [
+          "role-voice-of-customer-synthesis-mgr"
+        ],
+        "required_skills": [
+          "skill-voice-of-customer-synthesis-audit",
+          "skill-voice-of-customer-synthesis-ai-gov"
+        ],
+        "ai_tools_recommended": [
+          "Exception Resolution Copilot",
+          "Executive Approval Bot"
+        ]
+      }
+    ],
+    "roles": [
+      {
+        "id": "role-voice-of-customer-synthesis-spec",
+        "name": "Voice-of-Customer Specialist",
+        "department": "Customer Support",
+        "headcount": 10,
+        "avg_salary": 65000.0,
+        "transition_risk": "High",
+        "description": "Responsible for primary operations and task execution in Voice-of-Customer (VoC) Product Feedback Synthesis."
+      },
+      {
+        "id": "role-voice-of-customer-synthesis-mgr",
+        "name": "Voice-of-Customer Lead",
+        "department": "Customer Support",
+        "headcount": 3,
+        "avg_salary": 105000.0,
+        "transition_risk": "Medium",
+        "description": "Oversees exceptions, strategy, and compliance for Voice-of-Customer (VoC) Product Feedback Synthesis."
+      }
+    ],
+    "skills": [
+      {
+        "id": "skill-voice-of-customer-synthesis-exec",
+        "name": "Operational Synthesis Execution",
+        "category": "Operational",
+        "urgency_to_reskill": "High",
+        "reskill_time_weeks": 4,
+        "description": "Execution of core manual procedures in Voice-of-Customer (VoC) Product Feedback Synthesis.",
+        "evolution_path": "AI Agent Supervision in Customer Support"
+      },
+      {
+        "id": "skill-voice-of-customer-synthesis-audit",
+        "name": "Customer Support Compliance & Quality Auditing",
+        "category": "Domain",
+        "urgency_to_reskill": "Medium",
+        "reskill_time_weeks": 6,
+        "description": "Regulatory and operational auditing standards for Voice-of-Customer (VoC) Product Feedback Synthesis.",
+        "evolution_path": "Automated Customer Support Policy Engineering"
+      },
+      {
+        "id": "skill-voice-of-customer-synthesis-ai-gov",
+        "name": "Autonomous Customer Support Agent Governance",
+        "category": "Cognitive",
+        "urgency_to_reskill": "Low",
+        "reskill_time_weeks": 8,
+        "description": "Orchestration, prompt tuning, and exception validation for AI models.",
+        "evolution_path": "Enterprise Customer Support Transformation Architect"
+      }
+    ],
+    "relationships": []
+  },
+  {
+    "id": "proc-ad-campaign-bidding",
+    "name": "Programmatic Ad Campaign Optimization & Real-Time Bidding",
+    "domain": "Marketing & Operations",
+    "description": "Multi-channel ROAS attribution, creative copy generation, keyword bid adjustment, and audience cohort re-targeting.",
+    "cycle_time_days": 1.0,
+    "frequency": "Daily",
+    "overall_automation_potential": 0.92,
+    "activities": [
+      {
+        "id": "act-ad-campaign-bidding-1",
+        "name": "Intake & Data Extraction (Programmatic)",
+        "step_number": 1,
+        "automation_feasibility": 0.98,
+        "ai_disruption_potential": "Critical",
+        "description": "Capturing unstructured intake data and validating schema compliance for Programmatic Ad Campaign Optimization & Real-Time Bidding.",
+        "executing_roles": [
+          "role-ad-campaign-bidding-spec"
+        ],
+        "required_skills": [
+          "skill-ad-campaign-bidding-exec"
+        ],
+        "ai_tools_recommended": [
+          "Document Parser Agent",
+          "Intelligent Webhook Filter"
+        ]
+      },
+      {
+        "id": "act-ad-campaign-bidding-2",
+        "name": "Validation, Matching & Processing (Programmatic)",
+        "step_number": 2,
+        "automation_feasibility": 0.92,
+        "ai_disruption_potential": "High",
+        "description": "Executing core business logic and rules engine matching for Programmatic Ad Campaign Optimization & Real-Time Bidding.",
+        "executing_roles": [
+          "role-ad-campaign-bidding-spec"
+        ],
+        "required_skills": [
+          "skill-ad-campaign-bidding-exec",
+          "skill-ad-campaign-bidding-audit"
+        ],
+        "ai_tools_recommended": [
+          "Automated Business Rules Engine",
+          "LLM Workflow Copilot"
+        ]
+      },
+      {
+        "id": "act-ad-campaign-bidding-3",
+        "name": "Exception Resolution & Governance Approval",
+        "step_number": 3,
+        "automation_feasibility": 0.7,
+        "ai_disruption_potential": "Medium",
+        "description": "Handling out-of-policy edge cases, dispute negotiation, and sign-offs.",
+        "executing_roles": [
+          "role-ad-campaign-bidding-mgr"
+        ],
+        "required_skills": [
+          "skill-ad-campaign-bidding-audit",
+          "skill-ad-campaign-bidding-ai-gov"
+        ],
+        "ai_tools_recommended": [
+          "Exception Resolution Copilot",
+          "Executive Approval Bot"
+        ]
+      }
+    ],
+    "roles": [
+      {
+        "id": "role-ad-campaign-bidding-spec",
+        "name": "Programmatic Specialist",
+        "department": "Marketing & Operations",
+        "headcount": 10,
+        "avg_salary": 65000.0,
+        "transition_risk": "High",
+        "description": "Responsible for primary operations and task execution in Programmatic Ad Campaign Optimization & Real-Time Bidding."
+      },
+      {
+        "id": "role-ad-campaign-bidding-mgr",
+        "name": "Programmatic Lead",
+        "department": "Marketing & Operations",
+        "headcount": 3,
+        "avg_salary": 105000.0,
+        "transition_risk": "Medium",
+        "description": "Oversees exceptions, strategy, and compliance for Programmatic Ad Campaign Optimization & Real-Time Bidding."
+      }
+    ],
+    "skills": [
+      {
+        "id": "skill-ad-campaign-bidding-exec",
+        "name": "Operational Bidding Execution",
+        "category": "Operational",
+        "urgency_to_reskill": "Critical",
+        "reskill_time_weeks": 4,
+        "description": "Execution of core manual procedures in Programmatic Ad Campaign Optimization & Real-Time Bidding.",
+        "evolution_path": "AI Agent Supervision in Marketing & Operations"
+      },
+      {
+        "id": "skill-ad-campaign-bidding-audit",
+        "name": "Marketing & Operations Compliance & Quality Auditing",
+        "category": "Domain",
+        "urgency_to_reskill": "Medium",
+        "reskill_time_weeks": 6,
+        "description": "Regulatory and operational auditing standards for Programmatic Ad Campaign Optimization & Real-Time Bidding.",
+        "evolution_path": "Automated Marketing & Operations Policy Engineering"
+      },
+      {
+        "id": "skill-ad-campaign-bidding-ai-gov",
+        "name": "Autonomous Marketing & Operations Agent Governance",
+        "category": "Cognitive",
+        "urgency_to_reskill": "Low",
+        "reskill_time_weeks": 8,
+        "description": "Orchestration, prompt tuning, and exception validation for AI models.",
+        "evolution_path": "Enterprise Marketing & Operations Transformation Architect"
+      }
+    ],
+    "relationships": []
+  },
+  {
+    "id": "proc-enterprise-rfi-response",
+    "name": "Enterprise RFP/RFI Proposal Generation & Compliance Matrix",
+    "domain": "Marketing & Operations",
+    "description": "RFP requirement shredding, knowledge base answer retrieval, technical compliance matrix generation, and pricing approval.",
+    "cycle_time_days": 5.0,
+    "frequency": "Weekly",
+    "overall_automation_potential": 0.79,
+    "activities": [
+      {
+        "id": "act-enterprise-rfi-response-1",
+        "name": "Intake & Data Extraction (Enterprise)",
+        "step_number": 1,
+        "automation_feasibility": 0.87,
+        "ai_disruption_potential": "High",
+        "description": "Capturing unstructured intake data and validating schema compliance for Enterprise RFP/RFI Proposal Generation & Compliance Matrix.",
+        "executing_roles": [
+          "role-enterprise-rfi-response-spec"
+        ],
+        "required_skills": [
+          "skill-enterprise-rfi-response-exec"
+        ],
+        "ai_tools_recommended": [
+          "Document Parser Agent",
+          "Intelligent Webhook Filter"
+        ]
+      },
+      {
+        "id": "act-enterprise-rfi-response-2",
+        "name": "Validation, Matching & Processing (Enterprise)",
+        "step_number": 2,
+        "automation_feasibility": 0.79,
+        "ai_disruption_potential": "High",
+        "description": "Executing core business logic and rules engine matching for Enterprise RFP/RFI Proposal Generation & Compliance Matrix.",
+        "executing_roles": [
+          "role-enterprise-rfi-response-spec"
+        ],
+        "required_skills": [
+          "skill-enterprise-rfi-response-exec",
+          "skill-enterprise-rfi-response-audit"
+        ],
+        "ai_tools_recommended": [
+          "Automated Business Rules Engine",
+          "LLM Workflow Copilot"
+        ]
+      },
+      {
+        "id": "act-enterprise-rfi-response-3",
+        "name": "Exception Resolution & Governance Approval",
+        "step_number": 3,
+        "automation_feasibility": 0.57,
+        "ai_disruption_potential": "Medium",
+        "description": "Handling out-of-policy edge cases, dispute negotiation, and sign-offs.",
+        "executing_roles": [
+          "role-enterprise-rfi-response-mgr"
+        ],
+        "required_skills": [
+          "skill-enterprise-rfi-response-audit",
+          "skill-enterprise-rfi-response-ai-gov"
+        ],
+        "ai_tools_recommended": [
+          "Exception Resolution Copilot",
+          "Executive Approval Bot"
+        ]
+      }
+    ],
+    "roles": [
+      {
+        "id": "role-enterprise-rfi-response-spec",
+        "name": "Enterprise Specialist",
+        "department": "Marketing & Operations",
+        "headcount": 10,
+        "avg_salary": 65000.0,
+        "transition_risk": "Medium",
+        "description": "Responsible for primary operations and task execution in Enterprise RFP/RFI Proposal Generation & Compliance Matrix."
+      },
+      {
+        "id": "role-enterprise-rfi-response-mgr",
+        "name": "Enterprise Lead",
+        "department": "Marketing & Operations",
+        "headcount": 3,
+        "avg_salary": 105000.0,
+        "transition_risk": "Low",
+        "description": "Oversees exceptions, strategy, and compliance for Enterprise RFP/RFI Proposal Generation & Compliance Matrix."
+      }
+    ],
+    "skills": [
+      {
+        "id": "skill-enterprise-rfi-response-exec",
+        "name": "Operational Matrix Execution",
+        "category": "Operational",
+        "urgency_to_reskill": "High",
+        "reskill_time_weeks": 4,
+        "description": "Execution of core manual procedures in Enterprise RFP/RFI Proposal Generation & Compliance Matrix.",
+        "evolution_path": "AI Agent Supervision in Marketing & Operations"
+      },
+      {
+        "id": "skill-enterprise-rfi-response-audit",
+        "name": "Marketing & Operations Compliance & Quality Auditing",
+        "category": "Domain",
+        "urgency_to_reskill": "Medium",
+        "reskill_time_weeks": 6,
+        "description": "Regulatory and operational auditing standards for Enterprise RFP/RFI Proposal Generation & Compliance Matrix.",
+        "evolution_path": "Automated Marketing & Operations Policy Engineering"
+      },
+      {
+        "id": "skill-enterprise-rfi-response-ai-gov",
+        "name": "Autonomous Marketing & Operations Agent Governance",
+        "category": "Cognitive",
+        "urgency_to_reskill": "Low",
+        "reskill_time_weeks": 8,
+        "description": "Orchestration, prompt tuning, and exception validation for AI models.",
+        "evolution_path": "Enterprise Marketing & Operations Transformation Architect"
+      }
+    ],
+    "relationships": []
+  }
+]

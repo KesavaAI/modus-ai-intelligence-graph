@@ -1,0 +1,14 @@
+services:
+  # Backend FastAPI Service (Free Tier)
+  - type: web
+    name: modus-ai-graph-backend
+    env: python
+    region: oregon
+    plan: free
+    buildCommand: pip install -r backend/requirements.txt
+    startCommand: python -u backend/run_server.py
+    envVars:
+      - key: PORT
+        value: 8000
+      - key: PYTHON_VERSION
+        value: 3.11.8
