@@ -1,9 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: "export",
   reactStrictMode: false,
-  webpack: (config) => {
-    return config;
-  },
+  trailingSlash: true,
+  images: { unoptimized: true },
 };
 
 export default nextConfig;
