@@ -1,5 +1,7 @@
 # Enterprise AI Intelligence Graph (Modus Stage 2 Challenge)
 
+![Enterprise AI Intelligence Graph](docs/hero-banner.png)
+
 A full-stack, enterprise-grade **Process × Role × Skill Intelligence Graph** application designed to systematically ingest business processes, model multi-hop entity relationships, compute downstream cascading workforce impacts, and execute dynamic live graph ingestion with persistent storage.
 
 ---
