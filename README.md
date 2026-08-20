@@ -6,7 +6,7 @@ A full-stack, enterprise-grade **Process × Role × Skill Intelligence Graph** a
 
 ---
 
-## 🌟 1. What is This Project & What Problem Does It Solve? (Plain English)
+## 🌟 1. What is This Project & What Problem Does It Solve?
 
 ### 🏢 The Real-World Problem: "The Manager's Dilemma"
 Imagine you are the manager of an enterprise with **14 employees** whose only daily job is to open vendor PDF bills and manually type numbers into accounting software. You pay them **$58,000/year each ($800,000+ total annual payroll)**.
