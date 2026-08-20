@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import graphData from "../graph/all/graph_db.json";
+import graphData from "../../graph/all/graph_db.json";
 
 export async function POST(req: NextRequest) {
   try {
