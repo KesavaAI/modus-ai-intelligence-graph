@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useMemo } from "react";
+import dynamic from "next/dynamic";
 import {
   Layers,
   Zap,
@@ -18,9 +19,21 @@ import {
   AlertCircle,
   HelpCircle,
 } from "lucide-react";
-import { GraphCanvas } from "@/components/GraphCanvas";
 import { SurpriseRecordModal } from "@/components/SurpriseRecordModal";
 import { CascadeImpactDrawer } from "@/components/CascadeImpactDrawer";
+
+const GraphCanvas = dynamic(
+  () => import("@/components/GraphCanvas").then((mod) => ({ default: mod.GraphCanvas })),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="w-full h-full flex flex-col items-center justify-center bg-[#090d16] text-slate-400 text-xs gap-2 rounded-2xl border border-slate-800">
+        <div className="w-6 h-6 border-2 border-blue-500 border-t-transparent rounded-full animate-spin" />
+        <span>Initializing Interactive Graph Canvas...</span>
+      </div>
+    ),
+  }
+);
 
 export default function DashboardPage() {
   const [graphData, setGraphData] = useState<{ nodes: any[]; edges: any[]; stats: any }>({
