@@ -38,7 +38,7 @@ export default function DashboardPage() {
   const [isSeeding, setIsSeeding] = useState<boolean>(false);
   const [health, setHealth] = useState<any>({ neo4j_connected: false, groq_configured: false });
 
-  const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+  const API_BASE = typeof window !== "undefined" && process.env.NEXT_PUBLIC_API_URL ? process.env.NEXT_PUBLIC_API_URL.replace(/\/$/, '') : "";
 
   // Fetch Entire Graph
   const fetchGraph = async () => {

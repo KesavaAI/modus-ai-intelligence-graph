@@ -38,7 +38,7 @@ export function CascadeImpactDrawer({
       setLoading(true);
       setError(null);
       try {
-        const apiBase = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+        const apiBase = typeof window !== "undefined" && process.env.NEXT_PUBLIC_API_URL ? process.env.NEXT_PUBLIC_API_URL.replace(/\/$/, '') : "";
         const res = await fetch(
           `${apiBase}/api/v1/intelligence/cascade`,
           {

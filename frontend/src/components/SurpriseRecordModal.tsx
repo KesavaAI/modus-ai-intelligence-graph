@@ -87,7 +87,7 @@ export function SurpriseRecordModal({
     setCurrentStep(1);
 
     try {
-      const apiBase = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+      const apiBase = typeof window !== "undefined" && process.env.NEXT_PUBLIC_API_URL ? process.env.NEXT_PUBLIC_API_URL.replace(/\/$/, '') : "";
       // Step 1 Simulation transition
       await new Promise((r) => setTimeout(r, 600));
       setCurrentStep(2);

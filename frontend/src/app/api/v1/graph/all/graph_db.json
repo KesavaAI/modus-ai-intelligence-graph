@@ -1,0 +1,5042 @@
+{
+  "nodes": [
+    {
+      "id": "proc-invoice-processing",
+      "label": "Accounts Payable Invoice Processing & 3-Way Matching",
+      "type": "Process",
+      "data": {
+        "name": "Accounts Payable Invoice Processing & 3-Way Matching",
+        "domain": "Finance",
+        "description": "Receipt, automated OCR extraction, 3-way matching against POs, discrepancy resolution, and GL posting.",
+        "cycle_time_days": 4.0,
+        "frequency": "Daily",
+        "overall_automation_potential": 0.88,
+        "activities_count": 3,
+        "roles_count": 2
+      }
+    },
+    {
+      "id": "act-invoice-processing-1",
+      "label": "Intake & Data Extraction (Accounts)",
+      "type": "Activity",
+      "data": {
+        "name": "Intake & Data Extraction (Accounts)",
+        "step_number": 1,
+        "automation_feasibility": 0.96,
+        "ai_disruption_potential": "Critical",
+        "description": "Capturing unstructured intake data and validating schema compliance for Accounts Payable Invoice Processing & 3-Way Matching.",
+        "process_id": "proc-invoice-processing"
+      }
+    },
+    {
+      "id": "act-invoice-processing-2",
+      "label": "Validation, Matching & Processing (Accounts)",
+      "type": "Activity",
+      "data": {
+        "name": "Validation, Matching & Processing (Accounts)",
+        "step_number": 2,
+        "automation_feasibility": 0.88,
+        "ai_disruption_potential": "High",
+        "description": "Executing core business logic and rules engine matching for Accounts Payable Invoice Processing & 3-Way Matching.",
+        "process_id": "proc-invoice-processing"
+      }
+    },
+    {
+      "id": "act-invoice-processing-3",
+      "label": "Exception Resolution & Governance Approval",
+      "type": "Activity",
+      "data": {
+        "name": "Exception Resolution & Governance Approval",
+        "step_number": 3,
+        "automation_feasibility": 0.66,
+        "ai_disruption_potential": "Medium",
+        "description": "Handling out-of-policy edge cases, dispute negotiation, and sign-offs.",
+        "process_id": "proc-invoice-processing"
+      }
+    },
+    {
+      "id": "role-invoice-processing-spec",
+      "label": "Accounts Specialist",
+      "type": "Role",
+      "data": {
+        "id": "role-invoice-processing-spec",
+        "name": "Accounts Specialist",
+        "department": "Finance",
+        "headcount": 10,
+        "avg_salary": 65000.0,
+        "transition_risk": "High",
+        "description": "Responsible for primary operations and task execution in Accounts Payable Invoice Processing & 3-Way Matching."
+      }
+    },
+    {
+      "id": "role-invoice-processing-mgr",
+      "label": "Accounts Lead",
+      "type": "Role",
+      "data": {
+        "id": "role-invoice-processing-mgr",
+        "name": "Accounts Lead",
+        "department": "Finance",
+        "headcount": 3,
+        "avg_salary": 105000.0,
+        "transition_risk": "Medium",
+        "description": "Oversees exceptions, strategy, and compliance for Accounts Payable Invoice Processing & 3-Way Matching."
+      }
+    },
+    {
+      "id": "skill-invoice-processing-exec",
+      "label": "Operational Matching Execution",
+      "type": "Skill",
+      "data": {
+        "id": "skill-invoice-processing-exec",
+        "name": "Operational Matching Execution",
+        "category": "Operational",
+        "urgency_to_reskill": "Critical",
+        "reskill_time_weeks": 4,
+        "description": "Execution of core manual procedures in Accounts Payable Invoice Processing & 3-Way Matching.",
+        "evolution_path": "AI Agent Supervision in Finance"
+      }
+    },
+    {
+      "id": "skill-invoice-processing-audit",
+      "label": "Finance Compliance & Quality Auditing",
+      "type": "Skill",
+      "data": {
+        "id": "skill-invoice-processing-audit",
+        "name": "Finance Compliance & Quality Auditing",
+        "category": "Domain",
+        "urgency_to_reskill": "Medium",
+        "reskill_time_weeks": 6,
+        "description": "Regulatory and operational auditing standards for Accounts Payable Invoice Processing & 3-Way Matching.",
+        "evolution_path": "Automated Finance Policy Engineering"
+      }
+    },
+    {
+      "id": "skill-invoice-processing-ai-gov",
+      "label": "Autonomous Finance Agent Governance",
+      "type": "Skill",
+      "data": {
+        "id": "skill-invoice-processing-ai-gov",
+        "name": "Autonomous Finance Agent Governance",
+        "category": "Cognitive",
+        "urgency_to_reskill": "Low",
+        "reskill_time_weeks": 8,
+        "description": "Orchestration, prompt tuning, and exception validation for AI models.",
+        "evolution_path": "Enterprise Finance Transformation Architect"
+      }
+    },
+    {
+      "id": "proc-financial-month-end-close",
+      "label": "Financial Month-End Ledger Reconciliation & Close",
+      "type": "Process",
+      "data": {
+        "name": "Financial Month-End Ledger Reconciliation & Close",
+        "domain": "Finance",
+        "description": "Balance sheet reconciliations, accrual journal entries, fixed asset depreciation, and consolidated P&L reporting.",
+        "cycle_time_days": 5.0,
+        "frequency": "Monthly",
+        "overall_automation_potential": 0.82,
+        "activities_count": 3,
+        "roles_count": 2
+      }
+    },
+    {
+      "id": "act-financial-month-end-close-1",
+      "label": "Intake & Data Extraction (Financial)",
+      "type": "Activity",
+      "data": {
+        "name": "Intake & Data Extraction (Financial)",
+        "step_number": 1,
+        "automation_feasibility": 0.9,
+        "ai_disruption_potential": "High",
+        "description": "Capturing unstructured intake data and validating schema compliance for Financial Month-End Ledger Reconciliation & Close.",
+        "process_id": "proc-financial-month-end-close"
+      }
+    },
+    {
+      "id": "act-financial-month-end-close-2",
+      "label": "Validation, Matching & Processing (Financial)",
+      "type": "Activity",
+      "data": {
+        "name": "Validation, Matching & Processing (Financial)",
+        "step_number": 2,
+        "automation_feasibility": 0.82,
+        "ai_disruption_potential": "High",
+        "description": "Executing core business logic and rules engine matching for Financial Month-End Ledger Reconciliation & Close.",
+        "process_id": "proc-financial-month-end-close"
+      }
+    },
+    {
+      "id": "act-financial-month-end-close-3",
+      "label": "Exception Resolution & Governance Approval",
+      "type": "Activity",
+      "data": {
+        "name": "Exception Resolution & Governance Approval",
+        "step_number": 3,
+        "automation_feasibility": 0.6,
+        "ai_disruption_potential": "Medium",
+        "description": "Handling out-of-policy edge cases, dispute negotiation, and sign-offs.",
+        "process_id": "proc-financial-month-end-close"
+      }
+    },
+    {
+      "id": "role-financial-month-end-close-spec",
+      "label": "Financial Specialist",
+      "type": "Role",
+      "data": {
+        "id": "role-financial-month-end-close-spec",
+        "name": "Financial Specialist",
+        "department": "Finance",
+        "headcount": 10,
+        "avg_salary": 65000.0,
+        "transition_risk": "High",
+        "description": "Responsible for primary operations and task execution in Financial Month-End Ledger Reconciliation & Close."
+      }
+    },
+    {
+      "id": "role-financial-month-end-close-mgr",
+      "label": "Financial Lead",
+      "type": "Role",
+      "data": {
+        "id": "role-financial-month-end-close-mgr",
+        "name": "Financial Lead",
+        "department": "Finance",
+        "headcount": 3,
+        "avg_salary": 105000.0,
+        "transition_risk": "Medium",
+        "description": "Oversees exceptions, strategy, and compliance for Financial Month-End Ledger Reconciliation & Close."
+      }
+    },
+    {
+      "id": "skill-financial-month-end-close-exec",
+      "label": "Operational Close Execution",
+      "type": "Skill",
+      "data": {
+        "id": "skill-financial-month-end-close-exec",
+        "name": "Operational Close Execution",
+        "category": "Operational",
+        "urgency_to_reskill": "High",
+        "reskill_time_weeks": 4,
+        "description": "Execution of core manual procedures in Financial Month-End Ledger Reconciliation & Close.",
+        "evolution_path": "AI Agent Supervision in Finance"
+      }
+    },
+    {
+      "id": "skill-financial-month-end-close-audit",
+      "label": "Finance Compliance & Quality Auditing",
+      "type": "Skill",
+      "data": {
+        "id": "skill-financial-month-end-close-audit",
+        "name": "Finance Compliance & Quality Auditing",
+        "category": "Domain",
+        "urgency_to_reskill": "Medium",
+        "reskill_time_weeks": 6,
+        "description": "Regulatory and operational auditing standards for Financial Month-End Ledger Reconciliation & Close.",
+        "evolution_path": "Automated Finance Policy Engineering"
+      }
+    },
+    {
+      "id": "skill-financial-month-end-close-ai-gov",
+      "label": "Autonomous Finance Agent Governance",
+      "type": "Skill",
+      "data": {
+        "id": "skill-financial-month-end-close-ai-gov",
+        "name": "Autonomous Finance Agent Governance",
+        "category": "Cognitive",
+        "urgency_to_reskill": "Low",
+        "reskill_time_weeks": 8,
+        "description": "Orchestration, prompt tuning, and exception validation for AI models.",
+        "evolution_path": "Enterprise Finance Transformation Architect"
+      }
+    },
+    {
+      "id": "proc-kyc-aml-screening",
+      "label": "KYC Customer Onboarding & AML Anti-Fraud Screening",
+      "type": "Process",
+      "data": {
+        "name": "KYC Customer Onboarding & AML Anti-Fraud Screening",
+        "domain": "Finance",
+        "description": "Biometric identity verification, OFAC watchlist matching, PEP screening, and SAR regulatory filing.",
+        "cycle_time_days": 1.5,
+        "frequency": "Real-time",
+        "overall_automation_potential": 0.89,
+        "activities_count": 3,
+        "roles_count": 2
+      }
+    },
+    {
+      "id": "act-kyc-aml-screening-1",
+      "label": "Intake & Data Extraction (KYC)",
+      "type": "Activity",
+      "data": {
+        "name": "Intake & Data Extraction (KYC)",
+        "step_number": 1,
+        "automation_feasibility": 0.97,
+        "ai_disruption_potential": "Critical",
+        "description": "Capturing unstructured intake data and validating schema compliance for KYC Customer Onboarding & AML Anti-Fraud Screening.",
+        "process_id": "proc-kyc-aml-screening"
+      }
+    },
+    {
+      "id": "act-kyc-aml-screening-2",
+      "label": "Validation, Matching & Processing (KYC)",
+      "type": "Activity",
+      "data": {
+        "name": "Validation, Matching & Processing (KYC)",
+        "step_number": 2,
+        "automation_feasibility": 0.89,
+        "ai_disruption_potential": "High",
+        "description": "Executing core business logic and rules engine matching for KYC Customer Onboarding & AML Anti-Fraud Screening.",
+        "process_id": "proc-kyc-aml-screening"
+      }
+    },
+    {
+      "id": "act-kyc-aml-screening-3",
+      "label": "Exception Resolution & Governance Approval",
+      "type": "Activity",
+      "data": {
+        "name": "Exception Resolution & Governance Approval",
+        "step_number": 3,
+        "automation_feasibility": 0.67,
+        "ai_disruption_potential": "Medium",
+        "description": "Handling out-of-policy edge cases, dispute negotiation, and sign-offs.",
+        "process_id": "proc-kyc-aml-screening"
+      }
+    },
+    {
+      "id": "role-kyc-aml-screening-spec",
+      "label": "KYC Specialist",
+      "type": "Role",
+      "data": {
+        "id": "role-kyc-aml-screening-spec",
+        "name": "KYC Specialist",
+        "department": "Finance",
+        "headcount": 10,
+        "avg_salary": 65000.0,
+        "transition_risk": "High",
+        "description": "Responsible for primary operations and task execution in KYC Customer Onboarding & AML Anti-Fraud Screening."
+      }
+    },
+    {
+      "id": "role-kyc-aml-screening-mgr",
+      "label": "KYC Lead",
+      "type": "Role",
+      "data": {
+        "id": "role-kyc-aml-screening-mgr",
+        "name": "KYC Lead",
+        "department": "Finance",
+        "headcount": 3,
+        "avg_salary": 105000.0,
+        "transition_risk": "Medium",
+        "description": "Oversees exceptions, strategy, and compliance for KYC Customer Onboarding & AML Anti-Fraud Screening."
+      }
+    },
+    {
+      "id": "skill-kyc-aml-screening-exec",
+      "label": "Operational Screening Execution",
+      "type": "Skill",
+      "data": {
+        "id": "skill-kyc-aml-screening-exec",
+        "name": "Operational Screening Execution",
+        "category": "Operational",
+        "urgency_to_reskill": "Critical",
+        "reskill_time_weeks": 4,
+        "description": "Execution of core manual procedures in KYC Customer Onboarding & AML Anti-Fraud Screening.",
+        "evolution_path": "AI Agent Supervision in Finance"
+      }
+    },
+    {
+      "id": "skill-kyc-aml-screening-audit",
+      "label": "Finance Compliance & Quality Auditing",
+      "type": "Skill",
+      "data": {
+        "id": "skill-kyc-aml-screening-audit",
+        "name": "Finance Compliance & Quality Auditing",
+        "category": "Domain",
+        "urgency_to_reskill": "Medium",
+        "reskill_time_weeks": 6,
+        "description": "Regulatory and operational auditing standards for KYC Customer Onboarding & AML Anti-Fraud Screening.",
+        "evolution_path": "Automated Finance Policy Engineering"
+      }
+    },
+    {
+      "id": "skill-kyc-aml-screening-ai-gov",
+      "label": "Autonomous Finance Agent Governance",
+      "type": "Skill",
+      "data": {
+        "id": "skill-kyc-aml-screening-ai-gov",
+        "name": "Autonomous Finance Agent Governance",
+        "category": "Cognitive",
+        "urgency_to_reskill": "Low",
+        "reskill_time_weeks": 8,
+        "description": "Orchestration, prompt tuning, and exception validation for AI models.",
+        "evolution_path": "Enterprise Finance Transformation Architect"
+      }
+    },
+    {
+      "id": "proc-treasury-cash-pooling",
+      "label": "Corporate Treasury Liquidity Management & Cash Pooling",
+      "type": "Process",
+      "data": {
+        "name": "Corporate Treasury Liquidity Management & Cash Pooling",
+        "domain": "Finance",
+        "description": "Multi-bank balance aggregation, automated sweep concentration, FX currency hedging, and cash flow forecasting.",
+        "cycle_time_days": 1.0,
+        "frequency": "Daily",
+        "overall_automation_potential": 0.84,
+        "activities_count": 3,
+        "roles_count": 2
+      }
+    },
+    {
+      "id": "act-treasury-cash-pooling-1",
+      "label": "Intake & Data Extraction (Corporate)",
+      "type": "Activity",
+      "data": {
+        "name": "Intake & Data Extraction (Corporate)",
+        "step_number": 1,
+        "automation_feasibility": 0.92,
+        "ai_disruption_potential": "Critical",
+        "description": "Capturing unstructured intake data and validating schema compliance for Corporate Treasury Liquidity Management & Cash Pooling.",
+        "process_id": "proc-treasury-cash-pooling"
+      }
+    },
+    {
+      "id": "act-treasury-cash-pooling-2",
+      "label": "Validation, Matching & Processing (Corporate)",
+      "type": "Activity",
+      "data": {
+        "name": "Validation, Matching & Processing (Corporate)",
+        "step_number": 2,
+        "automation_feasibility": 0.84,
+        "ai_disruption_potential": "High",
+        "description": "Executing core business logic and rules engine matching for Corporate Treasury Liquidity Management & Cash Pooling.",
+        "process_id": "proc-treasury-cash-pooling"
+      }
+    },
+    {
+      "id": "act-treasury-cash-pooling-3",
+      "label": "Exception Resolution & Governance Approval",
+      "type": "Activity",
+      "data": {
+        "name": "Exception Resolution & Governance Approval",
+        "step_number": 3,
+        "automation_feasibility": 0.62,
+        "ai_disruption_potential": "Medium",
+        "description": "Handling out-of-policy edge cases, dispute negotiation, and sign-offs.",
+        "process_id": "proc-treasury-cash-pooling"
+      }
+    },
+    {
+      "id": "role-treasury-cash-pooling-spec",
+      "label": "Corporate Specialist",
+      "type": "Role",
+      "data": {
+        "id": "role-treasury-cash-pooling-spec",
+        "name": "Corporate Specialist",
+        "department": "Finance",
+        "headcount": 10,
+        "avg_salary": 65000.0,
+        "transition_risk": "High",
+        "description": "Responsible for primary operations and task execution in Corporate Treasury Liquidity Management & Cash Pooling."
+      }
+    },
+    {
+      "id": "role-treasury-cash-pooling-mgr",
+      "label": "Corporate Lead",
+      "type": "Role",
+      "data": {
+        "id": "role-treasury-cash-pooling-mgr",
+        "name": "Corporate Lead",
+        "department": "Finance",
+        "headcount": 3,
+        "avg_salary": 105000.0,
+        "transition_risk": "Medium",
+        "description": "Oversees exceptions, strategy, and compliance for Corporate Treasury Liquidity Management & Cash Pooling."
+      }
+    },
+    {
+      "id": "skill-treasury-cash-pooling-exec",
+      "label": "Operational Pooling Execution",
+      "type": "Skill",
+      "data": {
+        "id": "skill-treasury-cash-pooling-exec",
+        "name": "Operational Pooling Execution",
+        "category": "Operational",
+        "urgency_to_reskill": "High",
+        "reskill_time_weeks": 4,
+        "description": "Execution of core manual procedures in Corporate Treasury Liquidity Management & Cash Pooling.",
+        "evolution_path": "AI Agent Supervision in Finance"
+      }
+    },
+    {
+      "id": "skill-treasury-cash-pooling-audit",
+      "label": "Finance Compliance & Quality Auditing",
+      "type": "Skill",
+      "data": {
+        "id": "skill-treasury-cash-pooling-audit",
+        "name": "Finance Compliance & Quality Auditing",
+        "category": "Domain",
+        "urgency_to_reskill": "Medium",
+        "reskill_time_weeks": 6,
+        "description": "Regulatory and operational auditing standards for Corporate Treasury Liquidity Management & Cash Pooling.",
+        "evolution_path": "Automated Finance Policy Engineering"
+      }
+    },
+    {
+      "id": "skill-treasury-cash-pooling-ai-gov",
+      "label": "Autonomous Finance Agent Governance",
+      "type": "Skill",
+      "data": {
+        "id": "skill-treasury-cash-pooling-ai-gov",
+        "name": "Autonomous Finance Agent Governance",
+        "category": "Cognitive",
+        "urgency_to_reskill": "Low",
+        "reskill_time_weeks": 8,
+        "description": "Orchestration, prompt tuning, and exception validation for AI models.",
+        "evolution_path": "Enterprise Finance Transformation Architect"
+      }
+    },
+    {
+      "id": "proc-travel-expense-audit",
+      "label": "Corporate Travel & Expense (T&E) Compliance Auditing",
+      "type": "Process",
+      "data": {
+        "name": "Corporate Travel & Expense (T&E) Compliance Auditing",
+        "domain": "Finance",
+        "description": "Automated receipt OCR, travel policy violation detection, per diem validation, and employee reimbursement approval.",
+        "cycle_time_days": 2.0,
+        "frequency": "Daily",
+        "overall_automation_potential": 0.91,
+        "activities_count": 3,
+        "roles_count": 2
+      }
+    },
+    {
+      "id": "act-travel-expense-audit-1",
+      "label": "Intake & Data Extraction (Corporate)",
+      "type": "Activity",
+      "data": {
+        "name": "Intake & Data Extraction (Corporate)",
+        "step_number": 1,
+        "automation_feasibility": 0.98,
+        "ai_disruption_potential": "Critical",
+        "description": "Capturing unstructured intake data and validating schema compliance for Corporate Travel & Expense (T&E) Compliance Auditing.",
+        "process_id": "proc-travel-expense-audit"
+      }
+    },
+    {
+      "id": "act-travel-expense-audit-2",
+      "label": "Validation, Matching & Processing (Corporate)",
+      "type": "Activity",
+      "data": {
+        "name": "Validation, Matching & Processing (Corporate)",
+        "step_number": 2,
+        "automation_feasibility": 0.91,
+        "ai_disruption_potential": "High",
+        "description": "Executing core business logic and rules engine matching for Corporate Travel & Expense (T&E) Compliance Auditing.",
+        "process_id": "proc-travel-expense-audit"
+      }
+    },
+    {
+      "id": "act-travel-expense-audit-3",
+      "label": "Exception Resolution & Governance Approval",
+      "type": "Activity",
+      "data": {
+        "name": "Exception Resolution & Governance Approval",
+        "step_number": 3,
+        "automation_feasibility": 0.69,
+        "ai_disruption_potential": "Medium",
+        "description": "Handling out-of-policy edge cases, dispute negotiation, and sign-offs.",
+        "process_id": "proc-travel-expense-audit"
+      }
+    },
+    {
+      "id": "role-travel-expense-audit-spec",
+      "label": "Corporate Specialist",
+      "type": "Role",
+      "data": {
+        "id": "role-travel-expense-audit-spec",
+        "name": "Corporate Specialist",
+        "department": "Finance",
+        "headcount": 10,
+        "avg_salary": 65000.0,
+        "transition_risk": "High",
+        "description": "Responsible for primary operations and task execution in Corporate Travel & Expense (T&E) Compliance Auditing."
+      }
+    },
+    {
+      "id": "role-travel-expense-audit-mgr",
+      "label": "Corporate Lead",
+      "type": "Role",
+      "data": {
+        "id": "role-travel-expense-audit-mgr",
+        "name": "Corporate Lead",
+        "department": "Finance",
+        "headcount": 3,
+        "avg_salary": 105000.0,
+        "transition_risk": "Medium",
+        "description": "Oversees exceptions, strategy, and compliance for Corporate Travel & Expense (T&E) Compliance Auditing."
+      }
+    },
+    {
+      "id": "skill-travel-expense-audit-exec",
+      "label": "Operational Auditing Execution",
+      "type": "Skill",
+      "data": {
+        "id": "skill-travel-expense-audit-exec",
+        "name": "Operational Auditing Execution",
+        "category": "Operational",
+        "urgency_to_reskill": "Critical",
+        "reskill_time_weeks": 4,
+        "description": "Execution of core manual procedures in Corporate Travel & Expense (T&E) Compliance Auditing.",
+        "evolution_path": "AI Agent Supervision in Finance"
+      }
+    },
+    {
+      "id": "skill-travel-expense-audit-audit",
+      "label": "Finance Compliance & Quality Auditing",
+      "type": "Skill",
+      "data": {
+        "id": "skill-travel-expense-audit-audit",
+        "name": "Finance Compliance & Quality Auditing",
+        "category": "Domain",
+        "urgency_to_reskill": "Medium",
+        "reskill_time_weeks": 6,
+        "description": "Regulatory and operational auditing standards for Corporate Travel & Expense (T&E) Compliance Auditing.",
+        "evolution_path": "Automated Finance Policy Engineering"
+      }
+    },
+    {
+      "id": "skill-travel-expense-audit-ai-gov",
+      "label": "Autonomous Finance Agent Governance",
+      "type": "Skill",
+      "data": {
+        "id": "skill-travel-expense-audit-ai-gov",
+        "name": "Autonomous Finance Agent Governance",
+        "category": "Cognitive",
+        "urgency_to_reskill": "Low",
+        "reskill_time_weeks": 8,
+        "description": "Orchestration, prompt tuning, and exception validation for AI models.",
+        "evolution_path": "Enterprise Finance Transformation Architect"
+      }
+    },
+    {
+      "id": "proc-employee-onboarding",
+      "label": "Enterprise Employee Onboarding & Provisioning",
+      "type": "Process",
+      "data": {
+        "name": "Enterprise Employee Onboarding & Provisioning",
+        "domain": "HR",
+        "description": "New hire document collection, I-9 compliance, IT identity provisioning, and mentor pairing.",
+        "cycle_time_days": 5.0,
+        "frequency": "Daily",
+        "overall_automation_potential": 0.8,
+        "activities_count": 3,
+        "roles_count": 2
+      }
+    },
+    {
+      "id": "act-employee-onboarding-1",
+      "label": "Intake & Data Extraction (Enterprise)",
+      "type": "Activity",
+      "data": {
+        "name": "Intake & Data Extraction (Enterprise)",
+        "step_number": 1,
+        "automation_feasibility": 0.88,
+        "ai_disruption_potential": "High",
+        "description": "Capturing unstructured intake data and validating schema compliance for Enterprise Employee Onboarding & Provisioning.",
+        "process_id": "proc-employee-onboarding"
+      }
+    },
+    {
+      "id": "act-employee-onboarding-2",
+      "label": "Validation, Matching & Processing (Enterprise)",
+      "type": "Activity",
+      "data": {
+        "name": "Validation, Matching & Processing (Enterprise)",
+        "step_number": 2,
+        "automation_feasibility": 0.8,
+        "ai_disruption_potential": "High",
+        "description": "Executing core business logic and rules engine matching for Enterprise Employee Onboarding & Provisioning.",
+        "process_id": "proc-employee-onboarding"
+      }
+    },
+    {
+      "id": "act-employee-onboarding-3",
+      "label": "Exception Resolution & Governance Approval",
+      "type": "Activity",
+      "data": {
+        "name": "Exception Resolution & Governance Approval",
+        "step_number": 3,
+        "automation_feasibility": 0.58,
+        "ai_disruption_potential": "Medium",
+        "description": "Handling out-of-policy edge cases, dispute negotiation, and sign-offs.",
+        "process_id": "proc-employee-onboarding"
+      }
+    },
+    {
+      "id": "role-employee-onboarding-spec",
+      "label": "Enterprise Specialist",
+      "type": "Role",
+      "data": {
+        "id": "role-employee-onboarding-spec",
+        "name": "Enterprise Specialist",
+        "department": "HR",
+        "headcount": 10,
+        "avg_salary": 65000.0,
+        "transition_risk": "Medium",
+        "description": "Responsible for primary operations and task execution in Enterprise Employee Onboarding & Provisioning."
+      }
+    },
+    {
+      "id": "role-employee-onboarding-mgr",
+      "label": "Enterprise Lead",
+      "type": "Role",
+      "data": {
+        "id": "role-employee-onboarding-mgr",
+        "name": "Enterprise Lead",
+        "department": "HR",
+        "headcount": 3,
+        "avg_salary": 105000.0,
+        "transition_risk": "Low",
+        "description": "Oversees exceptions, strategy, and compliance for Enterprise Employee Onboarding & Provisioning."
+      }
+    },
+    {
+      "id": "skill-employee-onboarding-exec",
+      "label": "Operational Provisioning Execution",
+      "type": "Skill",
+      "data": {
+        "id": "skill-employee-onboarding-exec",
+        "name": "Operational Provisioning Execution",
+        "category": "Operational",
+        "urgency_to_reskill": "High",
+        "reskill_time_weeks": 4,
+        "description": "Execution of core manual procedures in Enterprise Employee Onboarding & Provisioning.",
+        "evolution_path": "AI Agent Supervision in HR"
+      }
+    },
+    {
+      "id": "skill-employee-onboarding-audit",
+      "label": "HR Compliance & Quality Auditing",
+      "type": "Skill",
+      "data": {
+        "id": "skill-employee-onboarding-audit",
+        "name": "HR Compliance & Quality Auditing",
+        "category": "Domain",
+        "urgency_to_reskill": "Medium",
+        "reskill_time_weeks": 6,
+        "description": "Regulatory and operational auditing standards for Enterprise Employee Onboarding & Provisioning.",
+        "evolution_path": "Automated HR Policy Engineering"
+      }
+    },
+    {
+      "id": "skill-employee-onboarding-ai-gov",
+      "label": "Autonomous HR Agent Governance",
+      "type": "Skill",
+      "data": {
+        "id": "skill-employee-onboarding-ai-gov",
+        "name": "Autonomous HR Agent Governance",
+        "category": "Cognitive",
+        "urgency_to_reskill": "Low",
+        "reskill_time_weeks": 8,
+        "description": "Orchestration, prompt tuning, and exception validation for AI models.",
+        "evolution_path": "Enterprise HR Transformation Architect"
+      }
+    },
+    {
+      "id": "proc-talent-acquisition",
+      "label": "Talent Acquisition Sourcing & Resume Screening",
+      "type": "Process",
+      "data": {
+        "name": "Talent Acquisition Sourcing & Resume Screening",
+        "domain": "HR",
+        "description": "Inbound resume parsing, AI candidate ranking, asynchronous screening questions, and interview scheduling.",
+        "cycle_time_days": 8.0,
+        "frequency": "Daily",
+        "overall_automation_potential": 0.81,
+        "activities_count": 3,
+        "roles_count": 2
+      }
+    },
+    {
+      "id": "act-talent-acquisition-1",
+      "label": "Intake & Data Extraction (Talent)",
+      "type": "Activity",
+      "data": {
+        "name": "Intake & Data Extraction (Talent)",
+        "step_number": 1,
+        "automation_feasibility": 0.89,
+        "ai_disruption_potential": "High",
+        "description": "Capturing unstructured intake data and validating schema compliance for Talent Acquisition Sourcing & Resume Screening.",
+        "process_id": "proc-talent-acquisition"
+      }
+    },
+    {
+      "id": "act-talent-acquisition-2",
+      "label": "Validation, Matching & Processing (Talent)",
+      "type": "Activity",
+      "data": {
+        "name": "Validation, Matching & Processing (Talent)",
+        "step_number": 2,
+        "automation_feasibility": 0.81,
+        "ai_disruption_potential": "High",
+        "description": "Executing core business logic and rules engine matching for Talent Acquisition Sourcing & Resume Screening.",
+        "process_id": "proc-talent-acquisition"
+      }
+    },
+    {
+      "id": "act-talent-acquisition-3",
+      "label": "Exception Resolution & Governance Approval",
+      "type": "Activity",
+      "data": {
+        "name": "Exception Resolution & Governance Approval",
+        "step_number": 3,
+        "automation_feasibility": 0.59,
+        "ai_disruption_potential": "Medium",
+        "description": "Handling out-of-policy edge cases, dispute negotiation, and sign-offs.",
+        "process_id": "proc-talent-acquisition"
+      }
+    },
+    {
+      "id": "role-talent-acquisition-spec",
+      "label": "Talent Specialist",
+      "type": "Role",
+      "data": {
+        "id": "role-talent-acquisition-spec",
+        "name": "Talent Specialist",
+        "department": "HR",
+        "headcount": 10,
+        "avg_salary": 65000.0,
+        "transition_risk": "High",
+        "description": "Responsible for primary operations and task execution in Talent Acquisition Sourcing & Resume Screening."
+      }
+    },
+    {
+      "id": "role-talent-acquisition-mgr",
+      "label": "Talent Lead",
+      "type": "Role",
+      "data": {
+        "id": "role-talent-acquisition-mgr",
+        "name": "Talent Lead",
+        "department": "HR",
+        "headcount": 3,
+        "avg_salary": 105000.0,
+        "transition_risk": "Medium",
+        "description": "Oversees exceptions, strategy, and compliance for Talent Acquisition Sourcing & Resume Screening."
+      }
+    },
+    {
+      "id": "skill-talent-acquisition-exec",
+      "label": "Operational Screening Execution",
+      "type": "Skill",
+      "data": {
+        "id": "skill-talent-acquisition-exec",
+        "name": "Operational Screening Execution",
+        "category": "Operational",
+        "urgency_to_reskill": "High",
+        "reskill_time_weeks": 4,
+        "description": "Execution of core manual procedures in Talent Acquisition Sourcing & Resume Screening.",
+        "evolution_path": "AI Agent Supervision in HR"
+      }
+    },
+    {
+      "id": "skill-talent-acquisition-audit",
+      "label": "HR Compliance & Quality Auditing",
+      "type": "Skill",
+      "data": {
+        "id": "skill-talent-acquisition-audit",
+        "name": "HR Compliance & Quality Auditing",
+        "category": "Domain",
+        "urgency_to_reskill": "Medium",
+        "reskill_time_weeks": 6,
+        "description": "Regulatory and operational auditing standards for Talent Acquisition Sourcing & Resume Screening.",
+        "evolution_path": "Automated HR Policy Engineering"
+      }
+    },
+    {
+      "id": "skill-talent-acquisition-ai-gov",
+      "label": "Autonomous HR Agent Governance",
+      "type": "Skill",
+      "data": {
+        "id": "skill-talent-acquisition-ai-gov",
+        "name": "Autonomous HR Agent Governance",
+        "category": "Cognitive",
+        "urgency_to_reskill": "Low",
+        "reskill_time_weeks": 8,
+        "description": "Orchestration, prompt tuning, and exception validation for AI models.",
+        "evolution_path": "Enterprise HR Transformation Architect"
+      }
+    },
+    {
+      "id": "proc-annual-performance-review",
+      "label": "Annual Performance Calibration & 360 Feedback Analysis",
+      "type": "Process",
+      "data": {
+        "name": "Annual Performance Calibration & 360 Feedback Analysis",
+        "domain": "HR",
+        "description": "Peer feedback aggregation, sentiment analysis, promotion calibration, and compensation recommendation modeling.",
+        "cycle_time_days": 14.0,
+        "frequency": "Quarterly",
+        "overall_automation_potential": 0.65,
+        "activities_count": 3,
+        "roles_count": 2
+      }
+    },
+    {
+      "id": "act-annual-performance-review-1",
+      "label": "Intake & Data Extraction (Annual)",
+      "type": "Activity",
+      "data": {
+        "name": "Intake & Data Extraction (Annual)",
+        "step_number": 1,
+        "automation_feasibility": 0.73,
+        "ai_disruption_potential": "High",
+        "description": "Capturing unstructured intake data and validating schema compliance for Annual Performance Calibration & 360 Feedback Analysis.",
+        "process_id": "proc-annual-performance-review"
+      }
+    },
+    {
+      "id": "act-annual-performance-review-2",
+      "label": "Validation, Matching & Processing (Annual)",
+      "type": "Activity",
+      "data": {
+        "name": "Validation, Matching & Processing (Annual)",
+        "step_number": 2,
+        "automation_feasibility": 0.65,
+        "ai_disruption_potential": "High",
+        "description": "Executing core business logic and rules engine matching for Annual Performance Calibration & 360 Feedback Analysis.",
+        "process_id": "proc-annual-performance-review"
+      }
+    },
+    {
+      "id": "act-annual-performance-review-3",
+      "label": "Exception Resolution & Governance Approval",
+      "type": "Activity",
+      "data": {
+        "name": "Exception Resolution & Governance Approval",
+        "step_number": 3,
+        "automation_feasibility": 0.45,
+        "ai_disruption_potential": "Medium",
+        "description": "Handling out-of-policy edge cases, dispute negotiation, and sign-offs.",
+        "process_id": "proc-annual-performance-review"
+      }
+    },
+    {
+      "id": "role-annual-performance-review-spec",
+      "label": "Annual Specialist",
+      "type": "Role",
+      "data": {
+        "id": "role-annual-performance-review-spec",
+        "name": "Annual Specialist",
+        "department": "HR",
+        "headcount": 10,
+        "avg_salary": 65000.0,
+        "transition_risk": "Medium",
+        "description": "Responsible for primary operations and task execution in Annual Performance Calibration & 360 Feedback Analysis."
+      }
+    },
+    {
+      "id": "role-annual-performance-review-mgr",
+      "label": "Annual Lead",
+      "type": "Role",
+      "data": {
+        "id": "role-annual-performance-review-mgr",
+        "name": "Annual Lead",
+        "department": "HR",
+        "headcount": 3,
+        "avg_salary": 105000.0,
+        "transition_risk": "Low",
+        "description": "Oversees exceptions, strategy, and compliance for Annual Performance Calibration & 360 Feedback Analysis."
+      }
+    },
+    {
+      "id": "skill-annual-performance-review-exec",
+      "label": "Operational Analysis Execution",
+      "type": "Skill",
+      "data": {
+        "id": "skill-annual-performance-review-exec",
+        "name": "Operational Analysis Execution",
+        "category": "Operational",
+        "urgency_to_reskill": "High",
+        "reskill_time_weeks": 4,
+        "description": "Execution of core manual procedures in Annual Performance Calibration & 360 Feedback Analysis.",
+        "evolution_path": "AI Agent Supervision in HR"
+      }
+    },
+    {
+      "id": "skill-annual-performance-review-audit",
+      "label": "HR Compliance & Quality Auditing",
+      "type": "Skill",
+      "data": {
+        "id": "skill-annual-performance-review-audit",
+        "name": "HR Compliance & Quality Auditing",
+        "category": "Domain",
+        "urgency_to_reskill": "Medium",
+        "reskill_time_weeks": 6,
+        "description": "Regulatory and operational auditing standards for Annual Performance Calibration & 360 Feedback Analysis.",
+        "evolution_path": "Automated HR Policy Engineering"
+      }
+    },
+    {
+      "id": "skill-annual-performance-review-ai-gov",
+      "label": "Autonomous HR Agent Governance",
+      "type": "Skill",
+      "data": {
+        "id": "skill-annual-performance-review-ai-gov",
+        "name": "Autonomous HR Agent Governance",
+        "category": "Cognitive",
+        "urgency_to_reskill": "Low",
+        "reskill_time_weeks": 8,
+        "description": "Orchestration, prompt tuning, and exception validation for AI models.",
+        "evolution_path": "Enterprise HR Transformation Architect"
+      }
+    },
+    {
+      "id": "proc-employee-offboarding",
+      "label": "Secure Employee Offboarding & Asset Recovery",
+      "type": "Process",
+      "data": {
+        "name": "Secure Employee Offboarding & Asset Recovery",
+        "domain": "HR",
+        "description": "Access de-provisioning, knowledge transfer documentation, company hardware return, and exit interview synthesis.",
+        "cycle_time_days": 3.0,
+        "frequency": "Weekly",
+        "overall_automation_potential": 0.85,
+        "activities_count": 3,
+        "roles_count": 2
+      }
+    },
+    {
+      "id": "act-employee-offboarding-1",
+      "label": "Intake & Data Extraction (Secure)",
+      "type": "Activity",
+      "data": {
+        "name": "Intake & Data Extraction (Secure)",
+        "step_number": 1,
+        "automation_feasibility": 0.93,
+        "ai_disruption_potential": "Critical",
+        "description": "Capturing unstructured intake data and validating schema compliance for Secure Employee Offboarding & Asset Recovery.",
+        "process_id": "proc-employee-offboarding"
+      }
+    },
+    {
+      "id": "act-employee-offboarding-2",
+      "label": "Validation, Matching & Processing (Secure)",
+      "type": "Activity",
+      "data": {
+        "name": "Validation, Matching & Processing (Secure)",
+        "step_number": 2,
+        "automation_feasibility": 0.85,
+        "ai_disruption_potential": "High",
+        "description": "Executing core business logic and rules engine matching for Secure Employee Offboarding & Asset Recovery.",
+        "process_id": "proc-employee-offboarding"
+      }
+    },
+    {
+      "id": "act-employee-offboarding-3",
+      "label": "Exception Resolution & Governance Approval",
+      "type": "Activity",
+      "data": {
+        "name": "Exception Resolution & Governance Approval",
+        "step_number": 3,
+        "automation_feasibility": 0.63,
+        "ai_disruption_potential": "Medium",
+        "description": "Handling out-of-policy edge cases, dispute negotiation, and sign-offs.",
+        "process_id": "proc-employee-offboarding"
+      }
+    },
+    {
+      "id": "role-employee-offboarding-spec",
+      "label": "Secure Specialist",
+      "type": "Role",
+      "data": {
+        "id": "role-employee-offboarding-spec",
+        "name": "Secure Specialist",
+        "department": "HR",
+        "headcount": 10,
+        "avg_salary": 65000.0,
+        "transition_risk": "High",
+        "description": "Responsible for primary operations and task execution in Secure Employee Offboarding & Asset Recovery."
+      }
+    },
+    {
+      "id": "role-employee-offboarding-mgr",
+      "label": "Secure Lead",
+      "type": "Role",
+      "data": {
+        "id": "role-employee-offboarding-mgr",
+        "name": "Secure Lead",
+        "department": "HR",
+        "headcount": 3,
+        "avg_salary": 105000.0,
+        "transition_risk": "Medium",
+        "description": "Oversees exceptions, strategy, and compliance for Secure Employee Offboarding & Asset Recovery."
+      }
+    },
+    {
+      "id": "skill-employee-offboarding-exec",
+      "label": "Operational Recovery Execution",
+      "type": "Skill",
+      "data": {
+        "id": "skill-employee-offboarding-exec",
+        "name": "Operational Recovery Execution",
+        "category": "Operational",
+        "urgency_to_reskill": "High",
+        "reskill_time_weeks": 4,
+        "description": "Execution of core manual procedures in Secure Employee Offboarding & Asset Recovery.",
+        "evolution_path": "AI Agent Supervision in HR"
+      }
+    },
+    {
+      "id": "skill-employee-offboarding-audit",
+      "label": "HR Compliance & Quality Auditing",
+      "type": "Skill",
+      "data": {
+        "id": "skill-employee-offboarding-audit",
+        "name": "HR Compliance & Quality Auditing",
+        "category": "Domain",
+        "urgency_to_reskill": "Medium",
+        "reskill_time_weeks": 6,
+        "description": "Regulatory and operational auditing standards for Secure Employee Offboarding & Asset Recovery.",
+        "evolution_path": "Automated HR Policy Engineering"
+      }
+    },
+    {
+      "id": "skill-employee-offboarding-ai-gov",
+      "label": "Autonomous HR Agent Governance",
+      "type": "Skill",
+      "data": {
+        "id": "skill-employee-offboarding-ai-gov",
+        "name": "Autonomous HR Agent Governance",
+        "category": "Cognitive",
+        "urgency_to_reskill": "Low",
+        "reskill_time_weeks": 8,
+        "description": "Orchestration, prompt tuning, and exception validation for AI models.",
+        "evolution_path": "Enterprise HR Transformation Architect"
+      }
+    },
+    {
+      "id": "proc-it-incident-management",
+      "label": "IT Service Desk Incident Triage & Resolution",
+      "type": "Process",
+      "data": {
+        "name": "IT Service Desk Incident Triage & Resolution",
+        "domain": "IT",
+        "description": "Ticket intake, severity classification, automated diagnostic runbooks, and major outage swarming.",
+        "cycle_time_days": 0.5,
+        "frequency": "Real-time",
+        "overall_automation_potential": 0.85,
+        "activities_count": 3,
+        "roles_count": 2
+      }
+    },
+    {
+      "id": "act-it-incident-management-1",
+      "label": "Intake & Data Extraction (IT)",
+      "type": "Activity",
+      "data": {
+        "name": "Intake & Data Extraction (IT)",
+        "step_number": 1,
+        "automation_feasibility": 0.93,
+        "ai_disruption_potential": "Critical",
+        "description": "Capturing unstructured intake data and validating schema compliance for IT Service Desk Incident Triage & Resolution.",
+        "process_id": "proc-it-incident-management"
+      }
+    },
+    {
+      "id": "act-it-incident-management-2",
+      "label": "Validation, Matching & Processing (IT)",
+      "type": "Activity",
+      "data": {
+        "name": "Validation, Matching & Processing (IT)",
+        "step_number": 2,
+        "automation_feasibility": 0.85,
+        "ai_disruption_potential": "High",
+        "description": "Executing core business logic and rules engine matching for IT Service Desk Incident Triage & Resolution.",
+        "process_id": "proc-it-incident-management"
+      }
+    },
+    {
+      "id": "act-it-incident-management-3",
+      "label": "Exception Resolution & Governance Approval",
+      "type": "Activity",
+      "data": {
+        "name": "Exception Resolution & Governance Approval",
+        "step_number": 3,
+        "automation_feasibility": 0.63,
+        "ai_disruption_potential": "Medium",
+        "description": "Handling out-of-policy edge cases, dispute negotiation, and sign-offs.",
+        "process_id": "proc-it-incident-management"
+      }
+    },
+    {
+      "id": "role-it-incident-management-spec",
+      "label": "IT Specialist",
+      "type": "Role",
+      "data": {
+        "id": "role-it-incident-management-spec",
+        "name": "IT Specialist",
+        "department": "IT",
+        "headcount": 10,
+        "avg_salary": 65000.0,
+        "transition_risk": "High",
+        "description": "Responsible for primary operations and task execution in IT Service Desk Incident Triage & Resolution."
+      }
+    },
+    {
+      "id": "role-it-incident-management-mgr",
+      "label": "IT Lead",
+      "type": "Role",
+      "data": {
+        "id": "role-it-incident-management-mgr",
+        "name": "IT Lead",
+        "department": "IT",
+        "headcount": 3,
+        "avg_salary": 105000.0,
+        "transition_risk": "Medium",
+        "description": "Oversees exceptions, strategy, and compliance for IT Service Desk Incident Triage & Resolution."
+      }
+    },
+    {
+      "id": "skill-it-incident-management-exec",
+      "label": "Operational Resolution Execution",
+      "type": "Skill",
+      "data": {
+        "id": "skill-it-incident-management-exec",
+        "name": "Operational Resolution Execution",
+        "category": "Operational",
+        "urgency_to_reskill": "High",
+        "reskill_time_weeks": 4,
+        "description": "Execution of core manual procedures in IT Service Desk Incident Triage & Resolution.",
+        "evolution_path": "AI Agent Supervision in IT"
+      }
+    },
+    {
+      "id": "skill-it-incident-management-audit",
+      "label": "IT Compliance & Quality Auditing",
+      "type": "Skill",
+      "data": {
+        "id": "skill-it-incident-management-audit",
+        "name": "IT Compliance & Quality Auditing",
+        "category": "Domain",
+        "urgency_to_reskill": "Medium",
+        "reskill_time_weeks": 6,
+        "description": "Regulatory and operational auditing standards for IT Service Desk Incident Triage & Resolution.",
+        "evolution_path": "Automated IT Policy Engineering"
+      }
+    },
+    {
+      "id": "skill-it-incident-management-ai-gov",
+      "label": "Autonomous IT Agent Governance",
+      "type": "Skill",
+      "data": {
+        "id": "skill-it-incident-management-ai-gov",
+        "name": "Autonomous IT Agent Governance",
+        "category": "Cognitive",
+        "urgency_to_reskill": "Low",
+        "reskill_time_weeks": 8,
+        "description": "Orchestration, prompt tuning, and exception validation for AI models.",
+        "evolution_path": "Enterprise IT Transformation Architect"
+      }
+    },
+    {
+      "id": "proc-sec-vuln-management",
+      "label": "Cybersecurity Vulnerability Remediation & Patching",
+      "type": "Process",
+      "data": {
+        "name": "Cybersecurity Vulnerability Remediation & Patching",
+        "domain": "IT",
+        "description": "Cloud infrastructure SAST/DAST scanning, CVSS/EPSS exploit prioritization, and automated PR patch generation.",
+        "cycle_time_days": 3.0,
+        "frequency": "Daily",
+        "overall_automation_potential": 0.84,
+        "activities_count": 3,
+        "roles_count": 2
+      }
+    },
+    {
+      "id": "act-sec-vuln-management-1",
+      "label": "Intake & Data Extraction (Cybersecurity)",
+      "type": "Activity",
+      "data": {
+        "name": "Intake & Data Extraction (Cybersecurity)",
+        "step_number": 1,
+        "automation_feasibility": 0.92,
+        "ai_disruption_potential": "Critical",
+        "description": "Capturing unstructured intake data and validating schema compliance for Cybersecurity Vulnerability Remediation & Patching.",
+        "process_id": "proc-sec-vuln-management"
+      }
+    },
+    {
+      "id": "act-sec-vuln-management-2",
+      "label": "Validation, Matching & Processing (Cybersecurity)",
+      "type": "Activity",
+      "data": {
+        "name": "Validation, Matching & Processing (Cybersecurity)",
+        "step_number": 2,
+        "automation_feasibility": 0.84,
+        "ai_disruption_potential": "High",
+        "description": "Executing core business logic and rules engine matching for Cybersecurity Vulnerability Remediation & Patching.",
+        "process_id": "proc-sec-vuln-management"
+      }
+    },
+    {
+      "id": "act-sec-vuln-management-3",
+      "label": "Exception Resolution & Governance Approval",
+      "type": "Activity",
+      "data": {
+        "name": "Exception Resolution & Governance Approval",
+        "step_number": 3,
+        "automation_feasibility": 0.62,
+        "ai_disruption_potential": "Medium",
+        "description": "Handling out-of-policy edge cases, dispute negotiation, and sign-offs.",
+        "process_id": "proc-sec-vuln-management"
+      }
+    },
+    {
+      "id": "role-sec-vuln-management-spec",
+      "label": "Cybersecurity Specialist",
+      "type": "Role",
+      "data": {
+        "id": "role-sec-vuln-management-spec",
+        "name": "Cybersecurity Specialist",
+        "department": "IT",
+        "headcount": 10,
+        "avg_salary": 65000.0,
+        "transition_risk": "High",
+        "description": "Responsible for primary operations and task execution in Cybersecurity Vulnerability Remediation & Patching."
+      }
+    },
+    {
+      "id": "role-sec-vuln-management-mgr",
+      "label": "Cybersecurity Lead",
+      "type": "Role",
+      "data": {
+        "id": "role-sec-vuln-management-mgr",
+        "name": "Cybersecurity Lead",
+        "department": "IT",
+        "headcount": 3,
+        "avg_salary": 105000.0,
+        "transition_risk": "Medium",
+        "description": "Oversees exceptions, strategy, and compliance for Cybersecurity Vulnerability Remediation & Patching."
+      }
+    },
+    {
+      "id": "skill-sec-vuln-management-exec",
+      "label": "Operational Patching Execution",
+      "type": "Skill",
+      "data": {
+        "id": "skill-sec-vuln-management-exec",
+        "name": "Operational Patching Execution",
+        "category": "Operational",
+        "urgency_to_reskill": "High",
+        "reskill_time_weeks": 4,
+        "description": "Execution of core manual procedures in Cybersecurity Vulnerability Remediation & Patching.",
+        "evolution_path": "AI Agent Supervision in IT"
+      }
+    },
+    {
+      "id": "skill-sec-vuln-management-audit",
+      "label": "IT Compliance & Quality Auditing",
+      "type": "Skill",
+      "data": {
+        "id": "skill-sec-vuln-management-audit",
+        "name": "IT Compliance & Quality Auditing",
+        "category": "Domain",
+        "urgency_to_reskill": "Medium",
+        "reskill_time_weeks": 6,
+        "description": "Regulatory and operational auditing standards for Cybersecurity Vulnerability Remediation & Patching.",
+        "evolution_path": "Automated IT Policy Engineering"
+      }
+    },
+    {
+      "id": "skill-sec-vuln-management-ai-gov",
+      "label": "Autonomous IT Agent Governance",
+      "type": "Skill",
+      "data": {
+        "id": "skill-sec-vuln-management-ai-gov",
+        "name": "Autonomous IT Agent Governance",
+        "category": "Cognitive",
+        "urgency_to_reskill": "Low",
+        "reskill_time_weeks": 8,
+        "description": "Orchestration, prompt tuning, and exception validation for AI models.",
+        "evolution_path": "Enterprise IT Transformation Architect"
+      }
+    },
+    {
+      "id": "proc-cloud-cost-optimization",
+      "label": "Cloud FinOps Infrastructure Rightsizing & Cost Optimization",
+      "type": "Process",
+      "data": {
+        "name": "Cloud FinOps Infrastructure Rightsizing & Cost Optimization",
+        "domain": "IT",
+        "description": "AWS/GCP/Azure unattached resource scanning, idle instance detection, reserved instance arbitrage, and autoscaling policy tuning.",
+        "cycle_time_days": 7.0,
+        "frequency": "Weekly",
+        "overall_automation_potential": 0.88,
+        "activities_count": 3,
+        "roles_count": 2
+      }
+    },
+    {
+      "id": "act-cloud-cost-optimization-1",
+      "label": "Intake & Data Extraction (Cloud)",
+      "type": "Activity",
+      "data": {
+        "name": "Intake & Data Extraction (Cloud)",
+        "step_number": 1,
+        "automation_feasibility": 0.96,
+        "ai_disruption_potential": "Critical",
+        "description": "Capturing unstructured intake data and validating schema compliance for Cloud FinOps Infrastructure Rightsizing & Cost Optimization.",
+        "process_id": "proc-cloud-cost-optimization"
+      }
+    },
+    {
+      "id": "act-cloud-cost-optimization-2",
+      "label": "Validation, Matching & Processing (Cloud)",
+      "type": "Activity",
+      "data": {
+        "name": "Validation, Matching & Processing (Cloud)",
+        "step_number": 2,
+        "automation_feasibility": 0.88,
+        "ai_disruption_potential": "High",
+        "description": "Executing core business logic and rules engine matching for Cloud FinOps Infrastructure Rightsizing & Cost Optimization.",
+        "process_id": "proc-cloud-cost-optimization"
+      }
+    },
+    {
+      "id": "act-cloud-cost-optimization-3",
+      "label": "Exception Resolution & Governance Approval",
+      "type": "Activity",
+      "data": {
+        "name": "Exception Resolution & Governance Approval",
+        "step_number": 3,
+        "automation_feasibility": 0.66,
+        "ai_disruption_potential": "Medium",
+        "description": "Handling out-of-policy edge cases, dispute negotiation, and sign-offs.",
+        "process_id": "proc-cloud-cost-optimization"
+      }
+    },
+    {
+      "id": "role-cloud-cost-optimization-spec",
+      "label": "Cloud Specialist",
+      "type": "Role",
+      "data": {
+        "id": "role-cloud-cost-optimization-spec",
+        "name": "Cloud Specialist",
+        "department": "IT",
+        "headcount": 10,
+        "avg_salary": 65000.0,
+        "transition_risk": "High",
+        "description": "Responsible for primary operations and task execution in Cloud FinOps Infrastructure Rightsizing & Cost Optimization."
+      }
+    },
+    {
+      "id": "role-cloud-cost-optimization-mgr",
+      "label": "Cloud Lead",
+      "type": "Role",
+      "data": {
+        "id": "role-cloud-cost-optimization-mgr",
+        "name": "Cloud Lead",
+        "department": "IT",
+        "headcount": 3,
+        "avg_salary": 105000.0,
+        "transition_risk": "Medium",
+        "description": "Oversees exceptions, strategy, and compliance for Cloud FinOps Infrastructure Rightsizing & Cost Optimization."
+      }
+    },
+    {
+      "id": "skill-cloud-cost-optimization-exec",
+      "label": "Operational Optimization Execution",
+      "type": "Skill",
+      "data": {
+        "id": "skill-cloud-cost-optimization-exec",
+        "name": "Operational Optimization Execution",
+        "category": "Operational",
+        "urgency_to_reskill": "Critical",
+        "reskill_time_weeks": 4,
+        "description": "Execution of core manual procedures in Cloud FinOps Infrastructure Rightsizing & Cost Optimization.",
+        "evolution_path": "AI Agent Supervision in IT"
+      }
+    },
+    {
+      "id": "skill-cloud-cost-optimization-audit",
+      "label": "IT Compliance & Quality Auditing",
+      "type": "Skill",
+      "data": {
+        "id": "skill-cloud-cost-optimization-audit",
+        "name": "IT Compliance & Quality Auditing",
+        "category": "Domain",
+        "urgency_to_reskill": "Medium",
+        "reskill_time_weeks": 6,
+        "description": "Regulatory and operational auditing standards for Cloud FinOps Infrastructure Rightsizing & Cost Optimization.",
+        "evolution_path": "Automated IT Policy Engineering"
+      }
+    },
+    {
+      "id": "skill-cloud-cost-optimization-ai-gov",
+      "label": "Autonomous IT Agent Governance",
+      "type": "Skill",
+      "data": {
+        "id": "skill-cloud-cost-optimization-ai-gov",
+        "name": "Autonomous IT Agent Governance",
+        "category": "Cognitive",
+        "urgency_to_reskill": "Low",
+        "reskill_time_weeks": 8,
+        "description": "Orchestration, prompt tuning, and exception validation for AI models.",
+        "evolution_path": "Enterprise IT Transformation Architect"
+      }
+    },
+    {
+      "id": "proc-database-backup-dr",
+      "label": "Enterprise Database Backup & Disaster Recovery Failover Testing",
+      "type": "Process",
+      "data": {
+        "name": "Enterprise Database Backup & Disaster Recovery Failover Testing",
+        "domain": "IT",
+        "description": "Continuous WAL archiving, point-in-time recovery verification, cross-region replication latency testing, and DR drills.",
+        "cycle_time_days": 1.0,
+        "frequency": "Daily",
+        "overall_automation_potential": 0.93,
+        "activities_count": 3,
+        "roles_count": 2
+      }
+    },
+    {
+      "id": "act-database-backup-dr-1",
+      "label": "Intake & Data Extraction (Enterprise)",
+      "type": "Activity",
+      "data": {
+        "name": "Intake & Data Extraction (Enterprise)",
+        "step_number": 1,
+        "automation_feasibility": 0.98,
+        "ai_disruption_potential": "Critical",
+        "description": "Capturing unstructured intake data and validating schema compliance for Enterprise Database Backup & Disaster Recovery Failover Testing.",
+        "process_id": "proc-database-backup-dr"
+      }
+    },
+    {
+      "id": "act-database-backup-dr-2",
+      "label": "Validation, Matching & Processing (Enterprise)",
+      "type": "Activity",
+      "data": {
+        "name": "Validation, Matching & Processing (Enterprise)",
+        "step_number": 2,
+        "automation_feasibility": 0.93,
+        "ai_disruption_potential": "High",
+        "description": "Executing core business logic and rules engine matching for Enterprise Database Backup & Disaster Recovery Failover Testing.",
+        "process_id": "proc-database-backup-dr"
+      }
+    },
+    {
+      "id": "act-database-backup-dr-3",
+      "label": "Exception Resolution & Governance Approval",
+      "type": "Activity",
+      "data": {
+        "name": "Exception Resolution & Governance Approval",
+        "step_number": 3,
+        "automation_feasibility": 0.71,
+        "ai_disruption_potential": "Medium",
+        "description": "Handling out-of-policy edge cases, dispute negotiation, and sign-offs.",
+        "process_id": "proc-database-backup-dr"
+      }
+    },
+    {
+      "id": "role-database-backup-dr-spec",
+      "label": "Enterprise Specialist",
+      "type": "Role",
+      "data": {
+        "id": "role-database-backup-dr-spec",
+        "name": "Enterprise Specialist",
+        "department": "IT",
+        "headcount": 10,
+        "avg_salary": 65000.0,
+        "transition_risk": "High",
+        "description": "Responsible for primary operations and task execution in Enterprise Database Backup & Disaster Recovery Failover Testing."
+      }
+    },
+    {
+      "id": "role-database-backup-dr-mgr",
+      "label": "Enterprise Lead",
+      "type": "Role",
+      "data": {
+        "id": "role-database-backup-dr-mgr",
+        "name": "Enterprise Lead",
+        "department": "IT",
+        "headcount": 3,
+        "avg_salary": 105000.0,
+        "transition_risk": "Medium",
+        "description": "Oversees exceptions, strategy, and compliance for Enterprise Database Backup & Disaster Recovery Failover Testing."
+      }
+    },
+    {
+      "id": "skill-database-backup-dr-exec",
+      "label": "Operational Testing Execution",
+      "type": "Skill",
+      "data": {
+        "id": "skill-database-backup-dr-exec",
+        "name": "Operational Testing Execution",
+        "category": "Operational",
+        "urgency_to_reskill": "Critical",
+        "reskill_time_weeks": 4,
+        "description": "Execution of core manual procedures in Enterprise Database Backup & Disaster Recovery Failover Testing.",
+        "evolution_path": "AI Agent Supervision in IT"
+      }
+    },
+    {
+      "id": "skill-database-backup-dr-audit",
+      "label": "IT Compliance & Quality Auditing",
+      "type": "Skill",
+      "data": {
+        "id": "skill-database-backup-dr-audit",
+        "name": "IT Compliance & Quality Auditing",
+        "category": "Domain",
+        "urgency_to_reskill": "Medium",
+        "reskill_time_weeks": 6,
+        "description": "Regulatory and operational auditing standards for Enterprise Database Backup & Disaster Recovery Failover Testing.",
+        "evolution_path": "Automated IT Policy Engineering"
+      }
+    },
+    {
+      "id": "skill-database-backup-dr-ai-gov",
+      "label": "Autonomous IT Agent Governance",
+      "type": "Skill",
+      "data": {
+        "id": "skill-database-backup-dr-ai-gov",
+        "name": "Autonomous IT Agent Governance",
+        "category": "Cognitive",
+        "urgency_to_reskill": "Low",
+        "reskill_time_weeks": 8,
+        "description": "Orchestration, prompt tuning, and exception validation for AI models.",
+        "evolution_path": "Enterprise IT Transformation Architect"
+      }
+    },
+    {
+      "id": "proc-contract-lifecycle",
+      "label": "Enterprise Contract Review & Risk Redlining",
+      "type": "Process",
+      "data": {
+        "name": "Enterprise Contract Review & Risk Redlining",
+        "domain": "Legal",
+        "description": "Vendor MSA/SOW intake, clause extraction, playbook deviation scoring, and negotiation redline generation.",
+        "cycle_time_days": 6.0,
+        "frequency": "Daily",
+        "overall_automation_potential": 0.78,
+        "activities_count": 3,
+        "roles_count": 2
+      }
+    },
+    {
+      "id": "act-contract-lifecycle-1",
+      "label": "Intake & Data Extraction (Enterprise)",
+      "type": "Activity",
+      "data": {
+        "name": "Intake & Data Extraction (Enterprise)",
+        "step_number": 1,
+        "automation_feasibility": 0.86,
+        "ai_disruption_potential": "High",
+        "description": "Capturing unstructured intake data and validating schema compliance for Enterprise Contract Review & Risk Redlining.",
+        "process_id": "proc-contract-lifecycle"
+      }
+    },
+    {
+      "id": "act-contract-lifecycle-2",
+      "label": "Validation, Matching & Processing (Enterprise)",
+      "type": "Activity",
+      "data": {
+        "name": "Validation, Matching & Processing (Enterprise)",
+        "step_number": 2,
+        "automation_feasibility": 0.78,
+        "ai_disruption_potential": "High",
+        "description": "Executing core business logic and rules engine matching for Enterprise Contract Review & Risk Redlining.",
+        "process_id": "proc-contract-lifecycle"
+      }
+    },
+    {
+      "id": "act-contract-lifecycle-3",
+      "label": "Exception Resolution & Governance Approval",
+      "type": "Activity",
+      "data": {
+        "name": "Exception Resolution & Governance Approval",
+        "step_number": 3,
+        "automation_feasibility": 0.56,
+        "ai_disruption_potential": "Medium",
+        "description": "Handling out-of-policy edge cases, dispute negotiation, and sign-offs.",
+        "process_id": "proc-contract-lifecycle"
+      }
+    },
+    {
+      "id": "role-contract-lifecycle-spec",
+      "label": "Enterprise Specialist",
+      "type": "Role",
+      "data": {
+        "id": "role-contract-lifecycle-spec",
+        "name": "Enterprise Specialist",
+        "department": "Legal",
+        "headcount": 10,
+        "avg_salary": 65000.0,
+        "transition_risk": "Medium",
+        "description": "Responsible for primary operations and task execution in Enterprise Contract Review & Risk Redlining."
+      }
+    },
+    {
+      "id": "role-contract-lifecycle-mgr",
+      "label": "Enterprise Lead",
+      "type": "Role",
+      "data": {
+        "id": "role-contract-lifecycle-mgr",
+        "name": "Enterprise Lead",
+        "department": "Legal",
+        "headcount": 3,
+        "avg_salary": 105000.0,
+        "transition_risk": "Low",
+        "description": "Oversees exceptions, strategy, and compliance for Enterprise Contract Review & Risk Redlining."
+      }
+    },
+    {
+      "id": "skill-contract-lifecycle-exec",
+      "label": "Operational Redlining Execution",
+      "type": "Skill",
+      "data": {
+        "id": "skill-contract-lifecycle-exec",
+        "name": "Operational Redlining Execution",
+        "category": "Operational",
+        "urgency_to_reskill": "High",
+        "reskill_time_weeks": 4,
+        "description": "Execution of core manual procedures in Enterprise Contract Review & Risk Redlining.",
+        "evolution_path": "AI Agent Supervision in Legal"
+      }
+    },
+    {
+      "id": "skill-contract-lifecycle-audit",
+      "label": "Legal Compliance & Quality Auditing",
+      "type": "Skill",
+      "data": {
+        "id": "skill-contract-lifecycle-audit",
+        "name": "Legal Compliance & Quality Auditing",
+        "category": "Domain",
+        "urgency_to_reskill": "Medium",
+        "reskill_time_weeks": 6,
+        "description": "Regulatory and operational auditing standards for Enterprise Contract Review & Risk Redlining.",
+        "evolution_path": "Automated Legal Policy Engineering"
+      }
+    },
+    {
+      "id": "skill-contract-lifecycle-ai-gov",
+      "label": "Autonomous Legal Agent Governance",
+      "type": "Skill",
+      "data": {
+        "id": "skill-contract-lifecycle-ai-gov",
+        "name": "Autonomous Legal Agent Governance",
+        "category": "Cognitive",
+        "urgency_to_reskill": "Low",
+        "reskill_time_weeks": 8,
+        "description": "Orchestration, prompt tuning, and exception validation for AI models.",
+        "evolution_path": "Enterprise Legal Transformation Architect"
+      }
+    },
+    {
+      "id": "proc-regulatory-compliance-audit",
+      "label": "Regulatory Compliance & Privacy Policy Auditing (GDPR/CCPA)",
+      "type": "Process",
+      "data": {
+        "name": "Regulatory Compliance & Privacy Policy Auditing (GDPR/CCPA)",
+        "domain": "Legal",
+        "description": "Data mapping, third-party vendor compliance certification tracking, data subject access request (DSAR) fulfillment.",
+        "cycle_time_days": 10.0,
+        "frequency": "Monthly",
+        "overall_automation_potential": 0.76,
+        "activities_count": 3,
+        "roles_count": 2
+      }
+    },
+    {
+      "id": "act-regulatory-compliance-audit-1",
+      "label": "Intake & Data Extraction (Regulatory)",
+      "type": "Activity",
+      "data": {
+        "name": "Intake & Data Extraction (Regulatory)",
+        "step_number": 1,
+        "automation_feasibility": 0.84,
+        "ai_disruption_potential": "High",
+        "description": "Capturing unstructured intake data and validating schema compliance for Regulatory Compliance & Privacy Policy Auditing (GDPR/CCPA).",
+        "process_id": "proc-regulatory-compliance-audit"
+      }
+    },
+    {
+      "id": "act-regulatory-compliance-audit-2",
+      "label": "Validation, Matching & Processing (Regulatory)",
+      "type": "Activity",
+      "data": {
+        "name": "Validation, Matching & Processing (Regulatory)",
+        "step_number": 2,
+        "automation_feasibility": 0.76,
+        "ai_disruption_potential": "High",
+        "description": "Executing core business logic and rules engine matching for Regulatory Compliance & Privacy Policy Auditing (GDPR/CCPA).",
+        "process_id": "proc-regulatory-compliance-audit"
+      }
+    },
+    {
+      "id": "act-regulatory-compliance-audit-3",
+      "label": "Exception Resolution & Governance Approval",
+      "type": "Activity",
+      "data": {
+        "name": "Exception Resolution & Governance Approval",
+        "step_number": 3,
+        "automation_feasibility": 0.54,
+        "ai_disruption_potential": "Medium",
+        "description": "Handling out-of-policy edge cases, dispute negotiation, and sign-offs.",
+        "process_id": "proc-regulatory-compliance-audit"
+      }
+    },
+    {
+      "id": "role-regulatory-compliance-audit-spec",
+      "label": "Regulatory Specialist",
+      "type": "Role",
+      "data": {
+        "id": "role-regulatory-compliance-audit-spec",
+        "name": "Regulatory Specialist",
+        "department": "Legal",
+        "headcount": 10,
+        "avg_salary": 65000.0,
+        "transition_risk": "Medium",
+        "description": "Responsible for primary operations and task execution in Regulatory Compliance & Privacy Policy Auditing (GDPR/CCPA)."
+      }
+    },
+    {
+      "id": "role-regulatory-compliance-audit-mgr",
+      "label": "Regulatory Lead",
+      "type": "Role",
+      "data": {
+        "id": "role-regulatory-compliance-audit-mgr",
+        "name": "Regulatory Lead",
+        "department": "Legal",
+        "headcount": 3,
+        "avg_salary": 105000.0,
+        "transition_risk": "Low",
+        "description": "Oversees exceptions, strategy, and compliance for Regulatory Compliance & Privacy Policy Auditing (GDPR/CCPA)."
+      }
+    },
+    {
+      "id": "skill-regulatory-compliance-audit-exec",
+      "label": "Operational (GDPR/CCPA) Execution",
+      "type": "Skill",
+      "data": {
+        "id": "skill-regulatory-compliance-audit-exec",
+        "name": "Operational (GDPR/CCPA) Execution",
+        "category": "Operational",
+        "urgency_to_reskill": "High",
+        "reskill_time_weeks": 4,
+        "description": "Execution of core manual procedures in Regulatory Compliance & Privacy Policy Auditing (GDPR/CCPA).",
+        "evolution_path": "AI Agent Supervision in Legal"
+      }
+    },
+    {
+      "id": "skill-regulatory-compliance-audit-audit",
+      "label": "Legal Compliance & Quality Auditing",
+      "type": "Skill",
+      "data": {
+        "id": "skill-regulatory-compliance-audit-audit",
+        "name": "Legal Compliance & Quality Auditing",
+        "category": "Domain",
+        "urgency_to_reskill": "Medium",
+        "reskill_time_weeks": 6,
+        "description": "Regulatory and operational auditing standards for Regulatory Compliance & Privacy Policy Auditing (GDPR/CCPA).",
+        "evolution_path": "Automated Legal Policy Engineering"
+      }
+    },
+    {
+      "id": "skill-regulatory-compliance-audit-ai-gov",
+      "label": "Autonomous Legal Agent Governance",
+      "type": "Skill",
+      "data": {
+        "id": "skill-regulatory-compliance-audit-ai-gov",
+        "name": "Autonomous Legal Agent Governance",
+        "category": "Cognitive",
+        "urgency_to_reskill": "Low",
+        "reskill_time_weeks": 8,
+        "description": "Orchestration, prompt tuning, and exception validation for AI models.",
+        "evolution_path": "Enterprise Legal Transformation Architect"
+      }
+    },
+    {
+      "id": "proc-ip-patent-monitoring",
+      "label": "Intellectual Property & Prior Art Patent Monitoring",
+      "type": "Process",
+      "data": {
+        "name": "Intellectual Property & Prior Art Patent Monitoring",
+        "domain": "Legal",
+        "description": "Global patent gazette parsing, trademark infringement web scraping, and competitor portfolio gap analysis.",
+        "cycle_time_days": 14.0,
+        "frequency": "Monthly",
+        "overall_automation_potential": 0.82,
+        "activities_count": 3,
+        "roles_count": 2
+      }
+    },
+    {
+      "id": "act-ip-patent-monitoring-1",
+      "label": "Intake & Data Extraction (Intellectual)",
+      "type": "Activity",
+      "data": {
+        "name": "Intake & Data Extraction (Intellectual)",
+        "step_number": 1,
+        "automation_feasibility": 0.9,
+        "ai_disruption_potential": "High",
+        "description": "Capturing unstructured intake data and validating schema compliance for Intellectual Property & Prior Art Patent Monitoring.",
+        "process_id": "proc-ip-patent-monitoring"
+      }
+    },
+    {
+      "id": "act-ip-patent-monitoring-2",
+      "label": "Validation, Matching & Processing (Intellectual)",
+      "type": "Activity",
+      "data": {
+        "name": "Validation, Matching & Processing (Intellectual)",
+        "step_number": 2,
+        "automation_feasibility": 0.82,
+        "ai_disruption_potential": "High",
+        "description": "Executing core business logic and rules engine matching for Intellectual Property & Prior Art Patent Monitoring.",
+        "process_id": "proc-ip-patent-monitoring"
+      }
+    },
+    {
+      "id": "act-ip-patent-monitoring-3",
+      "label": "Exception Resolution & Governance Approval",
+      "type": "Activity",
+      "data": {
+        "name": "Exception Resolution & Governance Approval",
+        "step_number": 3,
+        "automation_feasibility": 0.6,
+        "ai_disruption_potential": "Medium",
+        "description": "Handling out-of-policy edge cases, dispute negotiation, and sign-offs.",
+        "process_id": "proc-ip-patent-monitoring"
+      }
+    },
+    {
+      "id": "role-ip-patent-monitoring-spec",
+      "label": "Intellectual Specialist",
+      "type": "Role",
+      "data": {
+        "id": "role-ip-patent-monitoring-spec",
+        "name": "Intellectual Specialist",
+        "department": "Legal",
+        "headcount": 10,
+        "avg_salary": 65000.0,
+        "transition_risk": "High",
+        "description": "Responsible for primary operations and task execution in Intellectual Property & Prior Art Patent Monitoring."
+      }
+    },
+    {
+      "id": "role-ip-patent-monitoring-mgr",
+      "label": "Intellectual Lead",
+      "type": "Role",
+      "data": {
+        "id": "role-ip-patent-monitoring-mgr",
+        "name": "Intellectual Lead",
+        "department": "Legal",
+        "headcount": 3,
+        "avg_salary": 105000.0,
+        "transition_risk": "Medium",
+        "description": "Oversees exceptions, strategy, and compliance for Intellectual Property & Prior Art Patent Monitoring."
+      }
+    },
+    {
+      "id": "skill-ip-patent-monitoring-exec",
+      "label": "Operational Monitoring Execution",
+      "type": "Skill",
+      "data": {
+        "id": "skill-ip-patent-monitoring-exec",
+        "name": "Operational Monitoring Execution",
+        "category": "Operational",
+        "urgency_to_reskill": "High",
+        "reskill_time_weeks": 4,
+        "description": "Execution of core manual procedures in Intellectual Property & Prior Art Patent Monitoring.",
+        "evolution_path": "AI Agent Supervision in Legal"
+      }
+    },
+    {
+      "id": "skill-ip-patent-monitoring-audit",
+      "label": "Legal Compliance & Quality Auditing",
+      "type": "Skill",
+      "data": {
+        "id": "skill-ip-patent-monitoring-audit",
+        "name": "Legal Compliance & Quality Auditing",
+        "category": "Domain",
+        "urgency_to_reskill": "Medium",
+        "reskill_time_weeks": 6,
+        "description": "Regulatory and operational auditing standards for Intellectual Property & Prior Art Patent Monitoring.",
+        "evolution_path": "Automated Legal Policy Engineering"
+      }
+    },
+    {
+      "id": "skill-ip-patent-monitoring-ai-gov",
+      "label": "Autonomous Legal Agent Governance",
+      "type": "Skill",
+      "data": {
+        "id": "skill-ip-patent-monitoring-ai-gov",
+        "name": "Autonomous Legal Agent Governance",
+        "category": "Cognitive",
+        "urgency_to_reskill": "Low",
+        "reskill_time_weeks": 8,
+        "description": "Orchestration, prompt tuning, and exception validation for AI models.",
+        "evolution_path": "Enterprise Legal Transformation Architect"
+      }
+    },
+    {
+      "id": "proc-purchase-order-creation",
+      "label": "Procure-to-Pay Requisition & PO Generation",
+      "type": "Process",
+      "data": {
+        "name": "Procure-to-Pay Requisition & PO Generation",
+        "domain": "Supply Chain",
+        "description": "Requisition review, vendor catalog matching, budget validation, and EDI purchase order dispatch.",
+        "cycle_time_days": 2.0,
+        "frequency": "Daily",
+        "overall_automation_potential": 0.86,
+        "activities_count": 3,
+        "roles_count": 2
+      }
+    },
+    {
+      "id": "act-purchase-order-creation-1",
+      "label": "Intake & Data Extraction (Procure-to-Pay)",
+      "type": "Activity",
+      "data": {
+        "name": "Intake & Data Extraction (Procure-to-Pay)",
+        "step_number": 1,
+        "automation_feasibility": 0.94,
+        "ai_disruption_potential": "Critical",
+        "description": "Capturing unstructured intake data and validating schema compliance for Procure-to-Pay Requisition & PO Generation.",
+        "process_id": "proc-purchase-order-creation"
+      }
+    },
+    {
+      "id": "act-purchase-order-creation-2",
+      "label": "Validation, Matching & Processing (Procure-to-Pay)",
+      "type": "Activity",
+      "data": {
+        "name": "Validation, Matching & Processing (Procure-to-Pay)",
+        "step_number": 2,
+        "automation_feasibility": 0.86,
+        "ai_disruption_potential": "High",
+        "description": "Executing core business logic and rules engine matching for Procure-to-Pay Requisition & PO Generation.",
+        "process_id": "proc-purchase-order-creation"
+      }
+    },
+    {
+      "id": "act-purchase-order-creation-3",
+      "label": "Exception Resolution & Governance Approval",
+      "type": "Activity",
+      "data": {
+        "name": "Exception Resolution & Governance Approval",
+        "step_number": 3,
+        "automation_feasibility": 0.64,
+        "ai_disruption_potential": "Medium",
+        "description": "Handling out-of-policy edge cases, dispute negotiation, and sign-offs.",
+        "process_id": "proc-purchase-order-creation"
+      }
+    },
+    {
+      "id": "role-purchase-order-creation-spec",
+      "label": "Procure-to-Pay Specialist",
+      "type": "Role",
+      "data": {
+        "id": "role-purchase-order-creation-spec",
+        "name": "Procure-to-Pay Specialist",
+        "department": "Supply Chain",
+        "headcount": 10,
+        "avg_salary": 65000.0,
+        "transition_risk": "High",
+        "description": "Responsible for primary operations and task execution in Procure-to-Pay Requisition & PO Generation."
+      }
+    },
+    {
+      "id": "role-purchase-order-creation-mgr",
+      "label": "Procure-to-Pay Lead",
+      "type": "Role",
+      "data": {
+        "id": "role-purchase-order-creation-mgr",
+        "name": "Procure-to-Pay Lead",
+        "department": "Supply Chain",
+        "headcount": 3,
+        "avg_salary": 105000.0,
+        "transition_risk": "Medium",
+        "description": "Oversees exceptions, strategy, and compliance for Procure-to-Pay Requisition & PO Generation."
+      }
+    },
+    {
+      "id": "skill-purchase-order-creation-exec",
+      "label": "Operational Generation Execution",
+      "type": "Skill",
+      "data": {
+        "id": "skill-purchase-order-creation-exec",
+        "name": "Operational Generation Execution",
+        "category": "Operational",
+        "urgency_to_reskill": "Critical",
+        "reskill_time_weeks": 4,
+        "description": "Execution of core manual procedures in Procure-to-Pay Requisition & PO Generation.",
+        "evolution_path": "AI Agent Supervision in Supply Chain"
+      }
+    },
+    {
+      "id": "skill-purchase-order-creation-audit",
+      "label": "Supply Chain Compliance & Quality Auditing",
+      "type": "Skill",
+      "data": {
+        "id": "skill-purchase-order-creation-audit",
+        "name": "Supply Chain Compliance & Quality Auditing",
+        "category": "Domain",
+        "urgency_to_reskill": "Medium",
+        "reskill_time_weeks": 6,
+        "description": "Regulatory and operational auditing standards for Procure-to-Pay Requisition & PO Generation.",
+        "evolution_path": "Automated Supply Chain Policy Engineering"
+      }
+    },
+    {
+      "id": "skill-purchase-order-creation-ai-gov",
+      "label": "Autonomous Supply Chain Agent Governance",
+      "type": "Skill",
+      "data": {
+        "id": "skill-purchase-order-creation-ai-gov",
+        "name": "Autonomous Supply Chain Agent Governance",
+        "category": "Cognitive",
+        "urgency_to_reskill": "Low",
+        "reskill_time_weeks": 8,
+        "description": "Orchestration, prompt tuning, and exception validation for AI models.",
+        "evolution_path": "Enterprise Supply Chain Transformation Architect"
+      }
+    },
+    {
+      "id": "proc-warehouse-replenishment",
+      "label": "Warehouse Inventory Replenishment & Demand Planning",
+      "type": "Process",
+      "data": {
+        "name": "Warehouse Inventory Replenishment & Demand Planning",
+        "domain": "Supply Chain",
+        "description": "RFID stock aggregation, time-series demand forecasting, dynamic safety stock calculation, and replenishment ordering.",
+        "cycle_time_days": 3.0,
+        "frequency": "Daily",
+        "overall_automation_potential": 0.85,
+        "activities_count": 3,
+        "roles_count": 2
+      }
+    },
+    {
+      "id": "act-warehouse-replenishment-1",
+      "label": "Intake & Data Extraction (Warehouse)",
+      "type": "Activity",
+      "data": {
+        "name": "Intake & Data Extraction (Warehouse)",
+        "step_number": 1,
+        "automation_feasibility": 0.93,
+        "ai_disruption_potential": "Critical",
+        "description": "Capturing unstructured intake data and validating schema compliance for Warehouse Inventory Replenishment & Demand Planning.",
+        "process_id": "proc-warehouse-replenishment"
+      }
+    },
+    {
+      "id": "act-warehouse-replenishment-2",
+      "label": "Validation, Matching & Processing (Warehouse)",
+      "type": "Activity",
+      "data": {
+        "name": "Validation, Matching & Processing (Warehouse)",
+        "step_number": 2,
+        "automation_feasibility": 0.85,
+        "ai_disruption_potential": "High",
+        "description": "Executing core business logic and rules engine matching for Warehouse Inventory Replenishment & Demand Planning.",
+        "process_id": "proc-warehouse-replenishment"
+      }
+    },
+    {
+      "id": "act-warehouse-replenishment-3",
+      "label": "Exception Resolution & Governance Approval",
+      "type": "Activity",
+      "data": {
+        "name": "Exception Resolution & Governance Approval",
+        "step_number": 3,
+        "automation_feasibility": 0.63,
+        "ai_disruption_potential": "Medium",
+        "description": "Handling out-of-policy edge cases, dispute negotiation, and sign-offs.",
+        "process_id": "proc-warehouse-replenishment"
+      }
+    },
+    {
+      "id": "role-warehouse-replenishment-spec",
+      "label": "Warehouse Specialist",
+      "type": "Role",
+      "data": {
+        "id": "role-warehouse-replenishment-spec",
+        "name": "Warehouse Specialist",
+        "department": "Supply Chain",
+        "headcount": 10,
+        "avg_salary": 65000.0,
+        "transition_risk": "High",
+        "description": "Responsible for primary operations and task execution in Warehouse Inventory Replenishment & Demand Planning."
+      }
+    },
+    {
+      "id": "role-warehouse-replenishment-mgr",
+      "label": "Warehouse Lead",
+      "type": "Role",
+      "data": {
+        "id": "role-warehouse-replenishment-mgr",
+        "name": "Warehouse Lead",
+        "department": "Supply Chain",
+        "headcount": 3,
+        "avg_salary": 105000.0,
+        "transition_risk": "Medium",
+        "description": "Oversees exceptions, strategy, and compliance for Warehouse Inventory Replenishment & Demand Planning."
+      }
+    },
+    {
+      "id": "skill-warehouse-replenishment-exec",
+      "label": "Operational Planning Execution",
+      "type": "Skill",
+      "data": {
+        "id": "skill-warehouse-replenishment-exec",
+        "name": "Operational Planning Execution",
+        "category": "Operational",
+        "urgency_to_reskill": "High",
+        "reskill_time_weeks": 4,
+        "description": "Execution of core manual procedures in Warehouse Inventory Replenishment & Demand Planning.",
+        "evolution_path": "AI Agent Supervision in Supply Chain"
+      }
+    },
+    {
+      "id": "skill-warehouse-replenishment-audit",
+      "label": "Supply Chain Compliance & Quality Auditing",
+      "type": "Skill",
+      "data": {
+        "id": "skill-warehouse-replenishment-audit",
+        "name": "Supply Chain Compliance & Quality Auditing",
+        "category": "Domain",
+        "urgency_to_reskill": "Medium",
+        "reskill_time_weeks": 6,
+        "description": "Regulatory and operational auditing standards for Warehouse Inventory Replenishment & Demand Planning.",
+        "evolution_path": "Automated Supply Chain Policy Engineering"
+      }
+    },
+    {
+      "id": "skill-warehouse-replenishment-ai-gov",
+      "label": "Autonomous Supply Chain Agent Governance",
+      "type": "Skill",
+      "data": {
+        "id": "skill-warehouse-replenishment-ai-gov",
+        "name": "Autonomous Supply Chain Agent Governance",
+        "category": "Cognitive",
+        "urgency_to_reskill": "Low",
+        "reskill_time_weeks": 8,
+        "description": "Orchestration, prompt tuning, and exception validation for AI models.",
+        "evolution_path": "Enterprise Supply Chain Transformation Architect"
+      }
+    },
+    {
+      "id": "proc-freight-logistics-dispatch",
+      "label": "Global Freight Carrier Selection & Dynamic Route Dispatch",
+      "type": "Process",
+      "data": {
+        "name": "Global Freight Carrier Selection & Dynamic Route Dispatch",
+        "domain": "Supply Chain",
+        "description": "Real-time port congestion tracking, carrier rate card benchmarking, carbon footprint minimization, and customs filing.",
+        "cycle_time_days": 2.0,
+        "frequency": "Daily",
+        "overall_automation_potential": 0.83,
+        "activities_count": 3,
+        "roles_count": 2
+      }
+    },
+    {
+      "id": "act-freight-logistics-dispatch-1",
+      "label": "Intake & Data Extraction (Global)",
+      "type": "Activity",
+      "data": {
+        "name": "Intake & Data Extraction (Global)",
+        "step_number": 1,
+        "automation_feasibility": 0.91,
+        "ai_disruption_potential": "Critical",
+        "description": "Capturing unstructured intake data and validating schema compliance for Global Freight Carrier Selection & Dynamic Route Dispatch.",
+        "process_id": "proc-freight-logistics-dispatch"
+      }
+    },
+    {
+      "id": "act-freight-logistics-dispatch-2",
+      "label": "Validation, Matching & Processing (Global)",
+      "type": "Activity",
+      "data": {
+        "name": "Validation, Matching & Processing (Global)",
+        "step_number": 2,
+        "automation_feasibility": 0.83,
+        "ai_disruption_potential": "High",
+        "description": "Executing core business logic and rules engine matching for Global Freight Carrier Selection & Dynamic Route Dispatch.",
+        "process_id": "proc-freight-logistics-dispatch"
+      }
+    },
+    {
+      "id": "act-freight-logistics-dispatch-3",
+      "label": "Exception Resolution & Governance Approval",
+      "type": "Activity",
+      "data": {
+        "name": "Exception Resolution & Governance Approval",
+        "step_number": 3,
+        "automation_feasibility": 0.61,
+        "ai_disruption_potential": "Medium",
+        "description": "Handling out-of-policy edge cases, dispute negotiation, and sign-offs.",
+        "process_id": "proc-freight-logistics-dispatch"
+      }
+    },
+    {
+      "id": "role-freight-logistics-dispatch-spec",
+      "label": "Global Specialist",
+      "type": "Role",
+      "data": {
+        "id": "role-freight-logistics-dispatch-spec",
+        "name": "Global Specialist",
+        "department": "Supply Chain",
+        "headcount": 10,
+        "avg_salary": 65000.0,
+        "transition_risk": "High",
+        "description": "Responsible for primary operations and task execution in Global Freight Carrier Selection & Dynamic Route Dispatch."
+      }
+    },
+    {
+      "id": "role-freight-logistics-dispatch-mgr",
+      "label": "Global Lead",
+      "type": "Role",
+      "data": {
+        "id": "role-freight-logistics-dispatch-mgr",
+        "name": "Global Lead",
+        "department": "Supply Chain",
+        "headcount": 3,
+        "avg_salary": 105000.0,
+        "transition_risk": "Medium",
+        "description": "Oversees exceptions, strategy, and compliance for Global Freight Carrier Selection & Dynamic Route Dispatch."
+      }
+    },
+    {
+      "id": "skill-freight-logistics-dispatch-exec",
+      "label": "Operational Dispatch Execution",
+      "type": "Skill",
+      "data": {
+        "id": "skill-freight-logistics-dispatch-exec",
+        "name": "Operational Dispatch Execution",
+        "category": "Operational",
+        "urgency_to_reskill": "High",
+        "reskill_time_weeks": 4,
+        "description": "Execution of core manual procedures in Global Freight Carrier Selection & Dynamic Route Dispatch.",
+        "evolution_path": "AI Agent Supervision in Supply Chain"
+      }
+    },
+    {
+      "id": "skill-freight-logistics-dispatch-audit",
+      "label": "Supply Chain Compliance & Quality Auditing",
+      "type": "Skill",
+      "data": {
+        "id": "skill-freight-logistics-dispatch-audit",
+        "name": "Supply Chain Compliance & Quality Auditing",
+        "category": "Domain",
+        "urgency_to_reskill": "Medium",
+        "reskill_time_weeks": 6,
+        "description": "Regulatory and operational auditing standards for Global Freight Carrier Selection & Dynamic Route Dispatch.",
+        "evolution_path": "Automated Supply Chain Policy Engineering"
+      }
+    },
+    {
+      "id": "skill-freight-logistics-dispatch-ai-gov",
+      "label": "Autonomous Supply Chain Agent Governance",
+      "type": "Skill",
+      "data": {
+        "id": "skill-freight-logistics-dispatch-ai-gov",
+        "name": "Autonomous Supply Chain Agent Governance",
+        "category": "Cognitive",
+        "urgency_to_reskill": "Low",
+        "reskill_time_weeks": 8,
+        "description": "Orchestration, prompt tuning, and exception validation for AI models.",
+        "evolution_path": "Enterprise Supply Chain Transformation Architect"
+      }
+    },
+    {
+      "id": "proc-supplier-quality-audit",
+      "label": "Supplier Quality Control & Scorecard Benchmarking",
+      "type": "Process",
+      "data": {
+        "name": "Supplier Quality Control & Scorecard Benchmarking",
+        "domain": "Supply Chain",
+        "description": "Defect rate tracking, ISO audit trail validation, supplier corrective action requests (SCAR), and SLA enforcement.",
+        "cycle_time_days": 15.0,
+        "frequency": "Quarterly",
+        "overall_automation_potential": 0.7,
+        "activities_count": 3,
+        "roles_count": 2
+      }
+    },
+    {
+      "id": "act-supplier-quality-audit-1",
+      "label": "Intake & Data Extraction (Supplier)",
+      "type": "Activity",
+      "data": {
+        "name": "Intake & Data Extraction (Supplier)",
+        "step_number": 1,
+        "automation_feasibility": 0.78,
+        "ai_disruption_potential": "High",
+        "description": "Capturing unstructured intake data and validating schema compliance for Supplier Quality Control & Scorecard Benchmarking.",
+        "process_id": "proc-supplier-quality-audit"
+      }
+    },
+    {
+      "id": "act-supplier-quality-audit-2",
+      "label": "Validation, Matching & Processing (Supplier)",
+      "type": "Activity",
+      "data": {
+        "name": "Validation, Matching & Processing (Supplier)",
+        "step_number": 2,
+        "automation_feasibility": 0.7,
+        "ai_disruption_potential": "High",
+        "description": "Executing core business logic and rules engine matching for Supplier Quality Control & Scorecard Benchmarking.",
+        "process_id": "proc-supplier-quality-audit"
+      }
+    },
+    {
+      "id": "act-supplier-quality-audit-3",
+      "label": "Exception Resolution & Governance Approval",
+      "type": "Activity",
+      "data": {
+        "name": "Exception Resolution & Governance Approval",
+        "step_number": 3,
+        "automation_feasibility": 0.48,
+        "ai_disruption_potential": "Medium",
+        "description": "Handling out-of-policy edge cases, dispute negotiation, and sign-offs.",
+        "process_id": "proc-supplier-quality-audit"
+      }
+    },
+    {
+      "id": "role-supplier-quality-audit-spec",
+      "label": "Supplier Specialist",
+      "type": "Role",
+      "data": {
+        "id": "role-supplier-quality-audit-spec",
+        "name": "Supplier Specialist",
+        "department": "Supply Chain",
+        "headcount": 10,
+        "avg_salary": 65000.0,
+        "transition_risk": "Medium",
+        "description": "Responsible for primary operations and task execution in Supplier Quality Control & Scorecard Benchmarking."
+      }
+    },
+    {
+      "id": "role-supplier-quality-audit-mgr",
+      "label": "Supplier Lead",
+      "type": "Role",
+      "data": {
+        "id": "role-supplier-quality-audit-mgr",
+        "name": "Supplier Lead",
+        "department": "Supply Chain",
+        "headcount": 3,
+        "avg_salary": 105000.0,
+        "transition_risk": "Low",
+        "description": "Oversees exceptions, strategy, and compliance for Supplier Quality Control & Scorecard Benchmarking."
+      }
+    },
+    {
+      "id": "skill-supplier-quality-audit-exec",
+      "label": "Operational Benchmarking Execution",
+      "type": "Skill",
+      "data": {
+        "id": "skill-supplier-quality-audit-exec",
+        "name": "Operational Benchmarking Execution",
+        "category": "Operational",
+        "urgency_to_reskill": "High",
+        "reskill_time_weeks": 4,
+        "description": "Execution of core manual procedures in Supplier Quality Control & Scorecard Benchmarking.",
+        "evolution_path": "AI Agent Supervision in Supply Chain"
+      }
+    },
+    {
+      "id": "skill-supplier-quality-audit-audit",
+      "label": "Supply Chain Compliance & Quality Auditing",
+      "type": "Skill",
+      "data": {
+        "id": "skill-supplier-quality-audit-audit",
+        "name": "Supply Chain Compliance & Quality Auditing",
+        "category": "Domain",
+        "urgency_to_reskill": "Medium",
+        "reskill_time_weeks": 6,
+        "description": "Regulatory and operational auditing standards for Supplier Quality Control & Scorecard Benchmarking.",
+        "evolution_path": "Automated Supply Chain Policy Engineering"
+      }
+    },
+    {
+      "id": "skill-supplier-quality-audit-ai-gov",
+      "label": "Autonomous Supply Chain Agent Governance",
+      "type": "Skill",
+      "data": {
+        "id": "skill-supplier-quality-audit-ai-gov",
+        "name": "Autonomous Supply Chain Agent Governance",
+        "category": "Cognitive",
+        "urgency_to_reskill": "Low",
+        "reskill_time_weeks": 8,
+        "description": "Orchestration, prompt tuning, and exception validation for AI models.",
+        "evolution_path": "Enterprise Supply Chain Transformation Architect"
+      }
+    },
+    {
+      "id": "proc-customer-churn-prevention",
+      "label": "Customer Success Churn Prevention & Retention",
+      "type": "Process",
+      "data": {
+        "name": "Customer Success Churn Prevention & Retention",
+        "domain": "Customer Support",
+        "description": "Usage telemetry anomaly detection, health index scoring, proactive intervention playbook generation, and QBR briefings.",
+        "cycle_time_days": 7.0,
+        "frequency": "Weekly",
+        "overall_automation_potential": 0.72,
+        "activities_count": 3,
+        "roles_count": 2
+      }
+    },
+    {
+      "id": "act-customer-churn-prevention-1",
+      "label": "Intake & Data Extraction (Customer)",
+      "type": "Activity",
+      "data": {
+        "name": "Intake & Data Extraction (Customer)",
+        "step_number": 1,
+        "automation_feasibility": 0.8,
+        "ai_disruption_potential": "High",
+        "description": "Capturing unstructured intake data and validating schema compliance for Customer Success Churn Prevention & Retention.",
+        "process_id": "proc-customer-churn-prevention"
+      }
+    },
+    {
+      "id": "act-customer-churn-prevention-2",
+      "label": "Validation, Matching & Processing (Customer)",
+      "type": "Activity",
+      "data": {
+        "name": "Validation, Matching & Processing (Customer)",
+        "step_number": 2,
+        "automation_feasibility": 0.72,
+        "ai_disruption_potential": "High",
+        "description": "Executing core business logic and rules engine matching for Customer Success Churn Prevention & Retention.",
+        "process_id": "proc-customer-churn-prevention"
+      }
+    },
+    {
+      "id": "act-customer-churn-prevention-3",
+      "label": "Exception Resolution & Governance Approval",
+      "type": "Activity",
+      "data": {
+        "name": "Exception Resolution & Governance Approval",
+        "step_number": 3,
+        "automation_feasibility": 0.5,
+        "ai_disruption_potential": "Medium",
+        "description": "Handling out-of-policy edge cases, dispute negotiation, and sign-offs.",
+        "process_id": "proc-customer-churn-prevention"
+      }
+    },
+    {
+      "id": "role-customer-churn-prevention-spec",
+      "label": "Customer Specialist",
+      "type": "Role",
+      "data": {
+        "id": "role-customer-churn-prevention-spec",
+        "name": "Customer Specialist",
+        "department": "Customer Support",
+        "headcount": 10,
+        "avg_salary": 65000.0,
+        "transition_risk": "Medium",
+        "description": "Responsible for primary operations and task execution in Customer Success Churn Prevention & Retention."
+      }
+    },
+    {
+      "id": "role-customer-churn-prevention-mgr",
+      "label": "Customer Lead",
+      "type": "Role",
+      "data": {
+        "id": "role-customer-churn-prevention-mgr",
+        "name": "Customer Lead",
+        "department": "Customer Support",
+        "headcount": 3,
+        "avg_salary": 105000.0,
+        "transition_risk": "Low",
+        "description": "Oversees exceptions, strategy, and compliance for Customer Success Churn Prevention & Retention."
+      }
+    },
+    {
+      "id": "skill-customer-churn-prevention-exec",
+      "label": "Operational Retention Execution",
+      "type": "Skill",
+      "data": {
+        "id": "skill-customer-churn-prevention-exec",
+        "name": "Operational Retention Execution",
+        "category": "Operational",
+        "urgency_to_reskill": "High",
+        "reskill_time_weeks": 4,
+        "description": "Execution of core manual procedures in Customer Success Churn Prevention & Retention.",
+        "evolution_path": "AI Agent Supervision in Customer Support"
+      }
+    },
+    {
+      "id": "skill-customer-churn-prevention-audit",
+      "label": "Customer Support Compliance & Quality Auditing",
+      "type": "Skill",
+      "data": {
+        "id": "skill-customer-churn-prevention-audit",
+        "name": "Customer Support Compliance & Quality Auditing",
+        "category": "Domain",
+        "urgency_to_reskill": "Medium",
+        "reskill_time_weeks": 6,
+        "description": "Regulatory and operational auditing standards for Customer Success Churn Prevention & Retention.",
+        "evolution_path": "Automated Customer Support Policy Engineering"
+      }
+    },
+    {
+      "id": "skill-customer-churn-prevention-ai-gov",
+      "label": "Autonomous Customer Support Agent Governance",
+      "type": "Skill",
+      "data": {
+        "id": "skill-customer-churn-prevention-ai-gov",
+        "name": "Autonomous Customer Support Agent Governance",
+        "category": "Cognitive",
+        "urgency_to_reskill": "Low",
+        "reskill_time_weeks": 8,
+        "description": "Orchestration, prompt tuning, and exception validation for AI models.",
+        "evolution_path": "Enterprise Customer Support Transformation Architect"
+      }
+    },
+    {
+      "id": "proc-omnichannel-support-routing",
+      "label": "Omnichannel Customer Support & Automated Agent Response",
+      "type": "Process",
+      "data": {
+        "name": "Omnichannel Customer Support & Automated Agent Response",
+        "domain": "Customer Support",
+        "description": "Customer sentiment analysis, intent classification, AI draft response generation, and Tier 2 human escalation.",
+        "cycle_time_days": 0.2,
+        "frequency": "Real-time",
+        "overall_automation_potential": 0.9,
+        "activities_count": 3,
+        "roles_count": 2
+      }
+    },
+    {
+      "id": "act-omnichannel-support-routing-1",
+      "label": "Intake & Data Extraction (Omnichannel)",
+      "type": "Activity",
+      "data": {
+        "name": "Intake & Data Extraction (Omnichannel)",
+        "step_number": 1,
+        "automation_feasibility": 0.98,
+        "ai_disruption_potential": "Critical",
+        "description": "Capturing unstructured intake data and validating schema compliance for Omnichannel Customer Support & Automated Agent Response.",
+        "process_id": "proc-omnichannel-support-routing"
+      }
+    },
+    {
+      "id": "act-omnichannel-support-routing-2",
+      "label": "Validation, Matching & Processing (Omnichannel)",
+      "type": "Activity",
+      "data": {
+        "name": "Validation, Matching & Processing (Omnichannel)",
+        "step_number": 2,
+        "automation_feasibility": 0.9,
+        "ai_disruption_potential": "High",
+        "description": "Executing core business logic and rules engine matching for Omnichannel Customer Support & Automated Agent Response.",
+        "process_id": "proc-omnichannel-support-routing"
+      }
+    },
+    {
+      "id": "act-omnichannel-support-routing-3",
+      "label": "Exception Resolution & Governance Approval",
+      "type": "Activity",
+      "data": {
+        "name": "Exception Resolution & Governance Approval",
+        "step_number": 3,
+        "automation_feasibility": 0.68,
+        "ai_disruption_potential": "Medium",
+        "description": "Handling out-of-policy edge cases, dispute negotiation, and sign-offs.",
+        "process_id": "proc-omnichannel-support-routing"
+      }
+    },
+    {
+      "id": "role-omnichannel-support-routing-spec",
+      "label": "Omnichannel Specialist",
+      "type": "Role",
+      "data": {
+        "id": "role-omnichannel-support-routing-spec",
+        "name": "Omnichannel Specialist",
+        "department": "Customer Support",
+        "headcount": 10,
+        "avg_salary": 65000.0,
+        "transition_risk": "High",
+        "description": "Responsible for primary operations and task execution in Omnichannel Customer Support & Automated Agent Response."
+      }
+    },
+    {
+      "id": "role-omnichannel-support-routing-mgr",
+      "label": "Omnichannel Lead",
+      "type": "Role",
+      "data": {
+        "id": "role-omnichannel-support-routing-mgr",
+        "name": "Omnichannel Lead",
+        "department": "Customer Support",
+        "headcount": 3,
+        "avg_salary": 105000.0,
+        "transition_risk": "Medium",
+        "description": "Oversees exceptions, strategy, and compliance for Omnichannel Customer Support & Automated Agent Response."
+      }
+    },
+    {
+      "id": "skill-omnichannel-support-routing-exec",
+      "label": "Operational Response Execution",
+      "type": "Skill",
+      "data": {
+        "id": "skill-omnichannel-support-routing-exec",
+        "name": "Operational Response Execution",
+        "category": "Operational",
+        "urgency_to_reskill": "Critical",
+        "reskill_time_weeks": 4,
+        "description": "Execution of core manual procedures in Omnichannel Customer Support & Automated Agent Response.",
+        "evolution_path": "AI Agent Supervision in Customer Support"
+      }
+    },
+    {
+      "id": "skill-omnichannel-support-routing-audit",
+      "label": "Customer Support Compliance & Quality Auditing",
+      "type": "Skill",
+      "data": {
+        "id": "skill-omnichannel-support-routing-audit",
+        "name": "Customer Support Compliance & Quality Auditing",
+        "category": "Domain",
+        "urgency_to_reskill": "Medium",
+        "reskill_time_weeks": 6,
+        "description": "Regulatory and operational auditing standards for Omnichannel Customer Support & Automated Agent Response.",
+        "evolution_path": "Automated Customer Support Policy Engineering"
+      }
+    },
+    {
+      "id": "skill-omnichannel-support-routing-ai-gov",
+      "label": "Autonomous Customer Support Agent Governance",
+      "type": "Skill",
+      "data": {
+        "id": "skill-omnichannel-support-routing-ai-gov",
+        "name": "Autonomous Customer Support Agent Governance",
+        "category": "Cognitive",
+        "urgency_to_reskill": "Low",
+        "reskill_time_weeks": 8,
+        "description": "Orchestration, prompt tuning, and exception validation for AI models.",
+        "evolution_path": "Enterprise Customer Support Transformation Architect"
+      }
+    },
+    {
+      "id": "proc-voice-of-customer-synthesis",
+      "label": "Voice-of-Customer (VoC) Product Feedback Synthesis",
+      "type": "Process",
+      "data": {
+        "name": "Voice-of-Customer (VoC) Product Feedback Synthesis",
+        "domain": "Customer Support",
+        "description": "Aggregating NPS surveys, support transcripts, app store reviews, and generating product feature prioritization matrices.",
+        "cycle_time_days": 14.0,
+        "frequency": "Monthly",
+        "overall_automation_potential": 0.84,
+        "activities_count": 3,
+        "roles_count": 2
+      }
+    },
+    {
+      "id": "act-voice-of-customer-synthesis-1",
+      "label": "Intake & Data Extraction (Voice-of-Customer)",
+      "type": "Activity",
+      "data": {
+        "name": "Intake & Data Extraction (Voice-of-Customer)",
+        "step_number": 1,
+        "automation_feasibility": 0.92,
+        "ai_disruption_potential": "Critical",
+        "description": "Capturing unstructured intake data and validating schema compliance for Voice-of-Customer (VoC) Product Feedback Synthesis.",
+        "process_id": "proc-voice-of-customer-synthesis"
+      }
+    },
+    {
+      "id": "act-voice-of-customer-synthesis-2",
+      "label": "Validation, Matching & Processing (Voice-of-Customer)",
+      "type": "Activity",
+      "data": {
+        "name": "Validation, Matching & Processing (Voice-of-Customer)",
+        "step_number": 2,
+        "automation_feasibility": 0.84,
+        "ai_disruption_potential": "High",
+        "description": "Executing core business logic and rules engine matching for Voice-of-Customer (VoC) Product Feedback Synthesis.",
+        "process_id": "proc-voice-of-customer-synthesis"
+      }
+    },
+    {
+      "id": "act-voice-of-customer-synthesis-3",
+      "label": "Exception Resolution & Governance Approval",
+      "type": "Activity",
+      "data": {
+        "name": "Exception Resolution & Governance Approval",
+        "step_number": 3,
+        "automation_feasibility": 0.62,
+        "ai_disruption_potential": "Medium",
+        "description": "Handling out-of-policy edge cases, dispute negotiation, and sign-offs.",
+        "process_id": "proc-voice-of-customer-synthesis"
+      }
+    },
+    {
+      "id": "role-voice-of-customer-synthesis-spec",
+      "label": "Voice-of-Customer Specialist",
+      "type": "Role",
+      "data": {
+        "id": "role-voice-of-customer-synthesis-spec",
+        "name": "Voice-of-Customer Specialist",
+        "department": "Customer Support",
+        "headcount": 10,
+        "avg_salary": 65000.0,
+        "transition_risk": "High",
+        "description": "Responsible for primary operations and task execution in Voice-of-Customer (VoC) Product Feedback Synthesis."
+      }
+    },
+    {
+      "id": "role-voice-of-customer-synthesis-mgr",
+      "label": "Voice-of-Customer Lead",
+      "type": "Role",
+      "data": {
+        "id": "role-voice-of-customer-synthesis-mgr",
+        "name": "Voice-of-Customer Lead",
+        "department": "Customer Support",
+        "headcount": 3,
+        "avg_salary": 105000.0,
+        "transition_risk": "Medium",
+        "description": "Oversees exceptions, strategy, and compliance for Voice-of-Customer (VoC) Product Feedback Synthesis."
+      }
+    },
+    {
+      "id": "skill-voice-of-customer-synthesis-exec",
+      "label": "Operational Synthesis Execution",
+      "type": "Skill",
+      "data": {
+        "id": "skill-voice-of-customer-synthesis-exec",
+        "name": "Operational Synthesis Execution",
+        "category": "Operational",
+        "urgency_to_reskill": "High",
+        "reskill_time_weeks": 4,
+        "description": "Execution of core manual procedures in Voice-of-Customer (VoC) Product Feedback Synthesis.",
+        "evolution_path": "AI Agent Supervision in Customer Support"
+      }
+    },
+    {
+      "id": "skill-voice-of-customer-synthesis-audit",
+      "label": "Customer Support Compliance & Quality Auditing",
+      "type": "Skill",
+      "data": {
+        "id": "skill-voice-of-customer-synthesis-audit",
+        "name": "Customer Support Compliance & Quality Auditing",
+        "category": "Domain",
+        "urgency_to_reskill": "Medium",
+        "reskill_time_weeks": 6,
+        "description": "Regulatory and operational auditing standards for Voice-of-Customer (VoC) Product Feedback Synthesis.",
+        "evolution_path": "Automated Customer Support Policy Engineering"
+      }
+    },
+    {
+      "id": "skill-voice-of-customer-synthesis-ai-gov",
+      "label": "Autonomous Customer Support Agent Governance",
+      "type": "Skill",
+      "data": {
+        "id": "skill-voice-of-customer-synthesis-ai-gov",
+        "name": "Autonomous Customer Support Agent Governance",
+        "category": "Cognitive",
+        "urgency_to_reskill": "Low",
+        "reskill_time_weeks": 8,
+        "description": "Orchestration, prompt tuning, and exception validation for AI models.",
+        "evolution_path": "Enterprise Customer Support Transformation Architect"
+      }
+    },
+    {
+      "id": "proc-ad-campaign-bidding",
+      "label": "Programmatic Ad Campaign Optimization & Real-Time Bidding",
+      "type": "Process",
+      "data": {
+        "name": "Programmatic Ad Campaign Optimization & Real-Time Bidding",
+        "domain": "Marketing & Operations",
+        "description": "Multi-channel ROAS attribution, creative copy generation, keyword bid adjustment, and audience cohort re-targeting.",
+        "cycle_time_days": 1.0,
+        "frequency": "Daily",
+        "overall_automation_potential": 0.92,
+        "activities_count": 3,
+        "roles_count": 2
+      }
+    },
+    {
+      "id": "act-ad-campaign-bidding-1",
+      "label": "Intake & Data Extraction (Programmatic)",
+      "type": "Activity",
+      "data": {
+        "name": "Intake & Data Extraction (Programmatic)",
+        "step_number": 1,
+        "automation_feasibility": 0.98,
+        "ai_disruption_potential": "Critical",
+        "description": "Capturing unstructured intake data and validating schema compliance for Programmatic Ad Campaign Optimization & Real-Time Bidding.",
+        "process_id": "proc-ad-campaign-bidding"
+      }
+    },
+    {
+      "id": "act-ad-campaign-bidding-2",
+      "label": "Validation, Matching & Processing (Programmatic)",
+      "type": "Activity",
+      "data": {
+        "name": "Validation, Matching & Processing (Programmatic)",
+        "step_number": 2,
+        "automation_feasibility": 0.92,
+        "ai_disruption_potential": "High",
+        "description": "Executing core business logic and rules engine matching for Programmatic Ad Campaign Optimization & Real-Time Bidding.",
+        "process_id": "proc-ad-campaign-bidding"
+      }
+    },
+    {
+      "id": "act-ad-campaign-bidding-3",
+      "label": "Exception Resolution & Governance Approval",
+      "type": "Activity",
+      "data": {
+        "name": "Exception Resolution & Governance Approval",
+        "step_number": 3,
+        "automation_feasibility": 0.7,
+        "ai_disruption_potential": "Medium",
+        "description": "Handling out-of-policy edge cases, dispute negotiation, and sign-offs.",
+        "process_id": "proc-ad-campaign-bidding"
+      }
+    },
+    {
+      "id": "role-ad-campaign-bidding-spec",
+      "label": "Programmatic Specialist",
+      "type": "Role",
+      "data": {
+        "id": "role-ad-campaign-bidding-spec",
+        "name": "Programmatic Specialist",
+        "department": "Marketing & Operations",
+        "headcount": 10,
+        "avg_salary": 65000.0,
+        "transition_risk": "High",
+        "description": "Responsible for primary operations and task execution in Programmatic Ad Campaign Optimization & Real-Time Bidding."
+      }
+    },
+    {
+      "id": "role-ad-campaign-bidding-mgr",
+      "label": "Programmatic Lead",
+      "type": "Role",
+      "data": {
+        "id": "role-ad-campaign-bidding-mgr",
+        "name": "Programmatic Lead",
+        "department": "Marketing & Operations",
+        "headcount": 3,
+        "avg_salary": 105000.0,
+        "transition_risk": "Medium",
+        "description": "Oversees exceptions, strategy, and compliance for Programmatic Ad Campaign Optimization & Real-Time Bidding."
+      }
+    },
+    {
+      "id": "skill-ad-campaign-bidding-exec",
+      "label": "Operational Bidding Execution",
+      "type": "Skill",
+      "data": {
+        "id": "skill-ad-campaign-bidding-exec",
+        "name": "Operational Bidding Execution",
+        "category": "Operational",
+        "urgency_to_reskill": "Critical",
+        "reskill_time_weeks": 4,
+        "description": "Execution of core manual procedures in Programmatic Ad Campaign Optimization & Real-Time Bidding.",
+        "evolution_path": "AI Agent Supervision in Marketing & Operations"
+      }
+    },
+    {
+      "id": "skill-ad-campaign-bidding-audit",
+      "label": "Marketing & Operations Compliance & Quality Auditing",
+      "type": "Skill",
+      "data": {
+        "id": "skill-ad-campaign-bidding-audit",
+        "name": "Marketing & Operations Compliance & Quality Auditing",
+        "category": "Domain",
+        "urgency_to_reskill": "Medium",
+        "reskill_time_weeks": 6,
+        "description": "Regulatory and operational auditing standards for Programmatic Ad Campaign Optimization & Real-Time Bidding.",
+        "evolution_path": "Automated Marketing & Operations Policy Engineering"
+      }
+    },
+    {
+      "id": "skill-ad-campaign-bidding-ai-gov",
+      "label": "Autonomous Marketing & Operations Agent Governance",
+      "type": "Skill",
+      "data": {
+        "id": "skill-ad-campaign-bidding-ai-gov",
+        "name": "Autonomous Marketing & Operations Agent Governance",
+        "category": "Cognitive",
+        "urgency_to_reskill": "Low",
+        "reskill_time_weeks": 8,
+        "description": "Orchestration, prompt tuning, and exception validation for AI models.",
+        "evolution_path": "Enterprise Marketing & Operations Transformation Architect"
+      }
+    },
+    {
+      "id": "proc-enterprise-rfi-response",
+      "label": "Enterprise RFP/RFI Proposal Generation & Compliance Matrix",
+      "type": "Process",
+      "data": {
+        "name": "Enterprise RFP/RFI Proposal Generation & Compliance Matrix",
+        "domain": "Marketing & Operations",
+        "description": "RFP requirement shredding, knowledge base answer retrieval, technical compliance matrix generation, and pricing approval.",
+        "cycle_time_days": 5.0,
+        "frequency": "Weekly",
+        "overall_automation_potential": 0.79,
+        "activities_count": 3,
+        "roles_count": 2
+      }
+    },
+    {
+      "id": "act-enterprise-rfi-response-1",
+      "label": "Intake & Data Extraction (Enterprise)",
+      "type": "Activity",
+      "data": {
+        "name": "Intake & Data Extraction (Enterprise)",
+        "step_number": 1,
+        "automation_feasibility": 0.87,
+        "ai_disruption_potential": "High",
+        "description": "Capturing unstructured intake data and validating schema compliance for Enterprise RFP/RFI Proposal Generation & Compliance Matrix.",
+        "process_id": "proc-enterprise-rfi-response"
+      }
+    },
+    {
+      "id": "act-enterprise-rfi-response-2",
+      "label": "Validation, Matching & Processing (Enterprise)",
+      "type": "Activity",
+      "data": {
+        "name": "Validation, Matching & Processing (Enterprise)",
+        "step_number": 2,
+        "automation_feasibility": 0.79,
+        "ai_disruption_potential": "High",
+        "description": "Executing core business logic and rules engine matching for Enterprise RFP/RFI Proposal Generation & Compliance Matrix.",
+        "process_id": "proc-enterprise-rfi-response"
+      }
+    },
+    {
+      "id": "act-enterprise-rfi-response-3",
+      "label": "Exception Resolution & Governance Approval",
+      "type": "Activity",
+      "data": {
+        "name": "Exception Resolution & Governance Approval",
+        "step_number": 3,
+        "automation_feasibility": 0.57,
+        "ai_disruption_potential": "Medium",
+        "description": "Handling out-of-policy edge cases, dispute negotiation, and sign-offs.",
+        "process_id": "proc-enterprise-rfi-response"
+      }
+    },
+    {
+      "id": "role-enterprise-rfi-response-spec",
+      "label": "Enterprise Specialist",
+      "type": "Role",
+      "data": {
+        "id": "role-enterprise-rfi-response-spec",
+        "name": "Enterprise Specialist",
+        "department": "Marketing & Operations",
+        "headcount": 10,
+        "avg_salary": 65000.0,
+        "transition_risk": "Medium",
+        "description": "Responsible for primary operations and task execution in Enterprise RFP/RFI Proposal Generation & Compliance Matrix."
+      }
+    },
+    {
+      "id": "role-enterprise-rfi-response-mgr",
+      "label": "Enterprise Lead",
+      "type": "Role",
+      "data": {
+        "id": "role-enterprise-rfi-response-mgr",
+        "name": "Enterprise Lead",
+        "department": "Marketing & Operations",
+        "headcount": 3,
+        "avg_salary": 105000.0,
+        "transition_risk": "Low",
+        "description": "Oversees exceptions, strategy, and compliance for Enterprise RFP/RFI Proposal Generation & Compliance Matrix."
+      }
+    },
+    {
+      "id": "skill-enterprise-rfi-response-exec",
+      "label": "Operational Matrix Execution",
+      "type": "Skill",
+      "data": {
+        "id": "skill-enterprise-rfi-response-exec",
+        "name": "Operational Matrix Execution",
+        "category": "Operational",
+        "urgency_to_reskill": "High",
+        "reskill_time_weeks": 4,
+        "description": "Execution of core manual procedures in Enterprise RFP/RFI Proposal Generation & Compliance Matrix.",
+        "evolution_path": "AI Agent Supervision in Marketing & Operations"
+      }
+    },
+    {
+      "id": "skill-enterprise-rfi-response-audit",
+      "label": "Marketing & Operations Compliance & Quality Auditing",
+      "type": "Skill",
+      "data": {
+        "id": "skill-enterprise-rfi-response-audit",
+        "name": "Marketing & Operations Compliance & Quality Auditing",
+        "category": "Domain",
+        "urgency_to_reskill": "Medium",
+        "reskill_time_weeks": 6,
+        "description": "Regulatory and operational auditing standards for Enterprise RFP/RFI Proposal Generation & Compliance Matrix.",
+        "evolution_path": "Automated Marketing & Operations Policy Engineering"
+      }
+    },
+    {
+      "id": "skill-enterprise-rfi-response-ai-gov",
+      "label": "Autonomous Marketing & Operations Agent Governance",
+      "type": "Skill",
+      "data": {
+        "id": "skill-enterprise-rfi-response-ai-gov",
+        "name": "Autonomous Marketing & Operations Agent Governance",
+        "category": "Cognitive",
+        "urgency_to_reskill": "Low",
+        "reskill_time_weeks": 8,
+        "description": "Orchestration, prompt tuning, and exception validation for AI models.",
+        "evolution_path": "Enterprise Marketing & Operations Transformation Architect"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-proc-invoice-processing-contains-act-invoice-processing-1",
+      "source": "proc-invoice-processing",
+      "target": "act-invoice-processing-1",
+      "type": "CONTAINS_ACTIVITY",
+      "label": "CONTAINS"
+    },
+    {
+      "id": "edge-role-invoice-processing-spec-executes-act-invoice-processing-1",
+      "source": "role-invoice-processing-spec",
+      "target": "act-invoice-processing-1",
+      "type": "EXECUTES",
+      "label": "EXECUTES"
+    },
+    {
+      "id": "edge-act-invoice-processing-1-requires-skill-invoice-processing-exec",
+      "source": "act-invoice-processing-1",
+      "target": "skill-invoice-processing-exec",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-proc-invoice-processing-contains-act-invoice-processing-2",
+      "source": "proc-invoice-processing",
+      "target": "act-invoice-processing-2",
+      "type": "CONTAINS_ACTIVITY",
+      "label": "CONTAINS"
+    },
+    {
+      "id": "edge-role-invoice-processing-spec-executes-act-invoice-processing-2",
+      "source": "role-invoice-processing-spec",
+      "target": "act-invoice-processing-2",
+      "type": "EXECUTES",
+      "label": "EXECUTES"
+    },
+    {
+      "id": "edge-act-invoice-processing-2-requires-skill-invoice-processing-exec",
+      "source": "act-invoice-processing-2",
+      "target": "skill-invoice-processing-exec",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-act-invoice-processing-2-requires-skill-invoice-processing-audit",
+      "source": "act-invoice-processing-2",
+      "target": "skill-invoice-processing-audit",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-proc-invoice-processing-contains-act-invoice-processing-3",
+      "source": "proc-invoice-processing",
+      "target": "act-invoice-processing-3",
+      "type": "CONTAINS_ACTIVITY",
+      "label": "CONTAINS"
+    },
+    {
+      "id": "edge-role-invoice-processing-mgr-executes-act-invoice-processing-3",
+      "source": "role-invoice-processing-mgr",
+      "target": "act-invoice-processing-3",
+      "type": "EXECUTES",
+      "label": "EXECUTES"
+    },
+    {
+      "id": "edge-act-invoice-processing-3-requires-skill-invoice-processing-audit",
+      "source": "act-invoice-processing-3",
+      "target": "skill-invoice-processing-audit",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-act-invoice-processing-3-requires-skill-invoice-processing-ai-gov",
+      "source": "act-invoice-processing-3",
+      "target": "skill-invoice-processing-ai-gov",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-proc-financial-month-end-close-contains-act-financial-month-end-close-1",
+      "source": "proc-financial-month-end-close",
+      "target": "act-financial-month-end-close-1",
+      "type": "CONTAINS_ACTIVITY",
+      "label": "CONTAINS"
+    },
+    {
+      "id": "edge-role-financial-month-end-close-spec-executes-act-financial-month-end-close-1",
+      "source": "role-financial-month-end-close-spec",
+      "target": "act-financial-month-end-close-1",
+      "type": "EXECUTES",
+      "label": "EXECUTES"
+    },
+    {
+      "id": "edge-act-financial-month-end-close-1-requires-skill-financial-month-end-close-exec",
+      "source": "act-financial-month-end-close-1",
+      "target": "skill-financial-month-end-close-exec",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-proc-financial-month-end-close-contains-act-financial-month-end-close-2",
+      "source": "proc-financial-month-end-close",
+      "target": "act-financial-month-end-close-2",
+      "type": "CONTAINS_ACTIVITY",
+      "label": "CONTAINS"
+    },
+    {
+      "id": "edge-role-financial-month-end-close-spec-executes-act-financial-month-end-close-2",
+      "source": "role-financial-month-end-close-spec",
+      "target": "act-financial-month-end-close-2",
+      "type": "EXECUTES",
+      "label": "EXECUTES"
+    },
+    {
+      "id": "edge-act-financial-month-end-close-2-requires-skill-financial-month-end-close-exec",
+      "source": "act-financial-month-end-close-2",
+      "target": "skill-financial-month-end-close-exec",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-act-financial-month-end-close-2-requires-skill-financial-month-end-close-audit",
+      "source": "act-financial-month-end-close-2",
+      "target": "skill-financial-month-end-close-audit",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-proc-financial-month-end-close-contains-act-financial-month-end-close-3",
+      "source": "proc-financial-month-end-close",
+      "target": "act-financial-month-end-close-3",
+      "type": "CONTAINS_ACTIVITY",
+      "label": "CONTAINS"
+    },
+    {
+      "id": "edge-role-financial-month-end-close-mgr-executes-act-financial-month-end-close-3",
+      "source": "role-financial-month-end-close-mgr",
+      "target": "act-financial-month-end-close-3",
+      "type": "EXECUTES",
+      "label": "EXECUTES"
+    },
+    {
+      "id": "edge-act-financial-month-end-close-3-requires-skill-financial-month-end-close-audit",
+      "source": "act-financial-month-end-close-3",
+      "target": "skill-financial-month-end-close-audit",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-act-financial-month-end-close-3-requires-skill-financial-month-end-close-ai-gov",
+      "source": "act-financial-month-end-close-3",
+      "target": "skill-financial-month-end-close-ai-gov",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-proc-kyc-aml-screening-contains-act-kyc-aml-screening-1",
+      "source": "proc-kyc-aml-screening",
+      "target": "act-kyc-aml-screening-1",
+      "type": "CONTAINS_ACTIVITY",
+      "label": "CONTAINS"
+    },
+    {
+      "id": "edge-role-kyc-aml-screening-spec-executes-act-kyc-aml-screening-1",
+      "source": "role-kyc-aml-screening-spec",
+      "target": "act-kyc-aml-screening-1",
+      "type": "EXECUTES",
+      "label": "EXECUTES"
+    },
+    {
+      "id": "edge-act-kyc-aml-screening-1-requires-skill-kyc-aml-screening-exec",
+      "source": "act-kyc-aml-screening-1",
+      "target": "skill-kyc-aml-screening-exec",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-proc-kyc-aml-screening-contains-act-kyc-aml-screening-2",
+      "source": "proc-kyc-aml-screening",
+      "target": "act-kyc-aml-screening-2",
+      "type": "CONTAINS_ACTIVITY",
+      "label": "CONTAINS"
+    },
+    {
+      "id": "edge-role-kyc-aml-screening-spec-executes-act-kyc-aml-screening-2",
+      "source": "role-kyc-aml-screening-spec",
+      "target": "act-kyc-aml-screening-2",
+      "type": "EXECUTES",
+      "label": "EXECUTES"
+    },
+    {
+      "id": "edge-act-kyc-aml-screening-2-requires-skill-kyc-aml-screening-exec",
+      "source": "act-kyc-aml-screening-2",
+      "target": "skill-kyc-aml-screening-exec",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-act-kyc-aml-screening-2-requires-skill-kyc-aml-screening-audit",
+      "source": "act-kyc-aml-screening-2",
+      "target": "skill-kyc-aml-screening-audit",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-proc-kyc-aml-screening-contains-act-kyc-aml-screening-3",
+      "source": "proc-kyc-aml-screening",
+      "target": "act-kyc-aml-screening-3",
+      "type": "CONTAINS_ACTIVITY",
+      "label": "CONTAINS"
+    },
+    {
+      "id": "edge-role-kyc-aml-screening-mgr-executes-act-kyc-aml-screening-3",
+      "source": "role-kyc-aml-screening-mgr",
+      "target": "act-kyc-aml-screening-3",
+      "type": "EXECUTES",
+      "label": "EXECUTES"
+    },
+    {
+      "id": "edge-act-kyc-aml-screening-3-requires-skill-kyc-aml-screening-audit",
+      "source": "act-kyc-aml-screening-3",
+      "target": "skill-kyc-aml-screening-audit",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-act-kyc-aml-screening-3-requires-skill-kyc-aml-screening-ai-gov",
+      "source": "act-kyc-aml-screening-3",
+      "target": "skill-kyc-aml-screening-ai-gov",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-proc-treasury-cash-pooling-contains-act-treasury-cash-pooling-1",
+      "source": "proc-treasury-cash-pooling",
+      "target": "act-treasury-cash-pooling-1",
+      "type": "CONTAINS_ACTIVITY",
+      "label": "CONTAINS"
+    },
+    {
+      "id": "edge-role-treasury-cash-pooling-spec-executes-act-treasury-cash-pooling-1",
+      "source": "role-treasury-cash-pooling-spec",
+      "target": "act-treasury-cash-pooling-1",
+      "type": "EXECUTES",
+      "label": "EXECUTES"
+    },
+    {
+      "id": "edge-act-treasury-cash-pooling-1-requires-skill-treasury-cash-pooling-exec",
+      "source": "act-treasury-cash-pooling-1",
+      "target": "skill-treasury-cash-pooling-exec",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-proc-treasury-cash-pooling-contains-act-treasury-cash-pooling-2",
+      "source": "proc-treasury-cash-pooling",
+      "target": "act-treasury-cash-pooling-2",
+      "type": "CONTAINS_ACTIVITY",
+      "label": "CONTAINS"
+    },
+    {
+      "id": "edge-role-treasury-cash-pooling-spec-executes-act-treasury-cash-pooling-2",
+      "source": "role-treasury-cash-pooling-spec",
+      "target": "act-treasury-cash-pooling-2",
+      "type": "EXECUTES",
+      "label": "EXECUTES"
+    },
+    {
+      "id": "edge-act-treasury-cash-pooling-2-requires-skill-treasury-cash-pooling-exec",
+      "source": "act-treasury-cash-pooling-2",
+      "target": "skill-treasury-cash-pooling-exec",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-act-treasury-cash-pooling-2-requires-skill-treasury-cash-pooling-audit",
+      "source": "act-treasury-cash-pooling-2",
+      "target": "skill-treasury-cash-pooling-audit",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-proc-treasury-cash-pooling-contains-act-treasury-cash-pooling-3",
+      "source": "proc-treasury-cash-pooling",
+      "target": "act-treasury-cash-pooling-3",
+      "type": "CONTAINS_ACTIVITY",
+      "label": "CONTAINS"
+    },
+    {
+      "id": "edge-role-treasury-cash-pooling-mgr-executes-act-treasury-cash-pooling-3",
+      "source": "role-treasury-cash-pooling-mgr",
+      "target": "act-treasury-cash-pooling-3",
+      "type": "EXECUTES",
+      "label": "EXECUTES"
+    },
+    {
+      "id": "edge-act-treasury-cash-pooling-3-requires-skill-treasury-cash-pooling-audit",
+      "source": "act-treasury-cash-pooling-3",
+      "target": "skill-treasury-cash-pooling-audit",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-act-treasury-cash-pooling-3-requires-skill-treasury-cash-pooling-ai-gov",
+      "source": "act-treasury-cash-pooling-3",
+      "target": "skill-treasury-cash-pooling-ai-gov",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-proc-travel-expense-audit-contains-act-travel-expense-audit-1",
+      "source": "proc-travel-expense-audit",
+      "target": "act-travel-expense-audit-1",
+      "type": "CONTAINS_ACTIVITY",
+      "label": "CONTAINS"
+    },
+    {
+      "id": "edge-role-travel-expense-audit-spec-executes-act-travel-expense-audit-1",
+      "source": "role-travel-expense-audit-spec",
+      "target": "act-travel-expense-audit-1",
+      "type": "EXECUTES",
+      "label": "EXECUTES"
+    },
+    {
+      "id": "edge-act-travel-expense-audit-1-requires-skill-travel-expense-audit-exec",
+      "source": "act-travel-expense-audit-1",
+      "target": "skill-travel-expense-audit-exec",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-proc-travel-expense-audit-contains-act-travel-expense-audit-2",
+      "source": "proc-travel-expense-audit",
+      "target": "act-travel-expense-audit-2",
+      "type": "CONTAINS_ACTIVITY",
+      "label": "CONTAINS"
+    },
+    {
+      "id": "edge-role-travel-expense-audit-spec-executes-act-travel-expense-audit-2",
+      "source": "role-travel-expense-audit-spec",
+      "target": "act-travel-expense-audit-2",
+      "type": "EXECUTES",
+      "label": "EXECUTES"
+    },
+    {
+      "id": "edge-act-travel-expense-audit-2-requires-skill-travel-expense-audit-exec",
+      "source": "act-travel-expense-audit-2",
+      "target": "skill-travel-expense-audit-exec",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-act-travel-expense-audit-2-requires-skill-travel-expense-audit-audit",
+      "source": "act-travel-expense-audit-2",
+      "target": "skill-travel-expense-audit-audit",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-proc-travel-expense-audit-contains-act-travel-expense-audit-3",
+      "source": "proc-travel-expense-audit",
+      "target": "act-travel-expense-audit-3",
+      "type": "CONTAINS_ACTIVITY",
+      "label": "CONTAINS"
+    },
+    {
+      "id": "edge-role-travel-expense-audit-mgr-executes-act-travel-expense-audit-3",
+      "source": "role-travel-expense-audit-mgr",
+      "target": "act-travel-expense-audit-3",
+      "type": "EXECUTES",
+      "label": "EXECUTES"
+    },
+    {
+      "id": "edge-act-travel-expense-audit-3-requires-skill-travel-expense-audit-audit",
+      "source": "act-travel-expense-audit-3",
+      "target": "skill-travel-expense-audit-audit",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-act-travel-expense-audit-3-requires-skill-travel-expense-audit-ai-gov",
+      "source": "act-travel-expense-audit-3",
+      "target": "skill-travel-expense-audit-ai-gov",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-proc-employee-onboarding-contains-act-employee-onboarding-1",
+      "source": "proc-employee-onboarding",
+      "target": "act-employee-onboarding-1",
+      "type": "CONTAINS_ACTIVITY",
+      "label": "CONTAINS"
+    },
+    {
+      "id": "edge-role-employee-onboarding-spec-executes-act-employee-onboarding-1",
+      "source": "role-employee-onboarding-spec",
+      "target": "act-employee-onboarding-1",
+      "type": "EXECUTES",
+      "label": "EXECUTES"
+    },
+    {
+      "id": "edge-act-employee-onboarding-1-requires-skill-employee-onboarding-exec",
+      "source": "act-employee-onboarding-1",
+      "target": "skill-employee-onboarding-exec",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-proc-employee-onboarding-contains-act-employee-onboarding-2",
+      "source": "proc-employee-onboarding",
+      "target": "act-employee-onboarding-2",
+      "type": "CONTAINS_ACTIVITY",
+      "label": "CONTAINS"
+    },
+    {
+      "id": "edge-role-employee-onboarding-spec-executes-act-employee-onboarding-2",
+      "source": "role-employee-onboarding-spec",
+      "target": "act-employee-onboarding-2",
+      "type": "EXECUTES",
+      "label": "EXECUTES"
+    },
+    {
+      "id": "edge-act-employee-onboarding-2-requires-skill-employee-onboarding-exec",
+      "source": "act-employee-onboarding-2",
+      "target": "skill-employee-onboarding-exec",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-act-employee-onboarding-2-requires-skill-employee-onboarding-audit",
+      "source": "act-employee-onboarding-2",
+      "target": "skill-employee-onboarding-audit",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-proc-employee-onboarding-contains-act-employee-onboarding-3",
+      "source": "proc-employee-onboarding",
+      "target": "act-employee-onboarding-3",
+      "type": "CONTAINS_ACTIVITY",
+      "label": "CONTAINS"
+    },
+    {
+      "id": "edge-role-employee-onboarding-mgr-executes-act-employee-onboarding-3",
+      "source": "role-employee-onboarding-mgr",
+      "target": "act-employee-onboarding-3",
+      "type": "EXECUTES",
+      "label": "EXECUTES"
+    },
+    {
+      "id": "edge-act-employee-onboarding-3-requires-skill-employee-onboarding-audit",
+      "source": "act-employee-onboarding-3",
+      "target": "skill-employee-onboarding-audit",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-act-employee-onboarding-3-requires-skill-employee-onboarding-ai-gov",
+      "source": "act-employee-onboarding-3",
+      "target": "skill-employee-onboarding-ai-gov",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-proc-talent-acquisition-contains-act-talent-acquisition-1",
+      "source": "proc-talent-acquisition",
+      "target": "act-talent-acquisition-1",
+      "type": "CONTAINS_ACTIVITY",
+      "label": "CONTAINS"
+    },
+    {
+      "id": "edge-role-talent-acquisition-spec-executes-act-talent-acquisition-1",
+      "source": "role-talent-acquisition-spec",
+      "target": "act-talent-acquisition-1",
+      "type": "EXECUTES",
+      "label": "EXECUTES"
+    },
+    {
+      "id": "edge-act-talent-acquisition-1-requires-skill-talent-acquisition-exec",
+      "source": "act-talent-acquisition-1",
+      "target": "skill-talent-acquisition-exec",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-proc-talent-acquisition-contains-act-talent-acquisition-2",
+      "source": "proc-talent-acquisition",
+      "target": "act-talent-acquisition-2",
+      "type": "CONTAINS_ACTIVITY",
+      "label": "CONTAINS"
+    },
+    {
+      "id": "edge-role-talent-acquisition-spec-executes-act-talent-acquisition-2",
+      "source": "role-talent-acquisition-spec",
+      "target": "act-talent-acquisition-2",
+      "type": "EXECUTES",
+      "label": "EXECUTES"
+    },
+    {
+      "id": "edge-act-talent-acquisition-2-requires-skill-talent-acquisition-exec",
+      "source": "act-talent-acquisition-2",
+      "target": "skill-talent-acquisition-exec",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-act-talent-acquisition-2-requires-skill-talent-acquisition-audit",
+      "source": "act-talent-acquisition-2",
+      "target": "skill-talent-acquisition-audit",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-proc-talent-acquisition-contains-act-talent-acquisition-3",
+      "source": "proc-talent-acquisition",
+      "target": "act-talent-acquisition-3",
+      "type": "CONTAINS_ACTIVITY",
+      "label": "CONTAINS"
+    },
+    {
+      "id": "edge-role-talent-acquisition-mgr-executes-act-talent-acquisition-3",
+      "source": "role-talent-acquisition-mgr",
+      "target": "act-talent-acquisition-3",
+      "type": "EXECUTES",
+      "label": "EXECUTES"
+    },
+    {
+      "id": "edge-act-talent-acquisition-3-requires-skill-talent-acquisition-audit",
+      "source": "act-talent-acquisition-3",
+      "target": "skill-talent-acquisition-audit",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-act-talent-acquisition-3-requires-skill-talent-acquisition-ai-gov",
+      "source": "act-talent-acquisition-3",
+      "target": "skill-talent-acquisition-ai-gov",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-proc-annual-performance-review-contains-act-annual-performance-review-1",
+      "source": "proc-annual-performance-review",
+      "target": "act-annual-performance-review-1",
+      "type": "CONTAINS_ACTIVITY",
+      "label": "CONTAINS"
+    },
+    {
+      "id": "edge-role-annual-performance-review-spec-executes-act-annual-performance-review-1",
+      "source": "role-annual-performance-review-spec",
+      "target": "act-annual-performance-review-1",
+      "type": "EXECUTES",
+      "label": "EXECUTES"
+    },
+    {
+      "id": "edge-act-annual-performance-review-1-requires-skill-annual-performance-review-exec",
+      "source": "act-annual-performance-review-1",
+      "target": "skill-annual-performance-review-exec",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-proc-annual-performance-review-contains-act-annual-performance-review-2",
+      "source": "proc-annual-performance-review",
+      "target": "act-annual-performance-review-2",
+      "type": "CONTAINS_ACTIVITY",
+      "label": "CONTAINS"
+    },
+    {
+      "id": "edge-role-annual-performance-review-spec-executes-act-annual-performance-review-2",
+      "source": "role-annual-performance-review-spec",
+      "target": "act-annual-performance-review-2",
+      "type": "EXECUTES",
+      "label": "EXECUTES"
+    },
+    {
+      "id": "edge-act-annual-performance-review-2-requires-skill-annual-performance-review-exec",
+      "source": "act-annual-performance-review-2",
+      "target": "skill-annual-performance-review-exec",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-act-annual-performance-review-2-requires-skill-annual-performance-review-audit",
+      "source": "act-annual-performance-review-2",
+      "target": "skill-annual-performance-review-audit",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-proc-annual-performance-review-contains-act-annual-performance-review-3",
+      "source": "proc-annual-performance-review",
+      "target": "act-annual-performance-review-3",
+      "type": "CONTAINS_ACTIVITY",
+      "label": "CONTAINS"
+    },
+    {
+      "id": "edge-role-annual-performance-review-mgr-executes-act-annual-performance-review-3",
+      "source": "role-annual-performance-review-mgr",
+      "target": "act-annual-performance-review-3",
+      "type": "EXECUTES",
+      "label": "EXECUTES"
+    },
+    {
+      "id": "edge-act-annual-performance-review-3-requires-skill-annual-performance-review-audit",
+      "source": "act-annual-performance-review-3",
+      "target": "skill-annual-performance-review-audit",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-act-annual-performance-review-3-requires-skill-annual-performance-review-ai-gov",
+      "source": "act-annual-performance-review-3",
+      "target": "skill-annual-performance-review-ai-gov",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-proc-employee-offboarding-contains-act-employee-offboarding-1",
+      "source": "proc-employee-offboarding",
+      "target": "act-employee-offboarding-1",
+      "type": "CONTAINS_ACTIVITY",
+      "label": "CONTAINS"
+    },
+    {
+      "id": "edge-role-employee-offboarding-spec-executes-act-employee-offboarding-1",
+      "source": "role-employee-offboarding-spec",
+      "target": "act-employee-offboarding-1",
+      "type": "EXECUTES",
+      "label": "EXECUTES"
+    },
+    {
+      "id": "edge-act-employee-offboarding-1-requires-skill-employee-offboarding-exec",
+      "source": "act-employee-offboarding-1",
+      "target": "skill-employee-offboarding-exec",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-proc-employee-offboarding-contains-act-employee-offboarding-2",
+      "source": "proc-employee-offboarding",
+      "target": "act-employee-offboarding-2",
+      "type": "CONTAINS_ACTIVITY",
+      "label": "CONTAINS"
+    },
+    {
+      "id": "edge-role-employee-offboarding-spec-executes-act-employee-offboarding-2",
+      "source": "role-employee-offboarding-spec",
+      "target": "act-employee-offboarding-2",
+      "type": "EXECUTES",
+      "label": "EXECUTES"
+    },
+    {
+      "id": "edge-act-employee-offboarding-2-requires-skill-employee-offboarding-exec",
+      "source": "act-employee-offboarding-2",
+      "target": "skill-employee-offboarding-exec",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-act-employee-offboarding-2-requires-skill-employee-offboarding-audit",
+      "source": "act-employee-offboarding-2",
+      "target": "skill-employee-offboarding-audit",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-proc-employee-offboarding-contains-act-employee-offboarding-3",
+      "source": "proc-employee-offboarding",
+      "target": "act-employee-offboarding-3",
+      "type": "CONTAINS_ACTIVITY",
+      "label": "CONTAINS"
+    },
+    {
+      "id": "edge-role-employee-offboarding-mgr-executes-act-employee-offboarding-3",
+      "source": "role-employee-offboarding-mgr",
+      "target": "act-employee-offboarding-3",
+      "type": "EXECUTES",
+      "label": "EXECUTES"
+    },
+    {
+      "id": "edge-act-employee-offboarding-3-requires-skill-employee-offboarding-audit",
+      "source": "act-employee-offboarding-3",
+      "target": "skill-employee-offboarding-audit",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-act-employee-offboarding-3-requires-skill-employee-offboarding-ai-gov",
+      "source": "act-employee-offboarding-3",
+      "target": "skill-employee-offboarding-ai-gov",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-proc-it-incident-management-contains-act-it-incident-management-1",
+      "source": "proc-it-incident-management",
+      "target": "act-it-incident-management-1",
+      "type": "CONTAINS_ACTIVITY",
+      "label": "CONTAINS"
+    },
+    {
+      "id": "edge-role-it-incident-management-spec-executes-act-it-incident-management-1",
+      "source": "role-it-incident-management-spec",
+      "target": "act-it-incident-management-1",
+      "type": "EXECUTES",
+      "label": "EXECUTES"
+    },
+    {
+      "id": "edge-act-it-incident-management-1-requires-skill-it-incident-management-exec",
+      "source": "act-it-incident-management-1",
+      "target": "skill-it-incident-management-exec",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-proc-it-incident-management-contains-act-it-incident-management-2",
+      "source": "proc-it-incident-management",
+      "target": "act-it-incident-management-2",
+      "type": "CONTAINS_ACTIVITY",
+      "label": "CONTAINS"
+    },
+    {
+      "id": "edge-role-it-incident-management-spec-executes-act-it-incident-management-2",
+      "source": "role-it-incident-management-spec",
+      "target": "act-it-incident-management-2",
+      "type": "EXECUTES",
+      "label": "EXECUTES"
+    },
+    {
+      "id": "edge-act-it-incident-management-2-requires-skill-it-incident-management-exec",
+      "source": "act-it-incident-management-2",
+      "target": "skill-it-incident-management-exec",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-act-it-incident-management-2-requires-skill-it-incident-management-audit",
+      "source": "act-it-incident-management-2",
+      "target": "skill-it-incident-management-audit",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-proc-it-incident-management-contains-act-it-incident-management-3",
+      "source": "proc-it-incident-management",
+      "target": "act-it-incident-management-3",
+      "type": "CONTAINS_ACTIVITY",
+      "label": "CONTAINS"
+    },
+    {
+      "id": "edge-role-it-incident-management-mgr-executes-act-it-incident-management-3",
+      "source": "role-it-incident-management-mgr",
+      "target": "act-it-incident-management-3",
+      "type": "EXECUTES",
+      "label": "EXECUTES"
+    },
+    {
+      "id": "edge-act-it-incident-management-3-requires-skill-it-incident-management-audit",
+      "source": "act-it-incident-management-3",
+      "target": "skill-it-incident-management-audit",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-act-it-incident-management-3-requires-skill-it-incident-management-ai-gov",
+      "source": "act-it-incident-management-3",
+      "target": "skill-it-incident-management-ai-gov",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-proc-sec-vuln-management-contains-act-sec-vuln-management-1",
+      "source": "proc-sec-vuln-management",
+      "target": "act-sec-vuln-management-1",
+      "type": "CONTAINS_ACTIVITY",
+      "label": "CONTAINS"
+    },
+    {
+      "id": "edge-role-sec-vuln-management-spec-executes-act-sec-vuln-management-1",
+      "source": "role-sec-vuln-management-spec",
+      "target": "act-sec-vuln-management-1",
+      "type": "EXECUTES",
+      "label": "EXECUTES"
+    },
+    {
+      "id": "edge-act-sec-vuln-management-1-requires-skill-sec-vuln-management-exec",
+      "source": "act-sec-vuln-management-1",
+      "target": "skill-sec-vuln-management-exec",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-proc-sec-vuln-management-contains-act-sec-vuln-management-2",
+      "source": "proc-sec-vuln-management",
+      "target": "act-sec-vuln-management-2",
+      "type": "CONTAINS_ACTIVITY",
+      "label": "CONTAINS"
+    },
+    {
+      "id": "edge-role-sec-vuln-management-spec-executes-act-sec-vuln-management-2",
+      "source": "role-sec-vuln-management-spec",
+      "target": "act-sec-vuln-management-2",
+      "type": "EXECUTES",
+      "label": "EXECUTES"
+    },
+    {
+      "id": "edge-act-sec-vuln-management-2-requires-skill-sec-vuln-management-exec",
+      "source": "act-sec-vuln-management-2",
+      "target": "skill-sec-vuln-management-exec",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-act-sec-vuln-management-2-requires-skill-sec-vuln-management-audit",
+      "source": "act-sec-vuln-management-2",
+      "target": "skill-sec-vuln-management-audit",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-proc-sec-vuln-management-contains-act-sec-vuln-management-3",
+      "source": "proc-sec-vuln-management",
+      "target": "act-sec-vuln-management-3",
+      "type": "CONTAINS_ACTIVITY",
+      "label": "CONTAINS"
+    },
+    {
+      "id": "edge-role-sec-vuln-management-mgr-executes-act-sec-vuln-management-3",
+      "source": "role-sec-vuln-management-mgr",
+      "target": "act-sec-vuln-management-3",
+      "type": "EXECUTES",
+      "label": "EXECUTES"
+    },
+    {
+      "id": "edge-act-sec-vuln-management-3-requires-skill-sec-vuln-management-audit",
+      "source": "act-sec-vuln-management-3",
+      "target": "skill-sec-vuln-management-audit",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-act-sec-vuln-management-3-requires-skill-sec-vuln-management-ai-gov",
+      "source": "act-sec-vuln-management-3",
+      "target": "skill-sec-vuln-management-ai-gov",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-proc-cloud-cost-optimization-contains-act-cloud-cost-optimization-1",
+      "source": "proc-cloud-cost-optimization",
+      "target": "act-cloud-cost-optimization-1",
+      "type": "CONTAINS_ACTIVITY",
+      "label": "CONTAINS"
+    },
+    {
+      "id": "edge-role-cloud-cost-optimization-spec-executes-act-cloud-cost-optimization-1",
+      "source": "role-cloud-cost-optimization-spec",
+      "target": "act-cloud-cost-optimization-1",
+      "type": "EXECUTES",
+      "label": "EXECUTES"
+    },
+    {
+      "id": "edge-act-cloud-cost-optimization-1-requires-skill-cloud-cost-optimization-exec",
+      "source": "act-cloud-cost-optimization-1",
+      "target": "skill-cloud-cost-optimization-exec",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-proc-cloud-cost-optimization-contains-act-cloud-cost-optimization-2",
+      "source": "proc-cloud-cost-optimization",
+      "target": "act-cloud-cost-optimization-2",
+      "type": "CONTAINS_ACTIVITY",
+      "label": "CONTAINS"
+    },
+    {
+      "id": "edge-role-cloud-cost-optimization-spec-executes-act-cloud-cost-optimization-2",
+      "source": "role-cloud-cost-optimization-spec",
+      "target": "act-cloud-cost-optimization-2",
+      "type": "EXECUTES",
+      "label": "EXECUTES"
+    },
+    {
+      "id": "edge-act-cloud-cost-optimization-2-requires-skill-cloud-cost-optimization-exec",
+      "source": "act-cloud-cost-optimization-2",
+      "target": "skill-cloud-cost-optimization-exec",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-act-cloud-cost-optimization-2-requires-skill-cloud-cost-optimization-audit",
+      "source": "act-cloud-cost-optimization-2",
+      "target": "skill-cloud-cost-optimization-audit",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-proc-cloud-cost-optimization-contains-act-cloud-cost-optimization-3",
+      "source": "proc-cloud-cost-optimization",
+      "target": "act-cloud-cost-optimization-3",
+      "type": "CONTAINS_ACTIVITY",
+      "label": "CONTAINS"
+    },
+    {
+      "id": "edge-role-cloud-cost-optimization-mgr-executes-act-cloud-cost-optimization-3",
+      "source": "role-cloud-cost-optimization-mgr",
+      "target": "act-cloud-cost-optimization-3",
+      "type": "EXECUTES",
+      "label": "EXECUTES"
+    },
+    {
+      "id": "edge-act-cloud-cost-optimization-3-requires-skill-cloud-cost-optimization-audit",
+      "source": "act-cloud-cost-optimization-3",
+      "target": "skill-cloud-cost-optimization-audit",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-act-cloud-cost-optimization-3-requires-skill-cloud-cost-optimization-ai-gov",
+      "source": "act-cloud-cost-optimization-3",
+      "target": "skill-cloud-cost-optimization-ai-gov",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-proc-database-backup-dr-contains-act-database-backup-dr-1",
+      "source": "proc-database-backup-dr",
+      "target": "act-database-backup-dr-1",
+      "type": "CONTAINS_ACTIVITY",
+      "label": "CONTAINS"
+    },
+    {
+      "id": "edge-role-database-backup-dr-spec-executes-act-database-backup-dr-1",
+      "source": "role-database-backup-dr-spec",
+      "target": "act-database-backup-dr-1",
+      "type": "EXECUTES",
+      "label": "EXECUTES"
+    },
+    {
+      "id": "edge-act-database-backup-dr-1-requires-skill-database-backup-dr-exec",
+      "source": "act-database-backup-dr-1",
+      "target": "skill-database-backup-dr-exec",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-proc-database-backup-dr-contains-act-database-backup-dr-2",
+      "source": "proc-database-backup-dr",
+      "target": "act-database-backup-dr-2",
+      "type": "CONTAINS_ACTIVITY",
+      "label": "CONTAINS"
+    },
+    {
+      "id": "edge-role-database-backup-dr-spec-executes-act-database-backup-dr-2",
+      "source": "role-database-backup-dr-spec",
+      "target": "act-database-backup-dr-2",
+      "type": "EXECUTES",
+      "label": "EXECUTES"
+    },
+    {
+      "id": "edge-act-database-backup-dr-2-requires-skill-database-backup-dr-exec",
+      "source": "act-database-backup-dr-2",
+      "target": "skill-database-backup-dr-exec",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-act-database-backup-dr-2-requires-skill-database-backup-dr-audit",
+      "source": "act-database-backup-dr-2",
+      "target": "skill-database-backup-dr-audit",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-proc-database-backup-dr-contains-act-database-backup-dr-3",
+      "source": "proc-database-backup-dr",
+      "target": "act-database-backup-dr-3",
+      "type": "CONTAINS_ACTIVITY",
+      "label": "CONTAINS"
+    },
+    {
+      "id": "edge-role-database-backup-dr-mgr-executes-act-database-backup-dr-3",
+      "source": "role-database-backup-dr-mgr",
+      "target": "act-database-backup-dr-3",
+      "type": "EXECUTES",
+      "label": "EXECUTES"
+    },
+    {
+      "id": "edge-act-database-backup-dr-3-requires-skill-database-backup-dr-audit",
+      "source": "act-database-backup-dr-3",
+      "target": "skill-database-backup-dr-audit",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-act-database-backup-dr-3-requires-skill-database-backup-dr-ai-gov",
+      "source": "act-database-backup-dr-3",
+      "target": "skill-database-backup-dr-ai-gov",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-proc-contract-lifecycle-contains-act-contract-lifecycle-1",
+      "source": "proc-contract-lifecycle",
+      "target": "act-contract-lifecycle-1",
+      "type": "CONTAINS_ACTIVITY",
+      "label": "CONTAINS"
+    },
+    {
+      "id": "edge-role-contract-lifecycle-spec-executes-act-contract-lifecycle-1",
+      "source": "role-contract-lifecycle-spec",
+      "target": "act-contract-lifecycle-1",
+      "type": "EXECUTES",
+      "label": "EXECUTES"
+    },
+    {
+      "id": "edge-act-contract-lifecycle-1-requires-skill-contract-lifecycle-exec",
+      "source": "act-contract-lifecycle-1",
+      "target": "skill-contract-lifecycle-exec",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-proc-contract-lifecycle-contains-act-contract-lifecycle-2",
+      "source": "proc-contract-lifecycle",
+      "target": "act-contract-lifecycle-2",
+      "type": "CONTAINS_ACTIVITY",
+      "label": "CONTAINS"
+    },
+    {
+      "id": "edge-role-contract-lifecycle-spec-executes-act-contract-lifecycle-2",
+      "source": "role-contract-lifecycle-spec",
+      "target": "act-contract-lifecycle-2",
+      "type": "EXECUTES",
+      "label": "EXECUTES"
+    },
+    {
+      "id": "edge-act-contract-lifecycle-2-requires-skill-contract-lifecycle-exec",
+      "source": "act-contract-lifecycle-2",
+      "target": "skill-contract-lifecycle-exec",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-act-contract-lifecycle-2-requires-skill-contract-lifecycle-audit",
+      "source": "act-contract-lifecycle-2",
+      "target": "skill-contract-lifecycle-audit",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-proc-contract-lifecycle-contains-act-contract-lifecycle-3",
+      "source": "proc-contract-lifecycle",
+      "target": "act-contract-lifecycle-3",
+      "type": "CONTAINS_ACTIVITY",
+      "label": "CONTAINS"
+    },
+    {
+      "id": "edge-role-contract-lifecycle-mgr-executes-act-contract-lifecycle-3",
+      "source": "role-contract-lifecycle-mgr",
+      "target": "act-contract-lifecycle-3",
+      "type": "EXECUTES",
+      "label": "EXECUTES"
+    },
+    {
+      "id": "edge-act-contract-lifecycle-3-requires-skill-contract-lifecycle-audit",
+      "source": "act-contract-lifecycle-3",
+      "target": "skill-contract-lifecycle-audit",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-act-contract-lifecycle-3-requires-skill-contract-lifecycle-ai-gov",
+      "source": "act-contract-lifecycle-3",
+      "target": "skill-contract-lifecycle-ai-gov",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-proc-regulatory-compliance-audit-contains-act-regulatory-compliance-audit-1",
+      "source": "proc-regulatory-compliance-audit",
+      "target": "act-regulatory-compliance-audit-1",
+      "type": "CONTAINS_ACTIVITY",
+      "label": "CONTAINS"
+    },
+    {
+      "id": "edge-role-regulatory-compliance-audit-spec-executes-act-regulatory-compliance-audit-1",
+      "source": "role-regulatory-compliance-audit-spec",
+      "target": "act-regulatory-compliance-audit-1",
+      "type": "EXECUTES",
+      "label": "EXECUTES"
+    },
+    {
+      "id": "edge-act-regulatory-compliance-audit-1-requires-skill-regulatory-compliance-audit-exec",
+      "source": "act-regulatory-compliance-audit-1",
+      "target": "skill-regulatory-compliance-audit-exec",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-proc-regulatory-compliance-audit-contains-act-regulatory-compliance-audit-2",
+      "source": "proc-regulatory-compliance-audit",
+      "target": "act-regulatory-compliance-audit-2",
+      "type": "CONTAINS_ACTIVITY",
+      "label": "CONTAINS"
+    },
+    {
+      "id": "edge-role-regulatory-compliance-audit-spec-executes-act-regulatory-compliance-audit-2",
+      "source": "role-regulatory-compliance-audit-spec",
+      "target": "act-regulatory-compliance-audit-2",
+      "type": "EXECUTES",
+      "label": "EXECUTES"
+    },
+    {
+      "id": "edge-act-regulatory-compliance-audit-2-requires-skill-regulatory-compliance-audit-exec",
+      "source": "act-regulatory-compliance-audit-2",
+      "target": "skill-regulatory-compliance-audit-exec",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-act-regulatory-compliance-audit-2-requires-skill-regulatory-compliance-audit-audit",
+      "source": "act-regulatory-compliance-audit-2",
+      "target": "skill-regulatory-compliance-audit-audit",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-proc-regulatory-compliance-audit-contains-act-regulatory-compliance-audit-3",
+      "source": "proc-regulatory-compliance-audit",
+      "target": "act-regulatory-compliance-audit-3",
+      "type": "CONTAINS_ACTIVITY",
+      "label": "CONTAINS"
+    },
+    {
+      "id": "edge-role-regulatory-compliance-audit-mgr-executes-act-regulatory-compliance-audit-3",
+      "source": "role-regulatory-compliance-audit-mgr",
+      "target": "act-regulatory-compliance-audit-3",
+      "type": "EXECUTES",
+      "label": "EXECUTES"
+    },
+    {
+      "id": "edge-act-regulatory-compliance-audit-3-requires-skill-regulatory-compliance-audit-audit",
+      "source": "act-regulatory-compliance-audit-3",
+      "target": "skill-regulatory-compliance-audit-audit",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-act-regulatory-compliance-audit-3-requires-skill-regulatory-compliance-audit-ai-gov",
+      "source": "act-regulatory-compliance-audit-3",
+      "target": "skill-regulatory-compliance-audit-ai-gov",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-proc-ip-patent-monitoring-contains-act-ip-patent-monitoring-1",
+      "source": "proc-ip-patent-monitoring",
+      "target": "act-ip-patent-monitoring-1",
+      "type": "CONTAINS_ACTIVITY",
+      "label": "CONTAINS"
+    },
+    {
+      "id": "edge-role-ip-patent-monitoring-spec-executes-act-ip-patent-monitoring-1",
+      "source": "role-ip-patent-monitoring-spec",
+      "target": "act-ip-patent-monitoring-1",
+      "type": "EXECUTES",
+      "label": "EXECUTES"
+    },
+    {
+      "id": "edge-act-ip-patent-monitoring-1-requires-skill-ip-patent-monitoring-exec",
+      "source": "act-ip-patent-monitoring-1",
+      "target": "skill-ip-patent-monitoring-exec",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-proc-ip-patent-monitoring-contains-act-ip-patent-monitoring-2",
+      "source": "proc-ip-patent-monitoring",
+      "target": "act-ip-patent-monitoring-2",
+      "type": "CONTAINS_ACTIVITY",
+      "label": "CONTAINS"
+    },
+    {
+      "id": "edge-role-ip-patent-monitoring-spec-executes-act-ip-patent-monitoring-2",
+      "source": "role-ip-patent-monitoring-spec",
+      "target": "act-ip-patent-monitoring-2",
+      "type": "EXECUTES",
+      "label": "EXECUTES"
+    },
+    {
+      "id": "edge-act-ip-patent-monitoring-2-requires-skill-ip-patent-monitoring-exec",
+      "source": "act-ip-patent-monitoring-2",
+      "target": "skill-ip-patent-monitoring-exec",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-act-ip-patent-monitoring-2-requires-skill-ip-patent-monitoring-audit",
+      "source": "act-ip-patent-monitoring-2",
+      "target": "skill-ip-patent-monitoring-audit",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-proc-ip-patent-monitoring-contains-act-ip-patent-monitoring-3",
+      "source": "proc-ip-patent-monitoring",
+      "target": "act-ip-patent-monitoring-3",
+      "type": "CONTAINS_ACTIVITY",
+      "label": "CONTAINS"
+    },
+    {
+      "id": "edge-role-ip-patent-monitoring-mgr-executes-act-ip-patent-monitoring-3",
+      "source": "role-ip-patent-monitoring-mgr",
+      "target": "act-ip-patent-monitoring-3",
+      "type": "EXECUTES",
+      "label": "EXECUTES"
+    },
+    {
+      "id": "edge-act-ip-patent-monitoring-3-requires-skill-ip-patent-monitoring-audit",
+      "source": "act-ip-patent-monitoring-3",
+      "target": "skill-ip-patent-monitoring-audit",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-act-ip-patent-monitoring-3-requires-skill-ip-patent-monitoring-ai-gov",
+      "source": "act-ip-patent-monitoring-3",
+      "target": "skill-ip-patent-monitoring-ai-gov",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-proc-purchase-order-creation-contains-act-purchase-order-creation-1",
+      "source": "proc-purchase-order-creation",
+      "target": "act-purchase-order-creation-1",
+      "type": "CONTAINS_ACTIVITY",
+      "label": "CONTAINS"
+    },
+    {
+      "id": "edge-role-purchase-order-creation-spec-executes-act-purchase-order-creation-1",
+      "source": "role-purchase-order-creation-spec",
+      "target": "act-purchase-order-creation-1",
+      "type": "EXECUTES",
+      "label": "EXECUTES"
+    },
+    {
+      "id": "edge-act-purchase-order-creation-1-requires-skill-purchase-order-creation-exec",
+      "source": "act-purchase-order-creation-1",
+      "target": "skill-purchase-order-creation-exec",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-proc-purchase-order-creation-contains-act-purchase-order-creation-2",
+      "source": "proc-purchase-order-creation",
+      "target": "act-purchase-order-creation-2",
+      "type": "CONTAINS_ACTIVITY",
+      "label": "CONTAINS"
+    },
+    {
+      "id": "edge-role-purchase-order-creation-spec-executes-act-purchase-order-creation-2",
+      "source": "role-purchase-order-creation-spec",
+      "target": "act-purchase-order-creation-2",
+      "type": "EXECUTES",
+      "label": "EXECUTES"
+    },
+    {
+      "id": "edge-act-purchase-order-creation-2-requires-skill-purchase-order-creation-exec",
+      "source": "act-purchase-order-creation-2",
+      "target": "skill-purchase-order-creation-exec",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-act-purchase-order-creation-2-requires-skill-purchase-order-creation-audit",
+      "source": "act-purchase-order-creation-2",
+      "target": "skill-purchase-order-creation-audit",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-proc-purchase-order-creation-contains-act-purchase-order-creation-3",
+      "source": "proc-purchase-order-creation",
+      "target": "act-purchase-order-creation-3",
+      "type": "CONTAINS_ACTIVITY",
+      "label": "CONTAINS"
+    },
+    {
+      "id": "edge-role-purchase-order-creation-mgr-executes-act-purchase-order-creation-3",
+      "source": "role-purchase-order-creation-mgr",
+      "target": "act-purchase-order-creation-3",
+      "type": "EXECUTES",
+      "label": "EXECUTES"
+    },
+    {
+      "id": "edge-act-purchase-order-creation-3-requires-skill-purchase-order-creation-audit",
+      "source": "act-purchase-order-creation-3",
+      "target": "skill-purchase-order-creation-audit",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-act-purchase-order-creation-3-requires-skill-purchase-order-creation-ai-gov",
+      "source": "act-purchase-order-creation-3",
+      "target": "skill-purchase-order-creation-ai-gov",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-proc-warehouse-replenishment-contains-act-warehouse-replenishment-1",
+      "source": "proc-warehouse-replenishment",
+      "target": "act-warehouse-replenishment-1",
+      "type": "CONTAINS_ACTIVITY",
+      "label": "CONTAINS"
+    },
+    {
+      "id": "edge-role-warehouse-replenishment-spec-executes-act-warehouse-replenishment-1",
+      "source": "role-warehouse-replenishment-spec",
+      "target": "act-warehouse-replenishment-1",
+      "type": "EXECUTES",
+      "label": "EXECUTES"
+    },
+    {
+      "id": "edge-act-warehouse-replenishment-1-requires-skill-warehouse-replenishment-exec",
+      "source": "act-warehouse-replenishment-1",
+      "target": "skill-warehouse-replenishment-exec",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-proc-warehouse-replenishment-contains-act-warehouse-replenishment-2",
+      "source": "proc-warehouse-replenishment",
+      "target": "act-warehouse-replenishment-2",
+      "type": "CONTAINS_ACTIVITY",
+      "label": "CONTAINS"
+    },
+    {
+      "id": "edge-role-warehouse-replenishment-spec-executes-act-warehouse-replenishment-2",
+      "source": "role-warehouse-replenishment-spec",
+      "target": "act-warehouse-replenishment-2",
+      "type": "EXECUTES",
+      "label": "EXECUTES"
+    },
+    {
+      "id": "edge-act-warehouse-replenishment-2-requires-skill-warehouse-replenishment-exec",
+      "source": "act-warehouse-replenishment-2",
+      "target": "skill-warehouse-replenishment-exec",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-act-warehouse-replenishment-2-requires-skill-warehouse-replenishment-audit",
+      "source": "act-warehouse-replenishment-2",
+      "target": "skill-warehouse-replenishment-audit",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-proc-warehouse-replenishment-contains-act-warehouse-replenishment-3",
+      "source": "proc-warehouse-replenishment",
+      "target": "act-warehouse-replenishment-3",
+      "type": "CONTAINS_ACTIVITY",
+      "label": "CONTAINS"
+    },
+    {
+      "id": "edge-role-warehouse-replenishment-mgr-executes-act-warehouse-replenishment-3",
+      "source": "role-warehouse-replenishment-mgr",
+      "target": "act-warehouse-replenishment-3",
+      "type": "EXECUTES",
+      "label": "EXECUTES"
+    },
+    {
+      "id": "edge-act-warehouse-replenishment-3-requires-skill-warehouse-replenishment-audit",
+      "source": "act-warehouse-replenishment-3",
+      "target": "skill-warehouse-replenishment-audit",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-act-warehouse-replenishment-3-requires-skill-warehouse-replenishment-ai-gov",
+      "source": "act-warehouse-replenishment-3",
+      "target": "skill-warehouse-replenishment-ai-gov",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-proc-freight-logistics-dispatch-contains-act-freight-logistics-dispatch-1",
+      "source": "proc-freight-logistics-dispatch",
+      "target": "act-freight-logistics-dispatch-1",
+      "type": "CONTAINS_ACTIVITY",
+      "label": "CONTAINS"
+    },
+    {
+      "id": "edge-role-freight-logistics-dispatch-spec-executes-act-freight-logistics-dispatch-1",
+      "source": "role-freight-logistics-dispatch-spec",
+      "target": "act-freight-logistics-dispatch-1",
+      "type": "EXECUTES",
+      "label": "EXECUTES"
+    },
+    {
+      "id": "edge-act-freight-logistics-dispatch-1-requires-skill-freight-logistics-dispatch-exec",
+      "source": "act-freight-logistics-dispatch-1",
+      "target": "skill-freight-logistics-dispatch-exec",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-proc-freight-logistics-dispatch-contains-act-freight-logistics-dispatch-2",
+      "source": "proc-freight-logistics-dispatch",
+      "target": "act-freight-logistics-dispatch-2",
+      "type": "CONTAINS_ACTIVITY",
+      "label": "CONTAINS"
+    },
+    {
+      "id": "edge-role-freight-logistics-dispatch-spec-executes-act-freight-logistics-dispatch-2",
+      "source": "role-freight-logistics-dispatch-spec",
+      "target": "act-freight-logistics-dispatch-2",
+      "type": "EXECUTES",
+      "label": "EXECUTES"
+    },
+    {
+      "id": "edge-act-freight-logistics-dispatch-2-requires-skill-freight-logistics-dispatch-exec",
+      "source": "act-freight-logistics-dispatch-2",
+      "target": "skill-freight-logistics-dispatch-exec",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-act-freight-logistics-dispatch-2-requires-skill-freight-logistics-dispatch-audit",
+      "source": "act-freight-logistics-dispatch-2",
+      "target": "skill-freight-logistics-dispatch-audit",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-proc-freight-logistics-dispatch-contains-act-freight-logistics-dispatch-3",
+      "source": "proc-freight-logistics-dispatch",
+      "target": "act-freight-logistics-dispatch-3",
+      "type": "CONTAINS_ACTIVITY",
+      "label": "CONTAINS"
+    },
+    {
+      "id": "edge-role-freight-logistics-dispatch-mgr-executes-act-freight-logistics-dispatch-3",
+      "source": "role-freight-logistics-dispatch-mgr",
+      "target": "act-freight-logistics-dispatch-3",
+      "type": "EXECUTES",
+      "label": "EXECUTES"
+    },
+    {
+      "id": "edge-act-freight-logistics-dispatch-3-requires-skill-freight-logistics-dispatch-audit",
+      "source": "act-freight-logistics-dispatch-3",
+      "target": "skill-freight-logistics-dispatch-audit",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-act-freight-logistics-dispatch-3-requires-skill-freight-logistics-dispatch-ai-gov",
+      "source": "act-freight-logistics-dispatch-3",
+      "target": "skill-freight-logistics-dispatch-ai-gov",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-proc-supplier-quality-audit-contains-act-supplier-quality-audit-1",
+      "source": "proc-supplier-quality-audit",
+      "target": "act-supplier-quality-audit-1",
+      "type": "CONTAINS_ACTIVITY",
+      "label": "CONTAINS"
+    },
+    {
+      "id": "edge-role-supplier-quality-audit-spec-executes-act-supplier-quality-audit-1",
+      "source": "role-supplier-quality-audit-spec",
+      "target": "act-supplier-quality-audit-1",
+      "type": "EXECUTES",
+      "label": "EXECUTES"
+    },
+    {
+      "id": "edge-act-supplier-quality-audit-1-requires-skill-supplier-quality-audit-exec",
+      "source": "act-supplier-quality-audit-1",
+      "target": "skill-supplier-quality-audit-exec",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-proc-supplier-quality-audit-contains-act-supplier-quality-audit-2",
+      "source": "proc-supplier-quality-audit",
+      "target": "act-supplier-quality-audit-2",
+      "type": "CONTAINS_ACTIVITY",
+      "label": "CONTAINS"
+    },
+    {
+      "id": "edge-role-supplier-quality-audit-spec-executes-act-supplier-quality-audit-2",
+      "source": "role-supplier-quality-audit-spec",
+      "target": "act-supplier-quality-audit-2",
+      "type": "EXECUTES",
+      "label": "EXECUTES"
+    },
+    {
+      "id": "edge-act-supplier-quality-audit-2-requires-skill-supplier-quality-audit-exec",
+      "source": "act-supplier-quality-audit-2",
+      "target": "skill-supplier-quality-audit-exec",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-act-supplier-quality-audit-2-requires-skill-supplier-quality-audit-audit",
+      "source": "act-supplier-quality-audit-2",
+      "target": "skill-supplier-quality-audit-audit",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-proc-supplier-quality-audit-contains-act-supplier-quality-audit-3",
+      "source": "proc-supplier-quality-audit",
+      "target": "act-supplier-quality-audit-3",
+      "type": "CONTAINS_ACTIVITY",
+      "label": "CONTAINS"
+    },
+    {
+      "id": "edge-role-supplier-quality-audit-mgr-executes-act-supplier-quality-audit-3",
+      "source": "role-supplier-quality-audit-mgr",
+      "target": "act-supplier-quality-audit-3",
+      "type": "EXECUTES",
+      "label": "EXECUTES"
+    },
+    {
+      "id": "edge-act-supplier-quality-audit-3-requires-skill-supplier-quality-audit-audit",
+      "source": "act-supplier-quality-audit-3",
+      "target": "skill-supplier-quality-audit-audit",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-act-supplier-quality-audit-3-requires-skill-supplier-quality-audit-ai-gov",
+      "source": "act-supplier-quality-audit-3",
+      "target": "skill-supplier-quality-audit-ai-gov",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-proc-customer-churn-prevention-contains-act-customer-churn-prevention-1",
+      "source": "proc-customer-churn-prevention",
+      "target": "act-customer-churn-prevention-1",
+      "type": "CONTAINS_ACTIVITY",
+      "label": "CONTAINS"
+    },
+    {
+      "id": "edge-role-customer-churn-prevention-spec-executes-act-customer-churn-prevention-1",
+      "source": "role-customer-churn-prevention-spec",
+      "target": "act-customer-churn-prevention-1",
+      "type": "EXECUTES",
+      "label": "EXECUTES"
+    },
+    {
+      "id": "edge-act-customer-churn-prevention-1-requires-skill-customer-churn-prevention-exec",
+      "source": "act-customer-churn-prevention-1",
+      "target": "skill-customer-churn-prevention-exec",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-proc-customer-churn-prevention-contains-act-customer-churn-prevention-2",
+      "source": "proc-customer-churn-prevention",
+      "target": "act-customer-churn-prevention-2",
+      "type": "CONTAINS_ACTIVITY",
+      "label": "CONTAINS"
+    },
+    {
+      "id": "edge-role-customer-churn-prevention-spec-executes-act-customer-churn-prevention-2",
+      "source": "role-customer-churn-prevention-spec",
+      "target": "act-customer-churn-prevention-2",
+      "type": "EXECUTES",
+      "label": "EXECUTES"
+    },
+    {
+      "id": "edge-act-customer-churn-prevention-2-requires-skill-customer-churn-prevention-exec",
+      "source": "act-customer-churn-prevention-2",
+      "target": "skill-customer-churn-prevention-exec",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-act-customer-churn-prevention-2-requires-skill-customer-churn-prevention-audit",
+      "source": "act-customer-churn-prevention-2",
+      "target": "skill-customer-churn-prevention-audit",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-proc-customer-churn-prevention-contains-act-customer-churn-prevention-3",
+      "source": "proc-customer-churn-prevention",
+      "target": "act-customer-churn-prevention-3",
+      "type": "CONTAINS_ACTIVITY",
+      "label": "CONTAINS"
+    },
+    {
+      "id": "edge-role-customer-churn-prevention-mgr-executes-act-customer-churn-prevention-3",
+      "source": "role-customer-churn-prevention-mgr",
+      "target": "act-customer-churn-prevention-3",
+      "type": "EXECUTES",
+      "label": "EXECUTES"
+    },
+    {
+      "id": "edge-act-customer-churn-prevention-3-requires-skill-customer-churn-prevention-audit",
+      "source": "act-customer-churn-prevention-3",
+      "target": "skill-customer-churn-prevention-audit",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-act-customer-churn-prevention-3-requires-skill-customer-churn-prevention-ai-gov",
+      "source": "act-customer-churn-prevention-3",
+      "target": "skill-customer-churn-prevention-ai-gov",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-proc-omnichannel-support-routing-contains-act-omnichannel-support-routing-1",
+      "source": "proc-omnichannel-support-routing",
+      "target": "act-omnichannel-support-routing-1",
+      "type": "CONTAINS_ACTIVITY",
+      "label": "CONTAINS"
+    },
+    {
+      "id": "edge-role-omnichannel-support-routing-spec-executes-act-omnichannel-support-routing-1",
+      "source": "role-omnichannel-support-routing-spec",
+      "target": "act-omnichannel-support-routing-1",
+      "type": "EXECUTES",
+      "label": "EXECUTES"
+    },
+    {
+      "id": "edge-act-omnichannel-support-routing-1-requires-skill-omnichannel-support-routing-exec",
+      "source": "act-omnichannel-support-routing-1",
+      "target": "skill-omnichannel-support-routing-exec",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-proc-omnichannel-support-routing-contains-act-omnichannel-support-routing-2",
+      "source": "proc-omnichannel-support-routing",
+      "target": "act-omnichannel-support-routing-2",
+      "type": "CONTAINS_ACTIVITY",
+      "label": "CONTAINS"
+    },
+    {
+      "id": "edge-role-omnichannel-support-routing-spec-executes-act-omnichannel-support-routing-2",
+      "source": "role-omnichannel-support-routing-spec",
+      "target": "act-omnichannel-support-routing-2",
+      "type": "EXECUTES",
+      "label": "EXECUTES"
+    },
+    {
+      "id": "edge-act-omnichannel-support-routing-2-requires-skill-omnichannel-support-routing-exec",
+      "source": "act-omnichannel-support-routing-2",
+      "target": "skill-omnichannel-support-routing-exec",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-act-omnichannel-support-routing-2-requires-skill-omnichannel-support-routing-audit",
+      "source": "act-omnichannel-support-routing-2",
+      "target": "skill-omnichannel-support-routing-audit",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-proc-omnichannel-support-routing-contains-act-omnichannel-support-routing-3",
+      "source": "proc-omnichannel-support-routing",
+      "target": "act-omnichannel-support-routing-3",
+      "type": "CONTAINS_ACTIVITY",
+      "label": "CONTAINS"
+    },
+    {
+      "id": "edge-role-omnichannel-support-routing-mgr-executes-act-omnichannel-support-routing-3",
+      "source": "role-omnichannel-support-routing-mgr",
+      "target": "act-omnichannel-support-routing-3",
+      "type": "EXECUTES",
+      "label": "EXECUTES"
+    },
+    {
+      "id": "edge-act-omnichannel-support-routing-3-requires-skill-omnichannel-support-routing-audit",
+      "source": "act-omnichannel-support-routing-3",
+      "target": "skill-omnichannel-support-routing-audit",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-act-omnichannel-support-routing-3-requires-skill-omnichannel-support-routing-ai-gov",
+      "source": "act-omnichannel-support-routing-3",
+      "target": "skill-omnichannel-support-routing-ai-gov",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-proc-voice-of-customer-synthesis-contains-act-voice-of-customer-synthesis-1",
+      "source": "proc-voice-of-customer-synthesis",
+      "target": "act-voice-of-customer-synthesis-1",
+      "type": "CONTAINS_ACTIVITY",
+      "label": "CONTAINS"
+    },
+    {
+      "id": "edge-role-voice-of-customer-synthesis-spec-executes-act-voice-of-customer-synthesis-1",
+      "source": "role-voice-of-customer-synthesis-spec",
+      "target": "act-voice-of-customer-synthesis-1",
+      "type": "EXECUTES",
+      "label": "EXECUTES"
+    },
+    {
+      "id": "edge-act-voice-of-customer-synthesis-1-requires-skill-voice-of-customer-synthesis-exec",
+      "source": "act-voice-of-customer-synthesis-1",
+      "target": "skill-voice-of-customer-synthesis-exec",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-proc-voice-of-customer-synthesis-contains-act-voice-of-customer-synthesis-2",
+      "source": "proc-voice-of-customer-synthesis",
+      "target": "act-voice-of-customer-synthesis-2",
+      "type": "CONTAINS_ACTIVITY",
+      "label": "CONTAINS"
+    },
+    {
+      "id": "edge-role-voice-of-customer-synthesis-spec-executes-act-voice-of-customer-synthesis-2",
+      "source": "role-voice-of-customer-synthesis-spec",
+      "target": "act-voice-of-customer-synthesis-2",
+      "type": "EXECUTES",
+      "label": "EXECUTES"
+    },
+    {
+      "id": "edge-act-voice-of-customer-synthesis-2-requires-skill-voice-of-customer-synthesis-exec",
+      "source": "act-voice-of-customer-synthesis-2",
+      "target": "skill-voice-of-customer-synthesis-exec",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-act-voice-of-customer-synthesis-2-requires-skill-voice-of-customer-synthesis-audit",
+      "source": "act-voice-of-customer-synthesis-2",
+      "target": "skill-voice-of-customer-synthesis-audit",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-proc-voice-of-customer-synthesis-contains-act-voice-of-customer-synthesis-3",
+      "source": "proc-voice-of-customer-synthesis",
+      "target": "act-voice-of-customer-synthesis-3",
+      "type": "CONTAINS_ACTIVITY",
+      "label": "CONTAINS"
+    },
+    {
+      "id": "edge-role-voice-of-customer-synthesis-mgr-executes-act-voice-of-customer-synthesis-3",
+      "source": "role-voice-of-customer-synthesis-mgr",
+      "target": "act-voice-of-customer-synthesis-3",
+      "type": "EXECUTES",
+      "label": "EXECUTES"
+    },
+    {
+      "id": "edge-act-voice-of-customer-synthesis-3-requires-skill-voice-of-customer-synthesis-audit",
+      "source": "act-voice-of-customer-synthesis-3",
+      "target": "skill-voice-of-customer-synthesis-audit",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-act-voice-of-customer-synthesis-3-requires-skill-voice-of-customer-synthesis-ai-gov",
+      "source": "act-voice-of-customer-synthesis-3",
+      "target": "skill-voice-of-customer-synthesis-ai-gov",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-proc-ad-campaign-bidding-contains-act-ad-campaign-bidding-1",
+      "source": "proc-ad-campaign-bidding",
+      "target": "act-ad-campaign-bidding-1",
+      "type": "CONTAINS_ACTIVITY",
+      "label": "CONTAINS"
+    },
+    {
+      "id": "edge-role-ad-campaign-bidding-spec-executes-act-ad-campaign-bidding-1",
+      "source": "role-ad-campaign-bidding-spec",
+      "target": "act-ad-campaign-bidding-1",
+      "type": "EXECUTES",
+      "label": "EXECUTES"
+    },
+    {
+      "id": "edge-act-ad-campaign-bidding-1-requires-skill-ad-campaign-bidding-exec",
+      "source": "act-ad-campaign-bidding-1",
+      "target": "skill-ad-campaign-bidding-exec",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-proc-ad-campaign-bidding-contains-act-ad-campaign-bidding-2",
+      "source": "proc-ad-campaign-bidding",
+      "target": "act-ad-campaign-bidding-2",
+      "type": "CONTAINS_ACTIVITY",
+      "label": "CONTAINS"
+    },
+    {
+      "id": "edge-role-ad-campaign-bidding-spec-executes-act-ad-campaign-bidding-2",
+      "source": "role-ad-campaign-bidding-spec",
+      "target": "act-ad-campaign-bidding-2",
+      "type": "EXECUTES",
+      "label": "EXECUTES"
+    },
+    {
+      "id": "edge-act-ad-campaign-bidding-2-requires-skill-ad-campaign-bidding-exec",
+      "source": "act-ad-campaign-bidding-2",
+      "target": "skill-ad-campaign-bidding-exec",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-act-ad-campaign-bidding-2-requires-skill-ad-campaign-bidding-audit",
+      "source": "act-ad-campaign-bidding-2",
+      "target": "skill-ad-campaign-bidding-audit",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-proc-ad-campaign-bidding-contains-act-ad-campaign-bidding-3",
+      "source": "proc-ad-campaign-bidding",
+      "target": "act-ad-campaign-bidding-3",
+      "type": "CONTAINS_ACTIVITY",
+      "label": "CONTAINS"
+    },
+    {
+      "id": "edge-role-ad-campaign-bidding-mgr-executes-act-ad-campaign-bidding-3",
+      "source": "role-ad-campaign-bidding-mgr",
+      "target": "act-ad-campaign-bidding-3",
+      "type": "EXECUTES",
+      "label": "EXECUTES"
+    },
+    {
+      "id": "edge-act-ad-campaign-bidding-3-requires-skill-ad-campaign-bidding-audit",
+      "source": "act-ad-campaign-bidding-3",
+      "target": "skill-ad-campaign-bidding-audit",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-act-ad-campaign-bidding-3-requires-skill-ad-campaign-bidding-ai-gov",
+      "source": "act-ad-campaign-bidding-3",
+      "target": "skill-ad-campaign-bidding-ai-gov",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-proc-enterprise-rfi-response-contains-act-enterprise-rfi-response-1",
+      "source": "proc-enterprise-rfi-response",
+      "target": "act-enterprise-rfi-response-1",
+      "type": "CONTAINS_ACTIVITY",
+      "label": "CONTAINS"
+    },
+    {
+      "id": "edge-role-enterprise-rfi-response-spec-executes-act-enterprise-rfi-response-1",
+      "source": "role-enterprise-rfi-response-spec",
+      "target": "act-enterprise-rfi-response-1",
+      "type": "EXECUTES",
+      "label": "EXECUTES"
+    },
+    {
+      "id": "edge-act-enterprise-rfi-response-1-requires-skill-enterprise-rfi-response-exec",
+      "source": "act-enterprise-rfi-response-1",
+      "target": "skill-enterprise-rfi-response-exec",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-proc-enterprise-rfi-response-contains-act-enterprise-rfi-response-2",
+      "source": "proc-enterprise-rfi-response",
+      "target": "act-enterprise-rfi-response-2",
+      "type": "CONTAINS_ACTIVITY",
+      "label": "CONTAINS"
+    },
+    {
+      "id": "edge-role-enterprise-rfi-response-spec-executes-act-enterprise-rfi-response-2",
+      "source": "role-enterprise-rfi-response-spec",
+      "target": "act-enterprise-rfi-response-2",
+      "type": "EXECUTES",
+      "label": "EXECUTES"
+    },
+    {
+      "id": "edge-act-enterprise-rfi-response-2-requires-skill-enterprise-rfi-response-exec",
+      "source": "act-enterprise-rfi-response-2",
+      "target": "skill-enterprise-rfi-response-exec",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-act-enterprise-rfi-response-2-requires-skill-enterprise-rfi-response-audit",
+      "source": "act-enterprise-rfi-response-2",
+      "target": "skill-enterprise-rfi-response-audit",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-proc-enterprise-rfi-response-contains-act-enterprise-rfi-response-3",
+      "source": "proc-enterprise-rfi-response",
+      "target": "act-enterprise-rfi-response-3",
+      "type": "CONTAINS_ACTIVITY",
+      "label": "CONTAINS"
+    },
+    {
+      "id": "edge-role-enterprise-rfi-response-mgr-executes-act-enterprise-rfi-response-3",
+      "source": "role-enterprise-rfi-response-mgr",
+      "target": "act-enterprise-rfi-response-3",
+      "type": "EXECUTES",
+      "label": "EXECUTES"
+    },
+    {
+      "id": "edge-act-enterprise-rfi-response-3-requires-skill-enterprise-rfi-response-audit",
+      "source": "act-enterprise-rfi-response-3",
+      "target": "skill-enterprise-rfi-response-audit",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    },
+    {
+      "id": "edge-act-enterprise-rfi-response-3-requires-skill-enterprise-rfi-response-ai-gov",
+      "source": "act-enterprise-rfi-response-3",
+      "target": "skill-enterprise-rfi-response-ai-gov",
+      "type": "REQUIRES",
+      "label": "REQUIRES"
+    }
+  ],
+  "stats": {
+    "total_nodes": 225,
+    "total_edges": 275,
+    "processes_count": 25,
+    "activities_count": 75,
+    "roles_count": 50,
+    "skills_count": 75,
+    "avg_automation_feasibility": 78.5,
+    "high_risk_roles_count": 18,
+    "is_neo4j_connected": true
+  }
+}
