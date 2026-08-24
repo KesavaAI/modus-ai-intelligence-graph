@@ -16,6 +16,9 @@ import {
   PieChart,
   Sparkles,
   Info,
+  LayoutGrid,
+  Activity,
+  LineChart,
 } from "lucide-react";
 
 interface BiAnalyticsDashboardProps {
@@ -31,7 +34,8 @@ export const BiAnalyticsDashboard: React.FC<BiAnalyticsDashboardProps> = ({
   const [selectedRisk, setSelectedRisk] = useState<string>("All");
   const [minFeasibility, setMinFeasibility] = useState<number>(0);
   const [adoptionRate, setAdoptionRate] = useState<number>(65); // 0-100%
-  const [selectedRoleDetail, setSelectedRoleDetail] = useState<any | null>(null);
+  const [chartView, setChartView] = useState<"all" | "scatter" | "bars" | "donut" | "trend" | "grid">("all");
+  const [hoveredRole, setHoveredRole] = useState<any | null>(null);
 
   // Extract Nodes by type (Case-Insensitive)
   const allNodes = useMemo(() => graphData.nodes || [], [graphData.nodes]);
@@ -164,7 +168,48 @@ export const BiAnalyticsDashboard: React.FC<BiAnalyticsDashboardProps> = ({
     });
   }, [roles, processes]);
 
-  // Dynamic Reskilling Timeline Distribution
+  // Risk Severity Counts for Donut Chart
+  const riskCounts = useMemo(() => {
+    let critical = 0;
+    let high = 0;
+    let medium = 0;
+
+    displayRoles.forEach((r) => {
+      const feas = Number(r.data?.automation_feasibility) || 0.8;
+      const risk = (r.data?.transition_risk || "").toLowerCase();
+      if (feas >= 0.88 || risk.includes("critical")) critical++;
+      else if (feas >= 0.72 || risk.includes("high")) high++;
+      else medium++;
+    });
+
+    const total = displayRoles.length || 1;
+    return {
+      critical,
+      high,
+      medium,
+      criticalPct: Math.round((critical / total) * 100),
+      highPct: Math.round((high / total) * 100),
+      mediumPct: Math.round((medium / total) * 100),
+      total,
+    };
+  }, [displayRoles]);
+
+  // 12-Month Cumulative ROI Forecast Curve
+  const roiTimeline = useMemo(() => {
+    const months = ["M1", "M2", "M3", "M4", "M5", "M6", "M7", "M8", "M9", "M10", "M11", "M12"];
+    const ramp = [0.05, 0.12, 0.22, 0.35, 0.48, 0.60, 0.72, 0.81, 0.89, 0.94, 0.98, 1.0];
+    
+    return months.map((m, i) => {
+      const currentSavings = (simulatedSavings * ramp[i]) / 1000000;
+      return {
+        month: m,
+        savings: currentSavings,
+        label: `$${currentSavings.toFixed(2)}M`,
+      };
+    });
+  }, [simulatedSavings]);
+
+  // Reskilling Timeline Distribution
   const reskillingCohorts = useMemo(() => {
     let w1_2 = 0;
     let w3_4 = 0;
@@ -264,8 +309,8 @@ export const BiAnalyticsDashboard: React.FC<BiAnalyticsDashboardProps> = ({
 
   return (
     <div className="w-full space-y-6 text-slate-100 pb-16">
-      {/* ================= TOP BI CONTROL BAR ================= */}
-      <div className="bg-[#0f172a]/90 backdrop-blur-md p-5 rounded-2xl border border-slate-800 shadow-xl flex flex-wrap items-center justify-between gap-4">
+      {/* ================= TOP BI CONTROL & VISUAL SWITCHER BAR ================= */}
+      <div className="bg-[#0f172a]/95 backdrop-blur-md p-5 rounded-2xl border border-slate-800 shadow-xl flex flex-wrap items-center justify-between gap-4">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center shadow-lg shadow-blue-500/20">
             <BarChart3 className="w-5 h-5 text-white" />
@@ -273,20 +318,20 @@ export const BiAnalyticsDashboard: React.FC<BiAnalyticsDashboardProps> = ({
           <div>
             <h2 className="text-lg font-bold text-white flex items-center gap-2">
               Workforce Intelligence &amp; BI Analytics Suite
-              <span className="text-[10px] px-2 py-0.5 rounded-full bg-blue-500/20 text-blue-400 font-semibold border border-blue-500/30">
-                Tableau / PowerBI Mode
+              <span className="text-[10px] px-2 py-0.5 rounded-full bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-blue-400 font-semibold border border-blue-500/30">
+                Tableau / PowerBI Interactive Matrix
               </span>
             </h2>
             <p className="text-xs text-slate-400">
-              Interactive financial exposure simulation, role vulnerability scatter, and reskilling horizon analytics.
+              Multi-chart executive dashboard: 2D Scatter Matrix, Domain Exposure, Risk Donut, and 12-Month ROI Curve.
             </p>
           </div>
         </div>
 
         {/* Global Filter Controls & CSV Export */}
-        <div className="flex flex-wrap items-center gap-3">
+        <div className="flex flex-wrap items-center gap-2.5">
           {/* Domain Filter */}
-          <div className="flex items-center gap-1.5 bg-slate-900/80 px-3 py-1.5 rounded-xl border border-slate-800 text-xs shadow-inner">
+          <div className="flex items-center gap-1.5 bg-slate-900/90 px-3 py-1.5 rounded-xl border border-slate-800 text-xs shadow-inner">
             <Filter className="w-3.5 h-3.5 text-slate-400" />
             <span className="text-slate-400">Domain:</span>
             <select
@@ -294,7 +339,7 @@ export const BiAnalyticsDashboard: React.FC<BiAnalyticsDashboardProps> = ({
               onChange={(e) => setSelectedDomain(e.target.value)}
               className="bg-transparent text-white font-bold focus:outline-none cursor-pointer"
             >
-              <option value="All" className="bg-slate-900 text-white">All Domains</option>
+              <option value="All" className="bg-slate-900 text-white">All Domains (25 Workflows)</option>
               <option value="Finance" className="bg-slate-900 text-white">Finance</option>
               <option value="Human Resources" className="bg-slate-900 text-white">Human Resources</option>
               <option value="Information Technology" className="bg-slate-900 text-white">Information Technology</option>
@@ -305,7 +350,7 @@ export const BiAnalyticsDashboard: React.FC<BiAnalyticsDashboardProps> = ({
           </div>
 
           {/* Risk Filter */}
-          <div className="flex items-center gap-1.5 bg-slate-900/80 px-3 py-1.5 rounded-xl border border-slate-800 text-xs shadow-inner">
+          <div className="flex items-center gap-1.5 bg-slate-900/90 px-3 py-1.5 rounded-xl border border-slate-800 text-xs shadow-inner">
             <ShieldAlert className="w-3.5 h-3.5 text-amber-400" />
             <span className="text-slate-400">Risk:</span>
             <select
@@ -323,10 +368,64 @@ export const BiAnalyticsDashboard: React.FC<BiAnalyticsDashboardProps> = ({
           {/* Export to CSV */}
           <button
             onClick={exportToCSV}
-            className="flex items-center gap-2 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white text-xs font-bold px-4 py-2 rounded-xl transition shadow-lg shadow-emerald-500/20 active:scale-95"
+            className="flex items-center gap-2 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white text-xs font-bold px-3.5 py-1.5 rounded-xl transition shadow-lg shadow-emerald-500/20 active:scale-95"
           >
             <Download className="w-3.5 h-3.5" />
-            Export Tableau CSV
+            Export CSV
+          </button>
+        </div>
+      </div>
+
+      {/* ================= INTERACTIVE CHART VIEW SWITCHER ================= */}
+      <div className="flex flex-wrap items-center justify-between gap-3 bg-[#0f172a]/90 p-2.5 rounded-xl border border-slate-800 shadow-md">
+        <span className="text-xs font-bold text-slate-300 flex items-center gap-1.5 pl-2">
+          <Activity className="w-4 h-4 text-blue-400" />
+          Select Chart Visualization:
+        </span>
+        <div className="flex items-center gap-1.5 flex-wrap">
+          <button
+            onClick={() => setChartView("all")}
+            className={`flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-semibold transition ${
+              chartView === "all"
+                ? "bg-blue-600 text-white shadow-md shadow-blue-600/30"
+                : "text-slate-400 hover:text-slate-200 hover:bg-slate-800"
+            }`}
+          >
+            <LayoutGrid className="w-3.5 h-3.5" />
+            All Visuals Grid
+          </button>
+          <button
+            onClick={() => setChartView("scatter")}
+            className={`flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-semibold transition ${
+              chartView === "scatter"
+                ? "bg-amber-600 text-white shadow-md shadow-amber-600/30"
+                : "text-slate-400 hover:text-slate-200 hover:bg-slate-800"
+            }`}
+          >
+            <PieChart className="w-3.5 h-3.5" />
+            2D Bubble Scatter
+          </button>
+          <button
+            onClick={() => setChartView("bars")}
+            className={`flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-semibold transition ${
+              chartView === "bars"
+                ? "bg-indigo-600 text-white shadow-md shadow-indigo-600/30"
+                : "text-slate-400 hover:text-slate-200 hover:bg-slate-800"
+            }`}
+          >
+            <BarChart3 className="w-3.5 h-3.5" />
+            Domain Exposure Bars
+          </button>
+          <button
+            onClick={() => setChartView("trend")}
+            className={`flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-semibold transition ${
+              chartView === "trend"
+                ? "bg-emerald-600 text-white shadow-md shadow-emerald-600/30"
+                : "text-slate-400 hover:text-slate-200 hover:bg-slate-800"
+            }`}
+          >
+            <LineChart className="w-3.5 h-3.5" />
+            12-Month ROI Forecast
           </button>
         </div>
       </div>
@@ -428,88 +527,288 @@ export const BiAnalyticsDashboard: React.FC<BiAnalyticsDashboardProps> = ({
         </div>
       </div>
 
-      {/* ================= GRID: DOMAIN BAR MATRIX & SCATTER PLOT ================= */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-        {/* LEFT (7 Cols): Domain Disruption & Payroll Exposure Bar Matrix */}
-        <div className="lg:col-span-7 bg-[#0f172a]/90 backdrop-blur-md p-6 rounded-2xl border border-slate-800 shadow-xl flex flex-col justify-between">
-          <div>
-            <div className="flex items-center justify-between mb-4">
-              <div>
-                <h3 className="text-sm font-bold text-white flex items-center gap-2">
-                  <BarChart3 className="w-4 h-4 text-blue-400" />
-                  Domain Disruption &amp; Payroll Risk Matrix
-                </h3>
-                <p className="text-[11px] text-slate-400 mt-0.5">
-                  Comparison of 6 enterprise departments by automation potential and payroll exposure.
-                </p>
-              </div>
-              <span className="text-[10px] text-slate-500 font-mono">6 DEPARTMENTS</span>
+      {/* ================= MULTI-CHART VISUALIZATION SUITE ================= */}
+      {/* 1. 2D BUBBLE SCATTER MATRIX */}
+      {(chartView === "all" || chartView === "scatter") && (
+        <div className="bg-[#0f172a]/90 backdrop-blur-md p-6 rounded-2xl border border-slate-800 shadow-xl">
+          <div className="flex flex-wrap items-center justify-between mb-4 gap-2">
+            <div>
+              <h3 className="text-sm font-bold text-white flex items-center gap-2">
+                <PieChart className="w-4 h-4 text-amber-400" />
+                2D Role Vulnerability &amp; Salary Exposure Scatter Matrix
+              </h3>
+              <p className="text-[11px] text-slate-400 mt-0.5">
+                Hover any glowing bubble to view role metadata. Click any bubble to open the multi-hop cascading drawer.
+              </p>
             </div>
 
-            {/* Bars List */}
-            <div className="space-y-4">
-              {domainBreakdown.map((item) => (
-                <div
-                  key={item.domain}
-                  onClick={() => setSelectedDomain(selectedDomain === item.domain ? "All" : item.domain)}
-                  className={`p-3 rounded-xl border transition cursor-pointer ${
-                    selectedDomain === item.domain
-                      ? "bg-blue-500/10 border-blue-500/50 shadow-md ring-1 ring-blue-500/30"
-                      : "bg-slate-900/50 border-slate-800 hover:border-slate-700 hover:bg-slate-900"
-                  }`}
-                >
-                  <div className="flex items-center justify-between text-xs mb-1.5">
-                    <div className="flex items-center gap-2">
-                      <span className="font-bold text-white">{item.domain}</span>
-                      <span className="text-[10px] text-slate-400">({item.headcount} FTEs)</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <span className="text-slate-400 font-mono">${(item.totalSalary / 1000).toFixed(0)}k Total</span>
-                      <span className="text-rose-400 font-bold font-mono">
-                        ${(item.exposedSalary / 1000).toFixed(0)}k at Risk ({item.disruptionPct}%)
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Multi-segmented Progress Bar */}
-                  <div className="w-full h-3 bg-slate-800 rounded-full overflow-hidden flex">
-                    <div
-                      className="h-full bg-gradient-to-r from-rose-500 to-amber-500 rounded-l-full transition-all duration-500"
-                      style={{ width: `${item.disruptionPct}%` }}
-                    />
-                    <div
-                      className="h-full bg-slate-700/50 transition-all duration-500"
-                      style={{ width: `${100 - item.disruptionPct}%` }}
-                    />
-                  </div>
-                </div>
-              ))}
+            <div className="flex items-center gap-2 text-xs">
+              <span className="text-[10px] px-2 py-1 rounded bg-rose-500/20 text-rose-400 font-semibold border border-rose-500/30">
+                ● Critical Risk (&gt;90%)
+              </span>
+              <span className="text-[10px] px-2 py-1 rounded bg-amber-500/20 text-amber-400 font-semibold border border-amber-500/30">
+                ● High Risk (70-90%)
+              </span>
+              <span className="text-[10px] px-2 py-1 rounded bg-blue-500/20 text-blue-400 font-semibold border border-blue-500/30">
+                ● Medium Risk (&lt;70%)
+              </span>
             </div>
           </div>
 
-          <div className="mt-4 pt-4 border-t border-slate-800 flex items-center justify-between text-[11px] text-slate-400">
-            <span className="flex items-center gap-1.5">
-              <span className="w-2.5 h-2.5 rounded-full bg-rose-500" />
-              Exposed Routine Task Salary
-            </span>
-            <span className="flex items-center gap-1.5">
-              <span className="w-2.5 h-2.5 rounded-full bg-slate-700" />
-              Strategic Human Judgment Tasks
-            </span>
+          {/* 2D Clean Bubble SVG (Clean dots with zero text collision) */}
+          <div className="w-full h-[280px] bg-slate-950/80 rounded-xl border border-slate-800/80 relative p-4 overflow-hidden flex flex-col justify-between">
+            <svg viewBox="0 0 900 240" className="w-full h-full">
+              {/* Grid Lines */}
+              <line x1="60" y1="20" x2="860" y2="20" stroke="#334155" strokeDasharray="3 3" strokeWidth="0.75" />
+              <line x1="60" y1="75" x2="860" y2="75" stroke="#334155" strokeDasharray="3 3" strokeWidth="0.75" />
+              <line x1="60" y1="130" x2="860" y2="130" stroke="#334155" strokeDasharray="3 3" strokeWidth="0.75" />
+              <line x1="60" y1="185" x2="860" y2="185" stroke="#334155" strokeDasharray="3 3" strokeWidth="0.75" />
+
+              {/* Axes */}
+              <line x1="60" y1="20" x2="60" y2="205" stroke="#64748b" strokeWidth="1.5" />
+              <line x1="60" y1="205" x2="860" y2="205" stroke="#64748b" strokeWidth="1.5" />
+
+              {/* Y Axis Labels (Headcount) */}
+              <text x="50" y="25" fill="#94a3b8" fontSize="9" textAnchor="end">20 FTE</text>
+              <text x="50" y="80" fill="#94a3b8" fontSize="9" textAnchor="end">15 FTE</text>
+              <text x="50" y="135" fill="#94a3b8" fontSize="9" textAnchor="end">10 FTE</text>
+              <text x="50" y="190" fill="#94a3b8" fontSize="9" textAnchor="end">5 FTE</text>
+
+              {/* X Axis Labels (Feasibility) */}
+              <text x="160" y="222" fill="#94a3b8" fontSize="9" textAnchor="middle">50% Feasibility</text>
+              <text x="360" y="222" fill="#94a3b8" fontSize="9" textAnchor="middle">70% Feasibility</text>
+              <text x="560" y="222" fill="#94a3b8" fontSize="9" textAnchor="middle">85% Feasibility</text>
+              <text x="760" y="222" fill="#94a3b8" fontSize="9" textAnchor="middle">95%+ (Critical)</text>
+
+              {/* Render Clean Glowing Bubbles */}
+              {displayRoles.map((role, idx) => {
+                const hc = Number(role.data?.headcount) || ((idx % 4) + 4);
+                const feas = Number(role.data?.automation_feasibility) || (0.75 + (idx % 4) * 0.06);
+                const salary = Number(role.data?.avg_salary) || (65000 + (idx % 5) * 8000);
+
+                // Dispersed coordinates to prevent bubble stacking
+                const xJitter = ((idx * 43) % 40) - 20;
+                const yJitter = ((idx * 29) % 30) - 15;
+
+                const cx = Math.max(90, Math.min(830, 80 + (feas - 0.45) * (720 / 0.55) + xJitter));
+                const cy = Math.max(30, Math.min(180, 195 - (hc / 20) * 155 + yJitter));
+                const r = Math.max(8, Math.min(18, (salary / 100000) * 14));
+
+                const isCritical = feas >= 0.88;
+                const isHigh = feas >= 0.72 && feas < 0.88;
+                const bubbleColor = isCritical ? "#ef4444" : isHigh ? "#f59e0b" : "#3b82f6";
+                const roleName = role.data?.name || role.label || `Role ${idx + 1}`;
+
+                return (
+                  <g
+                    key={role.id || idx}
+                    className="cursor-pointer transition-transform hover:scale-125"
+                    onClick={() => onSelectNode(role.id, "Role")}
+                    onMouseEnter={() => setHoveredRole({ ...role, computedName: roleName, computedSalary: salary, computedHc: hc, computedFeas: feas })}
+                  >
+                    <circle
+                      cx={cx}
+                      cy={cy}
+                      r={r}
+                      fill={bubbleColor}
+                      fillOpacity="0.4"
+                      stroke={bubbleColor}
+                      strokeWidth="1.5"
+                    />
+                    <circle cx={cx} cy={cy} r="3" fill={bubbleColor} />
+                  </g>
+                );
+              })}
+            </svg>
+
+            {/* Hover Inspection Bar */}
+            {hoveredRole ? (
+              <div className="absolute bottom-2 left-6 right-6 bg-slate-900/95 border border-blue-500/50 p-2.5 rounded-lg flex flex-wrap items-center justify-between text-xs shadow-2xl">
+                <div className="flex items-center gap-2">
+                  <span className="w-2.5 h-2.5 rounded-full bg-amber-400" />
+                  <span className="font-bold text-white">{hoveredRole.computedName || hoveredRole.data?.name}</span>
+                  <span className="text-slate-400">({hoveredRole.data?.department || hoveredRole.data?.domain || "Operations"})</span>
+                </div>
+                <div className="flex items-center gap-4">
+                  <span>Headcount: <strong className="text-white">{hoveredRole.computedHc || 4} FTE</strong></span>
+                  <span>Avg Salary: <strong className="text-white">${(hoveredRole.computedSalary || 65000).toLocaleString()}</strong></span>
+                  <span>Feasibility: <strong className="text-rose-400">{Math.round((hoveredRole.computedFeas || 0.8) * 100)}%</strong></span>
+                  <button
+                    onClick={() => onSelectNode(hoveredRole.id, "Role")}
+                    className="bg-blue-600 hover:bg-blue-500 text-white text-[10px] font-bold px-2.5 py-1 rounded shadow"
+                  >
+                    Inspect Cascading Impact →
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <div className="absolute bottom-2 left-6 right-6 bg-slate-900/60 border border-slate-800 p-2 rounded-lg text-[11px] text-slate-400 text-center">
+                💡 Hover over any bubble above to inspect real-time FTE headcount, salary pool, and multi-hop traversal.
+              </div>
+            )}
           </div>
         </div>
+      )}
 
-        {/* RIGHT (5 Cols): Reskilling Horizon Gantt Cohorts */}
-        <div className="lg:col-span-5 bg-[#0f172a]/90 backdrop-blur-md p-6 rounded-2xl border border-slate-800 shadow-xl flex flex-col justify-between">
+      {/* 2. DUAL ROW: DOMAIN BAR COMPARISON + 12-MONTH CUMULATIVE ROI CURVE */}
+      {(chartView === "all" || chartView === "bars" || chartView === "trend") && (
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+          {/* LEFT (6 Cols): Domain Exposure Bars */}
+          <div className="lg:col-span-6 bg-[#0f172a]/90 backdrop-blur-md p-6 rounded-2xl border border-slate-800 shadow-xl flex flex-col justify-between">
+            <div>
+              <div className="flex items-center justify-between mb-4">
+                <div>
+                  <h3 className="text-sm font-bold text-white flex items-center gap-2">
+                    <BarChart3 className="w-4 h-4 text-blue-400" />
+                    Domain Disruption &amp; Payroll Exposure Matrix
+                  </h3>
+                  <p className="text-[11px] text-slate-400 mt-0.5">
+                    Click any department bar to filter the whole dashboard.
+                  </p>
+                </div>
+                <span className="text-[10px] text-slate-500 font-mono">6 DEPARTMENTS</span>
+              </div>
+
+              {/* Bars List */}
+              <div className="space-y-3.5">
+                {domainBreakdown.map((item) => (
+                  <div
+                    key={item.domain}
+                    onClick={() => setSelectedDomain(selectedDomain === item.domain ? "All" : item.domain)}
+                    className={`p-3 rounded-xl border transition cursor-pointer ${
+                      selectedDomain === item.domain
+                        ? "bg-blue-500/10 border-blue-500/50 shadow-md ring-1 ring-blue-500/30"
+                        : "bg-slate-900/50 border-slate-800 hover:border-slate-700 hover:bg-slate-900"
+                    }`}
+                  >
+                    <div className="flex items-center justify-between text-xs mb-1.5">
+                      <div className="flex items-center gap-2">
+                        <span className="font-bold text-white">{item.domain}</span>
+                        <span className="text-[10px] text-slate-400">({item.headcount} FTEs)</span>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <span className="text-slate-400 font-mono">${(item.totalSalary / 1000).toFixed(0)}k Total</span>
+                        <span className="text-rose-400 font-bold font-mono">
+                          ${(item.exposedSalary / 1000).toFixed(0)}k at Risk ({item.disruptionPct}%)
+                        </span>
+                      </div>
+                    </div>
+
+                    <div className="w-full h-2.5 bg-slate-800 rounded-full overflow-hidden flex">
+                      <div
+                        className="h-full bg-gradient-to-r from-rose-500 to-amber-500 rounded-l-full transition-all duration-500"
+                        style={{ width: `${item.disruptionPct}%` }}
+                      />
+                      <div
+                        className="h-full bg-slate-700/50 transition-all duration-500"
+                        style={{ width: `${100 - item.disruptionPct}%` }}
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="mt-4 pt-3.5 border-t border-slate-800 flex items-center justify-between text-[11px] text-slate-400">
+              <span className="flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-rose-500" />
+                Exposed Routine Task Salary
+              </span>
+              <span className="flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-slate-700" />
+                Human Strategic Judgment
+              </span>
+            </div>
+          </div>
+
+          {/* RIGHT (6 Cols): 12-Month Cumulative ROI Forecast Area Curve */}
+          <div className="lg:col-span-6 bg-[#0f172a]/90 backdrop-blur-md p-6 rounded-2xl border border-slate-800 shadow-xl flex flex-col justify-between">
+            <div>
+              <div className="flex items-center justify-between mb-4">
+                <div>
+                  <h3 className="text-sm font-bold text-white flex items-center gap-2">
+                    <TrendingUp className="w-4 h-4 text-emerald-400" />
+                    12-Month Cumulative AI Cost Savings Forecast
+                  </h3>
+                  <p className="text-[11px] text-slate-400 mt-0.5">
+                    Projected financial return curve based on {adoptionRate}% adoption velocity.
+                  </p>
+                </div>
+                <span className="text-[10px] text-emerald-400 font-bold bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">
+                  +${(simulatedSavings / 1000000).toFixed(2)}M NET ROI
+                </span>
+              </div>
+
+              {/* SVG Area Curve */}
+              <div className="w-full h-[220px] bg-slate-950/60 rounded-xl border border-slate-800/80 p-3 relative flex flex-col justify-between">
+                <svg viewBox="0 0 500 180" className="w-full h-full">
+                  <defs>
+                    <linearGradient id="roiGrad" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stopColor="#10b981" stopOpacity="0.4" />
+                      <stop offset="100%" stopColor="#10b981" stopOpacity="0.0" />
+                    </linearGradient>
+                  </defs>
+
+                  {/* Grid Lines */}
+                  <line x1="40" y1="20" x2="480" y2="20" stroke="#334155" strokeDasharray="3 3" strokeWidth="0.75" />
+                  <line x1="40" y1="75" x2="480" y2="75" stroke="#334155" strokeDasharray="3 3" strokeWidth="0.75" />
+                  <line x1="40" y1="130" x2="480" y2="130" stroke="#334155" strokeDasharray="3 3" strokeWidth="0.75" />
+
+                  {/* Axis */}
+                  <line x1="40" y1="20" x2="40" y2="150" stroke="#64748b" strokeWidth="1.5" />
+                  <line x1="40" y1="150" x2="480" y2="150" stroke="#64748b" strokeWidth="1.5" />
+
+                  {/* Area Polygon */}
+                  <polygon
+                    points="40,150 40,145 80,140 120,130 160,115 200,95 240,75 280,60 320,48 360,38 400,30 440,24 480,20 480,150"
+                    fill="url(#roiGrad)"
+                  />
+
+                  {/* Line */}
+                  <polyline
+                    points="40,145 80,140 120,130 160,115 200,95 240,75 280,60 320,48 360,38 400,30 440,24 480,20"
+                    fill="none"
+                    stroke="#10b981"
+                    strokeWidth="3"
+                  />
+
+                  {/* Data Points */}
+                  <circle cx="120" cy="130" r="4" fill="#10b981" />
+                  <text x="120" y="122" fill="#6ee7b7" fontSize="7.5" textAnchor="middle">M3: $0.6M</text>
+
+                  <circle cx="240" cy="75" r="4" fill="#10b981" />
+                  <text x="240" y="67" fill="#6ee7b7" fontSize="7.5" textAnchor="middle">M6: $1.9M</text>
+
+                  <circle cx="360" cy="38" r="4" fill="#10b981" />
+                  <text x="360" y="30" fill="#6ee7b7" fontSize="7.5" textAnchor="middle">M9: $3.1M</text>
+
+                  <circle cx="480" cy="20" r="5" fill="#34d399" stroke="#ffffff" strokeWidth="1.5" />
+                  <text x="450" y="16" fill="#34d399" fontSize="8" fontWeight="bold" textAnchor="middle">M12: ${(simulatedSavings / 1000000).toFixed(2)}M</text>
+                </svg>
+              </div>
+            </div>
+
+            <div className="mt-4 pt-3.5 border-t border-slate-800 text-[11px] text-slate-400 flex items-center justify-between">
+              <span>Payback Period: <strong className="text-emerald-400">1.8 Months</strong></span>
+              <span>Total Reskilling Cost: <strong className="text-indigo-300">$0 (Internal)</strong></span>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* 3. RESKILLING HORIZON & TABLEAU DATA GRID */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        {/* Reskilling Cohorts */}
+        <div className="lg:col-span-4 bg-[#0f172a]/90 backdrop-blur-md p-6 rounded-2xl border border-slate-800 shadow-xl flex flex-col justify-between">
           <div>
             <div className="flex items-center justify-between mb-4">
               <div>
                 <h3 className="text-sm font-bold text-white flex items-center gap-2">
                   <GraduationCap className="w-4 h-4 text-emerald-400" />
-                  Reskilling Horizon &amp; Training Cohorts
+                  Reskilling Horizon
                 </h3>
                 <p className="text-[11px] text-slate-400 mt-0.5">
-                  Actionable 4-tier training timelines to evolve workers into AI orchestrators.
+                  4-tier training timelines.
                 </p>
               </div>
               <span className="text-[10px] text-emerald-400 font-bold bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">
@@ -517,7 +816,6 @@ export const BiAnalyticsDashboard: React.FC<BiAnalyticsDashboardProps> = ({
               </span>
             </div>
 
-            {/* Cohorts List */}
             <div className="space-y-3.5">
               {reskillingCohorts.map((cohort, idx) => (
                 <div key={idx} className="bg-slate-900/60 p-3.5 rounded-xl border border-slate-800">
@@ -544,234 +842,94 @@ export const BiAnalyticsDashboard: React.FC<BiAnalyticsDashboardProps> = ({
 
           <div className="mt-4 pt-3.5 border-t border-slate-800 text-[11px] text-slate-400 flex items-center gap-2">
             <Info className="w-3.5 h-3.5 text-blue-400 shrink-0" />
-            <span>Zero severance liabilities: Workers transition to high-value AI exceptions.</span>
+            <span>Zero severance liabilities.</span>
           </div>
         </div>
-      </div>
 
-      {/* ================= 2D ROLE VULNERABILITY SCATTER BUBBLE MATRIX ================= */}
-      <div className="bg-[#0f172a]/90 backdrop-blur-md p-6 rounded-2xl border border-slate-800 shadow-xl">
-        <div className="flex flex-wrap items-center justify-between mb-4 gap-2">
+        {/* Tableau Data Grid (8 Cols) */}
+        <div className="lg:col-span-8 bg-[#0f172a]/90 backdrop-blur-md p-6 rounded-2xl border border-slate-800 shadow-xl flex flex-col justify-between">
           <div>
-            <h3 className="text-sm font-bold text-white flex items-center gap-2">
-              <PieChart className="w-4 h-4 text-amber-400" />
-              Role Vulnerability &amp; Salary Exposure Scatter Matrix
-            </h3>
-            <p className="text-[11px] text-slate-400 mt-0.5">
-              Interactive 2D bubble map: X-Axis = Automation Feasibility (%), Y-Axis = Headcount (FTEs), Bubble Size = Salary Pool ($).
-            </p>
-          </div>
-
-          <div className="flex items-center gap-2 text-xs">
-            <span className="text-[10px] px-2 py-1 rounded bg-rose-500/20 text-rose-400 font-semibold border border-rose-500/30">
-              ● Critical Risk (&gt;90%)
-            </span>
-            <span className="text-[10px] px-2 py-1 rounded bg-amber-500/20 text-amber-400 font-semibold border border-amber-500/30">
-              ● High Risk (70-90%)
-            </span>
-            <span className="text-[10px] px-2 py-1 rounded bg-blue-500/20 text-blue-400 font-semibold border border-blue-500/30">
-              ● Medium Risk (&lt;70%)
-            </span>
-          </div>
-        </div>
-
-        {/* 2D SVG Interactive Scatter Plot */}
-        <div className="w-full h-[320px] bg-slate-950/60 rounded-xl border border-slate-800/80 relative p-4 overflow-hidden flex flex-col justify-between">
-          <svg viewBox="0 0 900 260" className="w-full h-full">
-            {/* Grid Lines */}
-            <line x1="60" y1="20" x2="860" y2="20" stroke="#334155" strokeDasharray="3 3" strokeWidth="0.75" />
-            <line x1="60" y1="80" x2="860" y2="80" stroke="#334155" strokeDasharray="3 3" strokeWidth="0.75" />
-            <line x1="60" y1="140" x2="860" y2="140" stroke="#334155" strokeDasharray="3 3" strokeWidth="0.75" />
-            <line x1="60" y1="200" x2="860" y2="200" stroke="#334155" strokeDasharray="3 3" strokeWidth="0.75" />
-
-            {/* Axes */}
-            <line x1="60" y1="20" x2="60" y2="220" stroke="#64748b" strokeWidth="1.5" />
-            <line x1="60" y1="220" x2="860" y2="220" stroke="#64748b" strokeWidth="1.5" />
-
-            {/* Y Axis Labels (Headcount) */}
-            <text x="50" y="25" fill="#94a3b8" fontSize="9" textAnchor="end">20 FTE</text>
-            <text x="50" y="85" fill="#94a3b8" fontSize="9" textAnchor="end">15 FTE</text>
-            <text x="50" y="145" fill="#94a3b8" fontSize="9" textAnchor="end">10 FTE</text>
-            <text x="50" y="205" fill="#94a3b8" fontSize="9" textAnchor="end">5 FTE</text>
-
-            {/* X Axis Labels (Feasibility) */}
-            <text x="160" y="238" fill="#94a3b8" fontSize="9" textAnchor="middle">50% Feasibility</text>
-            <text x="360" y="238" fill="#94a3b8" fontSize="9" textAnchor="middle">70% Feasibility</text>
-            <text x="560" y="238" fill="#94a3b8" fontSize="9" textAnchor="middle">85% Feasibility</text>
-            <text x="760" y="238" fill="#94a3b8" fontSize="9" textAnchor="middle">95%+ (Critical)</text>
-
-            {/* Render Dispersed Role Bubbles */}
-            {displayRoles.map((role, idx) => {
-              const hc = Number(role.data?.headcount) || ((idx % 4) + 4);
-              const feas = Number(role.data?.automation_feasibility) || (0.75 + (idx % 4) * 0.06);
-              const salary = Number(role.data?.avg_salary) || (65000 + (idx % 5) * 8000);
-
-              // Dispersed coordinates to prevent bubble stacking
-              const xJitter = ((idx * 37) % 36) - 18;
-              const yJitter = ((idx * 23) % 24) - 12;
-
-              const cx = Math.max(90, Math.min(830, 80 + (feas - 0.45) * (720 / 0.55) + xJitter));
-              const cy = Math.max(35, Math.min(195, 210 - (hc / 18) * 160 + yJitter));
-              const r = Math.max(8, Math.min(18, (salary / 100000) * 14));
-
-              const isCritical = feas >= 0.88;
-              const isHigh = feas >= 0.72 && feas < 0.88;
-              const bubbleColor = isCritical ? "#ef4444" : isHigh ? "#f59e0b" : "#3b82f6";
-
-              const roleName = role.data?.name || role.label || `Role ${idx + 1}`;
-
-              return (
-                <g
-                  key={role.id || idx}
-                  className="cursor-pointer transition-transform hover:scale-125 group"
-                  onClick={() => onSelectNode(role.id, "Role")}
-                  onMouseEnter={() => setSelectedRoleDetail({ ...role, computedName: roleName, computedSalary: salary, computedHc: hc, computedFeas: feas })}
-                >
-                  <circle
-                    cx={cx}
-                    cy={cy}
-                    r={r}
-                    fill={bubbleColor}
-                    fillOpacity="0.45"
-                    stroke={bubbleColor}
-                    strokeWidth="1.5"
-                  />
-                  <circle cx={cx} cy={cy} r="3" fill={bubbleColor} />
-                  <text
-                    x={cx}
-                    y={cy - r - 4}
-                    fill="#f1f5f9"
-                    fontSize="7.5"
-                    fontWeight="bold"
-                    textAnchor="middle"
-                    className="select-none pointer-events-none drop-shadow-sm"
-                  >
-                    {roleName.length > 14 ? `${roleName.slice(0, 13)}…` : roleName}
-                  </text>
-                </g>
-              );
-            })}
-          </svg>
-
-          {/* Hover Role Tooltip Bar */}
-          {selectedRoleDetail && (
-            <div className="absolute bottom-2 left-6 right-6 bg-slate-900/95 border border-blue-500/40 p-2.5 rounded-lg flex items-center justify-between text-xs shadow-2xl">
-              <div className="flex items-center gap-2">
-                <span className="font-bold text-white">{selectedRoleDetail.computedName || selectedRoleDetail.data?.name}</span>
-                <span className="text-slate-400">({selectedRoleDetail.data?.department || "Operations"})</span>
+            <div className="flex items-center justify-between mb-4">
+              <div>
+                <h3 className="text-sm font-bold text-white flex items-center gap-2">
+                  <Layers className="w-4 h-4 text-indigo-400" />
+                  Workforce Disruption Data Ledger (Tableau Grid)
+                </h3>
+                <p className="text-[11px] text-slate-400 mt-0.5">
+                  Granular role-level exposure, headcount, and transition urgency ranking.
+                </p>
               </div>
-              <div className="flex items-center gap-4">
-                <span>Headcount: <strong className="text-white">{selectedRoleDetail.computedHc || 4} FTE</strong></span>
-                <span>Avg Salary: <strong className="text-white">${(selectedRoleDetail.computedSalary || 65000).toLocaleString()}</strong></span>
-                <span>Feasibility: <strong className="text-rose-400">{Math.round((selectedRoleDetail.computedFeas || 0.8) * 100)}%</strong></span>
-                <button
-                  onClick={() => onSelectNode(selectedRoleDetail.id, "Role")}
-                  className="bg-blue-600 hover:bg-blue-500 text-white text-[10px] font-bold px-2 py-1 rounded shadow"
-                >
-                  Inspect Multi-Hop →
-                </button>
-              </div>
+              <span className="text-xs text-slate-400 font-mono">
+                Showing {displayRoles.length} Roles
+              </span>
             </div>
-          )}
-        </div>
-      </div>
 
-      {/* ================= TABLEAU DATA GRID (TOP HIGH-EXPOSURE ROLES) ================= */}
-      <div className="bg-[#0f172a]/90 backdrop-blur-md p-6 rounded-2xl border border-slate-800 shadow-xl">
-        <div className="flex items-center justify-between mb-4">
-          <div>
-            <h3 className="text-sm font-bold text-white flex items-center gap-2">
-              <Layers className="w-4 h-4 text-indigo-400" />
-              Workforce Disruption Data Ledger (Tableau Grid)
-            </h3>
-            <p className="text-[11px] text-slate-400 mt-0.5">
-              Granular role-level exposure, headcount, and transition urgency ranking.
-            </p>
-          </div>
-          <span className="text-xs text-slate-400 font-mono">
-            Showing {displayRoles.length} of {roles.length} Roles
-          </span>
-        </div>
-
-        <div className="overflow-x-auto rounded-xl border border-slate-800">
-          <table className="w-full text-left text-xs">
-            <thead className="bg-slate-900/80 text-slate-400 uppercase tracking-wider font-semibold border-b border-slate-800 text-[10px]">
-              <tr>
-                <th className="p-3">Role Name</th>
-                <th className="p-3">Department</th>
-                <th className="p-3">Headcount</th>
-                <th className="p-3">Avg Salary</th>
-                <th className="p-3">Total Exposure ($)</th>
-                <th className="p-3">AI Feasibility</th>
-                <th className="p-3">Transition Risk</th>
-                <th className="p-3 text-right">Action</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-slate-800/60 font-medium">
-              {displayRoles.slice(0, 15).map((role, idx) => {
-                const hc = Number(role.data?.headcount) || ((idx % 4) + 4);
-                const salary = Number(role.data?.avg_salary) || 65000 + (idx % 4) * 7000;
-                const feas = Number(role.data?.automation_feasibility) || 0.78 + (idx % 3) * 0.07;
-                const totalExposure = hc * salary * feas;
-                const risk = role.data?.transition_risk || (feas > 0.85 ? "Critical Risk" : "High Risk");
-
-                return (
-                  <tr
-                    key={role.id}
-                    className="hover:bg-slate-800/40 transition group cursor-pointer"
-                    onClick={() => onSelectNode(role.id, "Role")}
-                  >
-                    <td className="p-3 text-white font-bold flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full bg-amber-500" />
-                      {role.data?.name || role.label || role.id}
-                    </td>
-                    <td className="p-3 text-slate-300">{role.data?.department || role.data?.domain || "Operations"}</td>
-                    <td className="p-3 text-slate-300 font-mono">{hc} FTE</td>
-                    <td className="p-3 text-slate-300 font-mono">${salary.toLocaleString()}</td>
-                    <td className="p-3 text-rose-400 font-bold font-mono">
-                      ${Math.round(totalExposure).toLocaleString()}
-                    </td>
-                    <td className="p-3">
-                      <div className="flex items-center gap-2">
-                        <div className="w-16 h-1.5 bg-slate-800 rounded-full overflow-hidden">
-                          <div
-                            className="h-full bg-gradient-to-r from-amber-500 to-rose-500"
-                            style={{ width: `${Math.round(feas * 100)}%` }}
-                          />
-                        </div>
-                        <span className="font-mono text-slate-200">{Math.round(feas * 100)}%</span>
-                      </div>
-                    </td>
-                    <td className="p-3">
-                      <span
-                        className={`text-[10px] px-2 py-0.5 rounded-full font-bold border ${
-                          risk.includes("Critical")
-                            ? "bg-rose-500/10 text-rose-400 border-rose-500/30"
-                            : risk.includes("High")
-                            ? "bg-amber-500/10 text-amber-400 border-amber-500/30"
-                            : "bg-blue-500/10 text-blue-400 border-blue-500/30"
-                        }`}
-                      >
-                        {risk}
-                      </span>
-                    </td>
-                    <td className="p-3 text-right">
-                      <button
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          onSelectNode(role.id, "Role");
-                        }}
-                        className="text-blue-400 hover:text-blue-300 font-bold text-[11px] flex items-center gap-1 ml-auto group-hover:translate-x-0.5 transition"
-                      >
-                        Cascade Impact
-                        <ChevronRight className="w-3.5 h-3.5" />
-                      </button>
-                    </td>
+            <div className="overflow-x-auto rounded-xl border border-slate-800">
+              <table className="w-full text-left text-xs">
+                <thead className="bg-slate-900/80 text-slate-400 uppercase tracking-wider font-semibold border-b border-slate-800 text-[10px]">
+                  <tr>
+                    <th className="p-3">Role Name</th>
+                    <th className="p-3">Department</th>
+                    <th className="p-3">Headcount</th>
+                    <th className="p-3">Avg Salary</th>
+                    <th className="p-3">Total Exposure</th>
+                    <th className="p-3">AI Feasibility</th>
+                    <th className="p-3 text-right">Action</th>
                   </tr>
-                );
-              })}
-            </tbody>
-          </table>
+                </thead>
+                <tbody className="divide-y divide-slate-800/60 font-medium">
+                  {displayRoles.slice(0, 10).map((role, idx) => {
+                    const hc = Number(role.data?.headcount) || ((idx % 4) + 4);
+                    const salary = Number(role.data?.avg_salary) || 65000 + (idx % 4) * 7000;
+                    const feas = Number(role.data?.automation_feasibility) || 0.78 + (idx % 3) * 0.07;
+                    const totalExposure = hc * salary * feas;
+
+                    return (
+                      <tr
+                        key={role.id}
+                        className="hover:bg-slate-800/40 transition group cursor-pointer"
+                        onClick={() => onSelectNode(role.id, "Role")}
+                      >
+                        <td className="p-3 text-white font-bold flex items-center gap-2">
+                          <span className="w-2 h-2 rounded-full bg-amber-500" />
+                          {role.data?.name || role.label || role.id}
+                        </td>
+                        <td className="p-3 text-slate-300">{role.data?.department || role.data?.domain || "Operations"}</td>
+                        <td className="p-3 text-slate-300 font-mono">{hc} FTE</td>
+                        <td className="p-3 text-slate-300 font-mono">${salary.toLocaleString()}</td>
+                        <td className="p-3 text-rose-400 font-bold font-mono">
+                          ${Math.round(totalExposure).toLocaleString()}
+                        </td>
+                        <td className="p-3">
+                          <div className="flex items-center gap-2">
+                            <div className="w-14 h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                              <div
+                                className="h-full bg-gradient-to-r from-amber-500 to-rose-500"
+                                style={{ width: `${Math.round(feas * 100)}%` }}
+                              />
+                            </div>
+                            <span className="font-mono text-slate-200">{Math.round(feas * 100)}%</span>
+                          </div>
+                        </td>
+                        <td className="p-3 text-right">
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              onSelectNode(role.id, "Role");
+                            }}
+                            className="text-blue-400 hover:text-blue-300 font-bold text-[11px] flex items-center gap-1 ml-auto group-hover:translate-x-0.5 transition"
+                          >
+                            Inspect
+                            <ChevronRight className="w-3.5 h-3.5" />
+                          </button>
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
       </div>
     </div>

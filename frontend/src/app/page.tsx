@@ -160,13 +160,14 @@ export default function DashboardPage() {
       let y = 80;
 
       if (selectedType !== "All") {
-        // When filtered to a single type (e.g. "Processes Only", "Roles Only"):
-        // Lay out in a clean 2D Grid ($3 \times N$)
+        // When filtered to a single type (e.g. "Processes Only", "Activities Only"):
+        // Lay out in a clean responsive 2D Grid (6 columns for All, 3 columns for single domain)
         const typeNodes = filteredNodes.filter(n => (n.type || "").toLowerCase() === selectedType.toLowerCase());
         const idx = typeNodes.findIndex(n => n.id === node.id);
         const safeIdx = idx >= 0 ? idx : 0;
-        x = 80 + (safeIdx % 4) * 340;
-        y = 80 + Math.floor(safeIdx / 4) * 220;
+        const numCols = selectedDomain === "All" ? 6 : 4;
+        x = 80 + (safeIdx % numCols) * 330;
+        y = 80 + Math.floor(safeIdx / numCols) * 190;
       } else {
         // Complete 4-Tier Tree Layout:
         // Group by Process / Domain Columns with Vertical Tier Progression
