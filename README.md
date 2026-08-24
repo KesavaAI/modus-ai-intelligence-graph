@@ -26,6 +26,7 @@ This application is a **"Decision-Making Radar" & Workforce Simulation Engine** 
 - **Calculates Financial Risk**: Multiplies affected headcount by salaries to compute exact payroll exposure (e.g. `$1,036,000` across 17 FTEs).
 - **Protects Workers with Reskilling Plans**: Recommends 3-week to 5-week training roadmaps (e.g. *Manual Invoice Data Entry* $\longrightarrow$ *AI Exception Supervisor*).
 - **Live Ingests New Processes**: Ingests raw unstructured business text with LangGraph and extracts new nodes into the graph in real-time.
+- **Executive BI & Tableau Analytics**: Multi-chart visualization suite with 2D scatter bubble matrix, 12-month ROI forecast, domain exposure bars, and 1-click CSV export!
 
 ```mermaid
 graph LR
@@ -49,20 +50,26 @@ graph LR
 
 ## 🔍 3. Quick 30-Second Demo & Verification Guide
 
-1. **Filter by Domain**:
-   - In the top dropdown, select **Finance** (or search for *"Accounts"*).
+1. **Filter by Domain & Workflow Tree Canvas**:
+   - In the top dropdown, select **Finance** (or **Customer Support**, **HR**, **IT**, **Supply Chain**, **Legal**).
+   - See modular, vertical process trees connecting Process $\rightarrow$ Activities $\rightarrow$ Roles $\rightarrow$ Skills with animated lines!
 2. **Inspect Multi-Hop Cascading Impact**:
-   - Click on the amber card **"Accounts Payable Clerk"** (or **"Accounts Payable Supervisor"**).
-   - The slide-over drawer will open on the right showing:
-     - 📊 **94.3% Disruption Score**
-     - 💰 **$1,036,000 Financial Exposure pool**
-     - 👥 **17 Impacted Headcount**
-     - ⏱️ **3-Week Reskilling Roadmap** to transition into *AI Exception Management & Schema Validation*.
-3. **Execute the Live "Surprise Record" Ingestion Test**:
+   - Click on any role or process card.
+   - The slide-over drawer opens on the right showing:
+     - 📊 **Disruption Score**
+     - 💰 **Financial Salary Exposure ($)**
+     - 👥 **Impacted Headcount (FTEs)**
+     - ⏱️ **Actionable 3-to-5 Week Reskilling Roadmap** with 100% worker retention!
+3. **Explore the Executive BI & Tableau Analytics Suite**:
+   - Click the top tab **"📊 BI & Tableau Analytics"**.
+   - Toggle between **[ ⊞ All Visuals Grid ]**, **[ 🥧 2D Bubble Scatter ]**, **[ 📊 Domain Exposure ]**, and **[ 📈 12-Month ROI Forecast ]**!
+   - Drag the **Live AI Adoption Velocity Slider** ($0\% - 100\%$) to simulate real-time enterprise cost savings.
+   - Click **"Export CSV"** to download the complete workforce dataset formatted for Tableau and PowerBI.
+4. **Execute the Live "Surprise Record" Ingestion Test**:
    - Click **"⚡ Ingest Surprise Record"** in the top right header.
    - Select *"Automated Invoice Matching & Exception Handling in Accounts Payable"*.
    - Click **"Run AI Ingestion Pipeline"**.
-   - Watch the 4-step real-time extraction pipeline (*Ingesting $\rightarrow$ LLM Parsing $\rightarrow$ Multi-Hop Graph $\rightarrow$ Graph Index*) dynamically create and persist the process, activities, roles, and skills!
+   - Watch the 4-step real-time extraction pipeline dynamically create and persist the process, activities, roles, and skills!
 
 ---
 
@@ -74,6 +81,7 @@ graph LR
 graph TD
     subgraph UI ["Frontend (Next.js 14 + Tailwind + @xyflow/react)"]
         GC["GraphCanvas (React Flow Canvas)"]
+        BI["BiAnalyticsDashboard (Tableau Matrix)"]
         SRM["SurpriseRecordModal (Live Extraction Pipeline)"]
         CID["CascadeImpactDrawer (Multi-Hop Disruption Analytics)"]
         KPI["Executive KPI Metrics Bar"]
@@ -84,7 +92,7 @@ graph TD
         CASCADE["POST /api/v1/intelligence/cascade"]
         GRAPH["GET /api/v1/graph/all"]
         SEED["POST /api/v1/seed"]
-        LLM["Groq Llama-3.3-70b / Together AI / Rule-based Fallback"]
+        LLM["Groq Llama-3.3-70b / Deterministic NLP Fallback"]
     end
 
     subgraph Storage ["Graph Engine"]
