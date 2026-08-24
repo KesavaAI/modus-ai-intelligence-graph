@@ -68,6 +68,8 @@ graph LR
 
 ## 🏗️ 4. Technical Architecture
 
+![Technical System Architecture](docs/architecture-diagram.png)
+
 ```mermaid
 graph TD
     subgraph UI ["Frontend (Next.js 14 + Tailwind + @xyflow/react)"]
