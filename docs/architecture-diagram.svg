@@ -1,15 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1150" width="1600" height="1150" style="background:#ffffff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
-  <!-- White Background -->
-  <rect width="1600" height="1150" fill="#ffffff"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1120" width="1600" height="1120" style="background:#ffffff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <!-- Background -->
+  <rect width="1600" height="1120" fill="#ffffff"/>
   
   <!-- ==================== HEADER ==================== -->
-  <text x="800" y="45" font-size="28" font-weight="900" fill="#0f172a" text-anchor="middle" letter-spacing="0.5">ENTERPRISE AI INTELLIGENCE GRAPH ARCHITECTURE</text>
-  <text x="800" y="70" font-size="14" font-weight="500" fill="#475569" text-anchor="middle">Process × Role × Skill Cascading Impact Ontology &amp; Multi-Hop Analysis Engine</text>
+  <rect x="0" y="0" width="1600" height="85" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="800" y="42" font-size="26" font-weight="900" fill="#0f172a" text-anchor="middle">ENTERPRISE AI INTELLIGENCE GRAPH — SYSTEM ARCHITECTURE</text>
+  <text x="800" y="66" font-size="13" font-weight="500" fill="#475569" text-anchor="middle">Exact Full-Stack Implementation: Next.js 14 • React Flow • FastAPI • LangGraph • Neo4j 5 • NetworkX</text>
   
-  <!-- DEFINE MARKERS & ICONS -->
+  <!-- DEFINE ARROW MARKERS & STYLES -->
   <defs>
-    <marker id="arr" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#1e293b"/>
+    <marker id="arr-gray" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#475569"/>
     </marker>
     <marker id="arr-blue" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
       <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#2563eb"/>
@@ -20,447 +21,409 @@
     <marker id="arr-green" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
       <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#059669"/>
     </marker>
-    <filter id="soft-shadow" x="-5%" y="-5%" width="110%" height="110%">
-      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.04"/>
+    <filter id="box-shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.05"/>
     </filter>
   </defs>
 
-  <!-- ==================== LEFT COLUMN: DATA SOURCES ==================== -->
-  <g transform="translate(30, 100)">
-    <rect width="210" height="420" rx="10" fill="#f8fafc" stroke="#93c5fd" stroke-width="1.5" stroke-dasharray="5 5"/>
-    <text x="105" y="30" font-size="13" font-weight="bold" fill="#1e40af" text-anchor="middle">DATA SOURCES &amp; INPUTS</text>
+  <!-- ==================== LEFT COLUMN: INPUT DATA & TEST SCENARIOS ==================== -->
+  <g transform="translate(35, 105)">
+    <rect width="230" height="470" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+    <text x="115" y="28" font-size="12" font-weight="bold" fill="#0f172a" text-anchor="middle">DATASETS &amp; SEED INPUTS</text>
     
-    <!-- Source 1: Enterprise Seed Data -->
-    <g transform="translate(15, 50)">
-      <rect width="180" height="95" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
-      <circle cx="28" cy="25" r="12" fill="#dbeafe"/>
-      <path d="M22 25 L34 25 M28 19 L28 31" stroke="#2563eb" stroke-width="2"/>
-      <text x="48" y="28" font-size="11" font-weight="bold" fill="#1e3a8a">25 SEED PROCESSES</text>
-      <text x="15" y="52" font-size="10" fill="#475569">• Finance &amp; AP Matching</text>
-      <text x="15" y="66" font-size="10" fill="#475569">• HR Candidate Sourcing</text>
-      <text x="15" y="80" font-size="10" fill="#475569">• IT Cloud FinOps &amp; Ops</text>
-    </g>
-
-    <!-- Source 2: Unstructured Text / SOPs -->
-    <g transform="translate(15, 160)">
-      <rect width="180" height="110" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
-      <circle cx="28" cy="25" r="12" fill="#f3e8ff"/>
-      <path d="M22 20 L34 20 M22 25 L34 25 M22 30 L30 30" stroke="#7c3aed" stroke-width="2"/>
-      <text x="48" y="28" font-size="11" font-weight="bold" fill="#581c87">UNSTRUCTURED SOPS</text>
-      <text x="15" y="52" font-size="10" fill="#475569">• Standard Operating Proc.</text>
-      <text x="15" y="66" font-size="10" fill="#475569">• Policy Narrative Text</text>
-      <text x="15" y="80" font-size="10" fill="#475569">• PDF / EDI Invoice Flows</text>
-      <text x="15" y="94" font-size="10" fill="#475569">• Workflow Narratives</text>
-    </g>
-
-    <!-- Source 3: Surprise Records -->
-    <g transform="translate(15, 285)">
-      <rect width="180" height="115" rx="8" fill="#ffffff" stroke="#fde68a" stroke-width="1.5"/>
-      <circle cx="28" cy="25" r="12" fill="#fef3c7"/>
-      <polygon points="28,18 31,23 37,24 33,28 34,34 28,31 22,34 23,28 19,24 25,23" fill="#d97706"/>
-      <text x="48" y="28" font-size="11" font-weight="bold" fill="#92400e">SURPRISE CHALLENGE</text>
-      <text x="15" y="52" font-size="10" fill="#475569">• Dynamic Live Ingestion</text>
-      <text x="15" y="66" font-size="10" fill="#475569">• Raw Paragraph Input</text>
-      <text x="15" y="80" font-size="10" fill="#475569">• Zero-Shot Schema Fit</text>
-      <text x="15" y="94" font-size="10" fill="#475569">• Real-Time Graph Delta</text>
-    </g>
-  </g>
-
-  <!-- ==================== LEFT COLUMN: LEGEND ==================== -->
-  <g transform="translate(30, 540)">
-    <rect width="210" height="230" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
-    <text x="20" y="26" font-size="12" font-weight="bold" fill="#0f172a">FLOW LEGEND</text>
-    
-    <line x1="20" y1="50" x2="60" y2="50" stroke="#1e293b" stroke-width="2" marker-end="url(#arr)"/>
-    <text x="70" y="54" font-size="11" fill="#334155">Control Flow</text>
-    
-    <line x1="20" y1="80" x2="60" y2="80" stroke="#2563eb" stroke-width="2" marker-end="url(#arr-blue)"/>
-    <text x="70" y="84" font-size="11" fill="#334155">Process Ingestion</text>
-
-    <line x1="20" y1="110" x2="60" y2="110" stroke="#7c3aed" stroke-width="2" marker-end="url(#arr-purple)"/>
-    <text x="70" y="114" font-size="11" fill="#334155">Cascading Impact</text>
-
-    <line x1="20" y1="140" x2="60" y2="140" stroke="#059669" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#arr-green)"/>
-    <text x="70" y="144" font-size="11" fill="#334155">Multi-Hop Traversal</text>
-
-    <circle cx="35" cy="172" r="5" fill="#f59e0b"/>
-    <text x="70" y="176" font-size="11" fill="#334155">Reskilling Pathway</text>
-
-    <circle cx="35" cy="202" r="5" fill="#3b82f6"/>
-    <text x="70" y="206" font-size="11" fill="#334155">2D Node Linkage</text>
-  </g>
-
-  <!-- ==================== RIGHT COLUMN: ARCHITECTURE HIGHLIGHTS ==================== -->
-  <g transform="translate(1330, 100)">
-    <rect width="240" height="420" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
-    <text x="120" y="28" font-size="13" font-weight="bold" fill="#0f172a" text-anchor="middle">ARCHITECTURE HIGHLIGHTS</text>
-    
-    <!-- Highlight 1: Multi-Hop Ontology -->
+    <!-- Input 1: seed_data.json -->
     <g transform="translate(15, 45)">
-      <circle cx="20" cy="20" r="14" fill="#dbeafe"/>
-      <circle cx="16" cy="16" r="3" fill="#2563eb"/>
-      <circle cx="26" cy="24" r="3" fill="#2563eb"/>
-      <line x1="16" y1="16" x2="26" y2="24" stroke="#2563eb" stroke-width="1.5"/>
-      <text x="44" y="16" font-size="11" font-weight="bold" fill="#1e3a8a">Multi-Hop Graph Ontology</text>
-      <text x="44" y="30" font-size="9.5" fill="#475569">4 Connected Tiers: Process →</text>
-      <text x="44" y="42" font-size="9.5" fill="#475569">Activity → Role → Skill</text>
+      <rect width="200" height="120" rx="8" fill="#ffffff" stroke="#93c5fd" stroke-width="1.5" filter="url(#box-shadow)"/>
+      <circle cx="25" cy="22" r="10" fill="#dbeafe"/>
+      <text x="25" y="26" font-size="10" font-weight="bold" fill="#1e40af" text-anchor="middle">JSON</text>
+      <text x="45" y="25" font-size="11" font-weight="bold" fill="#1e3a8a">seed_data.json</text>
+      <text x="15" y="50" font-size="10" fill="#475569">• 25 Enterprise Processes</text>
+      <text x="15" y="65" font-size="10" fill="#475569">• 6 Domains (Finance, HR, IT,</text>
+      <text x="15" y="78" font-size="10" fill="#475569">  Supply Chain, Legal, Support)</text>
+      <text x="15" y="93" font-size="10" fill="#475569">• 225+ Nodes, 275+ Edges</text>
+      <text x="15" y="108" font-size="9" font-weight="bold" fill="#2563eb">Auto-loaded on Startup</text>
     </g>
 
-    <!-- Highlight 2: LangGraph Ingestion -->
-    <g transform="translate(15, 115)">
-      <circle cx="20" cy="20" r="14" fill="#f3e8ff"/>
-      <path d="M14 20 L26 20 M20 14 L20 26" stroke="#7c3aed" stroke-width="2"/>
-      <text x="44" y="16" font-size="11" font-weight="bold" fill="#581c87">Stateful LangGraph Ingest</text>
-      <text x="44" y="30" font-size="9.5" fill="#475569">2-node extraction graph with</text>
-      <text x="44" y="42" font-size="9.5" fill="#475569">deterministic NLP fallback</text>
+    <!-- Input 2: Surprise Challenge Record -->
+    <g transform="translate(15, 180)">
+      <rect width="200" height="135" rx="8" fill="#ffffff" stroke="#fde68a" stroke-width="1.5" filter="url(#box-shadow)"/>
+      <circle cx="25" cy="22" r="10" fill="#fef3c7"/>
+      <text x="25" y="26" font-size="10" font-weight="bold" fill="#b45309" text-anchor="middle">⚡</text>
+      <text x="45" y="25" font-size="11" font-weight="bold" fill="#92400e">Surprise Challenge</text>
+      <text x="15" y="50" font-size="10" fill="#475569">• Accounts Payable Invoice</text>
+      <text x="15" y="64" font-size="10" fill="#475569">  Matching &amp; Exception</text>
+      <text x="15" y="78" font-size="10" fill="#475569">• Raw SOP Text Narrative</text>
+      <text x="15" y="92" font-size="10" fill="#475569">• Ingested via Modal</text>
+      <text x="15" y="106" font-size="10" fill="#475569">• Dynamic Graph Mutation</text>
+      <text x="15" y="122" font-size="9" font-weight="bold" fill="#d97706">Tested in Pytest Suite</text>
     </g>
 
-    <!-- Highlight 3: Financial Exposure Math -->
-    <g transform="translate(15, 185)">
-      <circle cx="20" cy="20" r="14" fill="#fee2e2"/>
-      <text x="20" y="25" font-size="14" font-weight="bold" fill="#dc2626" text-anchor="middle">$</text>
-      <text x="44" y="16" font-size="11" font-weight="bold" fill="#991b1b">Financial Exposure ($)</text>
-      <text x="44" y="30" font-size="9.5" fill="#475569">Headcount × Avg Salary ×</text>
-      <text x="44" y="42" font-size="9.5" fill="#475569">Automation Feasibility %</text>
-    </g>
-
-    <!-- Highlight 4: Reskilling Roadmaps -->
-    <g transform="translate(15, 255)">
-      <circle cx="20" cy="20" r="14" fill="#d1fae5"/>
-      <path d="M14 22 L18 26 L26 15" stroke="#059669" stroke-width="2" fill="none"/>
-      <text x="44" y="16" font-size="11" font-weight="bold" fill="#065f46">Actionable Reskilling</text>
-      <text x="44" y="30" font-size="9.5" fill="#475569">3-to-5 week training cohorts</text>
-      <text x="44" y="42" font-size="9.5" fill="#475569">into AI Exception Roles</text>
-    </g>
-
-    <!-- Highlight 5: Dual-Engine Resilience -->
-    <g transform="translate(15, 325)">
-      <circle cx="20" cy="20" r="14" fill="#fef3c7"/>
-      <rect x="14" y="14" width="12" height="12" rx="2" stroke="#d97706" stroke-width="1.5" fill="none"/>
-      <text x="44" y="16" font-size="11" font-weight="bold" fill="#92400e">Dual-Engine Resilience</text>
-      <text x="44" y="30" font-size="9.5" fill="#475569">Neo4j 5 Community + In-</text>
-      <text x="44" y="42" font-size="9.5" fill="#475569">Memory NetworkX Mirror</text>
+    <!-- Input 3: graph_db.json -->
+    <g transform="translate(15, 330)">
+      <rect width="200" height="120" rx="8" fill="#ffffff" stroke="#a7f3d0" stroke-width="1.5" filter="url(#box-shadow)"/>
+      <circle cx="25" cy="22" r="10" fill="#ecfdf5"/>
+      <text x="25" y="26" font-size="10" font-weight="bold" fill="#047857" text-anchor="middle">CDN</text>
+      <text x="45" y="25" font-size="11" font-weight="bold" fill="#065f46">frontend/graph_db.json</text>
+      <text x="15" y="50" font-size="10" fill="#475569">• Pre-built Standalone Cache</text>
+      <text x="15" y="65" font-size="10" fill="#475569">• Zero-Failure Vercel Hosting</text>
+      <text x="15" y="80" font-size="10" fill="#475569">• Static Export Compatible</text>
+      <text x="15" y="95" font-size="10" fill="#475569">• Resilient Client Traversal</text>
+      <text x="15" y="110" font-size="9" font-weight="bold" fill="#059669">Zero Paid Licenses</text>
     </g>
   </g>
 
-  <!-- ==================== RIGHT COLUMN: TECHNOLOGY STACK ==================== -->
-  <g transform="translate(1330, 540)">
-    <rect width="240" height="230" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
-    <text x="120" y="26" font-size="13" font-weight="bold" fill="#0f172a" text-anchor="middle">TECHNOLOGY STACK</text>
-    
+  <!-- ==================== LEFT COLUMN: ONTOLOGY COLOR LEGEND ==================== -->
+  <g transform="translate(35, 595)">
+    <rect width="230" height="235" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+    <text x="115" y="28" font-size="12" font-weight="bold" fill="#0f172a" text-anchor="middle">4-LAYER ONTOLOGY</text>
+
+    <!-- Process Node -->
+    <g transform="translate(15, 45)">
+      <rect width="200" height="38" rx="6" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.5"/>
+      <circle cx="20" cy="19" r="6" fill="#3b82f6"/>
+      <text x="35" y="18" font-size="11" font-weight="bold" fill="#1e40af">(:Process) Node [Blue]</text>
+      <text x="35" y="30" font-size="9" fill="#475569">id, name, domain, cycle_time</text>
+    </g>
+
+    <!-- Activity Node -->
+    <g transform="translate(15, 90)">
+      <rect width="200" height="38" rx="6" fill="#f5f3ff" stroke="#8b5cf6" stroke-width="1.5"/>
+      <circle cx="20" cy="19" r="6" fill="#8b5cf6"/>
+      <text x="35" y="18" font-size="11" font-weight="bold" fill="#5b21b6">(:Activity) Node [Purple]</text>
+      <text x="35" y="30" font-size="9" fill="#475569">step_number, feasibility (0.0-1.0)</text>
+    </g>
+
+    <!-- Role Node -->
+    <g transform="translate(15, 135)">
+      <rect width="200" height="38" rx="6" fill="#fffbeb" stroke="#f59e0b" stroke-width="1.5"/>
+      <circle cx="20" cy="19" r="6" fill="#f59e0b"/>
+      <text x="35" y="18" font-size="11" font-weight="bold" fill="#92400e">(:Role) Node [Amber]</text>
+      <text x="35" y="30" font-size="9" fill="#475569">headcount, avg_salary, risk</text>
+    </g>
+
+    <!-- Skill Node -->
+    <g transform="translate(15, 180)">
+      <rect width="200" height="38" rx="6" fill="#ecfdf5" stroke="#10b981" stroke-width="1.5"/>
+      <circle cx="20" cy="19" r="6" fill="#10b981"/>
+      <text x="35" y="18" font-size="11" font-weight="bold" fill="#065f46">(:Skill) Node [Emerald]</text>
+      <text x="35" y="30" font-size="9" fill="#475569">category, reskill_weeks, evolution</text>
+    </g>
+  </g>
+
+  <!-- ==================== RIGHT COLUMN: CODEBASE FILE MAPPING ==================== -->
+  <g transform="translate(1315, 105)">
+    <rect width="250" height="725" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+    <text x="125" y="28" font-size="12" font-weight="bold" fill="#0f172a" text-anchor="middle">DELIVERED CODEBASE FILES</text>
+
+    <!-- File 1: main.py -->
+    <g transform="translate(15, 45)">
+      <rect width="220" height="65" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" filter="url(#box-shadow)"/>
+      <text x="12" y="18" font-size="11" font-weight="bold" fill="#1e293b">backend/app/main.py</text>
+      <text x="12" y="34" font-size="9.5" fill="#475569">• FastAPI app lifespan manager</text>
+      <text x="12" y="47" font-size="9.5" fill="#475569">• Auto-probe Neo4j / NetworkX</text>
+      <text x="12" y="59" font-size="9.5" fill="#475569">• Auto-seeds 25 processes</text>
+    </g>
+
+    <!-- File 2: routes.py -->
+    <g transform="translate(15, 120)">
+      <rect width="220" height="85" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" filter="url(#box-shadow)"/>
+      <text x="12" y="18" font-size="11" font-weight="bold" fill="#1e293b">backend/app/api/routes.py</text>
+      <text x="12" y="34" font-size="9.5" fill="#475569">• GET /api/v1/health</text>
+      <text x="12" y="47" font-size="9.5" fill="#475569">• GET /api/v1/graph/all</text>
+      <text x="12" y="60" font-size="9.5" fill="#475569">• POST /api/v1/process/ingest</text>
+      <text x="12" y="73" font-size="9.5" fill="#475569">• POST /api/v1/intelligence/cascade</text>
+    </g>
+
+    <!-- File 3: extraction_pipeline.py -->
+    <g transform="translate(15, 215)">
+      <rect width="220" height="75" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" filter="url(#box-shadow)"/>
+      <text x="12" y="18" font-size="11" font-weight="bold" fill="#1e293b">extraction_pipeline.py</text>
+      <text x="12" y="34" font-size="9.5" fill="#475569">• LangGraph StateGraph</text>
+      <text x="12" y="47" font-size="9.5" fill="#475569">• extract_entities (Groq / NLP)</text>
+      <text x="12" y="60" font-size="9.5" fill="#475569">• persist_to_neo4j</text>
+    </g>
+
+    <!-- File 4: neo4j_client.py -->
+    <g transform="translate(15, 300)">
+      <rect width="220" height="85" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" filter="url(#box-shadow)"/>
+      <text x="12" y="18" font-size="11" font-weight="bold" fill="#1e293b">neo4j_client.py</text>
+      <text x="12" y="34" font-size="9.5" fill="#475569">• Cypher MERGE queries</text>
+      <text x="12" y="47" font-size="9.5" fill="#475569">• NetworkX MultiDiGraph</text>
+      <text x="12" y="60" font-size="9.5" fill="#475569">• Multi-hop cascading traversal</text>
+      <text x="12" y="73" font-size="9.5" fill="#475569">• Financial exposure math</text>
+    </g>
+
+    <!-- File 5: schemas.py -->
+    <g transform="translate(15, 395)">
+      <rect width="220" height="65" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" filter="url(#box-shadow)"/>
+      <text x="12" y="18" font-size="11" font-weight="bold" fill="#1e293b">models/schemas.py</text>
+      <text x="12" y="34" font-size="9.5" fill="#475569">• Pydantic v2 validation</text>
+      <text x="12" y="47" font-size="9.5" fill="#475569">• ProcessExtraction, RoleImpact</text>
+      <text x="12" y="59" font-size="9.5" fill="#475569">• CascadeResult schema</text>
+    </g>
+
+    <!-- File 6: GraphCanvas.tsx -->
+    <g transform="translate(15, 470)">
+      <rect width="220" height="75" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" filter="url(#box-shadow)"/>
+      <text x="12" y="18" font-size="11" font-weight="bold" fill="#1e293b">components/GraphCanvas.tsx</text>
+      <text x="12" y="34" font-size="9.5" fill="#475569">• React Flow (@xyflow/react)</text>
+      <text x="12" y="47" font-size="9.5" fill="#475569">• 4 Custom node components</text>
+      <text x="12" y="60" font-size="9.5" fill="#475569">• Smoothstep animated links</text>
+    </g>
+
+    <!-- File 7: test_pipeline.py -->
+    <g transform="translate(15, 555)">
+      <rect width="220" height="65" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" filter="url(#box-shadow)"/>
+      <text x="12" y="18" font-size="11" font-weight="bold" fill="#1e293b">tests/test_pipeline.py</text>
+      <text x="12" y="34" font-size="9.5" fill="#475569">• 5 Pytest automated suites</text>
+      <text x="12" y="47" font-size="9.5" fill="#475569">• Surprise record validation</text>
+      <text x="12" y="59" font-size="9.5" fill="#059669">✓ 5/5 Passing (100%)</text>
+    </g>
+
+    <!-- Tech Stack Summary Box -->
+    <g transform="translate(15, 630)">
+      <rect width="220" height="80" rx="6" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1"/>
+      <text x="12" y="18" font-size="10.5" font-weight="bold" fill="#1e40af">DEPLOYMENT &amp; HOSTING</text>
+      <text x="12" y="34" font-size="9.5" fill="#1e3a8a">• Frontend: Vercel Global CDN</text>
+      <text x="12" y="48" font-size="9.5" fill="#1e3a8a">• Repository: GitHub Master</text>
+      <text x="12" y="62" font-size="9.5" fill="#1e3a8a">• Local Port: http://127.0.0.1:8000</text>
+      <text x="12" y="74" font-size="9.5" fill="#059669">✓ 100% Free-Tier Architecture</text>
+    </g>
+  </g>
+
+  <!-- ==================== MAIN FULL-STACK ARCHITECTURE (CENTER) ==================== -->
+
+  <!-- TIER 1: FRONTEND LAYER (Next.js 14) -->
+  <g transform="translate(290, 105)" filter="url(#box-shadow)">
+    <rect width="1000" height="200" rx="10" fill="#f8fafc" stroke="#3b82f6" stroke-width="1.5"/>
+    <rect width="1000" height="30" rx="10" fill="#eff6ff"/>
+    <circle cx="20" cy="15" r="8" fill="#2563eb"/>
+    <text x="20" y="19" font-size="10" font-weight="bold" fill="#ffffff" text-anchor="middle">1</text>
+    <text x="36" y="20" font-size="12" font-weight="bold" fill="#1e40af">FRONTEND CLIENT LAYER — Next.js 14 (App Router) + Tailwind CSS + React Flow</text>
+
+    <!-- Component 1: page.tsx Dashboard -->
+    <g transform="translate(20, 42)">
+      <rect width="300" height="142" rx="8" fill="#ffffff" stroke="#93c5fd" stroke-width="1"/>
+      <text x="15" y="22" font-size="12" font-weight="bold" fill="#1e3a8a">Executive Dashboard (page.tsx)</text>
+      <text x="15" y="42" font-size="10" fill="#475569">• KPI Ribbon (Nodes, Disruption %, Salary Risk)</text>
+      <text x="15" y="58" font-size="10" fill="#475569">• Domain Filter Dropdown (Finance, HR, IT...)</text>
+      <text x="15" y="74" font-size="10" fill="#475569">• Entity Search &amp; Type Toggle Buttons</text>
+      <text x="15" y="90" font-size="10" fill="#475569">• Dynamic SSR-Disabled Canvas Loader</text>
+      <text x="15" y="106" font-size="10" fill="#475569">• Standalone / API Auto-Switch Logic</text>
+      <text x="15" y="126" font-size="9.5" font-weight="bold" fill="#2563eb">Hosted on Vercel Global Edge</text>
+    </g>
+
+    <!-- Component 2: GraphCanvas.tsx -->
+    <g transform="translate(340, 42)">
+      <rect width="320" height="142" rx="8" fill="#ffffff" stroke="#93c5fd" stroke-width="1"/>
+      <text x="15" y="22" font-size="12" font-weight="bold" fill="#1e3a8a">GraphCanvas (@xyflow/react)</text>
+      <text x="15" y="42" font-size="10" fill="#475569">• Custom ProcessNode (Blue, #3B82F6)</text>
+      <text x="15" y="58" font-size="10" fill="#475569">• Custom ActivityNode (Purple, #8B5CF6)</text>
+      <text x="15" y="74" font-size="10" fill="#475569">• Custom RoleNode (Amber, #F59E0B)</text>
+      <text x="15" y="90" font-size="10" fill="#475569">• Custom SkillNode (Emerald, #10B981)</text>
+      <text x="15" y="106" font-size="10" fill="#475569">• Tier Coordinates Layout (y: 50, 250, 450, 650)</text>
+      <text x="15" y="126" font-size="9.5" font-weight="bold" fill="#2563eb">Interactive Zoom / Pan / MiniMap</text>
+    </g>
+
+    <!-- Component 3: Drawers & Modals -->
+    <g transform="translate(680, 42)">
+      <rect width="300" height="142" rx="8" fill="#ffffff" stroke="#93c5fd" stroke-width="1"/>
+      <text x="15" y="22" font-size="12" font-weight="bold" fill="#1e3a8a">Modals &amp; Side-Drawers</text>
+      <text x="15" y="40" font-size="10.5" font-weight="bold" fill="#7c3aed">SurpriseRecordModal.tsx</text>
+      <text x="15" y="54" font-size="9.5" fill="#475569">• 4-Step Pipeline Progress Animation</text>
+      <text x="15" y="68" font-size="9.5" fill="#475569">• Real-Time Graph Delta Ingestion</text>
+      <text x="15" y="86" font-size="10.5" font-weight="bold" fill="#b45309">CascadeImpactDrawer.tsx</text>
+      <text x="15" y="100" font-size="9.5" fill="#475569">• Disruption Score (94.3%) &amp; FTE Count</text>
+      <text x="15" y="114" font-size="9.5" fill="#475569">• Salary Exposure Pool ($1,036k)</text>
+      <text x="15" y="128" font-size="9.5" fill="#475569">• 3-Week Reskilling Evolution Roadmap</text>
+    </g>
+  </g>
+
+  <!-- Arrow 1 -> 2 (HTTP JSON Requests) -->
+  <line x1="790" y1="305" x2="790" y2="335" stroke="#2563eb" stroke-width="2" marker-end="url(#arr-blue)"/>
+  <rect x="730" y="310" width="120" height="18" rx="4" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1"/>
+  <text x="790" y="323" font-size="9.5" font-weight="bold" fill="#1e40af" text-anchor="middle">HTTP / JSON (REST)</text>
+
+  <!-- TIER 2: BACKEND API SERVICE (FastAPI) -->
+  <g transform="translate(290, 340)" filter="url(#box-shadow)">
+    <rect width="1000" height="185" rx="10" fill="#f8fafc" stroke="#8b5cf6" stroke-width="1.5"/>
+    <rect width="1000" height="30" rx="10" fill="#f5f3ff"/>
+    <circle cx="20" cy="15" r="8" fill="#7c3aed"/>
+    <text x="20" y="19" font-size="10" font-weight="bold" fill="#ffffff" text-anchor="middle">2</text>
+    <text x="36" y="20" font-size="12" font-weight="bold" fill="#5b21b6">BACKEND API SERVICE — FastAPI + Uvicorn + Pydantic v2 (Python 3.11+)</text>
+
+    <!-- REST Routes (routes.py) -->
+    <g transform="translate(20, 42)">
+      <rect width="470" height="130" rx="8" fill="#ffffff" stroke="#ddd6fe" stroke-width="1"/>
+      <text x="15" y="20" font-size="12" font-weight="bold" fill="#4c1d95">API Router Endpoints (backend/app/api/routes.py)</text>
+      <text x="15" y="40" font-size="10" font-weight="bold" fill="#2563eb">GET /api/v1/health <tspan font-weight="normal" fill="#475569">→ System readiness &amp; node/edge counts</tspan></text>
+      <text x="15" y="58" font-size="10" font-weight="bold" fill="#2563eb">GET /api/v1/graph/all <tspan font-weight="normal" fill="#475569">→ Full node/edge payload for React Flow</tspan></text>
+      <text x="15" y="76" font-size="10" font-weight="bold" fill="#7c3aed">POST /api/v1/process/ingest <tspan font-weight="normal" fill="#475569">→ Invokes LangGraph extraction workflow</tspan></text>
+      <text x="15" y="94" font-size="10" font-weight="bold" fill="#7c3aed">POST /api/v1/intelligence/cascade <tspan font-weight="normal" fill="#475569">→ Multi-hop ripple impact &amp; salary risk</tspan></text>
+      <text x="15" y="112" font-size="10" font-weight="bold" fill="#059669">POST /api/v1/seed <tspan font-weight="normal" fill="#475569">→ Resets &amp; loads baseline 25 enterprise workflows</tspan></text>
+    </g>
+
+    <!-- Pydantic Schemas (schemas.py) -->
+    <g transform="translate(510, 42)">
+      <rect width="470" height="130" rx="8" fill="#ffffff" stroke="#ddd6fe" stroke-width="1"/>
+      <text x="15" y="20" font-size="12" font-weight="bold" fill="#4c1d95">Pydantic v2 Data Models (backend/app/models/schemas.py)</text>
+      <text x="15" y="40" font-size="10" fill="#475569">• <tspan font-weight="bold" fill="#1e293b">ProcessExtraction</tspan>: id, name, domain, cycle_time_days, frequency</text>
+      <text x="15" y="58" font-size="10" fill="#475569">• <tspan font-weight="bold" fill="#1e293b">ActivityImpact</tspan>: step_number, automation_feasibility (0.0 - 1.0)</text>
+      <text x="15" y="76" font-size="10" fill="#475569">• <tspan font-weight="bold" fill="#1e293b">RoleImpact</tspan>: headcount, avg_salary, transition_risk (Critical, High...)</text>
+      <text x="15" y="94" font-size="10" fill="#475569">• <tspan font-weight="bold" fill="#1e293b">SkillImpact</tspan>: urgency_to_reskill, reskill_time_weeks, evolution_path</text>
+      <text x="15" y="114" font-size="9.5" font-weight="bold" fill="#7c3aed">Interactive OpenAPI Swagger UI at /docs</text>
+    </g>
+  </g>
+
+  <!-- Split Arrows 2 -> 3 (AI Pipeline) and 2 -> 4 (Graph Engine) -->
+  <line x1="535" y1="525" x2="535" y2="555" stroke="#7c3aed" stroke-width="2" marker-end="url(#arr-purple)"/>
+  <line x1="1045" y1="525" x2="1045" y2="555" stroke="#059669" stroke-width="2" marker-end="url(#arr-green)"/>
+
+  <!-- TIER 3: AI EXTRACTION PIPELINE (LangGraph) -->
+  <g transform="translate(290, 560)" filter="url(#box-shadow)">
+    <rect width="480" height="230" rx="10" fill="#f8fafc" stroke="#f59e0b" stroke-width="1.5"/>
+    <rect width="480" height="30" rx="10" fill="#fffbeb"/>
+    <circle cx="20" cy="15" r="8" fill="#d97706"/>
+    <text x="20" y="19" font-size="10" font-weight="bold" fill="#ffffff" text-anchor="middle">3</text>
+    <text x="36" y="20" font-size="12" font-weight="bold" fill="#92400e">AI EXTRACTION PIPELINE — LangGraph (StateGraph)</text>
+
+    <!-- StateGraph Node 1 -->
     <g transform="translate(15, 42)">
-      <circle cx="12" cy="12" r="10" fill="#000000"/>
-      <text x="9" y="16" font-size="10" font-weight="bold" fill="#ffffff">N</text>
-      <text x="32" y="16" font-size="11" font-weight="bold" fill="#1e293b">Next.js 14 (App Router)</text>
+      <rect width="450" height="85" rx="6" fill="#ffffff" stroke="#fde68a" stroke-width="1"/>
+      <text x="12" y="18" font-size="11" font-weight="bold" fill="#78350f">Node 1: extract_entities (LLM &amp; NLP Fallback)</text>
+      <text x="12" y="34" font-size="9.5" fill="#475569">• Groq Cloud API: ChatGroq (model: llama-3.3-70b-versatile)</text>
+      <text x="12" y="48" font-size="9.5" fill="#475569">• Structured JSON Schema Parsing with PydanticOutputParser</text>
+      <text x="12" y="62" font-size="9.5" fill="#475569">• Rule-Based NLP Parser Fallback (100% Offline Test Reliability)</text>
+      <text x="12" y="76" font-size="9.5" font-weight="bold" fill="#d97706">Outputs: Process, Activities, Roles, Skills Data Structure</text>
     </g>
 
-    <g transform="translate(15, 75)">
-      <circle cx="12" cy="12" r="10" fill="#009688"/>
-      <path d="M13 5 L8 13 L12 13 L11 19 L17 11 L13 11 Z" fill="#ffffff"/>
-      <text x="32" y="16" font-size="11" font-weight="bold" fill="#1e293b">FastAPI (Python 3.11+)</text>
-    </g>
-
-    <g transform="translate(15, 108)">
-      <circle cx="12" cy="12" r="10" fill="#1c3d5a"/>
-      <circle cx="12" cy="8" r="2" fill="#38bdf8"/>
-      <circle cx="8" cy="16" r="2" fill="#38bdf8"/>
-      <circle cx="16" cy="16" r="2" fill="#38bdf8"/>
-      <text x="32" y="16" font-size="11" font-weight="bold" fill="#1e293b">LangGraph / LangChain</text>
-    </g>
-
-    <g transform="translate(15, 141)">
-      <circle cx="12" cy="12" r="10" fill="#018bff"/>
-      <circle cx="8" cy="15" r="2" fill="#ffffff"/>
-      <circle cx="16" cy="9" r="2" fill="#ffffff"/>
-      <text x="32" y="16" font-size="11" font-weight="bold" fill="#1e293b">Neo4j 5 Community</text>
-    </g>
-
-    <g transform="translate(15, 174)">
-      <circle cx="12" cy="12" r="10" fill="#0284c7"/>
-      <circle cx="8" cy="8" r="2" fill="#ffffff"/>
-      <circle cx="16" cy="16" r="2" fill="#ffffff"/>
-      <line x1="8" y1="8" x2="16" y2="16" stroke="#ffffff" stroke-width="1"/>
-      <text x="32" y="16" font-size="11" font-weight="bold" fill="#1e293b">React Flow (@xyflow)</text>
+    <!-- StateGraph Node 2 -->
+    <g transform="translate(15, 135)">
+      <rect width="450" height="80" rx="6" fill="#ffffff" stroke="#fde68a" stroke-width="1"/>
+      <text x="12" y="18" font-size="11" font-weight="bold" fill="#78350f">Node 2: persist_to_neo4j (Stateful Persistence)</text>
+      <text x="12" y="34" font-size="9.5" fill="#475569">• Calls neo4j_client.merge_extracted_process()</text>
+      <text x="12" y="48" font-size="9.5" fill="#475569">• Executes Parameterized Cypher MERGE Queries</text>
+      <text x="12" y="62" font-size="9.5" fill="#475569">• Updates In-Memory NetworkX Mirror Synchronously</text>
+      <text x="12" y="74" font-size="9.5" font-weight="bold" fill="#059669">Returns: Mutation Delta &amp; Persistence Status</text>
     </g>
   </g>
 
-  <!-- ==================== MAIN WORKFLOW FLOW (CENTER) ==================== -->
+  <!-- TIER 4: GRAPH STORAGE & CASCADING ENGINE (Neo4j / NetworkX) -->
+  <g transform="translate(810, 560)" filter="url(#box-shadow)">
+    <rect width="480" height="230" rx="10" fill="#f8fafc" stroke="#059669" stroke-width="1.5"/>
+    <rect width="480" height="30" rx="10" fill="#ecfdf5"/>
+    <circle cx="20" cy="15" r="8" fill="#059669"/>
+    <text x="20" y="19" font-size="10" font-weight="bold" fill="#ffffff" text-anchor="middle">4</text>
+    <text x="36" y="20" font-size="12" font-weight="bold" fill="#065f46">GRAPH STORAGE &amp; CASCADING TRAVERSAL ENGINE</text>
 
-  <!-- STEP 1: USER REQUEST & INTAKE -->
-  <g transform="translate(270, 100)" filter="url(#soft-shadow)">
-    <rect width="310" height="95" rx="8" fill="#ffffff" stroke="#3b82f6" stroke-width="1.5"/>
-    <rect width="310" height="26" rx="8" fill="#eff6ff"/>
-    <circle cx="20" cy="13" r="7" fill="#2563eb"/>
-    <text x="17" y="17" font-size="10" font-weight="bold" fill="#ffffff">1</text>
-    <text x="35" y="18" font-size="12" font-weight="bold" fill="#1e40af">USER INPUT &amp; PROCESS SELECTION</text>
-    <text x="15" y="48" font-size="11" font-weight="bold" fill="#0f172a">"Accounts Payable Invoice Processing"</text>
-    <text x="15" y="65" font-size="10.5" fill="#475569">Domain: Finance | Cycle: 4.0 Days | Daily Freq.</text>
-    <text x="15" y="80" font-size="10" fill="#64748b">Raw narrative SOP / Ingestion modal prompt</text>
-  </g>
-
-  <!-- Arrow 1 -> 2 -->
-  <line x1="580" y1="148" x2="630" y2="148" stroke="#1e293b" stroke-width="2" marker-end="url(#arr)"/>
-
-  <!-- STEP 2: FASTAPI GATEWAY & PYDANTIC VALIDATOR -->
-  <g transform="translate(640, 100)" filter="url(#soft-shadow)">
-    <rect width="310" height="95" rx="8" fill="#ffffff" stroke="#8b5cf6" stroke-width="1.5"/>
-    <rect width="310" height="26" rx="8" fill="#f5f3ff"/>
-    <circle cx="20" cy="13" r="7" fill="#7c3aed"/>
-    <text x="17" y="17" font-size="10" font-weight="bold" fill="#ffffff">2</text>
-    <text x="35" y="18" font-size="12" font-weight="bold" fill="#5b21b6">FASTAPI GATEWAY &amp; ROUTER</text>
-    <text x="15" y="48" font-size="11" font-weight="bold" fill="#4c1d95">POST /api/v1/process/ingest</text>
-    <text x="15" y="65" font-size="10.5" fill="#475569">• Pydantic v2 Schema Enforcement</text>
-    <text x="15" y="80" font-size="10" fill="#64748b">• Lifespan auto-seeding &amp; health probe</text>
-  </g>
-
-  <!-- Arrow 2 -> 3 -->
-  <line x1="950" y1="148" x2="1000" y2="148" stroke="#1e293b" stroke-width="2" marker-end="url(#arr)"/>
-
-  <!-- STEP 3: LANGGRAPH SUPERVISOR AGENT -->
-  <g transform="translate(1010, 100)" filter="url(#soft-shadow)">
-    <rect width="290" height="95" rx="8" fill="#ffffff" stroke="#f59e0b" stroke-width="1.5"/>
-    <rect width="290" height="26" rx="8" fill="#fffbeb"/>
-    <circle cx="20" cy="13" r="7" fill="#d97706"/>
-    <text x="17" y="17" font-size="10" font-weight="bold" fill="#ffffff">3</text>
-    <text x="35" y="18" font-size="12" font-weight="bold" fill="#92400e">LANGGRAPH SUPERVISOR</text>
-    <text x="15" y="48" font-size="11" font-weight="bold" fill="#78350f">State Graph Workflow Control</text>
-    <text x="15" y="65" font-size="10.5" fill="#475569">• Groq Cloud Llama-3.3-70b Engine</text>
-    <text x="15" y="80" font-size="10" fill="#64748b">• Deterministic Rule-Based Fallback</text>
-  </g>
-
-  <!-- Arrow 3 down to 4 -->
-  <path d="M 1155 195 L 1155 225 L 790 225 L 790 245" fill="none" stroke="#1e293b" stroke-width="2" marker-end="url(#arr)"/>
-
-  <!-- STEP 4: STRUCTURED ENTITY EXTRACTION BOX -->
-  <g transform="translate(270, 250)" filter="url(#soft-shadow)">
-    <rect width="1030" height="150" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
-    <rect width="1030" height="28" rx="10" fill="#f1f5f9"/>
-    <text x="20" y="19" font-size="12" font-weight="bold" fill="#334155">4. AI ENTITY EXTRACTION &amp; SCHEMA SYNTHESIS (PYDANTIC V2)</text>
-
-    <!-- Sub-Block 4A: Activities -->
-    <g transform="translate(20, 42)">
-      <rect width="230" height="92" rx="6" fill="#ffffff" stroke="#8b5cf6" stroke-width="1"/>
-      <text x="12" y="20" font-size="11" font-weight="bold" fill="#6b21a8">4A. (:Activity) Nodes</text>
-      <text x="12" y="38" font-size="10" fill="#475569">• 1. OCR Intake Extraction (96%)</text>
-      <text x="12" y="52" font-size="10" fill="#475569">• 2. 3-Way Match &amp; PO Verif. (88%)</text>
-      <text x="12" y="66" font-size="10" fill="#475569">• 3. Exception &amp; Approval (66%)</text>
-      <text x="12" y="80" font-size="9.5" fill="#7c3aed">Feasibility: 0.0 - 1.0 Feasibility</text>
+    <!-- Storage Layer -->
+    <g transform="translate(15, 42)">
+      <rect width="450" height="85" rx="6" fill="#ffffff" stroke="#a7f3d0" stroke-width="1"/>
+      <text x="12" y="18" font-size="11" font-weight="bold" fill="#064e3b">Dual-Engine Graph Storage (neo4j_client.py)</text>
+      <text x="12" y="34" font-size="9.5" fill="#475569">• <tspan font-weight="bold">Primary</tspan>: Neo4j 5 Community Edition (bolt://localhost:7687)</text>
+      <text x="12" y="48" font-size="9.5" fill="#475569">• <tspan font-weight="bold">Resilient Mirror</tspan>: In-Memory NetworkX MultiDiGraph</text>
+      <text x="12" y="62" font-size="9.5" fill="#475569">• Auto-Probe Socket with 0.5s Timeout &amp; Seamless Failover</text>
+      <text x="12" y="76" font-size="9.5" font-weight="bold" fill="#047857">Guarantees 100% Zero-Downtime Execution</text>
     </g>
 
-    <!-- Sub-Block 4B: Roles -->
-    <g transform="translate(270, 42)">
-      <rect width="230" height="92" rx="6" fill="#ffffff" stroke="#f59e0b" stroke-width="1"/>
-      <text x="12" y="20" font-size="11" font-weight="bold" fill="#b45309">4B. (:Role) Nodes</text>
-      <text x="12" y="38" font-size="10" fill="#475569">• Accounts Payable Clerk (HC: 14)</text>
-      <text x="12" y="52" font-size="10" fill="#475569">• Accounts Payable Supervisor (HC: 3)</text>
-      <text x="12" y="66" font-size="10" fill="#475569">• Average Salary: $58k - $92k</text>
-      <text x="12" y="80" font-size="9.5" fill="#d97706">Transition Risk: Critical Risk</text>
-    </g>
-
-    <!-- Sub-Block 4C: Skills -->
-    <g transform="translate(520, 42)">
-      <rect width="230" height="92" rx="6" fill="#ffffff" stroke="#10b981" stroke-width="1"/>
-      <text x="12" y="20" font-size="11" font-weight="bold" fill="#047857">4C. (:Skill) Nodes</text>
-      <text x="12" y="38" font-size="10" fill="#475569">• Manual Invoice Data Entry</text>
-      <text x="12" y="52" font-size="10" fill="#475569">• Three-Way PO-Invoice Match</text>
-      <text x="12" y="66" font-size="10" fill="#475569">• GL Voucher Posting</text>
-      <text x="12" y="80" font-size="9.5" fill="#059669">Urgency: Critical (3-5 Weeks)</text>
-    </g>
-
-    <!-- Sub-Block 4D: Relationships -->
-    <g transform="translate(770, 42)">
-      <rect width="240" height="92" rx="6" fill="#ffffff" stroke="#3b82f6" stroke-width="1"/>
-      <text x="12" y="20" font-size="11" font-weight="bold" fill="#1d4ed8">4D. Relationship Edges</text>
-      <text x="12" y="38" font-size="10" fill="#475569">• [:CONTAINS_ACTIVITY {order}]</text>
-      <text x="12" y="52" font-size="10" fill="#475569">• [:EXECUTES {allocation_pct}]</text>
-      <text x="12" y="66" font-size="10" fill="#475569">• [:REQUIRES {proficiency}]</text>
-      <text x="12" y="80" font-size="9.5" fill="#2563eb">• [:EVOLVES_TO] Roadmaps</text>
+    <!-- Multi-Hop Math Engine -->
+    <g transform="translate(15, 135)">
+      <rect width="450" height="80" rx="6" fill="#ffffff" stroke="#a7f3d0" stroke-width="1"/>
+      <text x="12" y="18" font-size="11" font-weight="bold" fill="#064e3b">Multi-Hop Traversal &amp; Financial Formula</text>
+      <text x="12" y="34" font-size="9.5" fill="#475569">• Multi-Hop Path: Process → Activity ← Role → Skill → EvolvesTo</text>
+      <text x="12" y="48" font-size="9.5" fill="#475569">• <tspan font-weight="bold" fill="#dc2626">Financial Exposure</tspan> = ∑ (Headcount × Avg Salary × Feasibility)</text>
+      <text x="12" y="62" font-size="9.5" fill="#475569">• Example (Accounts Payable): 17 FTEs exposed = <tspan font-weight="bold" fill="#dc2626">$1,036,000 Risk</tspan></text>
+      <text x="12" y="74" font-size="9.5" font-weight="bold" fill="#10b981">Reskilling Delta: 3-to-5 week transition roadmaps</text>
     </g>
   </g>
 
-  <!-- Arrow 4 down to 5 -->
-  <line x1="785" y1="400" x2="785" y2="430" stroke="#1e293b" stroke-width="2" marker-end="url(#arr)"/>
+  <!-- ==================== BOTTOM 2D VISUALIZATION CANVAS ==================== -->
+  <g transform="translate(290, 810)" filter="url(#box-shadow)">
+    <rect width="1000" height="215" rx="10" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+    <rect width="1000" height="28" rx="10" fill="#eff6ff"/>
+    <text x="20" y="19" font-size="12" font-weight="bold" fill="#1e40af">5. 2D VISUAL GRAPH CANVAS &amp; LIVE DEMO VERIFICATION (ACCOUNTS PAYABLE CLUSTER)</text>
 
-  <!-- STEP 5: DUAL GRAPH DATABASE STORAGE -->
-  <g transform="translate(270, 435)" filter="url(#soft-shadow)">
-    <rect width="1030" height="110" rx="10" fill="#ffffff" stroke="#059669" stroke-width="1.5"/>
-    <rect width="1030" height="26" rx="10" fill="#ecfdf5"/>
-    <text x="20" y="18" font-size="12" font-weight="bold" fill="#065f46">5. PERSISTENT PROPERTY GRAPH &amp; DUAL-ENGINE STORAGE LAYER</text>
+    <!-- 2D Miniature Graph -->
+    <g transform="translate(25, 42)">
+      <rect width="450" height="155" rx="8" fill="#f8fafc" stroke="#bfdbfe" stroke-width="1"/>
+      <text x="15" y="20" font-size="11" font-weight="bold" fill="#1e3a8a">2D Node-Link Hierarchy (Actual React Flow Layout)</text>
 
-    <!-- Neo4j Engine Box -->
-    <g transform="translate(20, 36)">
-      <rect width="480" height="62" rx="6" fill="#f0fdf4" stroke="#86efac" stroke-width="1"/>
-      <circle cx="20" cy="20" r="10" fill="#018bff"/>
-      <text x="38" y="24" font-size="12" font-weight="bold" fill="#064e3b">Neo4j 5 Community Edition (bolt://localhost:7687)</text>
-      <text x="38" y="42" font-size="10.5" fill="#475569">• Parameterized Cypher MERGE (Idempotent Zero-Duplicate Ingestion)</text>
-      <text x="38" y="54" font-size="10.5" fill="#475569">• Unique Constraints on :Process(id), :Activity(id), :Role(id), :Skill(id)</text>
-    </g>
-
-    <!-- NetworkX Mirror Box -->
-    <g transform="translate(530, 36)">
-      <rect width="480" height="62" rx="6" fill="#f0fdf4" stroke="#86efac" stroke-width="1"/>
-      <circle cx="20" cy="20" r="10" fill="#059669"/>
-      <text x="38" y="24" font-size="12" font-weight="bold" fill="#064e3b">In-Memory NetworkX MultiDiGraph Mirror</text>
-      <text x="38" y="42" font-size="10.5" fill="#475569">• 0.5s Fast Socket Probe &amp; Zero-Downtime Auto-Failover</text>
-      <text x="38" y="54" font-size="10.5" fill="#475569">• Synchronous graph state caching for Edge CDN Serverless execution</text>
-    </g>
-  </g>
-
-  <!-- Arrow 5 down to 6 -->
-  <line x1="785" y1="545" x2="785" y2="575" stroke="#1e293b" stroke-width="2" marker-end="url(#arr)"/>
-
-  <!-- STEP 6: MULTI-HOP CASCADING DISRUPTION ENGINE -->
-  <g transform="translate(270, 580)" filter="url(#soft-shadow)">
-    <rect width="1030" height="150" rx="10" fill="#f8fafc" stroke="#8b5cf6" stroke-width="1.5"/>
-    <rect width="1030" height="28" rx="10" fill="#f5f3ff"/>
-    <text x="20" y="19" font-size="12" font-weight="bold" fill="#5b21b6">6. MULTI-HOP CASCADING DISRUPTION &amp; FINANCIAL EXPOSURE ENGINE</text>
-
-    <!-- Metric Card 1: Disruption -->
-    <g transform="translate(20, 42)">
-      <rect width="230" height="92" rx="6" fill="#ffffff" stroke="#f59e0b" stroke-width="1"/>
-      <text x="15" y="22" font-size="11" font-weight="bold" fill="#b45309">Composite Disruption</text>
-      <text x="15" y="48" font-size="22" font-weight="900" fill="#d97706">94.3%</text>
-      <text x="15" y="68" font-size="10" fill="#475569">Average Automation Potential</text>
-      <text x="15" y="80" font-size="9.5" fill="#64748b">Feasibility: High AI Impact</text>
-    </g>
-
-    <!-- Metric Card 2: Financial Risk -->
-    <g transform="translate(270, 42)">
-      <rect width="230" height="92" rx="6" fill="#ffffff" stroke="#ef4444" stroke-width="1"/>
-      <text x="15" y="22" font-size="11" font-weight="bold" fill="#b91c1c">Financial Payroll at Risk</text>
-      <text x="15" y="48" font-size="22" font-weight="900" fill="#dc2626">$1,036k</text>
-      <text x="15" y="68" font-size="10" fill="#475569">17 Impacted FTE Positions</text>
-      <text x="15" y="80" font-size="9.5" fill="#64748b">14 Clerks + 3 Supervisors</text>
-    </g>
-
-    <!-- Metric Card 3: Reskilling Roadmap -->
-    <g transform="translate(520, 42)">
-      <rect width="230" height="92" rx="6" fill="#ffffff" stroke="#10b981" stroke-width="1"/>
-      <text x="15" y="22" font-size="11" font-weight="bold" fill="#047857">Reskilling Delta Timeline</text>
-      <text x="15" y="48" font-size="22" font-weight="900" fill="#059669">3 - 5 Wks</text>
-      <text x="15" y="68" font-size="10" fill="#475569">Manual Entry → AI Exception</text>
-      <text x="15" y="80" font-size="9.5" fill="#64748b">Supervision &amp; Governance</text>
-    </g>
-
-    <!-- Metric Card 4: Traversal Pathway -->
-    <g transform="translate(770, 42)">
-      <rect width="240" height="92" rx="6" fill="#ffffff" stroke="#3b82f6" stroke-width="1"/>
-      <text x="15" y="22" font-size="11" font-weight="bold" fill="#1d4ed8">Graph Multi-Hop Path</text>
-      <text x="15" y="42" font-size="10" font-weight="bold" fill="#2563eb">(:Process Accounts Payable)</text>
-      <text x="15" y="56" font-size="10" fill="#475569">↓ [:CONTAINS] (:Activity OCR)</text>
-      <text x="15" y="70" font-size="10" fill="#475569">↑ [:EXECUTES] (:Role AP Clerk)</text>
-      <text x="15" y="84" font-size="10" fill="#059669">→ [:REQUIRES] (:Skill Data Entry)</text>
-    </g>
-  </g>
-
-  <!-- Arrow 6 down to 7 -->
-  <line x1="785" y1="730" x2="785" y2="760" stroke="#1e293b" stroke-width="2" marker-end="url(#arr)"/>
-
-  <!-- ==================== STEP 7: 2D VISUALIZATION & INTERACTIVE DASHBOARD ==================== -->
-  <g transform="translate(270, 765)" filter="url(#soft-shadow)">
-    <rect width="1030" height="235" rx="10" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
-    <rect width="1030" height="28" rx="10" fill="#eff6ff"/>
-    <text x="20" y="19" font-size="12" font-weight="bold" fill="#1e40af">7. 2D INTERACTIVE GRAPH VISUALIZATION &amp; DECISION-SUPPORT DASHBOARD (NEXT.JS 14)</text>
-
-    <!-- 2D Visual Component 1: Interactive Node-Link Visual Graph -->
-    <g transform="translate(20, 38)">
-      <rect width="360" height="180" rx="8" fill="#f8fafc" stroke="#bfdbfe" stroke-width="1"/>
-      <text x="15" y="20" font-size="11" font-weight="bold" fill="#1e3a8a">2D Node-Link Network Graph Canvas</text>
-      
-      <!-- Graph Canvas Visual Representation -->
-      <g transform="translate(20, 35)">
-        <!-- Process Node (Blue) -->
-        <rect x="10" y="30" width="85" height="36" rx="6" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.5"/>
-        <text x="52" y="52" font-size="9.5" font-weight="bold" fill="#1e40af" text-anchor="middle">Accounts Pay.</text>
-
-        <!-- Activity Node (Purple) -->
-        <rect x="125" y="5" width="80" height="32" rx="6" fill="#f5f3ff" stroke="#8b5cf6" stroke-width="1.5"/>
-        <text x="165" y="25" font-size="9" font-weight="bold" fill="#5b21b6" text-anchor="middle">OCR Intake</text>
-
-        <!-- Role Node (Amber) -->
-        <rect x="125" y="60" width="80" height="32" rx="6" fill="#fffbeb" stroke="#f59e0b" stroke-width="1.5"/>
-        <text x="165" y="80" font-size="9" font-weight="bold" fill="#b45309" text-anchor="middle">AP Clerk</text>
-
-        <!-- Skill Node (Emerald) -->
-        <rect x="235" y="30" width="85" height="36" rx="6" fill="#ecfdf5" stroke="#10b981" stroke-width="1.5"/>
-        <text x="277" y="52" font-size="9.5" font-weight="bold" fill="#065f46" text-anchor="middle">Data Entry</text>
-
-        <!-- Connecting Lines -->
-        <path d="M 95 48 L 125 21" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="3 3"/>
-        <path d="M 95 48 L 125 76" stroke="#3b82f6" stroke-width="1.5"/>
-        <path d="M 205 21 L 235 48" stroke="#8b5cf6" stroke-width="1.5"/>
-        <path d="M 205 76 L 235 48" stroke="#10b981" stroke-width="1.5"/>
+      <!-- Process Node -->
+      <g transform="translate(15, 35)">
+        <rect width="120" height="34" rx="5" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.5"/>
+        <circle cx="12" cy="17" r="4" fill="#3b82f6"/>
+        <text x="22" y="17" font-size="9" font-weight="bold" fill="#1e40af">Accounts Payable</text>
+        <text x="22" y="27" font-size="8" fill="#64748b">Cycle: 4.0d | Finance</text>
       </g>
-      <text x="15" y="165" font-size="10" fill="#64748b">• 225+ Nodes • 275+ Edges • Zoom / Pan / MiniMap</text>
+
+      <!-- Activity Node -->
+      <g transform="translate(165, 35)">
+        <rect width="120" height="34" rx="5" fill="#f5f3ff" stroke="#8b5cf6" stroke-width="1.5"/>
+        <circle cx="12" cy="17" r="4" fill="#8b5cf6"/>
+        <text x="22" y="17" font-size="9" font-weight="bold" fill="#5b21b6">OCR Extraction</text>
+        <text x="22" y="27" font-size="8" fill="#64748b">Feasibility: 96%</text>
+      </g>
+
+      <!-- Role Node -->
+      <g transform="translate(165, 95)">
+        <rect width="120" height="34" rx="5" fill="#fffbeb" stroke="#f59e0b" stroke-width="1.5"/>
+        <circle cx="12" cy="17" r="4" fill="#f59e0b"/>
+        <text x="22" y="17" font-size="9" font-weight="bold" fill="#92400e">AP Clerk (14 FTE)</text>
+        <text x="22" y="27" font-size="8" fill="#64748b">Salary: $58,000</text>
+      </g>
+
+      <!-- Skill Node -->
+      <g transform="translate(315, 65)">
+        <rect width="120" height="34" rx="5" fill="#ecfdf5" stroke="#10b981" stroke-width="1.5"/>
+        <circle cx="12" cy="17" r="4" fill="#10b981"/>
+        <text x="22" y="17" font-size="9" font-weight="bold" fill="#065f46">Manual Data Entry</text>
+        <text x="22" y="27" font-size="8" fill="#64748b">Reskill: 3 Weeks</text>
+      </g>
+
+      <!-- Connecting Lines -->
+      <line x1="135" y1="52" x2="165" y2="52" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#arr-blue)"/>
+      <line x1="225" y1="95" x2="225" y2="69" stroke="#f59e0b" stroke-width="1.5" marker-end="url(#arr-gray)"/>
+      <line x1="285" y1="52" x2="315" y2="82" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arr-purple)"/>
     </g>
 
-    <!-- 2D Visual Component 2: 2D Disruption & Salary Exposure Chart -->
-    <g transform="translate(400, 38)">
-      <rect width="320" height="180" rx="8" fill="#f8fafc" stroke="#bfdbfe" stroke-width="1"/>
-      <text x="15" y="20" font-size="11" font-weight="bold" fill="#1e3a8a">2D Disruption &amp; Salary Risk Chart</text>
-      
-      <!-- 2D Bar Chart Visualization -->
-      <g transform="translate(30, 40)">
-        <!-- Axes -->
-        <line x1="0" y1="95" x2="260" y2="95" stroke="#cbd5e1" stroke-width="1"/>
-        <line x1="0" y1="0" x2="0" y2="95" stroke="#cbd5e1" stroke-width="1"/>
-        
-        <!-- Bar 1: Clerks -->
-        <rect x="25" y="15" width="45" height="80" rx="3" fill="#ef4444"/>
-        <text x="47" y="10" font-size="9.5" font-weight="bold" fill="#dc2626" text-anchor="middle">$766k</text>
-        <text x="47" y="110" font-size="9" fill="#475569" text-anchor="middle">14 Clerks</text>
+    <!-- Disruption & Reskilling Summary Box -->
+    <g transform="translate(495, 42)">
+      <rect width="480" height="155" rx="8" fill="#f8fafc" stroke="#bfdbfe" stroke-width="1"/>
+      <text x="15" y="20" font-size="11" font-weight="bold" fill="#1e3a8a">Live Cascading Impact Result (Accounts Payable Clerk)</text>
 
-        <!-- Bar 2: Supervisors -->
-        <rect x="95" y="45" width="45" height="50" rx="3" fill="#f59e0b"/>
-        <text x="117" y="40" font-size="9.5" font-weight="bold" fill="#d97706" text-anchor="middle">$270k</text>
-        <text x="117" y="110" font-size="9" fill="#475569" text-anchor="middle">3 Sups</text>
+      <!-- 3 Key Metric Cards -->
+      <g transform="translate(15, 32)">
+        <!-- Disruption Card -->
+        <rect width="140" height="70" rx="6" fill="#ffffff" stroke="#fde68a" stroke-width="1"/>
+        <text x="12" y="18" font-size="10" font-weight="bold" fill="#b45309">Disruption Score</text>
+        <text x="12" y="44" font-size="20" font-weight="900" fill="#d97706">94.3%</text>
+        <text x="12" y="60" font-size="8.5" fill="#475569">High AI Disruption</text>
 
-        <!-- Bar 3: Total Risk -->
-        <rect x="165" y="5" width="45" height="90" rx="3" fill="#7c3aed"/>
-        <text x="187" y="0" font-size="9.5" font-weight="bold" fill="#6d28d9" text-anchor="middle">$1.036M</text>
-        <text x="187" y="110" font-size="9" fill="#475569" text-anchor="middle">Total Exposure</text>
+        <!-- Salary Exposure Card -->
+        <g transform="translate(150, 0)">
+          <rect width="140" height="70" rx="6" fill="#ffffff" stroke="#fca5a5" stroke-width="1"/>
+          <text x="12" y="18" font-size="10" font-weight="bold" fill="#b91c1c">Salary at Risk</text>
+          <text x="12" y="44" font-size="20" font-weight="900" fill="#dc2626">$1.036M</text>
+          <text x="12" y="60" font-size="8.5" fill="#475569">17 Impacted Headcount</text>
+        </g>
+
+        <!-- Reskilling Roadmap Card -->
+        <g transform="translate(300, 0)">
+          <rect width="145" height="70" rx="6" fill="#ffffff" stroke="#6ee7b7" stroke-width="1"/>
+          <text x="12" y="18" font-size="10" font-weight="bold" fill="#047857">Reskill Timeline</text>
+          <text x="12" y="44" font-size="20" font-weight="900" fill="#059669">3 Weeks</text>
+          <text x="12" y="60" font-size="8.5" fill="#475569">→ AI Exception Mgmt</text>
+        </g>
       </g>
-      <text x="15" y="165" font-size="10" fill="#64748b">• Formula: Headcount × Avg Salary × Feasibility</text>
-    </g>
 
-    <!-- 2D Visual Component 3: 2D Reskilling Timeline Roadmap -->
-    <g transform="translate(740, 38)">
-      <rect width="270" height="180" rx="8" fill="#f8fafc" stroke="#bfdbfe" stroke-width="1"/>
-      <text x="15" y="20" font-size="11" font-weight="bold" fill="#1e3a8a">2D Reskilling Delta Roadmap</text>
-      
-      <!-- 2D Timeline Progression Visual -->
-      <g transform="translate(15, 38)">
-        <!-- Step 1 -->
-        <circle cx="15" cy="20" r="10" fill="#fee2e2"/>
-        <text x="15" y="24" font-size="10" font-weight="bold" fill="#dc2626" text-anchor="middle">1</text>
-        <text x="35" y="18" font-size="10" font-weight="bold" fill="#0f172a">Manual Data Entry</text>
-        <text x="35" y="30" font-size="9" fill="#64748b">Current Legacy Skill</text>
-
-        <!-- Connecting line -->
-        <line x1="15" y1="30" x2="15" y2="55" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="2 2"/>
-
-        <!-- Step 2 -->
-        <circle cx="15" cy="65" r="10" fill="#fef3c7"/>
-        <text x="15" y="69" font-size="10" font-weight="bold" fill="#d97706" text-anchor="middle">2</text>
-        <text x="35" y="63" font-size="10" font-weight="bold" fill="#0f172a">3-Week Training Cohort</text>
-        <text x="35" y="75" font-size="9" fill="#64748b">Schema Validation &amp; OCR</text>
-
-        <!-- Connecting line -->
-        <line x1="15" y1="75" x2="15" y2="100" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="2 2"/>
-
-        <!-- Step 3 -->
-        <circle cx="15" cy="110" r="10" fill="#d1fae5"/>
-        <text x="15" y="114" font-size="10" font-weight="bold" fill="#059669" text-anchor="middle">3</text>
-        <text x="35" y="108" font-size="10" font-weight="bold" fill="#065f46">AI Exception Supervisor</text>
-        <text x="35" y="120" font-size="9" fill="#059669">Evolved High-Value Role</text>
-      </g>
-      <text x="15" y="165" font-size="10" fill="#059669">✓ 100% Job Retention Strategy</text>
+      <text x="15" y="125" font-size="10" font-weight="bold" fill="#065f46">✓ Actionable Reskilling Pathway: Manual Invoice Data Entry → AI Exception &amp; Schema Supervision</text>
+      <text x="15" y="142" font-size="9.5" fill="#64748b">Verified in Live UI: https://frontend-azure-three-t7dj9wj9av.vercel.app</text>
     </g>
   </g>
 
   <!-- ==================== FOOTER ==================== -->
-  <rect x="0" y="1050" width="1600" height="100" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
-  <text x="800" y="1085" font-size="13" font-weight="bold" fill="#0f172a" text-anchor="middle">Live Public Deployment: https://frontend-azure-three-t7dj9wj9av.vercel.app  •  GitHub: https://github.com/KesavaAI/modus-ai-intelligence-graph</text>
-  <text x="800" y="1110" font-size="11" fill="#64748b" text-anchor="middle">Zero Paid Licenses Compliance: Python 3.11+ • FastAPI • LangGraph • Groq Llama-3.3-70b • Neo4j 5 Community • Next.js 14 • React Flow</text>
+  <rect x="0" y="1045" width="1600" height="75" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="800" y="1075" font-size="12.5" font-weight="bold" fill="#0f172a" text-anchor="middle">Live Public App: https://frontend-azure-three-t7dj9wj9av.vercel.app  •  GitHub: https://github.com/KesavaAI/modus-ai-intelligence-graph</text>
+  <text x="800" y="1098" font-size="11" fill="#64748b" text-anchor="middle">Tech Stack: Python 3.11+ • FastAPI • LangGraph • Groq Llama-3.3-70b • Neo4j 5 Community • Next.js 14 • React Flow (@xyflow/react)</text>
 
 </svg>
