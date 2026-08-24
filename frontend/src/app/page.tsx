@@ -113,7 +113,7 @@ export default function DashboardPage() {
     setSelectedNodeType(nodeType);
   };
 
-  // Filter & Clean Layout Positioning for React Flow Canvas
+  // Structured Workflow Tree Cluster Layout Engine
   const { flowNodes, flowEdges } = useMemo(() => {
     const rawNodes = graphData.nodes || [];
     const rawEdges = graphData.edges || [];
@@ -146,9 +146,7 @@ export default function DashboardPage() {
 
     const activeNodeIds = new Set(filteredNodes.map((n) => n.id));
 
-    // Grouping by Domain Clusters for Panoramic Multi-Tier Layout
-    const domainOrder = ["Finance", "Human Resources", "Information Technology", "Supply Chain", "Legal", "Customer Support"];
-
+    // Position Nodes into Clean Vertical Workflow Tree Columns
     const procNodes = filteredNodes.filter((n) => (n.type || "").toLowerCase() === "process");
     const actNodes = filteredNodes.filter((n) => (n.type || "").toLowerCase() === "activity");
     const roleNodes = filteredNodes.filter((n) => (n.type || "").toLowerCase() === "role");
@@ -156,55 +154,52 @@ export default function DashboardPage() {
 
     const positionedNodes = filteredNodes.map((node) => {
       const nodeType = (node.type || "").toLowerCase();
-      const nodeDomain = node.data?.domain || node.data?.department || "Finance";
+      const nodeDomain = (node.data?.domain || node.data?.department || "Finance").toLowerCase();
       
-      let x = 60;
-      let y = 60;
+      let x = 80;
+      let y = 80;
 
-      if (selectedDomain === "All") {
-        // Wide Multi-Column Layout by Domain (x spacing 720px per domain column)
-        let domainIdx = domainOrder.findIndex((d) =>
-          nodeDomain.toLowerCase().includes(d.toLowerCase().split(" ")[0])
-        );
-        if (domainIdx === -1) domainIdx = 0;
-
-        const colBaseX = 60 + domainIdx * 720;
-        
-        if (nodeType === "process") {
-          const idx = procNodes.filter(n => (n.data?.domain || "").toLowerCase().includes(domainOrder[domainIdx].toLowerCase().split(" ")[0])).findIndex(n => n.id === node.id);
-          x = colBaseX + ((idx >= 0 ? idx : 0) % 2) * 320;
-          y = 60 + Math.floor((idx >= 0 ? idx : 0) / 2) * 160;
-        } else if (nodeType === "activity") {
-          const idx = actNodes.filter(n => (n.data?.domain || "").toLowerCase().includes(domainOrder[domainIdx].toLowerCase().split(" ")[0])).findIndex(n => n.id === node.id);
-          x = colBaseX + ((idx >= 0 ? idx : 0) % 2) * 320;
-          y = 300 + Math.floor((idx >= 0 ? idx : 0) / 2) * 140;
-        } else if (nodeType === "role") {
-          const idx = roleNodes.filter(n => (n.data?.domain || "").toLowerCase().includes(domainOrder[domainIdx].toLowerCase().split(" ")[0])).findIndex(n => n.id === node.id);
-          x = colBaseX + ((idx >= 0 ? idx : 0) % 2) * 320;
-          y = 620 + Math.floor((idx >= 0 ? idx : 0) / 2) * 140;
-        } else if (nodeType === "skill") {
-          const idx = skillNodes.filter(n => (n.data?.domain || "").toLowerCase().includes(domainOrder[domainIdx].toLowerCase().split(" ")[0])).findIndex(n => n.id === node.id);
-          x = colBaseX + ((idx >= 0 ? idx : 0) % 2) * 320;
-          y = 900 + Math.floor((idx >= 0 ? idx : 0) / 2) * 140;
-        }
+      if (selectedType !== "All") {
+        // When filtered to a single type (e.g. "Processes Only", "Roles Only"):
+        // Lay out in a clean 2D Grid ($3 \times N$)
+        const typeNodes = filteredNodes.filter(n => (n.type || "").toLowerCase() === selectedType.toLowerCase());
+        const idx = typeNodes.findIndex(n => n.id === node.id);
+        const safeIdx = idx >= 0 ? idx : 0;
+        x = 80 + (safeIdx % 4) * 340;
+        y = 80 + Math.floor(safeIdx / 4) * 220;
       } else {
-        // Focused Domain Flow: 4 Clean Horizontal Tiers
+        // Complete 4-Tier Tree Layout:
+        // Group by Process / Domain Columns with Vertical Tier Progression
         if (nodeType === "process") {
           const idx = procNodes.findIndex(n => n.id === node.id);
-          x = 60 + (idx >= 0 ? idx : 0) * 360;
+          const safeIdx = idx >= 0 ? idx : 0;
+          x = 80 + safeIdx * 460;
           y = 60;
         } else if (nodeType === "activity") {
-          const idx = actNodes.findIndex(n => n.id === node.id);
-          x = 60 + (idx >= 0 ? idx : 0) * 280;
-          y = 280;
+          // Find parent process
+          const parentProcId = node.data?.process_id;
+          let procIdx = procNodes.findIndex(p => p.id === parentProcId);
+          if (procIdx === -1) {
+            const idx = actNodes.findIndex(n => n.id === node.id);
+            procIdx = Math.floor(idx / 3);
+          }
+          const stepNum = Number(node.data?.step_number) || 1;
+          x = 80 + procIdx * 460;
+          y = 240 + (stepNum - 1) * 160;
         } else if (nodeType === "role") {
           const idx = roleNodes.findIndex(n => n.id === node.id);
-          x = 60 + (idx >= 0 ? idx : 0) * 300;
-          y = 520;
+          const safeIdx = idx >= 0 ? idx : 0;
+          const colIdx = Math.floor(safeIdx / 2);
+          const rowSub = safeIdx % 2;
+          x = 80 + colIdx * 460;
+          y = 740 + rowSub * 140;
         } else if (nodeType === "skill") {
           const idx = skillNodes.findIndex(n => n.id === node.id);
-          x = 60 + (idx >= 0 ? idx : 0) * 260;
-          y = 760;
+          const safeIdx = idx >= 0 ? idx : 0;
+          const colIdx = Math.floor(safeIdx / 3);
+          const rowSub = safeIdx % 3;
+          x = 80 + colIdx * 460;
+          y = 1040 + rowSub * 140;
         }
       }
 
@@ -235,7 +230,7 @@ export default function DashboardPage() {
               ? "#fbbf24"
               : "#34d399",
           strokeWidth: 2,
-          opacity: 0.9,
+          opacity: 0.85,
         },
       }));
 
@@ -412,7 +407,7 @@ export default function DashboardPage() {
                 <option value="IT">Information Technology</option>
                 <option value="Supply Chain">Supply Chain</option>
                 <option value="Legal">Legal &amp; Compliance</option>
-                <option value="All">All Domains (Panoramic View)</option>
+                <option value="All">All Domains (Wide View)</option>
               </select>
 
               <select

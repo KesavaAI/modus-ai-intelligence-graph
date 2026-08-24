@@ -579,37 +579,40 @@ export const BiAnalyticsDashboard: React.FC<BiAnalyticsDashboardProps> = ({
         <div className="w-full h-[320px] bg-slate-950/60 rounded-xl border border-slate-800/80 relative p-4 overflow-hidden flex flex-col justify-between">
           <svg viewBox="0 0 900 260" className="w-full h-full">
             {/* Grid Lines */}
-            <line x1="60" y1="20" x2="860" y2="20" stroke="#334155" stroke-dasharray="3 3" stroke-width="0.75" />
-            <line x1="60" y1="80" x2="860" y2="80" stroke="#334155" stroke-dasharray="3 3" stroke-width="0.75" />
-            <line x1="60" y1="140" x2="860" y2="140" stroke="#334155" stroke-dasharray="3 3" stroke-width="0.75" />
-            <line x1="60" y1="200" x2="860" y2="200" stroke="#334155" stroke-dasharray="3 3" stroke-width="0.75" />
+            <line x1="60" y1="20" x2="860" y2="20" stroke="#334155" strokeDasharray="3 3" strokeWidth="0.75" />
+            <line x1="60" y1="80" x2="860" y2="80" stroke="#334155" strokeDasharray="3 3" strokeWidth="0.75" />
+            <line x1="60" y1="140" x2="860" y2="140" stroke="#334155" strokeDasharray="3 3" strokeWidth="0.75" />
+            <line x1="60" y1="200" x2="860" y2="200" stroke="#334155" strokeDasharray="3 3" strokeWidth="0.75" />
 
             {/* Axes */}
-            <line x1="60" y1="20" x2="60" y2="220" stroke="#64748b" stroke-width="1.5" />
-            <line x1="60" y1="220" x2="860" y2="220" stroke="#64748b" stroke-width="1.5" />
+            <line x1="60" y1="20" x2="60" y2="220" stroke="#64748b" strokeWidth="1.5" />
+            <line x1="60" y1="220" x2="860" y2="220" stroke="#64748b" strokeWidth="1.5" />
 
             {/* Y Axis Labels (Headcount) */}
-            <text x="50" y="25" fill="#94a3b8" font-size="9" text-anchor="end">20 FTE</text>
-            <text x="50" y="85" fill="#94a3b8" font-size="9" text-anchor="end">15 FTE</text>
-            <text x="50" y="145" fill="#94a3b8" font-size="9" text-anchor="end">10 FTE</text>
-            <text x="50" y="205" fill="#94a3b8" font-size="9" text-anchor="end">5 FTE</text>
+            <text x="50" y="25" fill="#94a3b8" fontSize="9" textAnchor="end">20 FTE</text>
+            <text x="50" y="85" fill="#94a3b8" fontSize="9" textAnchor="end">15 FTE</text>
+            <text x="50" y="145" fill="#94a3b8" fontSize="9" textAnchor="end">10 FTE</text>
+            <text x="50" y="205" fill="#94a3b8" fontSize="9" textAnchor="end">5 FTE</text>
 
             {/* X Axis Labels (Feasibility) */}
-            <text x="160" y="238" fill="#94a3b8" font-size="9" text-anchor="middle">50% Feasibility</text>
-            <text x="360" y="238" fill="#94a3b8" font-size="9" text-anchor="middle">70% Feasibility</text>
-            <text x="560" y="238" fill="#94a3b8" font-size="9" text-anchor="middle">85% Feasibility</text>
-            <text x="760" y="238" fill="#94a3b8" font-size="9" text-anchor="middle">95%+ (Critical)</text>
+            <text x="160" y="238" fill="#94a3b8" fontSize="9" textAnchor="middle">50% Feasibility</text>
+            <text x="360" y="238" fill="#94a3b8" fontSize="9" textAnchor="middle">70% Feasibility</text>
+            <text x="560" y="238" fill="#94a3b8" fontSize="9" textAnchor="middle">85% Feasibility</text>
+            <text x="760" y="238" fill="#94a3b8" fontSize="9" textAnchor="middle">95%+ (Critical)</text>
 
-            {/* Render Role Bubbles */}
-            {displayRoles.slice(0, 24).map((role, idx) => {
-              const hc = Number(role.data?.headcount) || ((idx % 4) + 3);
-              const feas = Number(role.data?.automation_feasibility) || 0.78 + (idx % 3) * 0.07;
-              const salary = Number(role.data?.avg_salary) || 65000 + (idx % 5) * 8000;
+            {/* Render Dispersed Role Bubbles */}
+            {displayRoles.map((role, idx) => {
+              const hc = Number(role.data?.headcount) || ((idx % 4) + 4);
+              const feas = Number(role.data?.automation_feasibility) || (0.75 + (idx % 4) * 0.06);
+              const salary = Number(role.data?.avg_salary) || (65000 + (idx % 5) * 8000);
 
-              // Normalized coordinates
-              const cx = 80 + Math.min(Math.max((feas - 0.45) * (760 / 0.55), 30), 760);
-              const cy = 210 - Math.min(Math.max((hc / 18) * 170, 20), 180);
-              const r = Math.max(7, Math.min(16, (salary / 100000) * 13));
+              // Dispersed coordinates to prevent bubble stacking
+              const xJitter = ((idx * 37) % 36) - 18;
+              const yJitter = ((idx * 23) % 24) - 12;
+
+              const cx = Math.max(90, Math.min(830, 80 + (feas - 0.45) * (720 / 0.55) + xJitter));
+              const cy = Math.max(35, Math.min(195, 210 - (hc / 18) * 160 + yJitter));
+              const r = Math.max(8, Math.min(18, (salary / 100000) * 14));
 
               const isCritical = feas >= 0.88;
               const isHigh = feas >= 0.72 && feas < 0.88;
@@ -620,7 +623,7 @@ export const BiAnalyticsDashboard: React.FC<BiAnalyticsDashboardProps> = ({
               return (
                 <g
                   key={role.id || idx}
-                  className="cursor-pointer transition-transform hover:scale-125"
+                  className="cursor-pointer transition-transform hover:scale-125 group"
                   onClick={() => onSelectNode(role.id, "Role")}
                   onMouseEnter={() => setSelectedRoleDetail({ ...role, computedName: roleName, computedSalary: salary, computedHc: hc, computedFeas: feas })}
                 >
@@ -629,20 +632,21 @@ export const BiAnalyticsDashboard: React.FC<BiAnalyticsDashboardProps> = ({
                     cy={cy}
                     r={r}
                     fill={bubbleColor}
-                    fillOpacity="0.4"
+                    fillOpacity="0.45"
                     stroke={bubbleColor}
                     strokeWidth="1.5"
                   />
                   <circle cx={cx} cy={cy} r="3" fill={bubbleColor} />
                   <text
                     x={cx}
-                    y={cy - r - 3}
-                    fill="#e2e8f0"
-                    font-size="8"
-                    font-weight="bold"
-                    text-anchor="middle"
+                    y={cy - r - 4}
+                    fill="#f1f5f9"
+                    fontSize="7.5"
+                    fontWeight="bold"
+                    textAnchor="middle"
+                    className="select-none pointer-events-none drop-shadow-sm"
                   >
-                    {roleName.split(" ")[0]}
+                    {roleName.length > 14 ? `${roleName.slice(0, 13)}…` : roleName}
                   </text>
                 </g>
               );
