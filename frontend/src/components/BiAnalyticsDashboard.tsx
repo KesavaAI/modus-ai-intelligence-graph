@@ -53,57 +53,79 @@ export const BiAnalyticsDashboard: React.FC<BiAnalyticsDashboardProps> = ({
     [allNodes]
   );
 
-  // Filtered Roles
+  // Dynamic Filtered Roles
   const filteredRoles = useMemo(() => {
     return roles.filter((r) => {
-      const dept = (r.data?.department || "Operations").toLowerCase();
+      const dept = (r.data?.department || r.data?.domain || "Operations").toLowerCase();
       const domainFilter = selectedDomain.toLowerCase();
       const matchDomain =
         selectedDomain === "All" ||
         dept.includes(domainFilter) ||
-        (domainFilter === "hr" && dept.includes("human")) ||
-        (domainFilter === "it" && dept.includes("information"));
+        (domainFilter.includes("customer") && dept.includes("customer")) ||
+        (domainFilter.includes("finance") && dept.includes("finance")) ||
+        (domainFilter.includes("hr") && (dept.includes("human") || dept.includes("hr"))) ||
+        (domainFilter.includes("it") && (dept.includes("information") || dept.includes("it"))) ||
+        (domainFilter.includes("supply") && dept.includes("supply")) ||
+        (domainFilter.includes("legal") && dept.includes("legal"));
 
       const transitionRisk = (r.data?.transition_risk || "High Risk").toLowerCase();
       const riskFilter = selectedRisk.toLowerCase();
       const matchRisk =
         selectedRisk === "All" || transitionRisk.includes(riskFilter);
 
-      const feasibility = (r.data?.automation_feasibility || 0.82) * 100;
+      const feasibility = (Number(r.data?.automation_feasibility) || 0.82) * 100;
       const matchFeasibility = feasibility >= minFeasibility;
 
       return matchDomain && matchRisk && matchFeasibility;
     });
   }, [roles, selectedDomain, selectedRisk, minFeasibility]);
 
-  // Aggregate Metrics
+  // Dynamic Filtered Skills
+  const filteredSkills = useMemo(() => {
+    return skills.filter((s) => {
+      const dom = (s.data?.domain || s.data?.department || "Finance").toLowerCase();
+      const domainFilter = selectedDomain.toLowerCase();
+      return (
+        selectedDomain === "All" ||
+        dom.includes(domainFilter) ||
+        (domainFilter.includes("customer") && dom.includes("customer")) ||
+        (domainFilter.includes("finance") && dom.includes("finance")) ||
+        (domainFilter.includes("hr") && dom.includes("human")) ||
+        (domainFilter.includes("it") && dom.includes("information"))
+      );
+    });
+  }, [skills, selectedDomain]);
+
+  // Dynamic Aggregate Metrics (Updates in Real-Time with Filters)
+  const displayRoles = filteredRoles.length > 0 ? filteredRoles : roles;
+
   const totalHeadcount = useMemo(() => {
-    return roles.reduce((acc, r) => acc + (Number(r.data?.headcount) || 4), 0) || 142;
-  }, [roles]);
+    return displayRoles.reduce((acc, r) => acc + (Number(r.data?.headcount) || 4), 0);
+  }, [displayRoles]);
 
   const totalPayroll = useMemo(() => {
-    return roles.reduce((acc, r) => {
+    return displayRoles.reduce((acc, r) => {
       const hc = Number(r.data?.headcount) || 4;
       const sal = Number(r.data?.avg_salary) || 68000;
       return acc + hc * sal;
-    }, 0) || 9840000;
-  }, [roles]);
+    }, 0);
+  }, [displayRoles]);
 
   const totalExposedPayroll = useMemo(() => {
-    return roles.reduce((acc, r) => {
+    return displayRoles.reduce((acc, r) => {
       const hc = Number(r.data?.headcount) || 4;
       const sal = Number(r.data?.avg_salary) || 68000;
       const feas = Number(r.data?.automation_feasibility) || 0.785;
       return acc + hc * sal * feas;
-    }, 0) || 7694000;
-  }, [roles]);
+    }, 0);
+  }, [displayRoles]);
 
-  // Simulated Savings based on adoption slider
+  // Live Simulated Cost Savings based on Adoption Slider
   const simulatedSavings = useMemo(() => {
     return totalExposedPayroll * (adoptionRate / 100) * 0.75;
   }, [totalExposedPayroll, adoptionRate]);
 
-  // Domain Breakdown
+  // Dynamic Domain Breakdown
   const domainBreakdown = useMemo(() => {
     const domainDefs = [
       { key: "finance", name: "Finance" },
@@ -116,7 +138,7 @@ export const BiAnalyticsDashboard: React.FC<BiAnalyticsDashboardProps> = ({
 
     return domainDefs.map((def) => {
       const dRoles = roles.filter((r) =>
-        (r.data?.department || "").toLowerCase().includes(def.key)
+        (r.data?.department || r.data?.domain || "").toLowerCase().includes(def.key)
       );
       const dProcs = processes.filter((p) =>
         (p.data?.domain || "").toLowerCase().includes(def.key)
@@ -142,14 +164,16 @@ export const BiAnalyticsDashboard: React.FC<BiAnalyticsDashboardProps> = ({
     });
   }, [roles, processes]);
 
-  // Reskilling Timeline Distribution
+  // Dynamic Reskilling Timeline Distribution
   const reskillingCohorts = useMemo(() => {
     let w1_2 = 0;
     let w3_4 = 0;
     let w5_6 = 0;
     let w7_plus = 0;
 
-    skills.forEach((s) => {
+    const sourceSkills = filteredSkills.length > 0 ? filteredSkills : skills;
+
+    sourceSkills.forEach((s) => {
       const weeks = Number(s.data?.reskill_time_weeks) || 3;
       if (weeks <= 2) w1_2++;
       else if (weeks <= 4) w3_4++;
@@ -157,42 +181,42 @@ export const BiAnalyticsDashboard: React.FC<BiAnalyticsDashboardProps> = ({
       else w7_plus++;
     });
 
-    const total = skills.length || 75;
+    const total = sourceSkills.length || 1;
     return [
       {
         name: "1 - 2 Weeks",
         label: "Rapid AI Tooling & Prompt Adoption",
-        count: w1_2 || 14,
-        pct: Math.round(((w1_2 || 14) / total) * 100),
+        count: w1_2 || 3,
+        pct: Math.round(((w1_2 || 3) / total) * 100),
         color: "bg-emerald-500",
         badge: "Low Friction",
       },
       {
         name: "3 - 4 Weeks",
         label: "Exception Oversight & Schema Validation",
-        count: w3_4 || 32,
-        pct: Math.round(((w3_4 || 32) / total) * 100),
+        count: w3_4 || 6,
+        pct: Math.round(((w3_4 || 6) / total) * 100),
         color: "bg-blue-500",
         badge: "Core Cohort",
       },
       {
         name: "5 - 6 Weeks",
         label: "AI Governance, Audit & Compliance",
-        count: w5_6 || 18,
-        pct: Math.round(((w5_6 || 18) / total) * 100),
+        count: w5_6 || 3,
+        pct: Math.round(((w5_6 || 3) / total) * 100),
         color: "bg-amber-500",
         badge: "Strategic Transition",
       },
       {
         name: "7+ Weeks",
         label: "Agentic Systems & Workflow Architecture",
-        count: w7_plus || 11,
-        pct: Math.round(((w7_plus || 11) / total) * 100),
+        count: w7_plus || 2,
+        pct: Math.round(((w7_plus || 2) / total) * 100),
         color: "bg-purple-500",
         badge: "Deep Technical",
       },
     ];
-  }, [skills]);
+  }, [skills, filteredSkills]);
 
   // CSV Export
   const exportToCSV = () => {
@@ -208,14 +232,14 @@ export const BiAnalyticsDashboard: React.FC<BiAnalyticsDashboardProps> = ({
       "Transition Risk",
     ];
 
-    const rows = filteredRoles.map((r) => {
+    const rows = displayRoles.map((r) => {
       const hc = Number(r.data?.headcount) || 4;
       const salary = Number(r.data?.avg_salary) || 65000;
       const feas = Number(r.data?.automation_feasibility) || 0.8;
       return [
         r.id,
         `"${r.data?.name || r.id}"`,
-        `"${r.data?.department || "Operations"}"`,
+        `"${r.data?.department || r.data?.domain || "Operations"}"`,
         hc,
         salary,
         hc * salary,
@@ -232,7 +256,7 @@ export const BiAnalyticsDashboard: React.FC<BiAnalyticsDashboardProps> = ({
     const encodedUri = encodeURI(csvContent);
     const link = document.createElement("a");
     link.setAttribute("href", encodedUri);
-    link.setAttribute("download", "modus_workforce_ai_intelligence.csv");
+    link.setAttribute("download", `modus_ai_intelligence_${selectedDomain.toLowerCase()}.csv`);
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -262,32 +286,32 @@ export const BiAnalyticsDashboard: React.FC<BiAnalyticsDashboardProps> = ({
         {/* Global Filter Controls & CSV Export */}
         <div className="flex flex-wrap items-center gap-3">
           {/* Domain Filter */}
-          <div className="flex items-center gap-1.5 bg-slate-900/80 px-3 py-1.5 rounded-xl border border-slate-800 text-xs">
+          <div className="flex items-center gap-1.5 bg-slate-900/80 px-3 py-1.5 rounded-xl border border-slate-800 text-xs shadow-inner">
             <Filter className="w-3.5 h-3.5 text-slate-400" />
             <span className="text-slate-400">Domain:</span>
             <select
               value={selectedDomain}
               onChange={(e) => setSelectedDomain(e.target.value)}
-              className="bg-transparent text-white font-medium focus:outline-none cursor-pointer"
+              className="bg-transparent text-white font-bold focus:outline-none cursor-pointer"
             >
               <option value="All" className="bg-slate-900 text-white">All Domains</option>
               <option value="Finance" className="bg-slate-900 text-white">Finance</option>
-              <option value="Human Resources" className="bg-slate-900 text-white">HR</option>
-              <option value="Information Technology" className="bg-slate-900 text-white">IT</option>
+              <option value="Human Resources" className="bg-slate-900 text-white">Human Resources</option>
+              <option value="Information Technology" className="bg-slate-900 text-white">Information Technology</option>
               <option value="Supply Chain" className="bg-slate-900 text-white">Supply Chain</option>
-              <option value="Legal & Compliance" className="bg-slate-900 text-white">Legal</option>
+              <option value="Legal & Compliance" className="bg-slate-900 text-white">Legal &amp; Compliance</option>
               <option value="Customer Operations" className="bg-slate-900 text-white">Customer Support</option>
             </select>
           </div>
 
           {/* Risk Filter */}
-          <div className="flex items-center gap-1.5 bg-slate-900/80 px-3 py-1.5 rounded-xl border border-slate-800 text-xs">
+          <div className="flex items-center gap-1.5 bg-slate-900/80 px-3 py-1.5 rounded-xl border border-slate-800 text-xs shadow-inner">
             <ShieldAlert className="w-3.5 h-3.5 text-amber-400" />
             <span className="text-slate-400">Risk:</span>
             <select
               value={selectedRisk}
               onChange={(e) => setSelectedRisk(e.target.value)}
-              className="bg-transparent text-white font-medium focus:outline-none cursor-pointer"
+              className="bg-transparent text-white font-bold focus:outline-none cursor-pointer"
             >
               <option value="All" className="bg-slate-900 text-white">All Risk Levels</option>
               <option value="Critical" className="bg-slate-900 text-rose-400">Critical Risk (&gt;90%)</option>
@@ -299,7 +323,7 @@ export const BiAnalyticsDashboard: React.FC<BiAnalyticsDashboardProps> = ({
           {/* Export to CSV */}
           <button
             onClick={exportToCSV}
-            className="flex items-center gap-2 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white text-xs font-semibold px-4 py-2 rounded-xl transition shadow-lg shadow-emerald-500/20 active:scale-95"
+            className="flex items-center gap-2 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white text-xs font-bold px-4 py-2 rounded-xl transition shadow-lg shadow-emerald-500/20 active:scale-95"
           >
             <Download className="w-3.5 h-3.5" />
             Export Tableau CSV
@@ -307,12 +331,14 @@ export const BiAnalyticsDashboard: React.FC<BiAnalyticsDashboardProps> = ({
         </div>
       </div>
 
-      {/* ================= EXECUTIVE KPI CARDS ================= */}
+      {/* ================= DYNAMIC EXECUTIVE KPI CARDS ================= */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {/* Card 1: Total Payroll Analyzed */}
         <div className="bg-[#0f172a]/90 backdrop-blur-md p-5 rounded-2xl border border-slate-800 relative overflow-hidden group hover:border-slate-700 transition shadow-lg">
           <div className="flex items-center justify-between text-slate-400 mb-2">
-            <span className="text-xs font-medium uppercase tracking-wider">Total Annual Payroll</span>
+            <span className="text-xs font-medium uppercase tracking-wider">
+              {selectedDomain === "All" ? "Total Annual Payroll" : `${selectedDomain} Payroll`}
+            </span>
             <div className="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-400">
               <DollarSign className="w-4 h-4" />
             </div>
@@ -322,7 +348,7 @@ export const BiAnalyticsDashboard: React.FC<BiAnalyticsDashboardProps> = ({
           </div>
           <div className="text-[11px] text-slate-400 mt-2 flex items-center gap-1.5">
             <Users className="w-3 h-3 text-blue-400" />
-            <span>Across <strong className="text-slate-200">{totalHeadcount} FTE positions</strong> in 25 workflows</span>
+            <span>Across <strong className="text-slate-200">{totalHeadcount} FTE positions</strong> in {displayRoles.length} roles</span>
           </div>
         </div>
 
@@ -339,11 +365,11 @@ export const BiAnalyticsDashboard: React.FC<BiAnalyticsDashboardProps> = ({
           </div>
           <div className="text-[11px] text-slate-400 mt-2 flex items-center gap-1.5">
             <span className="w-2 h-2 rounded-full bg-rose-500 animate-pulse" />
-            <span><strong className="text-rose-300">78.2%</strong> of routine manual task payroll</span>
+            <span><strong className="text-rose-300">78.2%</strong> of routine task payroll</span>
           </div>
         </div>
 
-        {/* Card 3: Simulated Annual AI ROI */}
+        {/* Card 3: Simulated Annual AI Cost Savings */}
         <div className="bg-[#0f172a]/90 backdrop-blur-md p-5 rounded-2xl border border-emerald-500/30 relative overflow-hidden group hover:border-emerald-500/50 transition shadow-lg">
           <div className="flex items-center justify-between text-emerald-400 mb-2">
             <span className="text-xs font-medium uppercase tracking-wider">Projected Cost Savings</span>
@@ -356,7 +382,7 @@ export const BiAnalyticsDashboard: React.FC<BiAnalyticsDashboardProps> = ({
           </div>
           <div className="text-[11px] text-slate-400 mt-2 flex items-center gap-1.5">
             <Sparkles className="w-3 h-3 text-emerald-400" />
-            <span>At <strong className="text-emerald-300">{adoptionRate}% AI automation velocity</strong></span>
+            <span>At <strong className="text-emerald-300">{adoptionRate}% AI adoption velocity</strong></span>
           </div>
         </div>
 
@@ -378,18 +404,18 @@ export const BiAnalyticsDashboard: React.FC<BiAnalyticsDashboardProps> = ({
         </div>
       </div>
 
-      {/* ================= INTERACTIVE AI ADOPTION SIMULATOR ================= */}
+      {/* ================= LIVE AI ADOPTION VELOCITY SIMULATOR ================= */}
       <div className="bg-[#0f172a]/90 backdrop-blur-md p-4 rounded-2xl border border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4 shadow-lg">
         <div className="flex items-center gap-3">
           <Sliders className="w-5 h-5 text-blue-400" />
           <div>
             <div className="text-xs font-bold text-white">Live AI Adoption Velocity Simulator</div>
-            <div className="text-[11px] text-slate-400">Adjust the organizational adoption speed to calculate real-time net efficiency gain.</div>
+            <div className="text-[11px] text-slate-400">Drag slider to calculate projected financial savings in real-time.</div>
           </div>
         </div>
 
         <div className="flex items-center gap-4 w-full md:w-1/2">
-          <span className="text-xs font-semibold text-slate-400">0% (Baseline)</span>
+          <span className="text-xs font-semibold text-slate-400">0%</span>
           <input
             type="range"
             min="0"
@@ -428,7 +454,7 @@ export const BiAnalyticsDashboard: React.FC<BiAnalyticsDashboardProps> = ({
                   onClick={() => setSelectedDomain(selectedDomain === item.domain ? "All" : item.domain)}
                   className={`p-3 rounded-xl border transition cursor-pointer ${
                     selectedDomain === item.domain
-                      ? "bg-blue-500/10 border-blue-500/50 shadow-md"
+                      ? "bg-blue-500/10 border-blue-500/50 shadow-md ring-1 ring-blue-500/30"
                       : "bg-slate-900/50 border-slate-800 hover:border-slate-700 hover:bg-slate-900"
                   }`}
                 >
@@ -575,7 +601,7 @@ export const BiAnalyticsDashboard: React.FC<BiAnalyticsDashboardProps> = ({
             <text x="760" y="238" fill="#94a3b8" font-size="9" text-anchor="middle">95%+ (Critical)</text>
 
             {/* Render Role Bubbles */}
-            {filteredRoles.slice(0, 24).map((role, idx) => {
+            {displayRoles.slice(0, 24).map((role, idx) => {
               const hc = Number(role.data?.headcount) || ((idx % 4) + 3);
               const feas = Number(role.data?.automation_feasibility) || 0.78 + (idx % 3) * 0.07;
               const salary = Number(role.data?.avg_salary) || 65000 + (idx % 5) * 8000;
@@ -659,7 +685,7 @@ export const BiAnalyticsDashboard: React.FC<BiAnalyticsDashboardProps> = ({
             </p>
           </div>
           <span className="text-xs text-slate-400 font-mono">
-            Showing {filteredRoles.length} of {roles.length} Roles
+            Showing {displayRoles.length} of {roles.length} Roles
           </span>
         </div>
 
@@ -678,7 +704,7 @@ export const BiAnalyticsDashboard: React.FC<BiAnalyticsDashboardProps> = ({
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-800/60 font-medium">
-              {filteredRoles.slice(0, 15).map((role, idx) => {
+              {displayRoles.slice(0, 15).map((role, idx) => {
                 const hc = Number(role.data?.headcount) || ((idx % 4) + 4);
                 const salary = Number(role.data?.avg_salary) || 65000 + (idx % 4) * 7000;
                 const feas = Number(role.data?.automation_feasibility) || 0.78 + (idx % 3) * 0.07;
@@ -695,7 +721,7 @@ export const BiAnalyticsDashboard: React.FC<BiAnalyticsDashboardProps> = ({
                       <span className="w-2 h-2 rounded-full bg-amber-500" />
                       {role.data?.name || role.label || role.id}
                     </td>
-                    <td className="p-3 text-slate-300">{role.data?.department || "Operations"}</td>
+                    <td className="p-3 text-slate-300">{role.data?.department || role.data?.domain || "Operations"}</td>
                     <td className="p-3 text-slate-300 font-mono">{hc} FTE</td>
                     <td className="p-3 text-slate-300 font-mono">${salary.toLocaleString()}</td>
                     <td className="p-3 text-rose-400 font-bold font-mono">

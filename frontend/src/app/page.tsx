@@ -40,7 +40,7 @@ export default function DashboardPage() {
   const [graphData, setGraphData] = useState<{ nodes: any[]; edges: any[]; stats: any }>(defaultGraphData);
   const [loading, setLoading] = useState<boolean>(false);
   const [searchTerm, setSearchTerm] = useState<string>("");
-  const [selectedDomain, setSelectedDomain] = useState<string>("Finance"); // Default to Finance for clean initial view
+  const [selectedDomain, setSelectedDomain] = useState<string>("Finance");
   const [selectedType, setSelectedType] = useState<string>("All");
   const [selectedNodeId, setSelectedNodeId] = useState<string | null>(null);
   const [selectedNodeType, setSelectedNodeType] = useState<string | null>(null);
@@ -118,19 +118,25 @@ export default function DashboardPage() {
     const rawNodes = graphData.nodes || [];
     const rawEdges = graphData.edges || [];
 
-    // Filter by search, domain, and type
+    // Filter by search, domain, and type with robust domain matching
     const filteredNodes = rawNodes.filter((n) => {
       const label = (n.label || "").toLowerCase();
       const type = (n.type || "").toLowerCase();
-      const domain = (n.data?.domain || n.data?.department || "").toLowerCase();
+      const nodeDomain = (n.data?.domain || n.data?.department || "").toLowerCase();
       const query = searchTerm.toLowerCase();
 
-      const matchesSearch = !query || label.includes(query) || domain.includes(query);
+      const matchesSearch = !query || label.includes(query) || nodeDomain.includes(query);
+      
+      const domainFilter = selectedDomain.toLowerCase();
       const matchesDomain =
         selectedDomain === "All" ||
-        domain.includes(selectedDomain.toLowerCase()) ||
-        (selectedDomain === "HR" && domain.includes("human")) ||
-        (selectedDomain === "IT" && domain.includes("information"));
+        nodeDomain.includes(domainFilter) ||
+        (domainFilter.includes("customer") && nodeDomain.includes("customer")) ||
+        (domainFilter.includes("finance") && nodeDomain.includes("finance")) ||
+        (domainFilter.includes("hr") && (nodeDomain.includes("human") || nodeDomain.includes("hr"))) ||
+        (domainFilter.includes("it") && (nodeDomain.includes("information") || nodeDomain.includes("it"))) ||
+        (domainFilter.includes("supply") && nodeDomain.includes("supply")) ||
+        (domainFilter.includes("legal") && nodeDomain.includes("legal"));
       
       const matchesType =
         selectedType === "All" || type === selectedType.toLowerCase();
@@ -143,61 +149,62 @@ export default function DashboardPage() {
     // Grouping by Domain Clusters for Panoramic Multi-Tier Layout
     const domainOrder = ["Finance", "Human Resources", "Information Technology", "Supply Chain", "Legal", "Customer Support"];
 
+    const procNodes = filteredNodes.filter((n) => (n.type || "").toLowerCase() === "process");
+    const actNodes = filteredNodes.filter((n) => (n.type || "").toLowerCase() === "activity");
+    const roleNodes = filteredNodes.filter((n) => (n.type || "").toLowerCase() === "role");
+    const skillNodes = filteredNodes.filter((n) => (n.type || "").toLowerCase() === "skill");
+
     const positionedNodes = filteredNodes.map((node) => {
       const nodeType = (node.type || "").toLowerCase();
       const nodeDomain = node.data?.domain || node.data?.department || "Finance";
       
-      // Determine domain column offset
-      let domainIdx = domainOrder.findIndex((d) =>
-        nodeDomain.toLowerCase().includes(d.toLowerCase().split(" ")[0])
-      );
-      if (domainIdx === -1) domainIdx = 0;
-
-      // Group within domain
-      const domainNodesOfType = filteredNodes.filter(
-        (n) =>
-          (n.type || "").toLowerCase() === nodeType &&
-          (n.data?.domain || n.data?.department || "").toLowerCase().includes(
-            domainOrder[domainIdx]?.toLowerCase().split(" ")[0] || "finance"
-          )
-      );
-      const idxInType = domainNodesOfType.findIndex((n) => n.id === node.id);
-      const safeIdx = idxInType >= 0 ? idxInType : 0;
-
-      let x = 80;
-      let y = 80;
+      let x = 60;
+      let y = 60;
 
       if (selectedDomain === "All") {
-        // Wide Multi-Column Layout by Domain (x spacing 680px per domain column)
-        const colBaseX = 80 + domainIdx * 680;
+        // Wide Multi-Column Layout by Domain (x spacing 720px per domain column)
+        let domainIdx = domainOrder.findIndex((d) =>
+          nodeDomain.toLowerCase().includes(d.toLowerCase().split(" ")[0])
+        );
+        if (domainIdx === -1) domainIdx = 0;
+
+        const colBaseX = 60 + domainIdx * 720;
         
         if (nodeType === "process") {
-          x = colBaseX + (safeIdx % 2) * 310;
-          y = 80 + Math.floor(safeIdx / 2) * 160;
+          const idx = procNodes.filter(n => (n.data?.domain || "").toLowerCase().includes(domainOrder[domainIdx].toLowerCase().split(" ")[0])).findIndex(n => n.id === node.id);
+          x = colBaseX + ((idx >= 0 ? idx : 0) % 2) * 320;
+          y = 60 + Math.floor((idx >= 0 ? idx : 0) / 2) * 160;
         } else if (nodeType === "activity") {
-          x = colBaseX + (safeIdx % 2) * 310;
-          y = 320 + Math.floor(safeIdx / 2) * 140;
+          const idx = actNodes.filter(n => (n.data?.domain || "").toLowerCase().includes(domainOrder[domainIdx].toLowerCase().split(" ")[0])).findIndex(n => n.id === node.id);
+          x = colBaseX + ((idx >= 0 ? idx : 0) % 2) * 320;
+          y = 300 + Math.floor((idx >= 0 ? idx : 0) / 2) * 140;
         } else if (nodeType === "role") {
-          x = colBaseX + (safeIdx % 2) * 310;
-          y = 660 + Math.floor(safeIdx / 2) * 140;
+          const idx = roleNodes.filter(n => (n.data?.domain || "").toLowerCase().includes(domainOrder[domainIdx].toLowerCase().split(" ")[0])).findIndex(n => n.id === node.id);
+          x = colBaseX + ((idx >= 0 ? idx : 0) % 2) * 320;
+          y = 620 + Math.floor((idx >= 0 ? idx : 0) / 2) * 140;
         } else if (nodeType === "skill") {
-          x = colBaseX + (safeIdx % 2) * 310;
-          y = 960 + Math.floor(safeIdx / 2) * 140;
+          const idx = skillNodes.filter(n => (n.data?.domain || "").toLowerCase().includes(domainOrder[domainIdx].toLowerCase().split(" ")[0])).findIndex(n => n.id === node.id);
+          x = colBaseX + ((idx >= 0 ? idx : 0) % 2) * 320;
+          y = 900 + Math.floor((idx >= 0 ? idx : 0) / 2) * 140;
         }
       } else {
-        // Single Domain Focused Layout (Clean 4-Tier Horizontal Flow)
+        // Focused Domain Flow: 4 Clean Horizontal Tiers
         if (nodeType === "process") {
-          x = 80 + safeIdx * 380;
-          y = 80;
+          const idx = procNodes.findIndex(n => n.id === node.id);
+          x = 60 + (idx >= 0 ? idx : 0) * 360;
+          y = 60;
         } else if (nodeType === "activity") {
-          x = 80 + safeIdx * 320;
-          y = 300;
+          const idx = actNodes.findIndex(n => n.id === node.id);
+          x = 60 + (idx >= 0 ? idx : 0) * 280;
+          y = 280;
         } else if (nodeType === "role") {
-          x = 80 + safeIdx * 340;
-          y = 560;
+          const idx = roleNodes.findIndex(n => n.id === node.id);
+          x = 60 + (idx >= 0 ? idx : 0) * 300;
+          y = 520;
         } else if (nodeType === "skill") {
-          x = 80 + safeIdx * 320;
-          y = 820;
+          const idx = skillNodes.findIndex(n => n.id === node.id);
+          x = 60 + (idx >= 0 ? idx : 0) * 260;
+          y = 760;
         }
       }
 
@@ -399,13 +406,13 @@ export default function DashboardPage() {
                 onChange={(e) => setSelectedDomain(e.target.value)}
                 className="bg-slate-950 border border-slate-800 rounded-lg px-3 py-1.5 text-xs text-slate-300 focus:outline-none focus:border-blue-500 cursor-pointer"
               >
-                <option value="Finance">Finance (Recommended Focus)</option>
-                <option value="All">All Domains (Wide View)</option>
+                <option value="Finance">Finance</option>
+                <option value="Customer Support">Customer Support</option>
                 <option value="HR">Human Resources</option>
                 <option value="IT">Information Technology</option>
                 <option value="Supply Chain">Supply Chain</option>
                 <option value="Legal">Legal &amp; Compliance</option>
-                <option value="Customer Support">Customer Support</option>
+                <option value="All">All Domains (Panoramic View)</option>
               </select>
 
               <select

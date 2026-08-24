@@ -10,13 +10,17 @@ def build_graph_json():
 
     for p in seed_data:
         pid = p['id']
+        domain = p.get('domain', 'Finance')
+        
         nodes.append({
             'id': pid,
             'label': p['name'],
             'type': 'Process',
             'data': {
+                'id': pid,
                 'name': p['name'],
-                'domain': p['domain'],
+                'domain': domain,
+                'department': domain,
                 'description': p['description'],
                 'cycle_time_days': p['cycle_time_days'],
                 'frequency': p['frequency'],
@@ -25,6 +29,7 @@ def build_graph_json():
                 'roles_count': len(p['roles'])
             }
         })
+        
         for act in p['activities']:
             aid = act['id']
             nodes.append({
@@ -32,12 +37,15 @@ def build_graph_json():
                 'label': act['name'],
                 'type': 'Activity',
                 'data': {
+                    'id': aid,
                     'name': act['name'],
                     'step_number': act['step_number'],
                     'automation_feasibility': act['automation_feasibility'],
                     'ai_disruption_potential': act['ai_disruption_potential'],
                     'description': act['description'],
-                    'process_id': pid
+                    'process_id': pid,
+                    'domain': domain,
+                    'department': domain
                 }
             })
             edges.append({
@@ -63,21 +71,30 @@ def build_graph_json():
                     'type': 'REQUIRES',
                     'label': 'REQUIRES'
                 })
+                
         for role in p['roles']:
-            if not any(n['id'] == role['id'] for n in nodes):
+            rid = role['id']
+            if not any(n['id'] == rid for n in nodes):
+                role_data = dict(role)
+                role_data['domain'] = role.get('department', domain)
                 nodes.append({
-                    'id': role['id'],
+                    'id': rid,
                     'label': role['name'],
                     'type': 'Role',
-                    'data': role
+                    'data': role_data
                 })
+                
         for skill in p['skills']:
-            if not any(n['id'] == skill['id'] for n in nodes):
+            sid = skill['id']
+            if not any(n['id'] == sid for n in nodes):
+                skill_data = dict(skill)
+                skill_data['domain'] = domain
+                skill_data['department'] = domain
                 nodes.append({
-                    'id': skill['id'],
+                    'id': sid,
                     'label': skill['name'],
                     'type': 'Skill',
-                    'data': skill
+                    'data': skill_data
                 })
 
     unique_nodes = list({n['id']: n for n in nodes}.values())
@@ -105,12 +122,17 @@ def build_graph_json():
         'stats': stats
     }
 
-    target_dir = os.path.join('frontend', 'src', 'app', 'api', 'v1', 'graph', 'all')
-    os.makedirs(target_dir, exist_ok=True)
-    with open(os.path.join(target_dir, 'graph_db.json'), 'w', encoding='utf-8') as f:
-        json.dump(graph_payload, f, indent=2)
+    # Write to both frontend/src/data and public
+    target_paths = [
+        os.path.join('frontend', 'src', 'data', 'graph_db.json'),
+        os.path.join('frontend', 'src', 'app', 'api', 'v1', 'graph', 'all', 'graph_db.json')
+    ]
+    for tp in target_paths:
+        os.makedirs(os.path.dirname(tp), exist_ok=True)
+        with open(tp, 'w', encoding='utf-8') as f:
+            json.dump(graph_payload, f, indent=2)
 
-    print(f"SUCCESS: Created graph_db.json with {len(unique_nodes)} nodes and {len(unique_edges)} edges.")
+    print(f"SUCCESS: Generated graph_db.json with {len(unique_nodes)} nodes and {len(unique_edges)} edges.")
 
 if __name__ == '__main__':
     build_graph_json()
