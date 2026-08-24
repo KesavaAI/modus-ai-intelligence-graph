@@ -39,8 +39,8 @@ export default function DashboardPage() {
   const [activeTab, setActiveTab] = useState<"graph" | "bi">("graph");
   const [graphData, setGraphData] = useState<{ nodes: any[]; edges: any[]; stats: any }>(defaultGraphData);
   const [loading, setLoading] = useState<boolean>(false);
-  const [searchTerm, setSearchTerm] = useState<string>("All");
-  const [selectedDomain, setSelectedDomain] = useState<string>("All");
+  const [searchTerm, setSearchTerm] = useState<string>("");
+  const [selectedDomain, setSelectedDomain] = useState<string>("Finance"); // Default to Finance for clean initial view
   const [selectedType, setSelectedType] = useState<string>("All");
   const [selectedNodeId, setSelectedNodeId] = useState<string | null>(null);
   const [selectedNodeType, setSelectedNodeType] = useState<string | null>(null);
@@ -113,7 +113,7 @@ export default function DashboardPage() {
     setSelectedNodeType(nodeType);
   };
 
-  // Filter & Layout Nodes for React Flow Canvas
+  // Filter & Clean Layout Positioning for React Flow Canvas
   const { flowNodes, flowEdges } = useMemo(() => {
     const rawNodes = graphData.nodes || [];
     const rawEdges = graphData.edges || [];
@@ -121,48 +121,84 @@ export default function DashboardPage() {
     // Filter by search, domain, and type
     const filteredNodes = rawNodes.filter((n) => {
       const label = (n.label || "").toLowerCase();
-      const type = n.type || "";
+      const type = (n.type || "").toLowerCase();
       const domain = (n.data?.domain || n.data?.department || "").toLowerCase();
-      const query = searchTerm === "All" ? "" : searchTerm.toLowerCase();
+      const query = searchTerm.toLowerCase();
 
       const matchesSearch = !query || label.includes(query) || domain.includes(query);
       const matchesDomain =
         selectedDomain === "All" ||
-        (n.data?.domain && n.data.domain.toLowerCase() === selectedDomain.toLowerCase()) ||
-        (n.data?.department && n.data.department.toLowerCase() === selectedDomain.toLowerCase());
-      const matchesType = selectedType === "All" || type === selectedType;
+        domain.includes(selectedDomain.toLowerCase()) ||
+        (selectedDomain === "HR" && domain.includes("human")) ||
+        (selectedDomain === "IT" && domain.includes("information"));
+      
+      const matchesType =
+        selectedType === "All" || type === selectedType.toLowerCase();
 
-      return matchesSearch && (selectedDomain === "All" || matchesDomain) && matchesType;
+      return matchesSearch && matchesDomain && matchesType;
     });
 
     const activeNodeIds = new Set(filteredNodes.map((n) => n.id));
 
-    // Dynamic Hierarchical Multi-Tier Layout Positioning
-    const processNodes = filteredNodes.filter((n) => n.type === "Process");
-    const activityNodes = filteredNodes.filter((n) => n.type === "Activity");
-    const roleNodes = filteredNodes.filter((n) => n.type === "Role");
-    const skillNodes = filteredNodes.filter((n) => n.type === "Skill");
+    // Grouping by Domain Clusters for Panoramic Multi-Tier Layout
+    const domainOrder = ["Finance", "Human Resources", "Information Technology", "Supply Chain", "Legal", "Customer Support"];
 
     const positionedNodes = filteredNodes.map((node) => {
-      let x = 100;
-      let y = 100;
+      const nodeType = (node.type || "").toLowerCase();
+      const nodeDomain = node.data?.domain || node.data?.department || "Finance";
+      
+      // Determine domain column offset
+      let domainIdx = domainOrder.findIndex((d) =>
+        nodeDomain.toLowerCase().includes(d.toLowerCase().split(" ")[0])
+      );
+      if (domainIdx === -1) domainIdx = 0;
 
-      if (node.type === "Process") {
-        const idx = processNodes.findIndex((n) => n.id === node.id);
-        x = 60 + (idx % 5) * 340;
-        y = 60 + Math.floor(idx / 5) * 220;
-      } else if (node.type === "Activity") {
-        const idx = activityNodes.findIndex((n) => n.id === node.id);
-        x = 60 + (idx % 6) * 300;
-        y = 340 + Math.floor(idx / 6) * 220;
-      } else if (node.type === "Role") {
-        const idx = roleNodes.findIndex((n) => n.id === node.id);
-        x = 60 + (idx % 5) * 300;
-        y = 650 + Math.floor(idx / 5) * 200;
-      } else if (node.type === "Skill") {
-        const idx = skillNodes.findIndex((n) => n.id === node.id);
-        x = 60 + (idx % 5) * 290;
-        y = 940 + Math.floor(idx / 5) * 200;
+      // Group within domain
+      const domainNodesOfType = filteredNodes.filter(
+        (n) =>
+          (n.type || "").toLowerCase() === nodeType &&
+          (n.data?.domain || n.data?.department || "").toLowerCase().includes(
+            domainOrder[domainIdx]?.toLowerCase().split(" ")[0] || "finance"
+          )
+      );
+      const idxInType = domainNodesOfType.findIndex((n) => n.id === node.id);
+      const safeIdx = idxInType >= 0 ? idxInType : 0;
+
+      let x = 80;
+      let y = 80;
+
+      if (selectedDomain === "All") {
+        // Wide Multi-Column Layout by Domain (x spacing 680px per domain column)
+        const colBaseX = 80 + domainIdx * 680;
+        
+        if (nodeType === "process") {
+          x = colBaseX + (safeIdx % 2) * 310;
+          y = 80 + Math.floor(safeIdx / 2) * 160;
+        } else if (nodeType === "activity") {
+          x = colBaseX + (safeIdx % 2) * 310;
+          y = 320 + Math.floor(safeIdx / 2) * 140;
+        } else if (nodeType === "role") {
+          x = colBaseX + (safeIdx % 2) * 310;
+          y = 660 + Math.floor(safeIdx / 2) * 140;
+        } else if (nodeType === "skill") {
+          x = colBaseX + (safeIdx % 2) * 310;
+          y = 960 + Math.floor(safeIdx / 2) * 140;
+        }
+      } else {
+        // Single Domain Focused Layout (Clean 4-Tier Horizontal Flow)
+        if (nodeType === "process") {
+          x = 80 + safeIdx * 380;
+          y = 80;
+        } else if (nodeType === "activity") {
+          x = 80 + safeIdx * 320;
+          y = 300;
+        } else if (nodeType === "role") {
+          x = 80 + safeIdx * 340;
+          y = 560;
+        } else if (nodeType === "skill") {
+          x = 80 + safeIdx * 320;
+          y = 820;
+        }
       }
 
       return {
@@ -174,7 +210,7 @@ export default function DashboardPage() {
       };
     });
 
-    // Filter edges to only include active visible nodes with vibrant colors
+    // Filter edges
     const filteredEdges = rawEdges
       .filter((e) => activeNodeIds.has(e.source) && activeNodeIds.has(e.target))
       .map((e) => ({
@@ -220,7 +256,7 @@ export default function DashboardPage() {
         </div>
 
         {/* View Switcher Tabs */}
-        <div className="flex items-center bg-slate-900/90 p-1 rounded-xl border border-slate-800">
+        <div className="flex items-center bg-slate-900/90 p-1 rounded-xl border border-slate-800 shadow-inner">
           <button
             onClick={() => setActiveTab("graph")}
             className={`flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-bold transition ${
@@ -339,7 +375,7 @@ export default function DashboardPage() {
         </div>
       </div>
 
-      {/* ================= MAIN CONTENT AREA (SWITCHES BETWEEN GRAPH & BI) ================= */}
+      {/* ================= MAIN CONTENT AREA ================= */}
       {activeTab === "graph" ? (
         <div className="flex-1 flex flex-col p-4 gap-3 relative overflow-hidden">
           {/* Filters & Legend Bar */}
@@ -350,7 +386,7 @@ export default function DashboardPage() {
                 <input
                   type="text"
                   placeholder="Search processes, activities, roles, skills..."
-                  value={searchTerm === "All" ? "" : searchTerm}
+                  value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                   className="w-full bg-slate-950 border border-slate-800 rounded-lg pl-9 pr-3 py-1.5 text-xs text-slate-200 focus:outline-none focus:border-blue-500"
                 />
@@ -361,21 +397,21 @@ export default function DashboardPage() {
               <select
                 value={selectedDomain}
                 onChange={(e) => setSelectedDomain(e.target.value)}
-                className="bg-slate-950 border border-slate-800 rounded-lg px-3 py-1.5 text-xs text-slate-300 focus:outline-none focus:border-blue-500"
+                className="bg-slate-950 border border-slate-800 rounded-lg px-3 py-1.5 text-xs text-slate-300 focus:outline-none focus:border-blue-500 cursor-pointer"
               >
-                <option value="All">All Domains</option>
-                <option value="Finance">Finance</option>
-                <option value="HR">HR</option>
-                <option value="IT">IT</option>
+                <option value="Finance">Finance (Recommended Focus)</option>
+                <option value="All">All Domains (Wide View)</option>
+                <option value="HR">Human Resources</option>
+                <option value="IT">Information Technology</option>
                 <option value="Supply Chain">Supply Chain</option>
-                <option value="Legal">Legal</option>
+                <option value="Legal">Legal &amp; Compliance</option>
                 <option value="Customer Support">Customer Support</option>
               </select>
 
               <select
                 value={selectedType}
                 onChange={(e) => setSelectedType(e.target.value)}
-                className="bg-slate-950 border border-slate-800 rounded-lg px-3 py-1.5 text-xs text-slate-300 focus:outline-none focus:border-blue-500"
+                className="bg-slate-950 border border-slate-800 rounded-lg px-3 py-1.5 text-xs text-slate-300 focus:outline-none focus:border-blue-500 cursor-pointer"
               >
                 <option value="All">All Entity Types</option>
                 <option value="Process">Processes Only</option>
