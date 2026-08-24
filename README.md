@@ -44,6 +44,8 @@ graph LR
 | :--- | :--- | :--- |
 | 🌐 **Live Web Application** | **[https://frontend-azure-three-t7dj9wj9av.vercel.app](https://frontend-azure-three-t7dj9wj9av.vercel.app/)** | 🟢 **ACTIVE** |
 | 📁 **GitHub Repository** | **[https://github.com/KesavaAI/modus-ai-intelligence-graph](https://github.com/KesavaAI/modus-ai-intelligence-graph)** | 🟢 **ACTIVE** |
+| 📖 **System Design Spec** | **[docs/system-design.md](https://github.com/KesavaAI/modus-ai-intelligence-graph/blob/master/docs/system-design.md)** | 🟢 **ACTIVE** |
+| 🖼️ **Architecture Diagram (SVG)** | **[docs/architecture-diagram.svg](https://raw.githubusercontent.com/KesavaAI/modus-ai-intelligence-graph/master/docs/architecture-diagram.svg)** | 🟢 **ACTIVE** |
 | ⚙️ **Local Backend API** | `http://localhost:8000` / `http://localhost:8000/docs` | 🟢 **ACTIVE** |
 
 ---
@@ -73,39 +75,104 @@ graph LR
 
 ---
 
-## 🏗️ 4. Technical Architecture
+## 🏛️ 4. Enterprise System Design & Architecture
 
 ![Technical System Architecture](docs/architecture-diagram.svg)
 
+### High-Level Multi-Tier Architecture Blueprint
+
+```
+┌────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                       CLIENT & PRESENTATION LAYER                                      │
+│   Next.js 14 App Router • Tailwind CSS • @xyflow/react • SVG Vector Engine • Edge Hydration Matrix     │
+│  ┌───────────────────────┐  ┌───────────────────────┐  ┌───────────────────────┐  ┌─────────────────┐  │
+│  │ 🕸️ GraphCanvas.tsx    │  │ 📊 BiAnalytics.tsx    │  │ ⚡ IngestModal.tsx    │  │ 📑 Drawer.tsx   │  │
+│  │ Interactive 2D Trees  │  │ Multi-Chart BI Suite  │  │ 4-Step Live Pipeline  │  │ Multi-Hop Math  │  │
+│  └───────────┬───────────┘  └───────────┬───────────┘  └───────────┬───────────┘  └────────┬────────┘  │
+└──────────────┼──────────────────────────┼──────────────────────────┼───────────────────────┼───────────┘
+               │                          │                          │                       │
+               ▼                          ▼                          ▼                       ▼
+┌────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                               API GATEWAY & SCHEMA CONTRACT LAYER (REST / JSON)                        │
+│   FastAPI Gateway (Uvicorn Async ASGI) • Vercel Edge Serverless Route Handlers • Pydantic v2 Contracts │
+│  ┌──────────────────────────────────────────────────────────────────────────────────────────────────┐  │
+│  │ • POST /api/v1/process/ingest     • POST /api/v1/intelligence/cascade   • GET /api/v1/graph/all  │  │
+│  │ • GET  /api/v1/health             • POST /api/v1/seed                   • Pydantic Type Enforcer │  │
+│  └───────────────────────────────────────────────────┬──────────────────────────────────────────────┘  │
+└──────────────────────────────────────────────────────┼─────────────────────────────────────────────────┘
+                                                       │
+                                                       ▼
+┌────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                AI ORCHESTRATION & STATE MACHINE PIPELINE                               │
+│   LangGraph 2-Node StateGraph • Groq Llama-3.3-70b-Versatile • Deterministic NLP Extraction Engine     │
+│  ┌──────────────────────────────────────────────┐  ┌────────────────────────────────────────────────┐  │
+│  │ 1. extract_entities (Node 1)                 │  │ 2. persist_to_neo4j (Node 2)                   │  │
+│  │ • Context Token Window Parsing (<0.8s)       │──┼─▶ Atomic Cypher Transaction Execution          │  │
+│  │ • Strict JSON Schema Output Enforcement      │  │ • Dual-Store State Machine Synchronization     │  │
+│  │ • Deterministic Fallback on Rate Limits      │  │ • In-Memory & Remote DB Cache Hydration        │  │
+│  └──────────────────────────────────────────────┘  └────────────────────────────────────────────────┘  │
+└──────────────────────────────────────────────────────┬─────────────────────────────────────────────────┘
+                                                       │
+                                                       ▼
+┌────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                               DUAL STORAGE & GRAPH COMPUTATION ENGINE                                  │
+│   Neo4j 5 Community (Bolt Protocol) • Resilient In-Memory Graph Mirror (NetworkX) • Sub-ms Traversal   │
+│  ┌──────────────────────────────────────────────┐  ┌────────────────────────────────────────────────┐  │
+│  │ 🟢 Neo4j 5 Community Edition                 │  │ 🧠 NetworkX In-Memory Mirror                    │  │
+│  │ • Labeled Property Graph (LPG) Engine        │  │ • High-Performance Graph Mirror (0.4ms latency│  │
+│  │ • Cypher Query Multi-Hop Path Engine         │  │ • Auto-Seeding & Instant 0.5s Failover        │  │
+│  │ • bolt://localhost:7687 Persistent Engine    │  │ • Standalone Serverless Edge Execution         │  │
+│  └──────────────────────────────────────────────┘  └────────────────────────────────────────────────┘  │
+└────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+### 🔄 End-to-End Sequence Diagrams
+
+#### 1. Real-Time Business Process Ingestion Pipeline
 ```mermaid
-graph TD
-    subgraph UI ["Frontend (Next.js 14 + Tailwind + @xyflow/react)"]
-        GC["GraphCanvas (React Flow Canvas)"]
-        BI["BiAnalyticsDashboard (Tableau Matrix)"]
-        SRM["SurpriseRecordModal (Live Extraction Pipeline)"]
-        CID["CascadeImpactDrawer (Multi-Hop Disruption Analytics)"]
-        KPI["Executive KPI Metrics Bar"]
-    end
+sequenceDiagram
+    autonumber
+    actor User
+    participant UI as Next.js 14 Frontend
+    participant API as FastAPI Gateway
+    participant LG as LangGraph StateMachine
+    participant LLM as Groq Llama 3.3 (Free)
+    participant DB as Dual Graph Engine (Neo4j / Mirror)
 
-    subgraph API ["Backend (FastAPI + LangGraph)"]
-        INGEST["POST /api/v1/process/ingest"]
-        CASCADE["POST /api/v1/intelligence/cascade"]
-        GRAPH["GET /api/v1/graph/all"]
-        SEED["POST /api/v1/seed"]
-        LLM["Groq Llama-3.3-70b / Deterministic NLP Fallback"]
-    end
+    User->>UI: Enter raw SOP text into SurpriseRecordModal
+    UI->>API: POST /api/v1/process/ingest (Payload)
+    API->>LG: Execute Extraction StateGraph
+    LG->>LLM: Prompt structured JSON schema extraction
+    LLM-->>LG: Return ProcessExtraction (Process, Activities, Roles, Skills)
+    LG->>DB: Atomic MERGE Cypher Transaction
+    DB-->>LG: Transaction Committed (Nodes + Edges indexed)
+    LG-->>API: Extraction Pipeline Result
+    API-->>UI: HTTP 201 Created (Graph Delta)
+    UI->>UI: React Flow & BI Analytics State Hydration
+```
 
-    subgraph Storage ["Graph Engine"]
-        NEO4J["Neo4j 5 Community (bolt://localhost:7687)"]
-        MEMORY["Resilient In-Memory Graph Mirror (NetworkX)"]
-    end
+#### 2. Multi-Hop Cascading Disruption & Financial Exposure Calculation
+```mermaid
+sequenceDiagram
+    autonumber
+    actor User
+    participant UI as Next.js 14 Frontend
+    participant API as FastAPI Gateway
+    participant Traversal as Graph Traversal Algorithm
+    participant DB as Graph Engine (Neo4j / Mirror)
 
-    UI --> API
-    INGEST --> LLM
-    INGEST --> NEO4J
-    CASCADE --> NEO4J
-    GRAPH --> NEO4J
-    NEO4J -.-> MEMORY
+    User->>UI: Click on Role / Process Node on Canvas
+    UI->>API: POST /api/v1/intelligence/cascade {target_id, target_type}
+    API->>Traversal: calculate_cascading_impact(target_id, target_type)
+    Traversal->>DB: Execute Multi-Hop Cypher Path Traversal
+    DB-->>Traversal: Return Upstream Processes, Activities, Executing Roles, Required Skills
+    Traversal->>Traversal: Compute Financial Exposure: Σ(Headcount × Avg Salary × Feasibility)
+    Traversal->>Traversal: Synthesize 3-to-5 Week Actionable Reskilling Pathways
+    Traversal-->>API: CascadeResult Schema
+    API-->>UI: HTTP 200 OK (Disruption %, Exposure $, Pathways)
+    UI->>UI: Open Slide-Over CascadeImpactDrawer with Visual Gauges
 ```
 
 ---
@@ -127,7 +194,20 @@ graph TD
 
 ---
 
-## 🛠️ 6. Local Quick Start
+## 🧮 6. Mathematical Formulations
+
+### 1. Composite AI Disruption Score
+$$\text{Disruption}(P) = \frac{1}{N} \sum_{i=1}^{N} \text{Feasibility}(A_i) \times 100\%$$
+
+### 2. Enterprise Financial Payroll Exposure
+$$\text{Financial Risk}(\$) = \sum_{r \in \text{Roles}} \left[ \text{Headcount}(r) \times \text{AvgSalary}(r) \times \overline{\text{Feasibility}}(A_r) \right]$$
+
+### 3. Real-Time Simulated Annual AI Cost Savings
+$$\text{Projected Savings}(\$) = \text{Financial Risk}(\$) \times \left( \frac{\text{Adoption Rate}}{100} \right) \times 0.75$$
+
+---
+
+## 🛠️ 7. Local Quick Start
 
 ### 1. Start Backend
 ```powershell
