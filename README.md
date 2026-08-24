@@ -68,7 +68,7 @@ graph LR
 
 ## 🏗️ 4. Technical Architecture
 
-![Technical System Architecture](docs/architecture-diagram.png)
+![Technical System Architecture](docs/architecture-diagram.svg)
 
 ```mermaid
 graph TD
